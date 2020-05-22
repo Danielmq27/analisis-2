@@ -1,0 +1,14 @@
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\bin\Debug\Capa_Entidades.dll
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\bin\Debug\Capa_Entidades.pdb
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\obj\Debug\Capa_Entidades.csprojAssemblyReference.cache
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\obj\Debug\Capa_Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\obj\Debug\Capa_Entidades.dll
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\obj\Debug\Capa_Entidades.pdb
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\bin\Debug\Capa_Entidades.dll.config
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\bin\Debug\WebGrease.dll
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\bin\Debug\Antlr3.Runtime.pdb
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Freddy Arias\Desktop\BAL\Capa_Entidades\obj\Debug\Capa_Entidades.csproj.CopyComplete
