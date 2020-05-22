@@ -1,0 +1,6 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_consulta_`(in _id_consulta varchar(40))
+BEGIN
+select a.id_consulta, a.nombre_interesado, a.telefono, a.email, a.asunto, a.descripcion, a.informacion_requerida, a.plataforma_ingreso, b.id_usuario, b.fecha, b.estado 
+from a.consulta, b.info_consulta
+where a.id_consulta=_id_consulta;
+END

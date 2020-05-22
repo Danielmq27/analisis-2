@@ -1,0 +1,139 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_consulta`(in _id_consulta varchar(40))
+BEGIN
+delete from info_consulta where id_consulta=_id_consulta;
+delete from consulta where id_consulta=_id_consulta;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_usuario`(in _id varchar(40))
+BEGIN
+delete from usuario where id_usuario=_id;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_consulta`(
+in _id_consulta varchar(40),
+in _nombre_interesado varchar(100),
+in _telefono varchar(40),
+in _email varchar(100),
+in _asunto varchar(200),
+in _descripcion varchar(500),
+in _informacion_requerida varchar(2000),
+in _plataforma_ingreso varchar(20),
+in _id_usuario varchar(40),
+in _fecha varchar(40),
+in _estado varchar(20)
+)
+BEGIN
+insert into consulta (id_consulta,nombre_interesado,telefono,email,asunto,descripcion,informacion_requerida,plataforma_ingreso)
+values (_id_consulta,_nombre_interesado,_telefono,_email,_asunto,_descripcion,_informacion_requerida,_plataforma_ingreso);
+
+insert into info_consulta (id_consulta,id_usuario,fecha,estado) 
+values (_id_consulta,_id_usuario,_fecha,_estado);
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_usuario`(
+in _id varchar(40),
+in _nombre varchar(40),
+in _apellido1 varchar(40),
+in _apellido2 varchar(40),
+in _pass varchar(40),
+in _email varchar(100),
+in _telefono int1,
+in _id_rol varchar(40)
+)
+BEGIN
+insert into usuario(id_usuario,nombre,apellido1,apellido2,pass,email,telefono,id_rol)
+values (_id,_nombre,_apellido1,_apellido2,_pass,_email,_telefono,_id_rol);
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_consulta`(in _id_consulta varchar(40))
+BEGIN
+select * from consulta where  id_consulta like _id_consulta;
+
+select * from info_consulta where  id_consulta like _id_consulta;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_role_id`(in _id varchar(40))
+BEGIN
+select * from informacion_rol where  id_rol LIKE _id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_role_nombre`(in _nombre_rol  varchar(40))
+BEGIN
+select * from informacion_rol where  nombre_rol LIKE _nombre_rol;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_usuario_id`(in _id varchar(40))
+BEGIN
+select * from usuario where  id_usuario LIKE _id;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_usuario_nombre`(in _nombre varchar(40))
+BEGIN
+select * from usuario where  nombre LIKE _nombre;
+END$$
+DELIMITER ;
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_consulta`(in _id_consulta varchar(40),
+in _nombre_interesado varchar(100),
+in _telefono varchar(40),
+in _email varchar(100),
+in _asunto varchar(200),
+in _descripcion varchar(500),
+in _informacion_requerida varchar(2000),
+in _plataforma_ingreso varchar(20),
+in _id_usuario varchar(40),
+in _fecha VARCHAR(40),
+in _estado VARCHAR(20))
+BEGIN
+update consulta set
+id_consulta=_id_consulta,nombre_interesado=_nombre_interesado,telefono=_telefono,email=_email,asunto=_asunto,descripcion=_descripcion,informacion_requerida=_informacion_requerida,plataforma_ingreso=_plataforma_ingreso
+where id_consulta=_id_consulta;
+
+update info_consulta set
+id_consulta=_id_consulta,id_usuario=_id_usuario,fecha=_fecha,estado=_estado
+where id_consulta=_id_consulta;
+END$$
+DELIMITER ;
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_usuario`(
+in _id varchar(40),
+in _nombre varchar(40),
+in _apellido1 varchar(40),
+in _apellido2 varchar(40),
+in _pass varchar(40),
+in _email varchar(100),
+in _telefono int1,
+in _id_rol varchar(40)
+)
+BEGIN
+update usuario set
+id_usuario=_id,nombre=_nombre,apellido1=_apellido1,apellido2=_apellido2,pass=_pass,email=_email,telefono=_telefono,id_rol=_id_rol
+where id_usuario=_id;
+END$$
+DELIMITER ;
+
