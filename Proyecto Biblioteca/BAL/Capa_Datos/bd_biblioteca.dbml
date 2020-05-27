@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="bd_biblioteca" Class="bd_bibliotecaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-NRHLOJ2;Initial Catalog=bd_biblioteca;Integrated Security=True" SettingsObjectName="Capa_Datos.Properties.Settings" SettingsPropertyName="bd_bibliotecaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.AgregarRol" Method="AgregarRol">
+    <Parameter Name="V_NombreRol" Parameter="v_NombreRol" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="V_Descripcion" Parameter="v_Descripcion" Type="System.String" DbType="VarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
