@@ -68,6 +68,158 @@ namespace Capa_Datos
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), v_NombreRol, v_Descripcion);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ActualizarRol")]
+		public int ActualizarRol([global::System.Data.Linq.Mapping.ParameterAttribute(Name="V_Id_Rol", DbType="Int")] System.Nullable<int> v_Id_Rol, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="V_Nombre_Rol", DbType="VarChar(50)")] string v_Nombre_Rol, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="V_Descripcion", DbType="VarChar(MAX)")] string v_Descripcion)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), v_Id_Rol, v_Nombre_Rol, v_Descripcion);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ConsultarRol")]
+		public ISingleResult<ConsultarRolResult> ConsultarRol([global::System.Data.Linq.Mapping.ParameterAttribute(Name="V_Id_Rol", DbType="Int")] System.Nullable<int> v_Id_Rol)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), v_Id_Rol);
+			return ((ISingleResult<ConsultarRolResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ConsultarRoles")]
+		public ISingleResult<ConsultarRolesResult> ConsultarRoles()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<ConsultarRolesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.EliminarRol")]
+		public int EliminarRol([global::System.Data.Linq.Mapping.ParameterAttribute(Name="V_Id_Rol", DbType="Int")] System.Nullable<int> v_Id_Rol)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), v_Id_Rol);
+			return ((int)(result.ReturnValue));
+		}
+	}
+	
+	public partial class ConsultarRolResult
+	{
+		
+		private System.Nullable<int> _Id_Rol;
+		
+		private string _Nombre_Rol;
+		
+		private string _Descripcion;
+		
+		public ConsultarRolResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Rol", DbType="Int")]
+		public System.Nullable<int> Id_Rol
+		{
+			get
+			{
+				return this._Id_Rol;
+			}
+			set
+			{
+				if ((this._Id_Rol != value))
+				{
+					this._Id_Rol = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Rol", DbType="VarChar(50)")]
+		public string Nombre_Rol
+		{
+			get
+			{
+				return this._Nombre_Rol;
+			}
+			set
+			{
+				if ((this._Nombre_Rol != value))
+				{
+					this._Nombre_Rol = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(MAX)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
+	}
+	
+	public partial class ConsultarRolesResult
+	{
+		
+		private System.Nullable<int> _Id_Rol;
+		
+		private string _Nombre_Rol;
+		
+		private string _Descripcion;
+		
+		public ConsultarRolesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_Rol", DbType="Int")]
+		public System.Nullable<int> Id_Rol
+		{
+			get
+			{
+				return this._Id_Rol;
+			}
+			set
+			{
+				if ((this._Id_Rol != value))
+				{
+					this._Id_Rol = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre_Rol", DbType="VarChar(50)")]
+		public string Nombre_Rol
+		{
+			get
+			{
+				return this._Nombre_Rol;
+			}
+			set
+			{
+				if ((this._Nombre_Rol != value))
+				{
+					this._Nombre_Rol = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(MAX)")]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this._Descripcion = value;
+				}
+			}
+		}
 	}
 }
 #pragma warning restore 1591

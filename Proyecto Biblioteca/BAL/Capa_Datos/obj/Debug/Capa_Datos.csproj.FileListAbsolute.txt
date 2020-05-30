@@ -1,0 +1,6 @@
+C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Datos\bin\Debug\Capa_Datos.dll.config
+C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Datos\bin\Debug\Capa_Datos.dll
+C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Datos\bin\Debug\Capa_Datos.pdb
+C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Datos\obj\Debug\Capa_Datos.csproj.CoreCompileInputs.cache
+C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Datos\obj\Debug\Capa_Datos.dll
+C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Datos\obj\Debug\Capa_Datos.pdb

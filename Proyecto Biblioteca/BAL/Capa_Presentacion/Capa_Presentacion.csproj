@@ -987,9 +987,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Rol.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1118,6 +1120,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Direccion.cshtml" />
     <Content Include="Views\IniciarSesion\Iniciar_Sesion.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1127,7 +1130,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa_Datos\Capa_Datos.csproj">
+      <Project>{674daf0f-4f2f-4043-856f-8fb388670454}</Project>
+      <Name>Capa_Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Capa_Logica\Capa_Logica.csproj">
+      <Project>{bc2002a4-aacb-444f-aec4-1f83f72bdffc}</Project>
+      <Name>Capa_Logica</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
