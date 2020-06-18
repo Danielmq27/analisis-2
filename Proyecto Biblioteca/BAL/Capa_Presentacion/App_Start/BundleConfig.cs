@@ -20,13 +20,17 @@ namespace Capa_Presentacion.App_Start
                 "~/Content/plugins/datatables/jquery.dataTables.min.js",
                 "~/Content/plugins/datatables/dataTables.bootstrap.min.js",
                 "~/Content/plugins/slimScroll/jquery.slimscroll.min.js",
+                "~/Content/plugins/fastclick/fastclick.js",
+                "~/Content/plugins/iCheck/icheck.min.js",
                 "~/Content/plugins/fastclick/fastclick.js"));
 
             bundles.Add(new StyleBundle("~/Css").Include(
                 "~/Content/bootstrap/css/bootstrap.min.css",
                 "~/Content/dist/css/AdminLTE.min.css",
                 "~/Content/dist/css/skins/_all-skins.min.css",
-                "~/Content/plugins/datatables/dataTables.bootstrap.css"));
+                "~/Content/plugins/datatables/dataTables.bootstrap.css",
+                "~/Content/dist/css/AdminLTE.min.css",
+                "~/Content/plugins/iCheck/square/blue.css"));
 
             BundleTable.EnableOptimizations = true;
         }

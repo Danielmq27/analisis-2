@@ -16,7 +16,7 @@ namespace Capa_Presentacion
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Roles", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "IniciarSesion", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

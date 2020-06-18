@@ -9,7 +9,7 @@ namespace Capa_Presentacion.Controllers
     public class IniciarSesionController : Controller
     {
         // GET: IniciarSesion
-        public ActionResult Iniciar_Sesion()
+        public ActionResult Index()
         {
             return View();
         }
