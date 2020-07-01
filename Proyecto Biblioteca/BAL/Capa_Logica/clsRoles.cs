@@ -9,12 +9,16 @@ namespace Capa_Logica
 {
     public class clsRoles
     {
-        public List<ConsultarRolesResult> ConsultarRoles()
+        /*Función para consultar roles*/
+        public List<SELECT_ROLESResult> ConsultarRoles()
         {
             try
             {
-                bd_bibliotecaDataContext dc = new bd_bibliotecaDataContext();
-                List<ConsultarRolesResult> data = dc.ConsultarRoles().ToList();
+                /*Atributo de la base de datos*/
+                bibliotecaDataContext dc = new bibliotecaDataContext();
+                /*Listado de roles con el procedimiento almacenado de la base de datos*/
+                List<SELECT_ROLESResult> data = dc.SELECT_ROLES().ToList();
+                /*Devuelvame lo que encontro*/
                 return data;
             }
             catch (Exception)
@@ -23,6 +27,76 @@ namespace Capa_Logica
             }
 
         }
+
+        /*Función para consultar rol*/
+        public List<SELECT_ROLResult> ConsultarRol(int Id)
+        {
+            try
+            {
+                bibliotecaDataContext dc = new bibliotecaDataContext();
+                List<SELECT_ROLResult> data = dc.SELECT_ROL(Id).ToList();
+                return data;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        /*Función para agregar rol*/
+        public bool AgregarRol(string Nombre, string Descripcion)
+        {
+            try
+            {
+                int respuesta = 1;
+                bibliotecaDataContext dc = new bibliotecaDataContext();
+                respuesta = Convert.ToInt32(dc.INSERTAR_ROL(Nombre, Descripcion));
+
+                if (respuesta == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        /*Función para actualizar rol*/
+        public bool ActualizarRol(int Id, string Nombre, string Descripcion)
+        {
+            try
+            {
+                bibliotecaDataContext dc = new bibliotecaDataContext();
+                dc.UPDATE_ROL(Id, Nombre, Descripcion);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        /*Función para eliminar rol*/
+        public bool EliminarRol(int Id)
+        {
+            try
+            {
+                bibliotecaDataContext dc = new bibliotecaDataContext();
+                dc.DELETE_ROL(Id);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        /*
         public List<ConsultarRolResult> ConsultaRol(int Codigo)
         {
             try
@@ -86,5 +160,6 @@ namespace Capa_Logica
                 return false;
             }
         }
+        */
     }
 }
