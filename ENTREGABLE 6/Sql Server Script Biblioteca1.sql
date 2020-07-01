@@ -147,6 +147,7 @@ delete from Usuario_FormularioCIIE
 --TABLAS PRESTAMO EQUIPO
 create table PrestamoEquipo(
 Id INTEGER  identity(1,1) primary key,
+codigoPrestamoEquipo VARCHAR(40) unique not null,
 nombreSolicitante VARCHAR(40) not null,
 apellidoSolicitante1 VARCHAR(20) not null,
 apellidoSolicitante2 VARCHAR(20) not null,
@@ -173,13 +174,13 @@ Select * from PrestamoEquipo;
 
 create table Usuario_PrestamoEquipo(
 Id INTEGER  identity(1,1) primary key,
-IdUsuario INTEGER not null,
-IdPrestamoEquipo INTEGER not null,
+cedulaUsuario VARCHAR(20) not null,
+codigoPrestamoEquipo VARCHAR(40)not null,
 nombre VARCHAR(40) not null,
 apellido1 VARCHAR(20) not null,
 apellido2 VARCHAR(20) not null,
-foreign key (IdUsuario) references Usuario (Id),
-foreign key (IdPrestamoEquipo) references PrestamoEquipo (Id)
+foreign key (cedulaUsuario) references Usuario (cedula),
+foreign key (codigoPrestamoEquipo) references PrestamoEquipo (codigoPrestamoEquipo)
 );
 
 --inserts
@@ -195,6 +196,7 @@ select * from Usuario_PrestamoEquipo
 --TABLAS PRESTAMOS PERMANENTES
 create table PrestamoPermanente(
 Id INTEGER  identity(1,1) primary key,
+codigoPrestamoPermanente varchar(40) unique not null,
 nombreSolicitante VARCHAR(40) not null,
 apellidoSolicitante1 VARCHAR(20) not null,
 apellidoSolicitante2 VARCHAR(20) not null,
@@ -217,13 +219,13 @@ Select * from PrestamoPermanente
 
 create table Usuario_PrestamoPermanente(
 Id INTEGER  identity(1,1) primary key,
-IdUsuario INTEGER not null,
-IdPrestamoPermanente INTEGER not null,
+cedulaUsuario VARCHAR(20) not null,
+codigoPrestamoPermanente varchar(40) not null,
 nombre VARCHAR(40) not null,
 apellido1 VARCHAR(20) not null,
 apellido2 VARCHAR(20) not null,
-foreign key (IdUsuario) references Usuario (Id),
-foreign key (IdPrestamoPermanente) references PrestamoPermanente (Id)
+foreign key (cedulaUsuario) references Usuario (cedula),
+foreign key (codigoPrestamoPermanente) references PrestamoPermanente (codigoPrestamoPermanente)
 );
 --INSERTS
 /*
@@ -239,6 +241,7 @@ delete Usuario_PrestamoPermanente where IdUsuario = 4
 --TABLAS CONSULTA
 create table Consulta(
 Id INTEGER  identity(1,1) primary key,
+codigoConsulta varchar(40) unique not null,
 nombreSolicitante varchar(40) not null,
 apellidoSolicitante1 VARCHAR(20) not null,
 apellidoSolicitante2 VARCHAR(20) not null,
@@ -264,13 +267,13 @@ INSERT INTO Consulta Values('Maria', 'Rosales', 'Calderon', 88956875, 'MRC@yahoo
 
 create table Usuario_Consulta(
 Id INTEGER  identity(1,1) primary key,
-IdUsuario INTEGER not null,
-IdConsulta INTEGER not null,
+cedulaUsuario VARCHAR(20) not null,
+codigoConsulta varchar(40)  not null,
 nombre VARCHAR(40) not null,
 apellido1 VARCHAR(20) not null,
 apellido2 VARCHAR(20) not null,
-foreign key (IdUsuario) references Usuario (Id),
-foreign key (IdConsulta) references Consulta (Id)
+foreign key (cedulaUsuario) references Usuario (cedula),
+foreign key (codigoConsulta) references Consulta (codigoConsulta)
 );
 --INSERTS
 /*
@@ -286,6 +289,7 @@ delete Usuario_Consulta where IdUsuario = 4
 
 CREATE TABLE PrestamoAudiovisual(
 Id INTEGER  identity(1,1) primary key,
+codigoPrestamoAudiovisual varchar(40) unique not null,
 nombreSolicitante varchar(40) not null,
 apellidoSolicitante1 VARCHAR(20) not null,
 apellidoSolicitante2 VARCHAR(20) not null,
@@ -314,13 +318,13 @@ insert into PrestamoAudiovisual values('Graciela', 'Salas', 'Marquez',63297521, 
 
 create table Usuario_PrestamoAudiovisual(
 Id INTEGER  identity(1,1) primary key,
-IdUsuario INTEGER not null,
-IdPrestamoAudiovisual INTEGER not null,
+cedulaUsuario varchar(20) not null,
+codigoPrestamoAudiovisual varchar(40) not null,
 nombre VARCHAR(40) not null,
 apellido1 VARCHAR(20) not null,
 apellido2 VARCHAR(20) not null,
-foreign key (IdUsuario) references Usuario (Id),
-foreign key (IdPrestamoAudiovisual) references PrestamoAudiovisual (Id)
+foreign key (cedulaUsuario) references Usuario (cedula),
+foreign key (codigoPrestamoAudiovisual) references PrestamoAudiovisual (codigoPrestamoAudiovisual)
 );
 
 /*
@@ -361,6 +365,7 @@ select * from AuditoriaUsuario
 ----TABLAS DE AUDITORIA O HISTORIAL
 create table AuditoriaFormularioCIIE(
 Id INTEGER identity(1,1) primary key,
+codigoCIIE varchar(40),
 nombreSolicitante varchar(40),
 apellidoSolicitante1 VARCHAR(20),
 apellidoSolicitante2 VARCHAR(20),
@@ -387,6 +392,7 @@ select * from AuditoriaFormularioCIIE
 ----TABLAS DE AUDITORIA O HISTORIAL
 create table AuditoriaPrestamoEquipo(
 Id INTEGER identity(1,1) primary key,
+codigoPrestamoEquipo varchar(40),
 nombreSolicitante VARCHAR(40),
 apellidoSolicitante1 VARCHAR(20),
 apellidoSolicitante2 VARCHAR(20),
@@ -407,6 +413,7 @@ select * from AuditoriaPrestamoEquipo
 --TABLA DE AUDITORIA
 create table AuditoriaPrestamoPermanente(
 Id INTEGER identity(1,1) primary key,
+codigoPrestamoPermanente varchar(40),
 nombreSolicitante VARCHAR(40),
 apellidoSolicitante1 VARCHAR(20),
 apellidoSolicitante2 VARCHAR(20),
@@ -426,6 +433,7 @@ usuarioBD varchar(200)
 --TABLA AUDITORIA
 create table AuditoriaConsulta(
 Id INTEGER identity(1,1) primary key,
+codigoConsulta varchar(40),
 nombreSolicitante varchar(40),
 apellidoSolicitante1 VARCHAR(20),
 apellidoSolicitante2 VARCHAR(20),
@@ -446,6 +454,7 @@ usuarioBD varchar(200)
 --TABLA HISTORIAL
  CREATE TABLE AuditoriaPrestamoAudiovisual(
 Id INTEGER identity(1,1) primary key,
+codigoPrestamoAudiovisual varchar(40),
 nombreSolicitante varchar(40) ,
 apellidoSolicitante1 VARCHAR(20),
 apellidoSolicitante2 VARCHAR(20) ,

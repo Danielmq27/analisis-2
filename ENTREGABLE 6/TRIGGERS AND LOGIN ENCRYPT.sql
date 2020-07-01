@@ -240,10 +240,583 @@ SET cedulaUsuario=@cedulaUsuario, codigoCIIE=@codigoCIIE, nombre=@nombre, apelli
 WHERE codigoCIIE=@CodigoCIIE;
 end
 
+--INSERTAR PRESTAMO EQUIPO
+GO
+create PROCEDURE INSERTAR_PrestamoEquipo
+(
+@nombreSolicitante VARCHAR(40) ,
+@apellidoSolicitante1 VARCHAR(20) ,
+@apellidoSolicitante2 VARCHAR(20) ,
+@cedulaSolicitante VARCHAR(20) ,
+@departamento VARCHAR(40) ,
+@tipoEquipo VARCHAR(20) ,
+@implementos VARCHAR(40),
+@especificacionImplementos VARCHAR(50),
+@generoSolicictante VARCHAR(10) ,
+@fechaIngreso DATE ,
+@fechaRespuesta DATE ,
+@estado VARCHAR(20), @cedulaUsuario varchar(20), @nombre VARCHAR(40),
+@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
+as
+declare
+@codigoPrestamoEquipo varchar(40),
+@maxCode int;
+set @maxCode = (select MAX (Id) from PrestamoEquipo);
+if( @maxCode IS NULL) 
+SET @codigoPrestamoEquipo= 'CPE-1'
+ELSE
+SET @codigoPrestamoEquipo = ('CPE-' + cast(@maxCode+1 as varchar));
+BEGIN
+INSERT INTO PrestamoEquipo 
+(codigoPrestamoEquipo,
+nombreSolicitante,
+apellidoSolicitante1,
+apellidoSolicitante2,
+cedulaSolicitante,
+departamento,
+tipoEquipo,
+implementos,
+especificacionImplementos,
+generoSolicictante,
+fechaIngreso,
+fechaRespuesta,
+estado)
+VALUES
+(@codigoPrestamoEquipo, @nombreSolicitante, @apellidoSolicitante1, @apellidoSolicitante2, 
+@cedulaSolicitante, @departamento, @tipoEquipo, @implementos, @especificacionImplementos,
+@generoSolicictante, @fechaIngreso, @fechaRespuesta, @estado);
+
+INSERT INTO Usuario_PrestamoEquipo (cedulaUsuario, codigoPrestamoEquipo, 
+nombre, apellido1, apellido2)
+values
+(@cedulaUsuario, @codigoPrestamoEquipo, @nombre, @apellido1, @apellido2);
+END
+
+---SELECT TODO PRESTAMO EQUIPO
+GO
+CREATE PROC SELECCIONAR_PrestamoEquipo_TODO
+AS
+BEGIN
+SELECT a.Id, 
+a.codigoPrestamoEquipo,
+a.nombreSolicitante,
+a.apellidoSolicitante1,
+a.apellidoSolicitante2,
+a.cedulaSolicitante,
+a.departamento,
+a.tipoEquipo,
+a.implementos,
+a.especificacionImplementos,
+a.generoSolicictante,
+a.fechaIngreso,
+a.fechaRespuesta,
+a.estado,
+b.cedulaUsuario, 
+b.nombre, b.apellido1, b.apellido2
+FROM Usuario_PrestamoEquipo b, PrestamoEquipo a
+where a.codigoPrestamoEquipo = b.codigoPrestamoEquipo
+END
+
+--SELECCION PRESTAMO EQUIPO
+GO
+CREATE PROC SELECCIONAR_PrestamoEquipo
+(@CODIGOPE varchar(40))
+as
+declare  @TEXTO varchar(50) 
+BEGIN
+if (select count(*) from PrestamoEquipo where codigoPrestamoEquipo = @CODIGOPE)  = 0
+select @TEXTO = 'No existente un formulario con la misma especificacion'
+else 
+SELECT  a.Id, 
+a.codigoPrestamoEquipo,
+a.nombreSolicitante,
+a.apellidoSolicitante1,
+a.apellidoSolicitante2,
+a.cedulaSolicitante,
+a.departamento,
+a.tipoEquipo,
+a.implementos,
+a.especificacionImplementos,
+a.generoSolicictante,
+a.fechaIngreso,
+a.fechaRespuesta,
+a.estado,
+b.cedulaUsuario, 
+b.nombre, b.apellido1, b.apellido2
+FROM Usuario_PrestamoEquipo b, PrestamoEquipo a
+WHERE a.codigoPrestamoEquipo=@CODIGOPE and b.codigoPrestamoEquipo=@CODIGOPE 
+end
+
+---ACTULIZAR PRESTAMO EQUIPO
+GO
+create procedure ACTUALIZAR_PrestamoEquipo
+(@Id int,
+@codigoPrestamoEquipo varchar(40),
+@nombreSolicitante VARCHAR(40) ,
+@apellidoSolicitante1 VARCHAR(20) ,
+@apellidoSolicitante2 VARCHAR(20) ,
+@cedulaSolicitante VARCHAR(20) ,
+@departamento VARCHAR(40) ,
+@tipoEquipo VARCHAR(20) ,
+@implementos VARCHAR(40),
+@especificacionImplementos VARCHAR(50),
+@generoSolicictante VARCHAR(10) ,
+@fechaIngreso DATE ,
+@fechaRespuesta DATE ,
+@estado VARCHAR(20), @cedulaUsuario varchar(20), @nombre VARCHAR(40),
+@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
+AS
+BEGIN
+UPDATE PrestamoEquipo
+SET codigoPrestamoEquipo=@codigoPrestamoEquipo, nombreSolicitante=@nombreSolicitante, 
+apellidoSolicitante1=@apellidoSolicitante1, apellidoSolicitante2=@apellidoSolicitante2,
+cedulaSolicitante=@cedulaSolicitante, departamento=@departamento, tipoEquipo=@tipoEquipo,
+implementos=@implementos, especificacionImplementos=@especificacionImplementos,
+generoSolicictante=@generoSolicictante, fechaIngreso=@fechaIngreso, fechaRespuesta=@fechaRespuesta,
+estado=@estado
+WHERE codigoPrestamoEquipo=@codigoPrestamoEquipo;
+
+UPDATE Usuario_PrestamoEquipo
+SET cedulaUsuario=@cedulaUsuario, codigoPrestamoEquipo=@codigoPrestamoEquipo, nombre=@nombre,
+apellido1=@apellido1, apellido2=@apellido2
+WHERE codigoPrestamoEquipo=@codigoPrestamoEquipo;
+end
+
+--BORRAR PRESTAMO EQUIPO
+GO
+CREATE PROC BORRAR_PrestamoEquipo
+(@codigoPrestamoEquipo VARCHAR(40))
+AS
+DECLARE @TEXTO VARCHAR(50)
+BEGIN
+if (select count(*) from PrestamoEquipo where codigoPrestamoEquipo = @codigoPrestamoEquipo)  = 0
+select @TEXTO = 'No existente un formulario con la misma especificacion' 
+else
+DELETE FROM Usuario_PrestamoEquipo where codigoPrestamoEquipo = @codigoPrestamoEquipo; 
+DELETE FROM PrestamoEquipo where codigoPrestamoEquipo = @codigoPrestamoEquipo; 
+END
+
+
+---INSERTAR PRESTAMO PERMANENTE
+GO
+CREATE PROCEDURE INSERTAR_PrestamoPermanente
+(@nombreSolicitante VARCHAR(40) ,
+@apellidoSolicitante1 VARCHAR(20) ,
+@apellidoSolicitante2 VARCHAR(20) ,
+@despacho VARCHAR(40) ,
+@telefono INTEGER ,
+@extension VARCHAR(10),
+@informacionAdicional VARCHAR(max),
+@generoSolicictante VARCHAR(10) ,
+@fechaPrestamo DATE ,
+@estado VARCHAR(20),
+@cedulaUsuario varchar(20), @nombre VARCHAR(40),
+@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
+AS
+DECLARE
+@codigoPrestamoPermanente varchar(40),
+@maxCode int;
+set @maxCode = (select MAX (Id) from PrestamoPermanente);
+if( @maxCode IS NULL) 
+SET @codigoPrestamoPermanente= 'CPP-1'
+ELSE
+SET @codigoPrestamoPermanente = ('CPP-' + cast(@maxCode+1 as varchar));
+BEGIN
+insert into PrestamoPermanente
+(codigoPrestamoPermanente,
+nombreSolicitante,
+apellidoSolicitante1,
+apellidoSolicitante2,
+despacho,
+telefono,
+extension,
+informacionAdicional,
+generoSolicictante,
+fechaPrestamo,
+estado
+)
+VALUES
+(@codigoPrestamoPermanente,
+@nombreSolicitante,
+@apellidoSolicitante1,
+@apellidoSolicitante2,
+@despacho,
+@telefono,
+@extension,
+@informacionAdicional,
+@generoSolicictante,
+@fechaPrestamo,
+@estado);
+
+insert into Usuario_PrestamoPermanente 
+ (cedulaUsuario, codigoPrestamoPermanente, 
+nombre, apellido1, apellido2)
+VALUES
+(@cedulaUsuario, @codigoPrestamoPermanente, 
+@nombre, @apellido1, @apellido2);
+END
+
+
+---SELECCIONAR TODO PRESTAMO PERMANENETE
+GO
+CREATE PROCEDURE SELECCIONAR_PrestamoPermanente_TODO
+AS 
+BEGIN
+Select
+a.Id,
+a.codigoPrestamoPermanente,
+a.nombreSolicitante,
+a.apellidoSolicitante1,
+a.apellidoSolicitante2,
+a.despacho,
+a.telefono,
+a.extension,
+a.informacionAdicional,
+a.generoSolicictante,
+a.fechaPrestamo,
+a.estado,
+b.cedulaUsuario, 
+b.nombre, b.apellido1, b.apellido2
+FROM Usuario_PrestamoPermanente b, PrestamoPermanente a
+WHERE b.codigoPrestamoPermanente=a.codigoPrestamoPermanente
+END
+
+--SELECCIONAR PRESTAMO PERMANENTE
+GO
+CREATE PROCEDURE SELECCIONAR_PrestamoPermanente
+(@CODIGOPP varchar(40))
+AS 
+declare  @TEXTO varchar(50) 
+BEGIN
+if (select count(*) from PrestamoPermanente where codigoPrestamoPermanente = @CODIGOPP)  = 0
+select @TEXTO = 'No existente un formulario con la misma especificacion'
+else 
+Select
+a.Id,
+a.codigoPrestamoPermanente,
+a.nombreSolicitante,
+a.apellidoSolicitante1,
+a.apellidoSolicitante2,
+a.despacho,
+a.telefono,
+a.extension,
+a.informacionAdicional,
+a.generoSolicictante,
+a.fechaPrestamo,
+a.estado,
+b.cedulaUsuario, 
+b.nombre, b.apellido1, b.apellido2
+FROM Usuario_PrestamoPermanente b, PrestamoPermanente a
+WHERE b.codigoPrestamoPermanente=@CODIGOPP and @CODIGOPP=a.codigoPrestamoPermanente
+END
+
+--ACTUALIZAR PRESTAMO PERMANENTE
+go
+create proc ACTUALIZAR_PrestamoPermanente
+(@Id int,
+@codigoPrestamoPermanente varchar(40),
+@nombreSolicitante VARCHAR(40) ,
+@apellidoSolicitante1 VARCHAR(20) ,
+@apellidoSolicitante2 VARCHAR(20) ,
+@despacho VARCHAR(40) ,
+@telefono INTEGER ,
+@extension VARCHAR(10),
+@informacionAdicional VARCHAR(max),
+@generoSolicictante VARCHAR(10) ,
+@fechaPrestamo DATE ,
+@estado VARCHAR(20),
+@cedulaUsuario varchar(20), @nombre VARCHAR(40),
+@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
+as
+begin
+UPDATE PrestamoPermanente
+set codigoPrestamoPermanente=@codigoPrestamoPermanente, nombreSolicitante=@nombreSolicitante,
+apellidoSolicitante1=@apellidoSolicitante1, apellidoSolicitante2=@apellidoSolicitante2,
+despacho=@despacho, telefono=@telefono, extension=@extension, informacionAdicional=@informacionAdicional,
+generoSolicictante=@generoSolicictante, fechaPrestamo=@fechaPrestamo, estado=@estado
+where codigoPrestamoPermanente=@codigoPrestamoPermanente;
+
+UPDATE Usuario_PrestamoPermanente
+SET cedulaUsuario=@cedulaUsuario, codigoPrestamoPermanente=@codigoPrestamoPermanente, 
+nombre=@nombre,apellido1=@apellido1, apellido2=@apellido2
+where codigoPrestamoPermanente=@codigoPrestamoPermanente;
+END
+
+
+--BORRAR PRESTAMO PERMANENETE
+GO
+CREATE PROC BORRAR_PrestamoPermanenete
+(@codigoPrestamoPermanente VARCHAR(40))
+AS
+DECLARE @TEXTO VARCHAR(50)
+BEGIN
+if (select count(*) from PrestamoPermanente where codigoPrestamoPermanente = @codigoPrestamoPermanente)  = 0
+select @TEXTO = 'No existente un formulario con la misma especificacion' 
+else
+DELETE FROM Usuario_PrestamoPermanente where codigoPrestamoPermanente = @codigoPrestamoPermanente; 
+DELETE FROM PrestamoPermanente where codigoPrestamoPermanente = @codigoPrestamoPermanente; 
+END
 
 
 
+--- INSERTAR CONSULTA
+go
+create proc INSERTAR_CONSULTA
+(
+@nombreSolicitante varchar(40) ,
+@apellidoSolicitante1 VARCHAR(20) ,
+@apellidoSolicitante2 VARCHAR(20) ,
+@telefono INTEGER ,
+@email VARCHAR(100) ,
+@asunto VARCHAR(50) ,
+@descripcion VARCHAR(500),
+@respuesta VARCHAR(max) ,
+@metodoIngreso VARCHAR(20) ,
+@generoSolicitante VARCHAR(10) ,
+@fechaIngreso DATE ,
+@fechaRespuesta DATE ,
+@estado VARCHAR(20),
+@cedulaUsuario varchar(20), @nombre VARCHAR(40),
+@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
+AS
+DECLARE
+@codigoConsulta varchar(40),
+@maxCode int;
+set @maxCode = (select MAX (Id) from Consulta);
+if( @maxCode IS NULL) 
+SET @codigoConsulta= 'CC-1'
+ELSE
+SET @codigoConsulta = ('CC-' + cast(@maxCode+1 as varchar));
+BEGIN
+Insert into Consulta (codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2,
+telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante, fechaIngreso,
+fechaRespuesta, estado)
+VALUES
+(@codigoConsulta, @nombreSolicitante, @apellidoSolicitante1, @apellidoSolicitante2,
+@telefono, @email, @asunto, @descripcion, @respuesta, @metodoIngreso, @generoSolicitante, @fechaIngreso,
+@fechaRespuesta, @estado);
+insert into Usuario_Consulta 
+ (cedulaUsuario, codigoConsulta, 
+nombre, apellido1, apellido2)
+VALUES
+(@cedulaUsuario, @codigoConsulta, 
+@nombre, @apellido1, @apellido2);
+END
 
+
+---SELECT DE TODO CONSULTA
+GO
+CREATE PROC SELECCIONAR_CONSULTA_TODO
+AS 
+BEGIN
+SELECT
+a.Id, a.codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2,
+telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante, fechaIngreso,
+fechaRespuesta, estado, cedulaUsuario, nombre, apellido1, apellido2
+FROM Consulta a, Usuario_Consulta b
+where b.codigoConsulta=a.codigoConsulta
+END
+
+---SELECT CONSULTA
+GO
+CREATE PROC SELECCIONAR_CONSULTA
+(@CODIGOC varchar(40))
+AS 
+declare  @TEXTO varchar(50)
+BEGIN
+if (select count(*) from Consulta where codigoConsulta = @CODIGOC)  = 0
+select @TEXTO = 'No existente un formulario con la misma especificacion'
+else 
+SELECT
+a.Id, a.codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2,
+telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante, fechaIngreso,
+fechaRespuesta, estado, cedulaUsuario, nombre, apellido1, apellido2
+FROM Consulta a, Usuario_Consulta b
+where b.codigoConsulta=@CODIGOC and @CODIGOC=a.codigoConsulta
+END
+
+--UPDATE CONSULTA
+GO 
+CREATE PROC ACTUALIZAR_CONSULTA
+(
+@Id int,
+@codigoConsulta varchar(40),
+@nombreSolicitante varchar(40) ,
+@apellidoSolicitante1 VARCHAR(20) ,
+@apellidoSolicitante2 VARCHAR(20) ,
+@telefono INTEGER ,
+@email VARCHAR(100) ,
+@asunto VARCHAR(50) ,
+@descripcion VARCHAR(500),
+@respuesta VARCHAR(max) ,
+@metodoIngreso VARCHAR(20) ,
+@generoSolicitante VARCHAR(10) ,
+@fechaIngreso DATE ,
+@fechaRespuesta DATE ,
+@estado VARCHAR(20),
+@cedulaUsuario varchar(20), @nombre VARCHAR(40),
+@apellido1 VARCHAR(20), @apellido2 VARCHAR(20)
+)
+AS
+BEGIN
+UPDATE Consulta
+set codigoConsulta=@codigoConsulta, nombreSolicitante=@nombreSolicitante, apellidoSolicitante1=@apellidoSolicitante1,
+apellidoSolicitante2=@apellidoSolicitante2, telefono=@telefono, email=@email, asunto=@asunto,
+descripcion=@descripcion, respuesta=@respuesta, metodoIngreso=@metodoIngreso, generoSolicitante=@generoSolicitante,
+fechaIngreso=@fechaIngreso, fechaRespuesta=@fechaRespuesta, estado=@estado
+where codigoConsulta=@codigoConsulta;
+
+UPDATE Usuario_Consulta
+SET cedulaUsuario=@cedulaUsuario, codigoConsulta=@codigoConsulta, 
+nombre=@nombre,apellido1=@apellido1, apellido2=@apellido2
+where codigoConsulta=@codigoConsulta;
+END
+
+
+---BORRAR CONSULTA
+
+GO 
+CREATE PROCEDURE BORRAR_CONSULTA
+(@codigoConsulta varchar(40))
+as
+DECLARE @TEXTO VARCHAR(50)
+BEGIN
+if (select count(*) from Consulta where codigoConsulta = @codigoConsulta)  = 0
+select @TEXTO = 'No existente un formulario con la misma especificacion' 
+else
+delete from Usuario_Consulta where codigoConsulta = @codigoConsulta;
+delete from Consulta where codigoConsulta = @codigoConsulta;
+END
+
+
+--INSERTAR AUDIOVISUAL
+GO
+CREATE PROC INSERTAR_AUDIOVISUAL
+(
+@nombreSolicitante varchar(40) ,
+@apellidoSolicitante1 VARCHAR(20) ,
+@apellidoSolicitante2 VARCHAR(20) ,
+@telefono INTEGER ,
+@departamento VARCHAR(40),
+@nombreActividad VARCHAR(50) ,
+@categoria VARCHAR(40) ,
+@especificacionCategoria VARCHAR(100),
+@ubicacion VARCHAR(100),
+@horaInicio DATETIME ,
+@horaFin DATETIME ,
+@descripcion VARCHAR(500) ,
+@equipoRequerido VARCHAR(40) ,
+@aforo INTEGER ,
+@generoSolicitante VARCHAR(10) ,
+@cedulaUsuario varchar(20), @nombre VARCHAR(40),
+@apellido1 VARCHAR(20), @apellido2 VARCHAR(20)
+)
+AS
+DECLARE
+@codigoAudiovisual varchar(40),
+@maxCode int;
+set @maxCode = (select MAX (Id) from PrestamoAudiovisual);
+if( @maxCode IS NULL) 
+SET @codigoAudiovisual= 'CPA-1'
+ELSE
+SET @codigoAudiovisual = ('CPA-' + cast(@maxCode+1 as varchar));
+BEGIN
+insert into PrestamoAudiovisual (codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2,
+telefono, departamento, nombreActividad, categoria, especificacionCategoria, ubicacion, horaInicio,
+horaFin, descripcion, equipoRequerido, aforo, generoSolicitante)
+VALUES
+(@codigoAudiovisual, @nombreSolicitante, @apellidoSolicitante1, @apellidoSolicitante2,
+@telefono, @departamento, @nombreActividad, @categoria, @especificacionCategoria, @ubicacion, 
+@horaInicio, @horaFin, @descripcion, @equipoRequerido, @aforo, @generoSolicitante);
+
+INSERT INTO Usuario_PrestamoAudiovisual (cedulaUsuario, codigoPrestamoAudiovisual, 
+nombre, apellido1, apellido2)
+values
+(@cedulaUsuario, @codigoAudiovisual, 
+@nombre, @apellido1, @apellido2);
+end
+
+--SELECT TODOS AUDIOVISUAL
+GO 
+CREATE PROCEDURE SELECCIONAR_AUDIOVISUAL_TODO
+AS
+BEGIN
+SELECT
+a.Id, a.codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2,
+telefono, departamento, nombreActividad, categoria, especificacionCategoria, ubicacion, horaInicio,
+horaFin, descripcion, equipoRequerido, aforo, generoSolicitante, cedulaUsuario,  
+nombre, apellido1, apellido2
+FROM PrestamoAudiovisual a, Usuario_PrestamoAudiovisual b
+where a.codigoPrestamoAudiovisual=b.codigoPrestamoAudiovisual
+end
+
+--SELECTY AUDIOVISUAL
+GO 
+CREATE PROCEDURE SELECCIONAR_AUDIOVISUAL
+(@CODIGOAV varchar(40))
+AS
+BEGIN
+SELECT
+a.Id, a.codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2,
+telefono, departamento, nombreActividad, categoria, especificacionCategoria, ubicacion, horaInicio,
+horaFin, descripcion, equipoRequerido, aforo, generoSolicitante, cedulaUsuario,  
+nombre, apellido1, apellido2
+FROM PrestamoAudiovisual a, Usuario_PrestamoAudiovisual b
+where a.codigoPrestamoAudiovisual=@CODIGOAV AND @CODIGOAV=b.codigoPrestamoAudiovisual
+end
+
+---UPDATE AUDIOVISUAL
+GO
+CREATE PROCEDURE ACTUALIZAR_AUDIOVISUAL
+(
+@Id int,
+@codigoAudiovisual varchar(40),
+@nombreSolicitante varchar(40) ,
+@apellidoSolicitante1 VARCHAR(20) ,
+@apellidoSolicitante2 VARCHAR(20) ,
+@telefono INTEGER ,
+@departamento VARCHAR(40),
+@nombreActividad VARCHAR(50) ,
+@categoria VARCHAR(40) ,
+@especificacionCategoria VARCHAR(100),
+@ubicacion VARCHAR(100),
+@horaInicio DATETIME ,
+@horaFin DATETIME ,
+@descripcion VARCHAR(500) ,
+@equipoRequerido VARCHAR(40) ,
+@aforo INTEGER ,
+@generoSolicitante VARCHAR(10) ,
+@cedulaUsuario varchar(20), @nombre VARCHAR(40),
+@apellido1 VARCHAR(20), @apellido2 VARCHAR(20)
+)
+as
+BEGIN
+UPDATE PrestamoAudiovisual
+SET codigoPrestamoAudiovisual=@codigoAudiovisual, nombreSolicitante=@nombreSolicitante, apellidoSolicitante1=@apellidoSolicitante1, apellidoSolicitante2=@apellidoSolicitante2,
+telefono=@telefono, departamento=@departamento, nombreActividad=@nombreActividad, categoria=@categoria, especificacionCategoria=@especificacionCategoria, ubicacion=@ubicacion, horaInicio=@horaInicio,
+horaFin=@horaFin, descripcion=@descripcion, equipoRequerido=@equipoRequerido, aforo=@aforo, generoSolicitante=@generoSolicitante
+where codigoPrestamoAudiovisual=@codigoAudiovisual;
+
+update Usuario_PrestamoAudiovisual
+SET cedulaUsuario=@cedulaUsuario, codigoPrestamoAudiovisual=@codigoAudiovisual, 
+nombre=@nombre,apellido1=@apellido1, apellido2=@apellido2
+where codigoPrestamoAudiovisual=@codigoAudiovisual;
+END
+
+---BORRAR AUDIOVISUAL
+
+GO
+CREATE PROCEDURE BORRAR_AUDIOVISUAL
+(@codigoAudiovisual varchar(40))
+as
+DECLARE @TEXTO VARCHAR(50)
+BEGIN
+if (select count(*) from PrestamoAudiovisual where codigoPrestamoAudiovisual = @codigoAudiovisual)  = 0
+select @TEXTO = 'No existente un formulario con la misma especificacion' 
+ELSE
+DELETE FROM Usuario_PrestamoAudiovisual WHERE codigoPrestamoAudiovisual = @codigoAudiovisual;
+DELETE FROM PrestamoAudiovisual WHERE codigoPrestamoAudiovisual = @codigoAudiovisual;
+END
 
 
 --TRIGGER
@@ -290,9 +863,9 @@ as
 SET IDENTITY_INSERT dbo.AuditoriaFormularioCIIE ON
 begin
 insert into AuditoriaFormularioCIIE
-(Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
+(Id, codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
 , tema, informacionRequerida, usoInformacion, generoSolicitante, estado, accion, fecha, usuarioBD)
-select Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
+select Id, codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
 , tema, informacionRequerida, usoInformacion, generoSolicitante, estado, 'UPDATE', getdate(), suser_sname()
 from deleted;
 end;
@@ -306,9 +879,9 @@ as
 SET IDENTITY_INSERT dbo.AuditoriaFormularioCIIE ON
 begin
 insert into AuditoriaFormularioCIIE
-(Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
+(Id, codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
 , tema, informacionRequerida, usoInformacion, generoSolicitante, estado, accion, fecha, usuarioBD)
-select Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
+select Id, codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
 , tema, informacionRequerida, usoInformacion, generoSolicitante, estado, 'DELETE', getdate(), suser_sname()
 from deleted;
 end;
@@ -326,10 +899,10 @@ as
 SET IDENTITY_INSERT dbo.AuditoriaPrestamoEquipo ON
 begin
 insert into AuditoriaPrestamoEquipo
-(Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante, departamento, tipoEquipo, implementos, especificacionImplementos, 
+(Id, codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante, departamento, tipoEquipo, implementos, especificacionImplementos, 
 generoSolicictante, estado, accion, fecha, usuarioBD)
 
-select Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante,  departamento, tipoEquipo, implementos,
+select Id, codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante,  departamento, tipoEquipo, implementos,
 especificacionImplementos, generoSolicictante, estado, 'UPDATE', getdate(), suser_sname()
 from deleted;
 end;
@@ -342,10 +915,10 @@ as
 SET IDENTITY_INSERT dbo.AuditoriaPrestamoEquipo ON
 begin
 insert into AuditoriaPrestamoEquipo
-(Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante, departamento, tipoEquipo, implementos, especificacionImplementos, 
+(Id, codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante, departamento, tipoEquipo, implementos, especificacionImplementos, 
 generoSolicictante, estado, accion, fecha, usuarioBD)
 
-select Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante,  departamento, tipoEquipo, implementos,
+select Id, codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante,  departamento, tipoEquipo, implementos,
 especificacionImplementos, generoSolicictante, estado, 'DELETE', getdate(), suser_sname()
 from deleted;
 end;
@@ -362,9 +935,9 @@ as
 SET IDENTITY_INSERT dbo.AuditoriaPrestamoPermanente ON
 begin
 insert into AuditoriaPrestamoPermanente
-(Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo, estado, accion, fecha, usuarioBD)
+(Id, codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo, estado, accion, fecha, usuarioBD)
 
-select Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo,
+select Id, codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo,
 estado, 'UPDATE', getdate(), suser_sname()
 from deleted;
 end;
@@ -378,9 +951,9 @@ as
 SET IDENTITY_INSERT dbo.AuditoriaPrestamoPermanente ON
 begin
 insert into AuditoriaPrestamoPermanente
-(Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo, estado, accion, fecha, usuarioBD)
+(Id, codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo, estado, accion, fecha, usuarioBD)
 
-select Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo,
+select Id, codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo,
 estado, 'DELETE', getdate(), suser_sname()
 from deleted;
 end;
@@ -396,10 +969,10 @@ as
 SET IDENTITY_INSERT dbo.AuditoriaConsulta ON
 begin
 insert into AuditoriaConsulta
-(Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante, 
+(Id, codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante, 
 estado, accion, fecha, usuarioBD)
 
-select Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante,
+select Id, codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante,
 estado, 'UPDATE', getdate(), suser_sname()
 from deleted;
 end;
@@ -412,10 +985,10 @@ as
 SET IDENTITY_INSERT dbo.AuditoriaConsulta ON
 begin
 insert into AuditoriaConsulta
-(Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante, 
+(Id, codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante, 
 estado, accion, fecha, usuarioBD)
 
-select Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante,
+select Id, codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante,
 estado, 'DELETE', getdate(), suser_sname()
 from deleted;
 end;
@@ -431,10 +1004,10 @@ as
 SET IDENTITY_INSERT dbo.AuditoriaPrestamoAudiovisual ON
 begin
 insert into AuditoriaPrestamoAudiovisual
-( Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
+( Id, codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
 ubicacion, horaInicio, horaFin, descripcion, equipoRequerido, aforo, generoSolicitante, accion, fecha, usuarioBD)
 
-select Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
+select Id, codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
 ubicacion, horaInicio, horaFin, descripcion, equipoRequerido, aforo, generoSolicitante, 'UPDATE', getdate(), suser_sname()
 from deleted;
 end;
@@ -448,10 +1021,10 @@ as
 SET IDENTITY_INSERT dbo.AuditoriaPrestamoAudiovisual ON
 begin
 insert into AuditoriaPrestamoAudiovisual
-( Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
+( Id, codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
 ubicacion, horaInicio, horaFin, descripcion, equipoRequerido, aforo, generoSolicitante, accion, fecha, usuarioBD)
 
-select Id, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
+select Id, codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
 ubicacion, horaInicio, horaFin, descripcion, equipoRequerido, aforo, generoSolicitante, 'DELETE', getdate(), suser_sname()
 from deleted;
 end;
