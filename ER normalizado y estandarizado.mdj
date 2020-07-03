@@ -749,7 +749,7 @@
 									"top": 13,
 									"width": 198.79052734375,
 									"height": 13,
-									"text": "Solicitante"
+									"text": "Referencia"
 								},
 								{
 									"_type": "ERDColumnCompartmentView",
@@ -5538,7 +5538,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFylnTsh0eX04c="
 					},
-					"name": "Solicitante",
+					"name": "Referencia",
 					"columns": [
 						{
 							"_type": "ERDColumn",

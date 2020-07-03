@@ -4,7 +4,10 @@ USE ARE_Biblioteca_Legislativa;
 
 --PROCEDURES
 
+/*se comenta el bloke de roles ya que estos son solo pruebas */
+
 ---PROCEDURE DE ROLES
+/*
 GO
 CREATE PROC INSERTAR_ROL
 (@NOMBRE varchar(20), @DESCRIPCION varchar(200))
@@ -49,9 +52,12 @@ AS
 begin
 DELETE InformacionRol WHERE nombre = @NOMBRE
 END
-
+*/
 
 --PROCEDIMIENTO A LA HORA DE INSERTAR
+/*este procedimiento permite insertar un usuario a la tabla usuario, declarando variables por parametro para obtener los datos desde la aplicacion. 
+Se us una variable temporal que permite imprimir un mensaje de validacion para la existencia del usuario. Esta validacion se hace por medio del IF, haciendo conteo de la
+fila cedula para buscar si hay algo igual  */
 go
 create PROC INSERTAR_USUARIO 
 (@CEDULA varchar(20), @NOMBRE varchar(40), @APELLIDO1 varchar(20), @APELLIDO2 varchar(20),
@@ -67,7 +73,10 @@ select @TEXTO = 'Usuario existente con la misma cedula'
 END
 go
 
+
+
 --PROCEDIMIENTO PARA LOGIN
+/* Este procedure utiliza dos variable temporales @claveEncriptada y @claveDesencriptada,  en la primera se recupera el valor encriptado, y en la segunda usando la llave se desencripta el valor*/
 CREATE PROC LOGIN_USUARIO
 (@CEDULA varchar(20), @CLAVE varchar(40), @RES BIT output)
 as
@@ -100,6 +109,8 @@ END
 
 
 ---Seleccionar un solo user
+/* select en base al campo unico id*/
+
 go
 CREATE PROC SELECCIONAR_USUARIO 
 (@ID int)
@@ -115,6 +126,7 @@ END
 
 
 ---UPDATE USER
+/* se setea un update en base al campo unico cedula*/
 GO 
 CREATE PROCEDURE ACTUALIZAR_USUARIO
 (@ID INT, @CEDULA varchar(20), @NOMBRE varchar(40), @APELLIDO1 varchar(20), @APELLIDO2 varchar(20),
@@ -138,6 +150,10 @@ END
 
 
 ---INSERTAR FORM CIIE
+/*este procedimiento permite insertar un usuario a la tabla CIIE, declarando variables por parametro para obtener los datos desde la aplicacion. 
+Se trabaja con dos variables temporales @maxcode, que se usa para almacenar el valor maximo de la columna ID, con este se hace la validacion de si existe un registro o no
+en el IF, en la variable @codigoCIIE se almacena un valor construido por CAST del @maxCode, que servira para identificar las filas de las tablas de manera unica sin hacer referencia
+a la llave autoincremental*/
 GO
 create PROCEDURE INSERTAR_CIIE 
 (@nombreSolicitante varchar(40), @apellidoSolicitante1 VARCHAR(20), @apellidoSolicitante2 VARCHAR(20), @telefono INTEGER,
@@ -185,6 +201,7 @@ a.fechaIngreso, a.fechaRespuesta, a.estado, b.cedulaUsuario, b.codigoCIIE, b.nom
 END
 
 --SELECT FROM CIIE
+/* select en base al campo unico @codigoCIIE*/
 go
 CREATE PROC SELECCIONAR_CIIE
 (@CODIGOCIIE varchar(40))
@@ -219,6 +236,7 @@ end
 
 
 --UPDATE CIIE
+/* se setea un update en base al campo unico codigo*/
 GO
 CREATE PROC ACTUALIZAR_CIIE
 (@id int, @CodigoCIIE VARCHAR(40), @nombreSolicitante varchar(40), @apellidoSolicitante1 VARCHAR(20), @apellidoSolicitante2 VARCHAR(20), @telefono INTEGER,
@@ -241,22 +259,16 @@ WHERE codigoCIIE=@CodigoCIIE;
 end
 
 --INSERTAR PRESTAMO EQUIPO
+/*este procedimiento permite insertar un usuario a la tabla PE, declarando variables por parametro para obtener los datos desde la aplicacion. 
+Se trabaja con dos variables temporales @maxcode, que se usa para almacenar el valor maximo de la columna ID, con este se hace la validacion de si existe un registro o no
+en el IF, en la variable @codigoPE se almacena un valor construido por CAST del @maxCode, que servira para identificar las filas de las tablas de manera unica sin hacer referencia
+a la llave autoincremental*/
 GO
 create PROCEDURE INSERTAR_PrestamoEquipo
 (
-@nombreSolicitante VARCHAR(40) ,
-@apellidoSolicitante1 VARCHAR(20) ,
-@apellidoSolicitante2 VARCHAR(20) ,
-@cedulaSolicitante VARCHAR(20) ,
-@departamento VARCHAR(40) ,
-@tipoEquipo VARCHAR(20) ,
-@implementos VARCHAR(40),
-@especificacionImplementos VARCHAR(50),
-@generoSolicictante VARCHAR(10) ,
-@fechaIngreso DATE ,
-@fechaRespuesta DATE ,
-@estado VARCHAR(20), @cedulaUsuario varchar(20), @nombre VARCHAR(40),
-@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
+@nombreSolicitante VARCHAR(40) ,@apellidoSolicitante1 VARCHAR(20) ,@apellidoSolicitante2 VARCHAR(20) ,@cedulaSolicitante VARCHAR(20) ,@departamento VARCHAR(40) ,
+@tipoEquipo VARCHAR(20) ,@implementos VARCHAR(40),@especificacionImplementos VARCHAR(50),@generoSolicictante VARCHAR(10) ,
+@fechaIngreso DATE ,@fechaRespuesta DATE ,@estado VARCHAR(20), @cedulaUsuario varchar(20), @nombre VARCHAR(40),@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
 as
 declare
 @codigoPrestamoEquipo varchar(40),
@@ -268,19 +280,8 @@ ELSE
 SET @codigoPrestamoEquipo = ('CPE-' + cast(@maxCode+1 as varchar));
 BEGIN
 INSERT INTO PrestamoEquipo 
-(codigoPrestamoEquipo,
-nombreSolicitante,
-apellidoSolicitante1,
-apellidoSolicitante2,
-cedulaSolicitante,
-departamento,
-tipoEquipo,
-implementos,
-especificacionImplementos,
-generoSolicictante,
-fechaIngreso,
-fechaRespuesta,
-estado)
+(codigoPrestamoEquipo,nombreSolicitante,apellidoSolicitante1,apellidoSolicitante2,cedulaSolicitante,departamento,tipoEquipo,
+implementos,especificacionImplementos,generoSolicictante,fechaIngreso,fechaRespuesta,estado)
 VALUES
 (@codigoPrestamoEquipo, @nombreSolicitante, @apellidoSolicitante1, @apellidoSolicitante2, 
 @cedulaSolicitante, @departamento, @tipoEquipo, @implementos, @especificacionImplementos,
@@ -297,27 +298,15 @@ GO
 CREATE PROC SELECCIONAR_PrestamoEquipo_TODO
 AS
 BEGIN
-SELECT a.Id, 
-a.codigoPrestamoEquipo,
-a.nombreSolicitante,
-a.apellidoSolicitante1,
-a.apellidoSolicitante2,
-a.cedulaSolicitante,
-a.departamento,
-a.tipoEquipo,
-a.implementos,
-a.especificacionImplementos,
-a.generoSolicictante,
-a.fechaIngreso,
-a.fechaRespuesta,
-a.estado,
-b.cedulaUsuario, 
+SELECT a.Id, a.codigoPrestamoEquipo,a.nombreSolicitante,a.apellidoSolicitante1,a.apellidoSolicitante2,a.cedulaSolicitante,a.departamento,
+a.tipoEquipo,a.implementos,a.especificacionImplementos,a.generoSolicictante,a.fechaIngreso,a.fechaRespuesta,a.estado,b.cedulaUsuario, 
 b.nombre, b.apellido1, b.apellido2
 FROM Usuario_PrestamoEquipo b, PrestamoEquipo a
 where a.codigoPrestamoEquipo = b.codigoPrestamoEquipo
 END
 
 --SELECCION PRESTAMO EQUIPO
+/* select en base al campo unico @codigo*/
 GO
 CREATE PROC SELECCIONAR_PrestamoEquipo
 (@CODIGOPE varchar(40))
@@ -327,44 +316,20 @@ BEGIN
 if (select count(*) from PrestamoEquipo where codigoPrestamoEquipo = @CODIGOPE)  = 0
 select @TEXTO = 'No existente un formulario con la misma especificacion'
 else 
-SELECT  a.Id, 
-a.codigoPrestamoEquipo,
-a.nombreSolicitante,
-a.apellidoSolicitante1,
-a.apellidoSolicitante2,
-a.cedulaSolicitante,
-a.departamento,
-a.tipoEquipo,
-a.implementos,
-a.especificacionImplementos,
-a.generoSolicictante,
-a.fechaIngreso,
-a.fechaRespuesta,
-a.estado,
-b.cedulaUsuario, 
-b.nombre, b.apellido1, b.apellido2
+SELECT  a.Id, a.codigoPrestamoEquipo,a.nombreSolicitante,a.apellidoSolicitante1,a.apellidoSolicitante2,a.cedulaSolicitante,
+a.departamento,a.tipoEquipo,a.implementos,a.especificacionImplementos,a.generoSolicictante,a.fechaIngreso,
+a.fechaRespuesta,a.estado,b.cedulaUsuario, b.nombre, b.apellido1, b.apellido2
 FROM Usuario_PrestamoEquipo b, PrestamoEquipo a
 WHERE a.codigoPrestamoEquipo=@CODIGOPE and b.codigoPrestamoEquipo=@CODIGOPE 
 end
 
 ---ACTULIZAR PRESTAMO EQUIPO
+/* se setea un update en base al campo unico codigo*/
 GO
 create procedure ACTUALIZAR_PrestamoEquipo
-(@Id int,
-@codigoPrestamoEquipo varchar(40),
-@nombreSolicitante VARCHAR(40) ,
-@apellidoSolicitante1 VARCHAR(20) ,
-@apellidoSolicitante2 VARCHAR(20) ,
-@cedulaSolicitante VARCHAR(20) ,
-@departamento VARCHAR(40) ,
-@tipoEquipo VARCHAR(20) ,
-@implementos VARCHAR(40),
-@especificacionImplementos VARCHAR(50),
-@generoSolicictante VARCHAR(10) ,
-@fechaIngreso DATE ,
-@fechaRespuesta DATE ,
-@estado VARCHAR(20), @cedulaUsuario varchar(20), @nombre VARCHAR(40),
-@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
+(@Id int,@codigoPrestamoEquipo varchar(40),@nombreSolicitante VARCHAR(40) ,@apellidoSolicitante1 VARCHAR(20) ,@apellidoSolicitante2 VARCHAR(20) ,
+@cedulaSolicitante VARCHAR(20) ,@departamento VARCHAR(40) ,@tipoEquipo VARCHAR(20) ,@implementos VARCHAR(40),@especificacionImplementos VARCHAR(50),@generoSolicictante VARCHAR(10) ,
+@fechaIngreso DATE ,@fechaRespuesta DATE ,@estado VARCHAR(20), @cedulaUsuario varchar(20), @nombre VARCHAR(40),@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
 AS
 BEGIN
 UPDATE PrestamoEquipo
@@ -398,19 +363,14 @@ END
 
 
 ---INSERTAR PRESTAMO PERMANENTE
+/*este procedimiento permite insertar un usuario a la tabla PP, declarando variables por parametro para obtener los datos desde la aplicacion. 
+Se trabaja con dos variables temporales @maxcode, que se usa para almacenar el valor maximo de la columna ID, con este se hace la validacion de si existe un registro o no
+en el IF, en la variable @codigoPP se almacena un valor construido por CAST del @maxCode, que servira para identificar las filas de las tablas de manera unica sin hacer referencia
+a la llave autoincremental*/
 GO
 CREATE PROCEDURE INSERTAR_PrestamoPermanente
-(@nombreSolicitante VARCHAR(40) ,
-@apellidoSolicitante1 VARCHAR(20) ,
-@apellidoSolicitante2 VARCHAR(20) ,
-@despacho VARCHAR(40) ,
-@telefono INTEGER ,
-@extension VARCHAR(10),
-@informacionAdicional VARCHAR(max),
-@generoSolicictante VARCHAR(10) ,
-@fechaPrestamo DATE ,
-@estado VARCHAR(20),
-@cedulaUsuario varchar(20), @nombre VARCHAR(40),
+(@nombreSolicitante VARCHAR(40) ,@apellidoSolicitante1 VARCHAR(20) ,@apellidoSolicitante2 VARCHAR(20) ,@despacho VARCHAR(40) ,@telefono INTEGER ,
+@extension VARCHAR(10),@informacionAdicional VARCHAR(max),@generoSolicictante VARCHAR(10) ,@fechaPrestamo DATE ,@estado VARCHAR(20),@cedulaUsuario varchar(20), @nombre VARCHAR(40),
 @apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
 AS
 DECLARE
@@ -423,30 +383,12 @@ ELSE
 SET @codigoPrestamoPermanente = ('CPP-' + cast(@maxCode+1 as varchar));
 BEGIN
 insert into PrestamoPermanente
-(codigoPrestamoPermanente,
-nombreSolicitante,
-apellidoSolicitante1,
-apellidoSolicitante2,
-despacho,
-telefono,
-extension,
-informacionAdicional,
-generoSolicictante,
-fechaPrestamo,
-estado
+(codigoPrestamoPermanente,nombreSolicitante,apellidoSolicitante1,apellidoSolicitante2,despacho,telefono,extension,
+informacionAdicional,generoSolicictante,fechaPrestamo,estado
 )
 VALUES
-(@codigoPrestamoPermanente,
-@nombreSolicitante,
-@apellidoSolicitante1,
-@apellidoSolicitante2,
-@despacho,
-@telefono,
-@extension,
-@informacionAdicional,
-@generoSolicictante,
-@fechaPrestamo,
-@estado);
+(@codigoPrestamoPermanente,@nombreSolicitante,@apellidoSolicitante1,@apellidoSolicitante2,@despacho,@telefono,
+@extension,@informacionAdicional,@generoSolicictante,@fechaPrestamo,@estado);
 
 insert into Usuario_PrestamoPermanente 
  (cedulaUsuario, codigoPrestamoPermanente, 
@@ -463,25 +405,15 @@ CREATE PROCEDURE SELECCIONAR_PrestamoPermanente_TODO
 AS 
 BEGIN
 Select
-a.Id,
-a.codigoPrestamoPermanente,
-a.nombreSolicitante,
-a.apellidoSolicitante1,
-a.apellidoSolicitante2,
-a.despacho,
-a.telefono,
-a.extension,
-a.informacionAdicional,
-a.generoSolicictante,
-a.fechaPrestamo,
-a.estado,
-b.cedulaUsuario, 
+a.Id,a.codigoPrestamoPermanente,a.nombreSolicitante,a.apellidoSolicitante1,a.apellidoSolicitante2,a.despacho,
+a.telefono,a.extension,a.informacionAdicional,a.generoSolicictante,a.fechaPrestamo,a.estado,b.cedulaUsuario, 
 b.nombre, b.apellido1, b.apellido2
 FROM Usuario_PrestamoPermanente b, PrestamoPermanente a
 WHERE b.codigoPrestamoPermanente=a.codigoPrestamoPermanente
 END
 
 --SELECCIONAR PRESTAMO PERMANENTE
+/* select en base al campo unico @codigo*/
 GO
 CREATE PROCEDURE SELECCIONAR_PrestamoPermanente
 (@CODIGOPP varchar(40))
@@ -492,41 +424,20 @@ if (select count(*) from PrestamoPermanente where codigoPrestamoPermanente = @CO
 select @TEXTO = 'No existente un formulario con la misma especificacion'
 else 
 Select
-a.Id,
-a.codigoPrestamoPermanente,
-a.nombreSolicitante,
-a.apellidoSolicitante1,
-a.apellidoSolicitante2,
-a.despacho,
-a.telefono,
-a.extension,
-a.informacionAdicional,
-a.generoSolicictante,
-a.fechaPrestamo,
-a.estado,
-b.cedulaUsuario, 
-b.nombre, b.apellido1, b.apellido2
+a.Id,a.codigoPrestamoPermanente,a.nombreSolicitante,a.apellidoSolicitante1,a.apellidoSolicitante2,
+a.despacho,a.telefono,a.extension,a.informacionAdicional,a.generoSolicictante,a.fechaPrestamo,
+a.estado,b.cedulaUsuario, b.nombre, b.apellido1, b.apellido2
 FROM Usuario_PrestamoPermanente b, PrestamoPermanente a
 WHERE b.codigoPrestamoPermanente=@CODIGOPP and @CODIGOPP=a.codigoPrestamoPermanente
 END
 
 --ACTUALIZAR PRESTAMO PERMANENTE
+/* se setea un update en base al campo unico codigo*/
 go
 create proc ACTUALIZAR_PrestamoPermanente
-(@Id int,
-@codigoPrestamoPermanente varchar(40),
-@nombreSolicitante VARCHAR(40) ,
-@apellidoSolicitante1 VARCHAR(20) ,
-@apellidoSolicitante2 VARCHAR(20) ,
-@despacho VARCHAR(40) ,
-@telefono INTEGER ,
-@extension VARCHAR(10),
-@informacionAdicional VARCHAR(max),
-@generoSolicictante VARCHAR(10) ,
-@fechaPrestamo DATE ,
-@estado VARCHAR(20),
-@cedulaUsuario varchar(20), @nombre VARCHAR(40),
-@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
+(@Id int,@codigoPrestamoPermanente varchar(40),@nombreSolicitante VARCHAR(40) ,@apellidoSolicitante1 VARCHAR(20) ,
+@apellidoSolicitante2 VARCHAR(20) ,@despacho VARCHAR(40) ,@telefono INTEGER ,@extension VARCHAR(10),@informacionAdicional VARCHAR(max),
+@generoSolicictante VARCHAR(10) ,@fechaPrestamo DATE ,@estado VARCHAR(20),@cedulaUsuario varchar(20), @nombre VARCHAR(40),@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
 as
 begin
 UPDATE PrestamoPermanente
@@ -560,24 +471,15 @@ END
 
 
 --- INSERTAR CONSULTA
+/*este procedimiento permite insertar un usuario a la tabla Consulta, declarando variables por parametro para obtener los datos desde la aplicacion. 
+Se trabaja con dos variables temporales @maxcode, que se usa para almacenar el valor maximo de la columna ID, con este se hace la validacion de si existe un registro o no
+en el IF, en la variable @codigoConsulta se almacena un valor construido por CAST del @maxCode, que servira para identificar las filas de las tablas de manera unica sin hacer referencia
+a la llave autoincremental*/
 go
 create proc INSERTAR_CONSULTA
-(
-@nombreSolicitante varchar(40) ,
-@apellidoSolicitante1 VARCHAR(20) ,
-@apellidoSolicitante2 VARCHAR(20) ,
-@telefono INTEGER ,
-@email VARCHAR(100) ,
-@asunto VARCHAR(50) ,
-@descripcion VARCHAR(500),
-@respuesta VARCHAR(max) ,
-@metodoIngreso VARCHAR(20) ,
-@generoSolicitante VARCHAR(10) ,
-@fechaIngreso DATE ,
-@fechaRespuesta DATE ,
-@estado VARCHAR(20),
-@cedulaUsuario varchar(20), @nombre VARCHAR(40),
-@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
+(@nombreSolicitante varchar(40) ,@apellidoSolicitante1 VARCHAR(20) ,@apellidoSolicitante2 VARCHAR(20) ,@telefono INTEGER ,
+@email VARCHAR(100) ,@asunto VARCHAR(50) ,@descripcion VARCHAR(500),@respuesta VARCHAR(max) ,@metodoIngreso VARCHAR(20) ,@generoSolicitante VARCHAR(10) ,
+@fechaIngreso DATE ,@fechaRespuesta DATE ,@estado VARCHAR(20),@cedulaUsuario varchar(20), @nombre VARCHAR(40),@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
 AS
 DECLARE
 @codigoConsulta varchar(40),
@@ -618,6 +520,7 @@ where b.codigoConsulta=a.codigoConsulta
 END
 
 ---SELECT CONSULTA
+/* select en base al campo unico @codigo*/
 GO
 CREATE PROC SELECCIONAR_CONSULTA
 (@CODIGOC varchar(40))
@@ -636,26 +539,12 @@ where b.codigoConsulta=@CODIGOC and @CODIGOC=a.codigoConsulta
 END
 
 --UPDATE CONSULTA
+/* se setea un update en base al campo unico codigo*/
 GO 
 CREATE PROC ACTUALIZAR_CONSULTA
-(
-@Id int,
-@codigoConsulta varchar(40),
-@nombreSolicitante varchar(40) ,
-@apellidoSolicitante1 VARCHAR(20) ,
-@apellidoSolicitante2 VARCHAR(20) ,
-@telefono INTEGER ,
-@email VARCHAR(100) ,
-@asunto VARCHAR(50) ,
-@descripcion VARCHAR(500),
-@respuesta VARCHAR(max) ,
-@metodoIngreso VARCHAR(20) ,
-@generoSolicitante VARCHAR(10) ,
-@fechaIngreso DATE ,
-@fechaRespuesta DATE ,
-@estado VARCHAR(20),
-@cedulaUsuario varchar(20), @nombre VARCHAR(40),
-@apellido1 VARCHAR(20), @apellido2 VARCHAR(20)
+(@Id int,@codigoConsulta varchar(40),@nombreSolicitante varchar(40) ,@apellidoSolicitante1 VARCHAR(20) ,@apellidoSolicitante2 VARCHAR(20) ,@telefono INTEGER ,
+@email VARCHAR(100) ,@asunto VARCHAR(50) ,@descripcion VARCHAR(500),@respuesta VARCHAR(max) ,@metodoIngreso VARCHAR(20) ,@generoSolicitante VARCHAR(10) ,@fechaIngreso DATE ,
+@fechaRespuesta DATE ,@estado VARCHAR(20),@cedulaUsuario varchar(20), @nombre VARCHAR(40),@apellido1 VARCHAR(20), @apellido2 VARCHAR(20)
 )
 AS
 BEGIN
@@ -690,26 +579,16 @@ END
 
 
 --INSERTAR AUDIOVISUAL
+/*este procedimiento permite insertar un usuario a la tabla PA, declarando variables por parametro para obtener los datos desde la aplicacion. 
+Se trabaja con dos variables temporales @maxcode, que se usa para almacenar el valor maximo de la columna ID, con este se hace la validacion de si existe un registro o no
+en el IF, en la variable @codigoPA se almacena un valor construido por CAST del @maxCode, que servira para identificar las filas de las tablas de manera unica sin hacer referencia
+a la llave autoincremental*/
 GO
 CREATE PROC INSERTAR_AUDIOVISUAL
-(
-@nombreSolicitante varchar(40) ,
-@apellidoSolicitante1 VARCHAR(20) ,
-@apellidoSolicitante2 VARCHAR(20) ,
-@telefono INTEGER ,
-@departamento VARCHAR(40),
-@nombreActividad VARCHAR(50) ,
-@categoria VARCHAR(40) ,
-@especificacionCategoria VARCHAR(100),
-@ubicacion VARCHAR(100),
-@horaInicio DATETIME ,
-@horaFin DATETIME ,
-@descripcion VARCHAR(500) ,
-@equipoRequerido VARCHAR(40) ,
-@aforo INTEGER ,
-@generoSolicitante VARCHAR(10) ,
-@cedulaUsuario varchar(20), @nombre VARCHAR(40),
-@apellido1 VARCHAR(20), @apellido2 VARCHAR(20)
+(@nombreSolicitante varchar(40) ,@apellidoSolicitante1 VARCHAR(20) ,@apellidoSolicitante2 VARCHAR(20) ,@telefono INTEGER ,@departamento VARCHAR(40),
+@nombreActividad VARCHAR(50) ,@categoria VARCHAR(40) ,@especificacionCategoria VARCHAR(100),@ubicacion VARCHAR(100),@horaInicio DATETIME ,
+@horaFin DATETIME ,@descripcion VARCHAR(500) ,@equipoRequerido VARCHAR(40) ,@aforo INTEGER ,@generoSolicitante VARCHAR(10) ,
+@cedulaUsuario varchar(20), @nombre VARCHAR(40),@apellido1 VARCHAR(20), @apellido2 VARCHAR(20)
 )
 AS
 DECLARE
@@ -750,7 +629,8 @@ FROM PrestamoAudiovisual a, Usuario_PrestamoAudiovisual b
 where a.codigoPrestamoAudiovisual=b.codigoPrestamoAudiovisual
 end
 
---SELECTY AUDIOVISUAL
+--SELECT AUDIOVISUAL
+/* select en base al campo unico @codigo*/
 GO 
 CREATE PROCEDURE SELECCIONAR_AUDIOVISUAL
 (@CODIGOAV varchar(40))
@@ -768,26 +648,10 @@ end
 ---UPDATE AUDIOVISUAL
 GO
 CREATE PROCEDURE ACTUALIZAR_AUDIOVISUAL
-(
-@Id int,
-@codigoAudiovisual varchar(40),
-@nombreSolicitante varchar(40) ,
-@apellidoSolicitante1 VARCHAR(20) ,
-@apellidoSolicitante2 VARCHAR(20) ,
-@telefono INTEGER ,
-@departamento VARCHAR(40),
-@nombreActividad VARCHAR(50) ,
-@categoria VARCHAR(40) ,
-@especificacionCategoria VARCHAR(100),
-@ubicacion VARCHAR(100),
-@horaInicio DATETIME ,
-@horaFin DATETIME ,
-@descripcion VARCHAR(500) ,
-@equipoRequerido VARCHAR(40) ,
-@aforo INTEGER ,
-@generoSolicitante VARCHAR(10) ,
-@cedulaUsuario varchar(20), @nombre VARCHAR(40),
-@apellido1 VARCHAR(20), @apellido2 VARCHAR(20)
+(@Id int,@codigoAudiovisual varchar(40),@nombreSolicitante varchar(40) ,@apellidoSolicitante1 VARCHAR(20) ,@apellidoSolicitante2 VARCHAR(20) ,
+@telefono INTEGER ,@departamento VARCHAR(40),@nombreActividad VARCHAR(50) ,@categoria VARCHAR(40) ,@especificacionCategoria VARCHAR(100),@ubicacion VARCHAR(100),
+@horaInicio DATETIME ,@horaFin DATETIME ,@descripcion VARCHAR(500) ,@equipoRequerido VARCHAR(40) ,@aforo INTEGER ,@generoSolicitante VARCHAR(10) ,
+@cedulaUsuario varchar(20), @nombre VARCHAR(40),@apellido1 VARCHAR(20), @apellido2 VARCHAR(20)
 )
 as
 BEGIN
@@ -816,6 +680,29 @@ select @TEXTO = 'No existente un formulario con la misma especificacion'
 ELSE
 DELETE FROM Usuario_PrestamoAudiovisual WHERE codigoPrestamoAudiovisual = @codigoAudiovisual;
 DELETE FROM PrestamoAudiovisual WHERE codigoPrestamoAudiovisual = @codigoAudiovisual;
+END
+
+
+---SELECIONAR TODO EN REFERENCIA
+go
+create PROC SELECCIONAR_REFERENCIA_TODO
+AS 
+BEGIN
+SELECT * FROM Referencia;
+end
+
+
+---SELECCIONAR EN REFERENCIA
+GO
+CREATE  PROC SELECCIONAR_REFERENCIA
+(@ID int)
+as
+ declare @TEXTO varchar(50) 
+BEGIN
+if (select count(*) from Referencia where Id = @ID)  = 0
+select @TEXTO = 'No existente un usurio con la misma especificacion'
+else 
+select * from Referencia where Id=@ID;
 END
 
 
