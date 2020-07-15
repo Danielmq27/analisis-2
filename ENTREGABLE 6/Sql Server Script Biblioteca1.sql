@@ -111,11 +111,11 @@ fechaRespuesta DATE not null,
 estado VARCHAR(20) not null
 );
 --INSERTS CIIE
-/*
+
 INSERT INTO FormularioCIIE values('CIIE1', 'Raquel', 'Vallada', 'Valerin', 88956765, '', 'tecnico', 'PLN', '', 'analisis', '', 'Mociones por diputado', 'se procede a la busqueda de la informacion', 'creacion reporte', 'Femenino', GETDATE(), GETDATE(), 'pendiene');
 INSERT INTO FormularioCIIE values('Raquel', 'Vallada', 'Valerin', 88956765, '', 'tecnico', 'PLN', '', 'analisis', '', 'Mociones del 8/8/2019', 'se presentaron un total de 3 mociones', 'creacion reporte', 'Femenino', GETDATE(), GETDATE(), 'finalizada');
  INSERT INTO FormularioCIIE values('Rafael', 'Matamoros', 'Quesada', 88110950, 'jrmatamoros@gmail.com', 'Diputado', 'FA', '', 'Solicitud Info', '', 'Memoria 2018', 'se adjunta la informacion al correo electonico', 'control politico', 'Masculino', '20-DEC-2018', '22-DEC-2018', 'finalizada');
- */
+ 
  delete from FormularioCIIE 
 
 select * from FormularioCIIE
@@ -134,11 +134,10 @@ foreign key (codigoCIIE) references FormularioCIIE (codigoCIIE)
 );
 
 --INSERTS USUARIOCIIE
-/*
 insert into Usuario_FormularioCIIE values('107440767', 'CIIE1', 'Jose Miguel', 'Fellini', 'Campos');
 insert into Usuario_FormularioCIIE values(3, 2, 'Jose Miguel', 'Fellini', 'Campos');
 insert into Usuario_FormularioCIIE values(3, 3, 'Jose Miguel', 'Fellini', 'Campos');
-*/
+
 
 select * from Usuario_FormularioCIIE
 delete from Usuario_FormularioCIIE
@@ -334,8 +333,8 @@ insert into Usuario_PrestamoPermanente values(2, 1, 'Juan Carlos', 'Mata', 'Quir
 */
 --
 
---TABLA SOLICITANTE
-create table Solicitante(
+--TABLA REFERENCIA
+create table Referencia(
 Id INTEGER  identity(1,1) primary key,
 nombre varchar(40) not null,
 apellido1 varchar(20) not null,
