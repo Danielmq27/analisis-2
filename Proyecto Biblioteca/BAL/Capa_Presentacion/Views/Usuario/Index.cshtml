@@ -11,14 +11,10 @@
                 <div class="box-header">
                     <h3 class="box-title">USUARIOS</h3>
                 </div>
-                <!-- /.box-header -->
                 <div class="box-body">
-                    <a class="btn btn-success">
-                        <span class="fa fa-plus"></span>
-                    </a>
-                    <p>
-                        @Html.ActionLink("Crear Usuario", "Nuevo")
-                    </p>
+                    @Html.ActionLink(" Agregar", "Agregar", null, new { @class = "btn btn-success btn-sm fa fa-plus" })
+                </div>
+                <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -47,15 +43,23 @@
                                         @Html.DisplayFor(modelItem => item.Apellido2)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.IdRol)
+                                        @if (item.IdRol == 1)
+                                        {
+                                            @Html.Label("Administrador")
+
+                                        }
+                                        else if (item.IdRol == 2)
+                                        {
+                                            @Html.Label("Editar")
+                                        }
+                                        else
+                                        {
+                                            @Html.Label("Consultar")
+                                        }
                                     </td>
                                     <td>
-                                        <a class="btn btn-primary">
-                                            <span class="fa fa-edit"> Actualizar</span>
-                                        </a> |
-                                        <a class="btn btn-danger" style="background-color:#D1190A">
-                                            <span class="fa fa-remove"> Eliminar</span>
-                                        </a>
+                                        @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" }) |
+                                        @Html.ActionLink(" Eliminar", "Eliminar", new { id = item.Id }, new { @class = "btn btn-danger btn-sm fa fa-trash-o" })
                                     </td>
                                 </tr>
                             }

@@ -1,16 +1,13 @@
 ﻿@model Capa_Presentacion.Models.Usuario
 
 @{
-    ViewBag.Title = "Nuevo";
+    ViewBag.Title = "Agregar";
     Layout = "~/Views/Shared/_Direccion.cshtml";
 }
-
-<h2>Nuevo</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Usuario</h4>
         <hr />
@@ -58,7 +55,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Clave, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Clave, new { htmlAttributes = new { @class = "form-control", @type = "password"}})
+                @Html.EditorFor(model => model.Clave, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
                 @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -82,3 +79,4 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+

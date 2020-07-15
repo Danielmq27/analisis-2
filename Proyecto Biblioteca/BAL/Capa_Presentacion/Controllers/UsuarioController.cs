@@ -40,7 +40,7 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
-        public ActionResult Nuevo()
+        public ActionResult Agregar()
         {
             try
             {
@@ -53,10 +53,14 @@ namespace Capa_Presentacion.Controllers
         }
 
         [HttpPost]
-        public ActionResult Nuevo(Usuario usuario)
+        public ActionResult Agregar(Usuario usuario)
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(usuario);
+                }
                 clsUsuario objUsuario = new clsUsuario();
                 bool resultado = objUsuario.AgregarUsuario(usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, usuario.Email, usuario.Clave, usuario.IdRol);
                 if (resultado)
@@ -64,12 +68,12 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Index");
                 } else
                 {
-                    return RedirectToAction("Nuevo", "Usuario");
+                    return RedirectToAction("Agregar", "Usuario");
                 }
             }
             catch
             {
-                return RedirectToAction("Nuevo", "Usuario");
+                return RedirectToAction("Agregar", "Usuario");
             }
         }
 
@@ -99,6 +103,10 @@ namespace Capa_Presentacion.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return View(usuario);
+                }
                 clsUsuario objUsuario = new clsUsuario();
                 bool resultado = objUsuario.ActualizarUsuario(usuario.Id, usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, usuario.Email, usuario.Clave, usuario.IdRol);
                 if (resultado)

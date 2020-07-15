@@ -1751,6 +1751,7 @@ a:focus {
 .collapsed-box .box-header.with-border {
   border-bottom: none;
 }
+
 .box-header > .fa,
 .box-header > .glyphicon,
 .box-header > .ion,

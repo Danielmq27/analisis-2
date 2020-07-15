@@ -127,3 +127,4 @@ C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentaci
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Debug\Capa_Presentacion.csproj.CopyComplete
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Debug\Capa_Presentacion.dll
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Debug\Capa_Presentacion.pdb
+C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\MvcValidationExtensions.dll
