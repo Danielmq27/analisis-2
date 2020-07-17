@@ -10,7 +10,6 @@ namespace Capa_Presentacion.Models
         [Required]
         [StringLength(20)]
         [Display(Name = "Cédula")]
-        [ExisteCedula(ErrorMessage = "Cédula ya registrada en la base de datos")]
         public string Cedula { get; set; }
 
         [Required]

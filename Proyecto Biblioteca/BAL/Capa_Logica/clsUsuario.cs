@@ -9,12 +9,12 @@ namespace Capa_Logica
 {
     public class clsUsuario
     {
-        public List<SELECT_USER_ALLResult> ConsultarUsuarios()
+        public List<SELECCIONAR_USUARIO_TODOResult> ConsultarUsuarios()
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<SELECT_USER_ALLResult> data = dc.SELECT_USER_ALL().ToList();
+                List<SELECCIONAR_USUARIO_TODOResult> data = dc.SELECCIONAR_USUARIO_TODO().ToList();
                 return data;
 
             }
@@ -60,20 +60,6 @@ namespace Capa_Logica
                 throw;
             }
         }
-
-        /*public bool ActualizarUsuario(int Id, string Cedula, string Nombre, string Apellido1, string Apellido2, string Email, string Clave, int IdRol)
-        {
-            try
-            {
-                bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.ACTUALIZAR_USUARIO(Id, Cedula, Nombre, Apellido1, Apellido2, Email, Clave, IdRol);
-                return true;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }*/
 
         public bool ActualizarUsuario(int Id, string Cedula, string Nombre, string Apellido1, string Apellido2, string Email, string Clave, int IdRol)
         {
