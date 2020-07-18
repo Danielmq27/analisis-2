@@ -44,26 +44,54 @@ namespace Capa_Presentacion.Models
         [Display(Name = "Segundo Apellido del Solicitante")]
         public string ApellidoSolicitante2 { get; set; }
 
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Teléfono")]
         public int Telefono { get; set; }
 
+        [StringLength(40)]
         public string Departamento { get; set; }
 
+        [Required]
+        [StringLength(50)]
+        [Display(Name = "Nombre de Actividad")]
         public string NombreActividad { get; set; }
 
+        [Required]
+        [StringLength(40)]
+        [Display(Name = "Categoría")]
         public string Categoria { get; set; }
 
+        [Required]
+        [StringLength(100)]
+        [Display(Name = "Especificación de Categoría")]
         public string EspecificacionCategoria { get; set; }
 
+        [StringLength(100)]
+        [Display(Name = "Ubicación")]
         public string Ubicacion { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Hora Inicio")]
         public DateTime HoraInicio { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Hora Final")]
         public DateTime HoraFinal { get; set; }
 
+        [Required]
+        [StringLength(500)]
+        [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
 
+        [Required]
+        [StringLength(40)]
+        [Display(Name = "Equipo Requerido")]
         public string EquipoRequerido { get; set; }
 
-        public string Aforo { get; set; }
+        [Required]
+        public int Aforo { get; set; }
     }
 }

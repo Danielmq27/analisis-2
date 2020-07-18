@@ -50,8 +50,8 @@ namespace Capa_Presentacion.Models
         public string ApellidoSolicitante2 { get; set; }
 
         [Required]
-        [Display(Name = "Teléfono")]
         [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Teléfono")]
         public int Telefono { get; set; }
 
         [EmailAddress]
@@ -84,7 +84,6 @@ namespace Capa_Presentacion.Models
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Tema")]
         public string Tema { get; set; }
 
         [Required]

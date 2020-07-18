@@ -33,6 +33,9 @@ namespace Capa_Presentacion.Models
         [Display(Name = "Correo Electrónico")]
         public string Email { get; set; }
 
+        [Required]
+        [StringLength(10)]
+        [Display(Name = "Género")]
         public string Genero { get; set; }
     }
 }

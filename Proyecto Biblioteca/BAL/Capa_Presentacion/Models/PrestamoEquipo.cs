@@ -11,6 +11,7 @@ namespace Capa_Presentacion.Models
     {
         public int Id { get; set; }
 
+        [Display(Name = "Código Prestamo Equipo")]
         public string CodigoPrestamoEquipo { get; set; }
 
         //[Required] nos dice que este atributo es requerido
@@ -40,17 +41,31 @@ namespace Capa_Presentacion.Models
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Segundo Apellido del Solicitante solo acepta letras")]
         [Display(Name = "Segundo Apellido del Solicitante")]
         public string ApellidoSolicitante2 { get; set; }
-
+        
+        [Required]
+        [StringLength(20)]
+        [Display(Name = "Cédula del Solicitante")]
         public string CedulaSolicitante { get; set; }
 
+        [Required]
+        [StringLength(40)]
         public string Departamento { get; set; }
 
+        [Required]
+        [StringLength(20)]
+        [Display(Name = "Tipo de Equipo")]
         public string TipoEquipo { get; set; }
 
+        [StringLength(40)]
         public string Implementos { get; set; }
 
+        [StringLength(50)]
+        [Display(Name = "Especificación de Implementos")]
         public string EspecificacionImplementos { get; set; }
 
+        [Required]
+        [StringLength(10)]
+        [Display(Name = "Género del Solicitante")]
         public string GeneroSolicitante { get; set; }
 
         [Required]
@@ -67,7 +82,6 @@ namespace Capa_Presentacion.Models
 
         [Required]
         [StringLength(20)]
-        [Display(Name = "Estado")]
         public string Estado { get; set; }
     }
 }

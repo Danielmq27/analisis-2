@@ -10,6 +10,7 @@ namespace Capa_Presentacion.Models
     {
         public int Id { get; set; }
 
+        [Display(Name = "Código Préstamo Permanente")]
         public string CodigoPrestamoPermanente { get; set; }
 
         //[Required] nos dice que este atributo es requerido
@@ -40,18 +41,34 @@ namespace Capa_Presentacion.Models
         [Display(Name = "Segundo Apellido del Solicitante")]
         public string ApellidoSolicitante2 { get; set; }
 
+        [Required]
+        [StringLength(40)]
         public string Despacho { get; set; }
 
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Teléfono")]
         public int Telefono { get; set; }
 
+        [StringLength(10)]
+        [Display(Name = "Extensión")]
         public string Extension { get; set; }
 
+        [Display(Name = "Información Adicional")]
         public string InformacionAdicional { get; set; }
 
+        [Required]
+        [StringLength(10)]
+        [Display(Name = "Género del Solicitante")]
         public string GeneroSolicitante { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Fecha del Préstamo")]
         public DateTime FechaPrestamo { get; set; }
 
+        [Required]
+        [StringLength(20)]
         public string Estado { get; set; }
     }
 }
