@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Capa_Presentacion.Models.Rol>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Direccion.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div>
+                <div class="box-header">
+                    <h3 class="box-title">ROLES</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IdRol)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Nombre_Rol)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Descripcion)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IdRol)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre_Rol)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>

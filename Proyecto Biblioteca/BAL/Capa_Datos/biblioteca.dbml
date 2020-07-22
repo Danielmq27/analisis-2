@@ -1,5 +1,309 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ARE_Biblioteca_Legislativa" Class="bibliotecaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-NRHLOJ2;Initial Catalog=ARE_Biblioteca_Legislativa;Integrated Security=True" SettingsObjectName="Capa_Datos.Properties.Settings" SettingsPropertyName="ARE_Biblioteca_LegislativaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AuditoriaConsulta" Member="AuditoriaConsulta">
+    <Type Name="AuditoriaConsulta">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigoConsulta" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="asunto" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="respuesta" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="metodoIngreso" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="accion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="usuarioBD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AuditoriaFormularioCIIE" Member="AuditoriaFormularioCIIE">
+    <Type Name="AuditoriaFormularioCIIE">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigoCIIE" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="tipoDespacho" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="fraccion" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="especificacionDespacho" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tipoConsulta" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="especificacionConsulta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tema" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="informacionRequerida" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="usoInformacion" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="accion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="usuarioBD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AuditoriaPrestamoAudiovisual" Member="AuditoriaPrestamoAudiovisual">
+    <Type Name="AuditoriaPrestamoAudiovisual">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigoPrestamoAudiovisual" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="departamento" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="nombreActividad" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="categoria" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="especificacionCategoria" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ubicacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="horaInicio" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="horaFin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="equipoRequerido" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="aforo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="accion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="usuarioBD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AuditoriaPrestamoEquipo" Member="AuditoriaPrestamoEquipo">
+    <Type Name="AuditoriaPrestamoEquipo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigoPrestamoEquipo" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="cedulaSolicitante" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="departamento" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="tipoEquipo" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="implementos" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="especificacionImplementos" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="generoSolicictante" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="accion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="usuarioBD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AuditoriaPrestamoPermanente" Member="AuditoriaPrestamoPermanente">
+    <Type Name="AuditoriaPrestamoPermanente">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigoPrestamoPermanente" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="despacho" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="extension" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="informacionAdicional" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="generoSolicictante" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="fechaPrestamo" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="accion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="usuarioBD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Consulta" Member="Consulta">
+    <Type Name="Consulta">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigoConsulta" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="asunto" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="respuesta" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="metodoIngreso" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Consulta_Usuario_Consulta" Member="Usuario_Consulta" ThisKey="codigoConsulta" OtherKey="codigoConsulta" Type="Usuario_Consulta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FormularioCIIE" Member="FormularioCIIE">
+    <Type Name="FormularioCIIE">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigoCIIE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="tipoDespacho" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="fraccion" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="especificacionDespacho" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tipoConsulta" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="especificacionConsulta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tema" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="informacionRequerida" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="usoInformacion" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="FormularioCIIE_Usuario_FormularioCIIE" Member="Usuario_FormularioCIIE" ThisKey="codigoCIIE" OtherKey="codigoCIIE" Type="Usuario_FormularioCIIE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InformacionRol" Member="InformacionRol">
+    <Type Name="InformacionRol">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="InformacionRol_Usuario" Member="Usuario" ThisKey="Id" OtherKey="IdRol" Type="Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrestamoAudiovisual" Member="PrestamoAudiovisual">
+    <Type Name="PrestamoAudiovisual">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigoPrestamoAudiovisual" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="departamento" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="nombreActividad" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="categoria" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="especificacionCategoria" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ubicacion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="horaInicio" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="horaFin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="equipoRequerido" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="aforo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="PrestamoAudiovisual_Usuario_PrestamoAudiovisual" Member="Usuario_PrestamoAudiovisual" ThisKey="codigoPrestamoAudiovisual" OtherKey="codigoPrestamoAudiovisual" Type="Usuario_PrestamoAudiovisual" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrestamoEquipo" Member="PrestamoEquipo">
+    <Type Name="PrestamoEquipo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigoPrestamoEquipo" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cedulaSolicitante" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="departamento" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="tipoEquipo" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="implementos" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="especificacionImplementos" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="generoSolicictante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="PrestamoEquipo_Usuario_PrestamoEquipo" Member="Usuario_PrestamoEquipo" ThisKey="codigoPrestamoEquipo" OtherKey="codigoPrestamoEquipo" Type="Usuario_PrestamoEquipo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrestamoPermanente" Member="PrestamoPermanente">
+    <Type Name="PrestamoPermanente">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="codigoPrestamoPermanente" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="despacho" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="extension" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="informacionAdicional" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="generoSolicictante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaPrestamo" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="PrestamoPermanente_Usuario_PrestamoPermanente" Member="Usuario_PrestamoPermanente" ThisKey="codigoPrestamoPermanente" OtherKey="codigoPrestamoPermanente" Type="Usuario_PrestamoPermanente" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Referencia" Member="Referencia">
+    <Type Name="Referencia">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="genero" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cedula" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="clave" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="IdRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_Usuario_Consulta" Member="Usuario_Consulta" ThisKey="cedula" OtherKey="cedulaUsuario" Type="Usuario_Consulta" />
+      <Association Name="Usuario_Usuario_FormularioCIIE" Member="Usuario_FormularioCIIE" ThisKey="cedula" OtherKey="cedulaUsuario" Type="Usuario_FormularioCIIE" />
+      <Association Name="Usuario_Usuario_PrestamoAudiovisual" Member="Usuario_PrestamoAudiovisual" ThisKey="cedula" OtherKey="cedulaUsuario" Type="Usuario_PrestamoAudiovisual" />
+      <Association Name="Usuario_Usuario_PrestamoEquipo" Member="Usuario_PrestamoEquipo" ThisKey="cedula" OtherKey="cedulaUsuario" Type="Usuario_PrestamoEquipo" />
+      <Association Name="Usuario_Usuario_PrestamoPermanente" Member="Usuario_PrestamoPermanente" ThisKey="cedula" OtherKey="cedulaUsuario" Type="Usuario_PrestamoPermanente" />
+      <Association Name="InformacionRol_Usuario" Member="InformacionRol" ThisKey="IdRol" OtherKey="Id" Type="InformacionRol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario_Consulta" Member="Usuario_Consulta">
+    <Type Name="Usuario_Consulta">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cedulaUsuario" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="codigoConsulta" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_Usuario_Consulta" Member="Usuario" ThisKey="cedulaUsuario" OtherKey="cedula" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Consulta_Usuario_Consulta" Member="Consulta" ThisKey="codigoConsulta" OtherKey="codigoConsulta" Type="Consulta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario_FormularioCIIE" Member="Usuario_FormularioCIIE">
+    <Type Name="Usuario_FormularioCIIE">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cedulaUsuario" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="codigoCIIE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_Usuario_FormularioCIIE" Member="Usuario" ThisKey="cedulaUsuario" OtherKey="cedula" Type="Usuario" IsForeignKey="true" />
+      <Association Name="FormularioCIIE_Usuario_FormularioCIIE" Member="FormularioCIIE" ThisKey="codigoCIIE" OtherKey="codigoCIIE" Type="FormularioCIIE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario_PrestamoAudiovisual" Member="Usuario_PrestamoAudiovisual">
+    <Type Name="Usuario_PrestamoAudiovisual">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cedulaUsuario" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="codigoPrestamoAudiovisual" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_Usuario_PrestamoAudiovisual" Member="Usuario" ThisKey="cedulaUsuario" OtherKey="cedula" Type="Usuario" IsForeignKey="true" />
+      <Association Name="PrestamoAudiovisual_Usuario_PrestamoAudiovisual" Member="PrestamoAudiovisual" ThisKey="codigoPrestamoAudiovisual" OtherKey="codigoPrestamoAudiovisual" Type="PrestamoAudiovisual" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario_PrestamoEquipo" Member="Usuario_PrestamoEquipo">
+    <Type Name="Usuario_PrestamoEquipo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cedulaUsuario" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="codigoPrestamoEquipo" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_Usuario_PrestamoEquipo" Member="Usuario" ThisKey="cedulaUsuario" OtherKey="cedula" Type="Usuario" IsForeignKey="true" />
+      <Association Name="PrestamoEquipo_Usuario_PrestamoEquipo" Member="PrestamoEquipo" ThisKey="codigoPrestamoEquipo" OtherKey="codigoPrestamoEquipo" Type="PrestamoEquipo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario_PrestamoPermanente" Member="Usuario_PrestamoPermanente">
+    <Type Name="Usuario_PrestamoPermanente">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cedulaUsuario" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="codigoPrestamoPermanente" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_Usuario_PrestamoPermanente" Member="Usuario" ThisKey="cedulaUsuario" OtherKey="cedula" Type="Usuario" IsForeignKey="true" />
+      <Association Name="PrestamoPermanente_Usuario_PrestamoPermanente" Member="PrestamoPermanente" ThisKey="codigoPrestamoPermanente" OtherKey="codigoPrestamoPermanente" Type="PrestamoPermanente" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.ACTUALIZAR_AUDIOVISUAL" Method="ACTUALIZAR_AUDIOVISUAL">
     <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
     <Parameter Name="codigoAudiovisual" Type="System.String" DbType="VarChar(40)" />
@@ -257,12 +561,6 @@
     <Parameter Name="EMAIL" Parameter="eMAIL" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="CLAVE" Parameter="cLAVE" Type="System.String" DbType="VarChar(40)" />
     <Parameter Name="IDROL" Parameter="iDROL" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.LOGIN_USUARIO" Method="LOGIN_USUARIO">
-    <Parameter Name="CEDULA" Parameter="cEDULA" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="CLAVE" Parameter="cLAVE" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="RES" Parameter="rES" Type="System.Boolean" DbType="Bit" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.SELECCIONAR_AUDIOVISUAL" Method="SELECCIONAR_AUDIOVISUAL">
@@ -565,6 +863,20 @@
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="nombre" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="descripcion" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.LOGIN_USUARIO" Method="LOGIN_USUARIO">
+    <Parameter Name="Correo" Parameter="correo" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Clave" Parameter="clave" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="LOGIN_USUARIOResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cedula" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="clave" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="IdRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

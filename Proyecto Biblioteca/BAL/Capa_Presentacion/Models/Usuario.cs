@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Capa_Datos;
+using Capa_Logica;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Common;
 
 namespace Capa_Presentacion.Models
 {

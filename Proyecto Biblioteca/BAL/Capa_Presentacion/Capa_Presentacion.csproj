@@ -1001,7 +1001,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FormularioCIIEController.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
-    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1151,7 +1151,7 @@
     <Content Include="Content\plugins\input-mask\phone-codes\phone-codes.json" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Direccion.cshtml" />
-    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Rol\Index.cshtml" />
     <Content Include="Views\IniciarSesion\Index.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Actualizar.cshtml" />
@@ -1166,6 +1166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa_Datos\Capa_Datos.csproj">

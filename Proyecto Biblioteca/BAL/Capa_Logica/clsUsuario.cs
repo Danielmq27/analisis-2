@@ -9,6 +9,21 @@ namespace Capa_Logica
 {
     public class clsUsuario
     {
+        public List<LOGIN_USUARIOResult> Login(string Correo, string Clave)
+        {
+            try
+            {
+                bibliotecaDataContext dc = new bibliotecaDataContext();
+                List<LOGIN_USUARIOResult> data = dc.LOGIN_USUARIO(Correo, Clave).ToList();
+                return data;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
         public List<SELECCIONAR_USUARIO_TODOResult> ConsultarUsuarios()
         {
             try

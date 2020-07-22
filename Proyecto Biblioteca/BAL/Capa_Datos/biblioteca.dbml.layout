@@ -1,4 +1,191 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="biblioteca">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 18, 20.625" name="biblioteca">
   <DataContextMoniker Name="/bibliotecaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="55b06b22-0abf-4e96-8f16-6c017343bd42" absoluteBounds="9.75, 11.125, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/bibliotecaDataContext/AuditoriaConsulta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e3ff946a-38ad-4239-9373-bd20b27ad40d" absoluteBounds="9.765, 11.585, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1f467bf7-03e8-414f-8960-1c36ada5b083" absoluteBounds="11.75, 2.125, 2, 4.6554182942708326">
+      <DataClassMoniker Name="/bibliotecaDataContext/AuditoriaFormularioCIIE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8be59b7e-dfca-47f7-b027-3e8ff9368288" absoluteBounds="11.765, 2.585, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1c3aa068-da75-4692-95b6-a434d3e204eb" absoluteBounds="12.75, 8.125, 2, 4.6554182942708309">
+      <DataClassMoniker Name="/bibliotecaDataContext/AuditoriaPrestamoAudiovisual" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3427d989-a578-4e03-b7b7-39fd34be37eb" absoluteBounds="12.765, 8.585, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9dfd1798-0ef6-4d7e-8bbe-37ad7cf87862" absoluteBounds="12.75, 14.125, 2, 3.6939111328124987">
+      <DataClassMoniker Name="/bibliotecaDataContext/AuditoriaPrestamoEquipo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f0d914a-2166-4dfe-8c43-9f767da665a7" absoluteBounds="12.765, 14.585, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="12749963-72d4-4cd0-a5a0-46b4598e92d8" absoluteBounds="14.75, 2.125, 2, 3.6939111328124992">
+      <DataClassMoniker Name="/bibliotecaDataContext/AuditoriaPrestamoPermanente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e7b41c3c-0428-4d96-a498-556bf3f563cd" absoluteBounds="14.765, 2.585, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="885f40f5-ee8a-4aaa-ba85-e817418faa3d" absoluteBounds="3.5, 11.5, 2, 3.6939111328124987">
+      <DataClassMoniker Name="/bibliotecaDataContext/Consulta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f9f30e6e-e779-419e-ad8c-fc4ba0da5a52" absoluteBounds="3.515, 11.96, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a7d6509d-18bf-42d8-9199-bef2893b3ac9" absoluteBounds="3.5, 2.125, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/bibliotecaDataContext/FormularioCIIE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82ad4061-9b90-4b8e-81fc-9b38cf07ee9f" absoluteBounds="3.515, 2.585, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="30135fd3-2cb3-43ca-ab7a-1e7c5254ed28" absoluteBounds="0.75, 8.625, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/bibliotecaDataContext/InformacionRol" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b4989975-1018-4ae7-865b-16493c435b38" absoluteBounds="0.765, 9.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="593bf803-7f2c-4d1b-966a-536b7b4a77c5" absoluteBounds="3.5, 16.25, 2, 4.0785139973958309">
+      <DataClassMoniker Name="/bibliotecaDataContext/PrestamoAudiovisual" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a5e998b2-bf56-4232-9b5d-bfa6097f4fb8" absoluteBounds="3.515, 16.71, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8eb397b7-2d51-4ddb-a5a4-8a68dddbd90d" absoluteBounds="6.5, 14.5, 2, 3.5016097005208344">
+      <DataClassMoniker Name="/bibliotecaDataContext/PrestamoEquipo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="adbe6d29-d90e-4de3-8dad-fb8a73d2f8aa" absoluteBounds="6.515, 14.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a208557f-bf2c-4d4f-84f5-6e450ba04714" absoluteBounds="6.5, 0.75, 2, 3.1170068359375005">
+      <DataClassMoniker Name="/bibliotecaDataContext/PrestamoPermanente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e5e9f4e-3805-4771-9de2-98d55d8cd5d5" absoluteBounds="6.515, 1.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="753ff654-ce33-4e38-8cf8-214ffc7528fe" absoluteBounds="15.75, 7.125, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/bibliotecaDataContext/Referencia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cb2e065c-de16-4064-9988-44101ad77cab" absoluteBounds="15.765, 7.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ecc4479c-d4bb-444e-9a15-876b5c87d86a" absoluteBounds="3.5, 8.125, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/bibliotecaDataContext/Usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a65a5214-8f41-4119-a38b-0e92026c3bca" absoluteBounds="3.515, 8.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="efa13ae4-3c08-48d1-82ab-070aff63fe10" absoluteBounds="6.25, 8.375, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/bibliotecaDataContext/Usuario_Consulta" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ccb90be-72bc-430f-b0ee-943f8f54cb98" absoluteBounds="6.265, 8.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="429b9d42-a70f-461d-ad75-1059a9e73cc1" absoluteBounds="6.25, 5.375, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/bibliotecaDataContext/Usuario_FormularioCIIE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dbcd030f-9b26-4791-9dc4-049c35f11eda" absoluteBounds="6.265, 5.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f5116379-9ffc-4da6-99df-b4f0126ca76e" absoluteBounds="6.25, 11.375, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/bibliotecaDataContext/Usuario_PrestamoAudiovisual" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f849615-6aad-4f8d-9980-07af1b443725" absoluteBounds="6.265, 11.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b725f983-4409-46e1-b77a-cde25ae7b63d" absoluteBounds="9.25, 8.375, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/bibliotecaDataContext/Usuario_PrestamoEquipo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5090ca9c-518e-4a40-853e-338896059065" absoluteBounds="9.265, 8.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f4a43c6f-23be-428f-8fad-9b8cb4f9c439" absoluteBounds="9.25, 5.375, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/bibliotecaDataContext/Usuario_PrestamoPermanente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ff0609f-47c3-4129-903b-81258fa78d61" absoluteBounds="9.265, 5.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 9.31814697265625); (3.5 : 9.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bibliotecaDataContext/InformacionRol/InformacionRol_Usuario" />
+      <nodes>
+        <classShapeMoniker Id="30135fd3-2cb3-43ca-ab7a-1e7c5254ed28" />
+        <classShapeMoniker Id="ecc4479c-d4bb-444e-9a15-876b5c87d86a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 9.35659912109375); (6.25 : 9.35659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bibliotecaDataContext/Usuario/Usuario_Usuario_Consulta" />
+      <nodes>
+        <classShapeMoniker Id="ecc4479c-d4bb-444e-9a15-876b5c87d86a" />
+        <classShapeMoniker Id="efa13ae4-3c08-48d1-82ab-070aff63fe10" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 11.5); (5.875 : 11.125); (5.875 : 9.87865068164063); (6.25 : 9.87865068164063)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bibliotecaDataContext/Consulta/Consulta_Usuario_Consulta" />
+      <nodes>
+        <classShapeMoniker Id="885f40f5-ee8a-4aaa-ba85-e817418faa3d" />
+        <classShapeMoniker Id="efa13ae4-3c08-48d1-82ab-070aff63fe10" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.46769230769231 : 8.125); (5.875 : 7.71769230769231); (5.875 : 6.35659912109375); (6.25 : 6.35659912109375)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bibliotecaDataContext/Usuario/Usuario_Usuario_FormularioCIIE" />
+      <nodes>
+        <classShapeMoniker Id="ecc4479c-d4bb-444e-9a15-876b5c87d86a" />
+        <classShapeMoniker Id="429b9d42-a70f-461d-ad75-1059a9e73cc1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.80329956054688); (6.25 : 5.80329956054688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bibliotecaDataContext/FormularioCIIE/FormularioCIIE_Usuario_FormularioCIIE" />
+      <nodes>
+        <classShapeMoniker Id="a7d6509d-18bf-42d8-9199-bef2893b3ac9" />
+        <classShapeMoniker Id="429b9d42-a70f-461d-ad75-1059a9e73cc1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.46769230769231 : 10.4728011067708); (5.81607443490112 : 10.8211832339796 : JumpStart); (5.93392556509888 : 10.9390343641774 : JumpEnd); (6.0625 : 11.0676087990785); (6.0625 : 12.3565991210937); (6.25 : 12.3565991210937)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bibliotecaDataContext/Usuario/Usuario_Usuario_PrestamoAudiovisual" />
+      <nodes>
+        <classShapeMoniker Id="ecc4479c-d4bb-444e-9a15-876b5c87d86a" />
+        <classShapeMoniker Id="f5116379-9ffc-4da6-99df-b4f0126ca76e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 19.1963118489583); (6.34375 : 19.1963118489583); (6.34375 : 13.3381982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bibliotecaDataContext/PrestamoAudiovisual/PrestamoAudiovisual_Usuario_PrestamoAudiovisual" />
+      <nodes>
+        <classShapeMoniker Id="593bf803-7f2c-4d1b-966a-536b7b4a77c5" />
+        <classShapeMoniker Id="f5116379-9ffc-4da6-99df-b4f0126ca76e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 10.3774154913862); (5.81607443490112 : 10.6934899262873 : JumpStart); (5.93392556509888 : 10.8113410564851 : JumpEnd); (6.1875 : 11.0649154913862); (6.1875 : 10.7131982421875); (8.875 : 10.7131982421875); (9.25 : 10.3381982421875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/bibliotecaDataContext/Usuario/Usuario_Usuario_PrestamoEquipo" />
+      <nodes>
+        <classShapeMoniker Id="ecc4479c-d4bb-444e-9a15-876b5c87d86a" />
+        <classShapeMoniker Id="b725f983-4409-46e1-b77a-cde25ae7b63d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 16.5376611328125); (9.5000025 : 16.5376611328125); (9.5000025 : 10.3381982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bibliotecaDataContext/PrestamoEquipo/PrestamoEquipo_Usuario_PrestamoEquipo" />
+      <nodes>
+        <classShapeMoniker Id="8eb397b7-2d51-4ddb-a5a4-8a68dddbd90d" />
+        <classShapeMoniker Id="b725f983-4409-46e1-b77a-cde25ae7b63d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.15884515384615); (5.90884515384615 : 7.75); (10.25 : 7.75); (10.25 : 7.3381982421875)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bibliotecaDataContext/Usuario/Usuario_Usuario_PrestamoPermanente" />
+      <nodes>
+        <classShapeMoniker Id="ecc4479c-d4bb-444e-9a15-876b5c87d86a" />
+        <classShapeMoniker Id="f4a43c6f-23be-428f-8fad-9b8cb4f9c439" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 2.30850341796875); (10.25 : 2.30850341796875); (10.25 : 5.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bibliotecaDataContext/PrestamoPermanente/PrestamoPermanente_Usuario_PrestamoPermanente" />
+      <nodes>
+        <classShapeMoniker Id="a208557f-bf2c-4d4f-84f5-6e450ba04714" />
+        <classShapeMoniker Id="f4a43c6f-23be-428f-8fad-9b8cb4f9c439" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
 </ordesignerObjectsDiagram>
