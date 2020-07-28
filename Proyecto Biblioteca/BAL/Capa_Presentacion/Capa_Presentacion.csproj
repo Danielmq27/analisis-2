@@ -999,6 +999,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuditoriaFormularioCIIEController.cs" />
     <Compile Include="Controllers\FormularioCIIEController.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
     <Compile Include="Controllers\RolController.cs" />
@@ -1024,6 +1025,8 @@
     <Compile Include="Models\UsuarioPrestamoAudiovisual.cs" />
     <Compile Include="Models\UsuarioPrestamoEquipo.cs" />
     <Compile Include="Models\UsuarioPrestamoPermanente.cs" />
+    <Compile Include="Models\ValidacionesExistentes\CedulaExiste.cs" />
+    <Compile Include="Models\ValidacionesExistentes\CorreoExiste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1157,6 +1160,10 @@
     <Content Include="Views\Usuario\Actualizar.cshtml" />
     <Content Include="Views\Usuario\Agregar.cshtml" />
     <Content Include="Views\FormularioCIIE\Index.cshtml" />
+    <Content Include="Views\FormularioCIIE\Agregar.cshtml" />
+    <Content Include="Views\FormularioCIIE\Actualizar.cshtml" />
+    <Content Include="Views\AuditoriaFormularioCIIE\Index.cshtml" />
+    <Content Include="Views\AuditoriaFormularioCIIE\Detalles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

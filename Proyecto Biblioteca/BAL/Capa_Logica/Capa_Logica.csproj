@@ -42,7 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsAuditoriaConsulta.cs" />
+    <Compile Include="clsAuditoriaFormularioCIIE.cs" />
+    <Compile Include="clsAuditoriaPrestamoAudiovisual.cs" />
+    <Compile Include="clsAuditoriaPrestamoEquipo.cs" />
+    <Compile Include="clsAuditoriaPrestamoPermanente.cs" />
+    <Compile Include="clsConsulta.cs" />
     <Compile Include="clsFormularioCIIE.cs" />
+    <Compile Include="clsPrestamoAudiovisual.cs" />
+    <Compile Include="clsPrestamoEquipo.cs" />
+    <Compile Include="clsPrestamoPermanente.cs" />
     <Compile Include="clsRol.cs" />
     <Compile Include="clsUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

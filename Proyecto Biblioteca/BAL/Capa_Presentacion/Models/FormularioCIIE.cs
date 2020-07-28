@@ -16,9 +16,7 @@ namespace Capa_Presentacion.Models
         //El atributo Id no lleva ningun DataAnnotations ya que no se le monstrara al usuario
         public int Id { get; set; }
 
-        //El [Display] le otorga un nombre mas amigable al usuario
         [Display(Name = "Código CIIE")]
-        //Atributo CodigoCIIE
         public string CodigoCIIE { get; set; }
 
         //[Required] nos dice que este atributo es requerido
@@ -101,13 +99,12 @@ namespace Capa_Presentacion.Models
         public string GeneroSolicitante { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [Display(Name = "Fecha de Ingreso")]
         public DateTime FechaIngreso { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
-        //Este atributo define si la fecha de respuesta es despues de la fecha inicial, si no dara un error //Esto no lo HE PROBADO
+        [DataType(DataType.DateTime)]
         [GreaterThanEqualTo("FechaIngreso")]
         [Display(Name = "Fecha de Respuesta")]
         public DateTime FechaRespuesta { get; set; }

@@ -1,20 +1,17 @@
-﻿@model IEnumerable<Capa_Presentacion.Models.FormularioCIIE>
+﻿@model IEnumerable<Capa_Presentacion.Models.AuditoriaFormularioCIIE>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Direccion.cshtml";
 }
-
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
             <div>
                 <div class="box-header">
-                    <h3 class="box-title">FORMULARIOS CIIE</h3>
+                    <h3 class="box-title">AUDITORIA FORMULARIO CIIE</h3>
                 </div>
-                <div class="box-body">
-                    @Html.ActionLink(" Agregar", "Agregar", null, new { @class = "btn btn-success btn-sm fa fa-plus" })
-                </div>
+                <!-- /.box-header -->
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
@@ -23,18 +20,17 @@
                                     @Html.DisplayNameFor(model => model.CodigoCIIE)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.NombreSolicitante)
+                                    @Html.DisplayNameFor(model => model.Fecha)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.FechaIngreso)
+                                    @Html.DisplayNameFor(model => model.Accion)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.FechaRespuesta)
+                                    @Html.DisplayNameFor(model => model.Usuario)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Estado)
+
                                 </th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,22 +41,16 @@
                                     @Html.DisplayFor(modelItem => item.CodigoCIIE)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.NombreSolicitante)
-                                    @Html.DisplayFor(modelItem => item.ApellidoSolicitante1)
-                                    @Html.DisplayFor(modelItem => item.ApellidoSolicitante2)
+                                    @Html.DisplayFor(modelItem => item.Fecha)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FechaIngreso)
+                                    @Html.DisplayFor(modelItem => item.Accion)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FechaRespuesta)
+                                    @Html.DisplayFor(modelItem => item.Usuario)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Estado)
-                                </td>
-                                <td>
-                                    @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" }) |
-                                    @Html.ActionLink(" Eliminar", "Eliminar", new { id = item.Id }, new { @class = "btn btn-danger btn-sm fa fa-trash-o" })
+                                    @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
                                 </td>
                             </tr>
                             }

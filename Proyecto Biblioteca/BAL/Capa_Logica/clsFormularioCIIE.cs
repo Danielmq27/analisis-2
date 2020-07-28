@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Capa_Logica
 {
+    //Mapeo de los procedimientos almacenados en metodos para el sistema
     public class clsFormularioCIIE
     {
+        //Metodo para consultar todos los Formularios del CIIE
         public List<SELECCIONAR_CIIE_TODOResult> ConsultarFormulariosCIIE()
         {
             try
@@ -24,7 +26,8 @@ namespace Capa_Logica
             }
         }
 
-        public List<SELECCIONAR_CIIEResult> ConsultarFormularioCIIE(string Id)
+        //Metodo para consultar un Formulario del CIIE
+        public List<SELECCIONAR_CIIEResult> ConsultarFormularioCIIE(int Id)
         {
             try
             {
@@ -39,22 +42,37 @@ namespace Capa_Logica
             }
         }
 
-        public bool AgregarUsuario(string Cedula, string Nombre, string Apellido1, string Apellido2, string Email, string Clave, int IdRol)
+        //Metodo para agregar un Formulario del CIIE
+        public bool AgregarFormularioCIIE(string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, int Telefono, string Email, string TipoDespacho, string Fraccion, string EspecificacionDespacho, string TipoConsulta, string EspecificacionConsulta, string Tema, string InformacionRequerida, string UsoInformacion, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado)
         {
             try
             {
                 int respuesta = 1;
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                respuesta = dc.INSERTAR_USUARIO(Cedula, Nombre, Apellido1, Apellido2, Email, Clave, IdRol);
-
+                respuesta = dc.INSERTAR_CIIE(NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Telefono, Email, TipoDespacho, Fraccion, EspecificacionDespacho, TipoConsulta, EspecificacionConsulta, Tema, InformacionRequerida, UsoInformacion, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado);
                 if (respuesta == 0)
                 {
                     return true;
-                }
-                else
+                } else
                 {
                     return false;
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        //Metodo para actualizar un Formulario del CIIE
+        public bool ActualizarFormularioCIIE(int Id, string CodigoCIIE, string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, int Telefono, string Email, string TipoDespacho, string Fraccion, string EspecificacionDespacho, string TipoConsulta, string EspecificacionConsulta, string Tema, string InformacionRequerida, string UsoInformacion, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado)
+        {
+            try
+            {
+                bibliotecaDataContext dc = new bibliotecaDataContext();
+                dc.ACTUALIZAR_CIIE(Id, CodigoCIIE, NombreSolicitante,Apellido1Solicitante, Apellido2Solicitante, Telefono, Email, TipoDespacho, Fraccion, EspecificacionDespacho, TipoConsulta, EspecificacionConsulta, Tema, InformacionRequerida, UsoInformacion, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado);
+                return true;
             }
             catch (Exception)
             {
@@ -62,38 +80,13 @@ namespace Capa_Logica
             }
         }
 
-        public bool ActualizarFormularioCIIE(int Id, string codigoCIIE, string Snombre, string Sapellido1, string Sapellido2, int telefono,
-            string email, string fraccion, string tipoDespacho, string especificacionDespacho, string tipoConsulta, string especificacionConsulta, string tema,
-            string informacionRequerida, string usoInformacion, string generoS, DateTime fechaIngreso, DateTime fechaRespuesta, string estado,
-            string cedulaUsuario, string nombre, string apellido1, string apellido2)
-        {
-            try
-            {
-                int respuesta = 1;
-                bibliotecaDataContext dc = new bibliotecaDataContext();
-                respuesta = dc.ACTUALIZAR_CIIE(Id, codigoCIIE, Snombre, Sapellido1, Sapellido2, telefono, email, fraccion, tipoDespacho, especificacionDespacho, tipoConsulta,
-                    especificacionConsulta, tema, informacionRequerida, usoInformacion, generoS, fechaIngreso, fechaRespuesta, estado, cedulaUsuario, nombre, apellido1, apellido2);
-                if (respuesta == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public bool EliminarUsuario(int Id)
+        //Metodo para eliminar un Formulario del CIIE
+        public bool EliminarFormularioCIIE(int Id)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.BORRAR_USUARIO(Id);
+                dc.BORRAR_CIIE(Id);
                 return true;
             }
             catch (Exception)

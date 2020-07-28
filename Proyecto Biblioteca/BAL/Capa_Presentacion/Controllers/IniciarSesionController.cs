@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,13 @@ namespace Capa_Presentacion.Controllers
 {
     public class IniciarSesionController : Controller
     {
-        // GET: IniciarSesion
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
         public ActionResult Entrar(string correo, string clave)
         {
             try

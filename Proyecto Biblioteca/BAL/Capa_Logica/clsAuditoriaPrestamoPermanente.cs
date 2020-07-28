@@ -8,35 +8,35 @@ using System.Threading.Tasks;
 namespace Capa_Logica
 {
     //Mapeo de los procedimientos almacenados en metodos para el sistema
-    public class clsRol
+    public class clsAuditoriaPrestamoPermanente
     {
-        //Metodo para consultar todos los roles
-        public List<SELECCIONAR_ROL_TODOResult> ConsultarRoles()
+        //Metodo para consultar todas las auditorias de Prestamo Permanente
+        public List<SELECCIONAR_AUDITORIA_PrestamoPermanente_TODOResult> ConsultarAuditoriasPrestamoPermanente()
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<SELECCIONAR_ROL_TODOResult> data = dc.SELECCIONAR_ROL_TODO().ToList();
+                List<SELECCIONAR_AUDITORIA_PrestamoPermanente_TODOResult> data = dc.SELECCIONAR_AUDITORIA_PrestamoPermanente_TODO().ToList();
                 return data;
             }
             catch (Exception)
             {
                 throw;
             }
-
         }
 
-        //Metodo para consultar un rol
-        public List<SELECCIONAR_ROLResult> ConsultarRol(int Id)
+        //Metodo para consultar una auditoria de Prestamo Permanente
+        public List<SELECCIONAR_AUDITORIA_PrestamoPermanenteResult> ConsultarAuditoriaPrestamoPermanente(int Id)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<SELECCIONAR_ROLResult> data = dc.SELECCIONAR_ROL(Id).ToList();
+                List<SELECCIONAR_AUDITORIA_PrestamoPermanenteResult> data = dc.SELECCIONAR_AUDITORIA_PrestamoPermanente(Id).ToList();
                 return data;
             }
             catch (Exception)
             {
+
                 throw;
             }
         }

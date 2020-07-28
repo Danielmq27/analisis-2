@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Capa_Logica
 {
+    //Mapeo de los procedimientos almacenados en metodos para el sistema
     public class clsUsuario
     {
+        //Metodo para acceso al sistema [LOGIN]
         public List<LOGIN_USUARIOResult> Login(string Correo, string Clave)
         {
             try
@@ -24,6 +26,7 @@ namespace Capa_Logica
 
         }
 
+        //Metodo para consultar todos los usuarios
         public List<SELECCIONAR_USUARIO_TODOResult> ConsultarUsuarios()
         {
             try
@@ -39,6 +42,7 @@ namespace Capa_Logica
             }
         }
 
+        //Metodo para consultar un usuario
         public List<SELECCIONAR_USUARIOResult> ConsultarUsuario(int Id)
         {
             try
@@ -54,6 +58,7 @@ namespace Capa_Logica
             }
         }
 
+        //Metodo para agregar un usuario
         public bool AgregarUsuario(string Cedula, string Nombre, string Apellido1, string Apellido2, string Email, string Clave, int IdRol)
         {
             try
@@ -76,6 +81,7 @@ namespace Capa_Logica
             }
         }
 
+        //Metodo para actualizar un usuario
         public bool ActualizarUsuario(int Id, string Cedula, string Nombre, string Apellido1, string Apellido2, string Email, string Clave, int IdRol)
         {
             try
@@ -98,6 +104,7 @@ namespace Capa_Logica
             }
         }
 
+        //Metodo para eliminar un usuario
         public bool EliminarUsuario(int Id)
         {
             try
