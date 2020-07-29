@@ -473,3 +473,12 @@ accion varchar(30),
 fecha date,
 usuarioBD varchar(200)
 );
+
+Create table Fracciones(
+Id INTEGER identity(1,1) primary key,
+Nombre varchar(40) not null,
+Descripcion varchar(100) not null
+);
+
+
+
