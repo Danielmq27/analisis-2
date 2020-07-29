@@ -54,6 +54,49 @@ DELETE InformacionRol WHERE nombre = @NOMBRE
 END
 */
 
+
+
+go 
+create Proc INSERTAR_FRACCION
+(@NOMBRE VARCHAR(40), @DESCRIPCION VARCHAR(100))
+AS
+BEGIN
+INSERT INTO Fraccion (nombre, descripcion) values 
+(@NOMBRE, @DESCRIPCION);
+END
+
+
+GO
+CREATE PROC SELECCIONAR_FRACCION_TODO
+AS
+BEGIN
+	SELECT * FROM Fraccion;
+END
+
+
+go
+CREATE PROC SELECCIONAR_FRACCION
+(@ID int)
+as
+ declare @TEXTO varchar(50) 
+BEGIN
+if (select count(*) from Fraccion where Id = @ID)  = 0
+select @TEXTO = 'No existente un usurio con la misma especificacion'
+else 
+select * from Fraccion where Id=@ID;
+END
+
+GO
+CREATE PROCEDURE BORRAR_FRACCION(@ID int)
+AS
+begin
+DELETE Fraccion WHERE Id = @ID
+END
+
+
+
+
+
 --PROCEDIMIENTO A LA HORA DE INSERTAR
 /*este procedimiento permite insertar un usuario a la tabla usuario, declarando variables por parametro para obtener los datos desde la aplicacion. 
 Se us una variable temporal que permite imprimir un mensaje de validacion para la existencia del usuario. Esta validacion se hace por medio del IF, haciendo conteo de la
@@ -706,6 +749,112 @@ select * from Referencia where Id=@ID;
 END
 
 
+
+---Seleccionar TODO EN TRIGGER 
+--GO 
+--ALTER PROC SELECCIONAR_TODO_AUDITORIA_CIIE
+--(@PTABLA VARCHAR(100))
+--AS 
+--BEGIN
+--DECLARE @TABLA AS NVARCHAR(200)
+
+--SET @TABLA = 'SELECT * FROM' + @PTABLA;
+--EXEC sp_executesql @Tabla
+--END
+
+GO
+CREATE PROC SELECCIONAR_TODO_AUDITORIA_CIIE
+AS
+BEGIN
+SELECT * FROM AuditoriaFormularioCIIE;
+END
+
+------Seleccionar UNO EN TRIGGER 
+GO
+CREATE PROC SELECCIONAR_AUDITORIA_CIIE
+(@ID int)
+AS
+BEGIN
+select * from AuditoriaFormularioCIIE where Id=@ID;
+END
+
+
+
+
+-----
+GO
+CREATE PROC SELECCIONAR_TODO_AUDITORIA_PA
+AS
+BEGIN
+SELECT * FROM AuditoriaPrestamoAudiovisual;
+END
+
+------Seleccionar UNO EN TRIGGER 
+GO
+CREATE PROC SELECCIONAR_AUDITORIA_PA
+(@ID int)
+AS
+BEGIN
+select * from AuditoriaPrestamoAudiovisual where Id=@ID;
+END
+
+
+-----
+GO
+CREATE PROC SELECCIONAR_TODO_AUDITORIA_PE
+AS
+BEGIN
+SELECT * FROM AuditoriaPrestamoEquipo;
+END
+
+------Seleccionar UNO EN TRIGGER 
+GO
+CREATE PROC SELECCIONAR_AUDITORIA_PE
+(@ID int)
+AS
+BEGIN
+select * from AuditoriaPrestamoEquipo where Id=@ID;
+END
+
+
+-----
+GO
+CREATE PROC SELECCIONAR_TODO_AUDITORIA_PP
+AS
+BEGIN
+SELECT * FROM AuditoriaPrestamoPermanente;
+END
+
+------Seleccionar UNO EN TRIGGER 
+GO
+CREATE PROC SELECCIONAR_AUDITORIA_PP
+(@ID int)
+AS
+BEGIN
+select * from AuditoriaPrestamoPermanente where Id=@ID;
+END
+
+
+-----
+GO
+CREATE PROC SELECCIONAR_TODO_AUDITORIA_CONSULTA
+AS
+BEGIN
+SELECT * FROM AuditoriaConsulta;
+END
+
+------Seleccionar UNO EN TRIGGER 
+GO
+CREATE PROC SELECCIONAR_AUDITORIA_CONSULTA
+(@ID int)
+AS
+BEGIN
+select * from AuditoriaConsulta where Id=@ID;
+END
+
+
+
+
 --TRIGGER
 GO
 create TRIGGER Actualizar_Usuario_Trigger
@@ -743,32 +892,32 @@ END;
 
 --TRIGGERS
 go
-Create Trigger ACTUALIZAR_CIIE__Trigger 
+alter Trigger ACTUALIZAR_CIIE__Trigger 
 ON dbo.FormularioCIIE
 for update 
 as 
-SET IDENTITY_INSERT dbo.AuditoriaFormularioCIIE ON
 begin
 insert into AuditoriaFormularioCIIE
-(Id, codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
+(codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
 , tema, informacionRequerida, usoInformacion, generoSolicitante, estado, accion, fecha, usuarioBD)
-select Id, codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
+select codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
 , tema, informacionRequerida, usoInformacion, generoSolicitante, estado, 'UPDATE', getdate(), suser_sname()
 from deleted;
 end;
 
 
+
 go
-Create Trigger BORRAR_CIIE_Trigger 
+alter Trigger BORRAR_CIIE_Trigger 
 ON dbo.FormularioCIIE
 for delete
 as 
-SET IDENTITY_INSERT dbo.AuditoriaFormularioCIIE ON
+
 begin
 insert into AuditoriaFormularioCIIE
-(Id, codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
+(codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
 , tema, informacionRequerida, usoInformacion, generoSolicitante, estado, accion, fecha, usuarioBD)
-select Id, codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
+select  codigoCIIE, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta
 , tema, informacionRequerida, usoInformacion, generoSolicitante, estado, 'DELETE', getdate(), suser_sname()
 from deleted;
 end;
@@ -779,33 +928,31 @@ end;
 
  --Triggers
  go
-Create Trigger ACTUALIZAR_PrestamoEquipo_Trigger 
+alter Trigger ACTUALIZAR_PrestamoEquipo_Trigger 
 ON PrestamoEquipo
 for update 
 as 
-SET IDENTITY_INSERT dbo.AuditoriaPrestamoEquipo ON
 begin
 insert into AuditoriaPrestamoEquipo
-(Id, codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante, departamento, tipoEquipo, implementos, especificacionImplementos, 
+( codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante, departamento, tipoEquipo, implementos, especificacionImplementos, 
 generoSolicictante, estado, accion, fecha, usuarioBD)
 
-select Id, codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante,  departamento, tipoEquipo, implementos,
+select  codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante,  departamento, tipoEquipo, implementos,
 especificacionImplementos, generoSolicictante, estado, 'UPDATE', getdate(), suser_sname()
 from deleted;
 end;
 
  go
-Create Trigger BORRAR_PrestamoEquipo_Trigger 
+alter Trigger BORRAR_PrestamoEquipo_Trigger 
 ON PrestamoEquipo
 for DELETE
 as 
-SET IDENTITY_INSERT dbo.AuditoriaPrestamoEquipo ON
 begin
 insert into AuditoriaPrestamoEquipo
-(Id, codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante, departamento, tipoEquipo, implementos, especificacionImplementos, 
+( codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante, departamento, tipoEquipo, implementos, especificacionImplementos, 
 generoSolicictante, estado, accion, fecha, usuarioBD)
 
-select Id, codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante,  departamento, tipoEquipo, implementos,
+select  codigoPrestamoEquipo, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, cedulaSolicitante,  departamento, tipoEquipo, implementos,
 especificacionImplementos, generoSolicictante, estado, 'DELETE', getdate(), suser_sname()
 from deleted;
 end;
@@ -815,32 +962,32 @@ end;
 
 --TRIGGERS
  go
-Create Trigger ACTUALIZAR_PrestamoPermanente_Trigger 
+alter Trigger ACTUALIZAR_PrestamoPermanente_Trigger 
 ON PrestamoPermanente
 for update 
 as 
-SET IDENTITY_INSERT dbo.AuditoriaPrestamoPermanente ON
+
 begin
 insert into AuditoriaPrestamoPermanente
-(Id, codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo, estado, accion, fecha, usuarioBD)
+( codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo, estado, accion, fecha, usuarioBD)
 
-select Id, codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo,
+select  codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo,
 estado, 'UPDATE', getdate(), suser_sname()
 from deleted;
 end;
 
 
  go
-Create Trigger BORRAR_PrestamoPermanente_Trigger 
+alter Trigger BORRAR_PrestamoPermanente_Trigger 
 ON PrestamoPermanente
 for delete
 as 
-SET IDENTITY_INSERT dbo.AuditoriaPrestamoPermanente ON
+
 begin
 insert into AuditoriaPrestamoPermanente
-(Id, codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo, estado, accion, fecha, usuarioBD)
+( codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo, estado, accion, fecha, usuarioBD)
 
-select Id, codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo,
+select  codigoPrestamoPermanente, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, despacho, telefono, extension, informacionAdicional, generoSolicictante, fechaPrestamo,
 estado, 'DELETE', getdate(), suser_sname()
 from deleted;
 end;
@@ -849,33 +996,33 @@ end;
 
 --TRIGGERS
  go
-create Trigger ACTUALIZAR_Consultas_Trigger
+alter Trigger ACTUALIZAR_Consultas_Trigger
 ON Consulta
 for update 
 as 
-SET IDENTITY_INSERT dbo.AuditoriaConsulta ON
+
 begin
 insert into AuditoriaConsulta
-(Id, codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante, 
+( codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante, 
 estado, accion, fecha, usuarioBD)
 
-select Id, codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante,
+select  codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante,
 estado, 'UPDATE', getdate(), suser_sname()
 from deleted;
 end;
 
  go
-Create Trigger BORRAR_Consultas_Trigger
+alter Trigger BORRAR_Consultas_Trigger
 ON Consulta
 for delete
 as 
-SET IDENTITY_INSERT dbo.AuditoriaConsulta ON
+
 begin
 insert into AuditoriaConsulta
-(Id, codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante, 
+( codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante, 
 estado, accion, fecha, usuarioBD)
 
-select Id, codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante,
+select  codigoConsulta, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, asunto, descripcion, respuesta, metodoIngreso, generoSolicitante,
 estado, 'DELETE', getdate(), suser_sname()
 from deleted;
 end;
@@ -884,34 +1031,33 @@ end;
 
 --Trigger
  go
-create Trigger ACTUALIZAR_PrestamoAudiovisual_Trigger
+alter Trigger ACTUALIZAR_PrestamoAudiovisual_Trigger
 ON PrestamoAudiovisual
 for update 
 as 
-SET IDENTITY_INSERT dbo.AuditoriaPrestamoAudiovisual ON
+
 begin
 insert into AuditoriaPrestamoAudiovisual
-( Id, codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
+(  codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
 ubicacion, horaInicio, horaFin, descripcion, equipoRequerido, aforo, generoSolicitante, accion, fecha, usuarioBD)
 
-select Id, codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
+select  codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
 ubicacion, horaInicio, horaFin, descripcion, equipoRequerido, aforo, generoSolicitante, 'UPDATE', getdate(), suser_sname()
 from deleted;
 end;
 
 
  go
-create Trigger BORRAR_PrestamoAudiovisual_Trigger
+alter Trigger BORRAR_PrestamoAudiovisual_Trigger
 ON PrestamoAudiovisual
 for delete
 as
-SET IDENTITY_INSERT dbo.AuditoriaPrestamoAudiovisual ON
 begin
 insert into AuditoriaPrestamoAudiovisual
-( Id, codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
+(  codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
 ubicacion, horaInicio, horaFin, descripcion, equipoRequerido, aforo, generoSolicitante, accion, fecha, usuarioBD)
 
-select Id, codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
+select  codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, departamento, nombreActividad, categoria, especificacionCategoria,
 ubicacion, horaInicio, horaFin, descripcion, equipoRequerido, aforo, generoSolicitante, 'DELETE', getdate(), suser_sname()
 from deleted;
 end;
