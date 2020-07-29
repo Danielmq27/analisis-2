@@ -999,13 +999,17 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuditoriaConsultaController.cs" />
     <Compile Include="Controllers\AuditoriaFormularioCIIEController.cs" />
     <Compile Include="Controllers\AuditoriaPrestamoAudiovisualController.cs" />
     <Compile Include="Controllers\AuditoriaPrestamoEquipoController.cs" />
+    <Compile Include="Controllers\AuditoriaPrestamoPermanenteController.cs" />
+    <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\FormularioCIIEController.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
     <Compile Include="Controllers\PrestamoAudiovisualController.cs" />
     <Compile Include="Controllers\PrestamoEquipoController.cs" />
+    <Compile Include="Controllers\PrestamoPermanenteController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1178,6 +1182,16 @@
     <Content Include="Views\PrestamoAudiovisual\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaPrestamoAudiovisual\Index.cshtml" />
     <Content Include="Views\AuditoriaPrestamoAudiovisual\Detalles.cshtml" />
+    <Content Include="Views\PrestamoPermanente\Index.cshtml" />
+    <Content Include="Views\PrestamoPermanente\Agregar.cshtml" />
+    <Content Include="Views\PrestamoPermanente\Actualizar.cshtml" />
+    <Content Include="Views\AuditoriaPrestamoPermanente\Index.cshtml" />
+    <Content Include="Views\AuditoriaPrestamoPermanente\Detalles.cshtml" />
+    <Content Include="Views\Consulta\Index.cshtml" />
+    <Content Include="Views\Consulta\Agregar.cshtml" />
+    <Content Include="Views\Consulta\Actualizar.cshtml" />
+    <Content Include="Views\AuditoriaConsulta\Index.cshtml" />
+    <Content Include="Views\AuditoriaConsulta\Detalles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

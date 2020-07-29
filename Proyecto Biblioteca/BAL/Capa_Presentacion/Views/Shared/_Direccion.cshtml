@@ -209,18 +209,6 @@
                     <li class="header">NAVEGACIÓN PRINCIPAL</li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-users"></i> <span>Mantenimientos</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index", "Usuario")"><i class="fa fa-circle-o"></i>Usuarios</a></li>
-                            <li><a href="@Url.Action("Index", "Rol")"><i class="fa fa-circle-o"></i> Roles</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
                             <i class="fa fa-edit"></i> <span>Área Documental</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -229,21 +217,7 @@
                         <ul class="treeview-menu">
                             <li><a href="@Url.Action("Index", "PrestamoAudiovisual")"><i class="fa fa-circle-o"></i> Préstamo Audiovisual</a></li>
                             <li><a href="@Url.Action("Index", "PrestamoEquipo")"><i class="fa fa-circle-o"></i> Préstamo de Equipo</a></li>
-                            <li><a href=""><i class="fa fa-circle-o"></i> Préstamo Permanente</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="@Url.Action("Index", "FormularioCIIE")"><i class="fa fa-book"></i> <span>Formulario CIIE</span></a></li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-pie-chart"></i>
-                            <span>Graficar</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> Prestamos</a></li>
-                            <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Formulario CIIE</a></li>
+                            <li><a href="@Url.Action("Index", "PrestamoPermanente")"><i class="fa fa-circle-o"></i> Préstamo Permanente</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -257,8 +231,36 @@
                         <ul class="treeview-menu">
                             <li><a href="@Url.Action("Index", "AuditoriaPrestamoAudiovisual")"><i class="fa fa-circle-o"></i> Préstamo Audiovisual</a></li>
                             <li><a href="@Url.Action("Index", "AuditoriaPrestamoEquipo")"><i class="fa fa-circle-o"></i> Préstamo Equipo</a></li>
-                            <li><a href=""><i class="fa fa-circle-o"></i> Préstamo Permanente</a></li>
+                            <li><a href="@Url.Action("Index", "AuditoriaPrestamoPermanente")"><i class="fa fa-circle-o"></i> Préstamo Permanente</a></li>
                             <li><a href="@Url.Action("Index", "AuditoriaFormularioCIIE")"><i class="fa fa-circle-o"></i> Formulario CIIE</a></li>
+                            <li><a href="@Url.Action("Index", "AuditoriaConsulta")"><i class="fa fa-circle-o"></i> Consulta</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="@Url.Action("Index", "Consulta")"><i class="fa fa-book"></i> <span>Consulta</span></a></li>
+                    <li><a href="@Url.Action("Index", "FormularioCIIE")"><i class="fa fa-book"></i> <span>Formulario CIIE</span></a></li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-users"></i> <span>Mantenimientos</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("Index", "Usuario")"><i class="fa fa-circle-o"></i>Usuarios</a></li>
+                            <li><a href="@Url.Action("Index", "Rol")"><i class="fa fa-circle-o"></i> Roles</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Reporteria</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> Prestamos</a></li>
+                            <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Formulario CIIE</a></li>
                         </ul>
                     </li>
                 </ul>

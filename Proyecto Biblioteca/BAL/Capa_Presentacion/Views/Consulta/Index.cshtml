@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Capa_Presentacion.Models.PrestamoEquipo>
+﻿@model IEnumerable<Capa_Presentacion.Models.Consulta>
 
 @{
     ViewBag.Title = "Index";
@@ -10,7 +10,7 @@
         <div class="col-xs-12">
             <div>
                 <div class="box-header">
-                    <h3 class="box-title">PRESTAMOS DE EQUIPOS</h3>
+                    <h3 class="box-title">CONSULTAS</h3>
                 </div>
                 <div class="box-body">
                     @Html.ActionLink(" Agregar", "Agregar", null, new { @class = "btn btn-success btn-sm fa fa-plus" })
@@ -20,13 +20,10 @@
                         <thead>
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.CodigoPrestamoEquipo)
+                                    @Html.DisplayNameFor(model => model.CodigoConsulta)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.NombreSolicitante)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.CedulaSolicitante)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.FechaIngreso)
@@ -37,8 +34,7 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.Estado)
                                 </th>
-                                <th>
-                                </th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,15 +42,12 @@
                             {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.CodigoPrestamoEquipo)
+                                    @Html.DisplayFor(modelItem => item.CodigoConsulta)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.NombreSolicitante)
                                     @Html.DisplayFor(modelItem => item.ApellidoSolicitante1)
                                     @Html.DisplayFor(modelItem => item.ApellidoSolicitante2)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CedulaSolicitante)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.FechaIngreso)
