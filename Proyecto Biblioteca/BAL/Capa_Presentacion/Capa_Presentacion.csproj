@@ -1000,8 +1000,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuditoriaFormularioCIIEController.cs" />
+    <Compile Include="Controllers\AuditoriaPrestamoAudiovisualController.cs" />
+    <Compile Include="Controllers\AuditoriaPrestamoEquipoController.cs" />
     <Compile Include="Controllers\FormularioCIIEController.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
+    <Compile Include="Controllers\PrestamoAudiovisualController.cs" />
+    <Compile Include="Controllers\PrestamoEquipoController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1164,6 +1168,16 @@
     <Content Include="Views\FormularioCIIE\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaFormularioCIIE\Index.cshtml" />
     <Content Include="Views\AuditoriaFormularioCIIE\Detalles.cshtml" />
+    <Content Include="Views\PrestamoEquipo\Index.cshtml" />
+    <Content Include="Views\PrestamoEquipo\Agregar.cshtml" />
+    <Content Include="Views\PrestamoEquipo\Actualizar.cshtml" />
+    <Content Include="Views\AuditoriaPrestamoEquipo\Index.cshtml" />
+    <Content Include="Views\AuditoriaPrestamoEquipo\Detalles.cshtml" />
+    <Content Include="Views\PrestamoAudiovisual\Index.cshtml" />
+    <Content Include="Views\PrestamoAudiovisual\Agregar.cshtml" />
+    <Content Include="Views\PrestamoAudiovisual\Actualizar.cshtml" />
+    <Content Include="Views\AuditoriaPrestamoAudiovisual\Index.cshtml" />
+    <Content Include="Views\AuditoriaPrestamoAudiovisual\Detalles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

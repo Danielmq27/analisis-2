@@ -10,7 +10,7 @@ namespace Capa_Logica
     //Mapeo de los procedimientos almacenados en metodos para el sistema
     public class clsPrestamoAudiovisual
     {
-        //Metodo para consultar todos los Prestamos Audiovisuales
+        //Metodo para consultar todos los Prestamos Audiovisual
         public List<SELECCIONAR_AUDIOVISUAL_TODOResult> ConsultarPrestamosAudioVisual()
         {
             try

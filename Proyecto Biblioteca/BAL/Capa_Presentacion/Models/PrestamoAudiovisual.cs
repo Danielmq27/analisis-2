@@ -93,5 +93,10 @@ namespace Capa_Presentacion.Models
 
         [Required]
         public int Aforo { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        [Display(Name = "Género del Solicitante")]
+        public string GeneroSolicitante { get; set; }
     }
 }

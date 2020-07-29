@@ -12,7 +12,7 @@ namespace Capa_Logica
     public class clsPrestamoPermanente
     {
         //Metodo para consultar todos los Prestamos Permanentes
-        public List<SELECCIONAR_PrestamoPermanente_TODOResult> ConsultarPrestamosPermanentes()
+        public List<SELECCIONAR_PrestamoPermanente_TODOResult> ConsultarPrestamosPermanente()
         {
             try
             {

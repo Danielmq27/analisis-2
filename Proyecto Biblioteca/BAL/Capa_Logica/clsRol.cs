@@ -10,7 +10,7 @@ namespace Capa_Logica
     //Mapeo de los procedimientos almacenados en metodos para el sistema
     public class clsRol
     {
-        //Metodo para consultar todos los roles
+        //Metodo para consultar todos los Roles
         public List<SELECCIONAR_ROL_TODOResult> ConsultarRoles()
         {
             try
@@ -26,7 +26,7 @@ namespace Capa_Logica
 
         }
 
-        //Metodo para consultar un rol
+        //Metodo para consultar un Rol
         public List<SELECCIONAR_ROLResult> ConsultarRol(int Id)
         {
             try

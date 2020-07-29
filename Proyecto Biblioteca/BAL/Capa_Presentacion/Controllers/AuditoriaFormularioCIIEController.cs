@@ -16,8 +16,8 @@ namespace Capa_Presentacion.Controllers
             try
             {
                 List<AuditoriaFormularioCIIE> listaAuditoriaCIIE = new List<AuditoriaFormularioCIIE>();
-                clsAuditoriaFormularioCIIE formularioCIIE = new clsAuditoriaFormularioCIIE();
-                var data = formularioCIIE.ConsultarAuditoriasFormularioCIIE();
+                clsAuditoriaFormularioCIIE auditoriaFormularioCIIE = new clsAuditoriaFormularioCIIE();
+                var data = auditoriaFormularioCIIE.ConsultarAuditoriasFormularioCIIE();
                 foreach (var item in data)
                 {
                     AuditoriaFormularioCIIE modelo = new AuditoriaFormularioCIIE();
@@ -36,11 +36,9 @@ namespace Capa_Presentacion.Controllers
                     modelo.EspecificacionDespacho = item.especificacionDespacho;
                     modelo.UsoInformacion = item.usoInformacion;
                     modelo.GeneroSolicitante = item.generoSolicitante;
-                    modelo.GeneroSolicitante = item.generoSolicitante;
                     modelo.Estado = item.estado;
                     modelo.EspecificacionConsulta = item.especificacionConsulta;
                     modelo.TipoConsulta = item.tipoConsulta;
-                    modelo.Estado = item.estado;
 
                     listaAuditoriaCIIE.Add(modelo);
                 }
@@ -56,8 +54,8 @@ namespace Capa_Presentacion.Controllers
         {
             try
             {
-                clsAuditoriaFormularioCIIE formularioCIIE = new clsAuditoriaFormularioCIIE();
-                var dato = formularioCIIE.ConsultarAuditoriaFormularioCIIE(Id);
+                clsAuditoriaFormularioCIIE auditoriaFormularioCIIE = new clsAuditoriaFormularioCIIE();
+                var dato = auditoriaFormularioCIIE.ConsultarAuditoriaFormularioCIIE(Id);
                 AuditoriaFormularioCIIE modelo = new AuditoriaFormularioCIIE();
                 modelo.Id = Convert.ToInt32(dato[0].Id);
                 modelo.CodigoCIIE = dato[0].codigoCIIE;
@@ -74,11 +72,9 @@ namespace Capa_Presentacion.Controllers
                 modelo.EspecificacionDespacho = dato[0].especificacionDespacho;
                 modelo.UsoInformacion = dato[0].usoInformacion;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
-                modelo.GeneroSolicitante = dato[0].generoSolicitante;
                 modelo.Estado = dato[0].estado;
                 modelo.EspecificacionConsulta = dato[0].especificacionConsulta;
                 modelo.TipoConsulta = dato[0].tipoConsulta;
-                modelo.Estado = dato[0].estado;
                 return View(modelo);
             }
             catch
