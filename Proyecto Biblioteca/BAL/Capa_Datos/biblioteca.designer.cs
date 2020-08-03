@@ -625,13 +625,6 @@ namespace Capa_Datos
 			return ((ISingleResult<SELECCIONAR_AUDITORIA_AUDIOVISUALResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SELECCIONAR_AUDITORIA_Consulta")]
-		public ISingleResult<SELECCIONAR_AUDITORIA_ConsultaResult> SELECCIONAR_AUDITORIA_Consulta([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
-			return ((ISingleResult<SELECCIONAR_AUDITORIA_ConsultaResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SELECCIONAR_AUDITORIA_Consulta_TODO")]
 		public ISingleResult<SELECCIONAR_AUDITORIA_Consulta_TODOResult> SELECCIONAR_AUDITORIA_Consulta_TODO()
 		{
@@ -665,6 +658,13 @@ namespace Capa_Datos
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SELECCIONAR_AUDITORIA_PrestamoPermanente_TODOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SELECCIONAR_AUDITORIA_Consulta")]
+		public ISingleResult<SELECCIONAR_AUDITORIA_ConsultaResult> SELECCIONAR_AUDITORIA_Consulta([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((ISingleResult<SELECCIONAR_AUDITORIA_ConsultaResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -12521,284 +12521,6 @@ namespace Capa_Datos
 		}
 	}
 	
-	public partial class SELECCIONAR_AUDITORIA_ConsultaResult
-	{
-		
-		private int _Id;
-		
-		private string _codigoConsulta;
-		
-		private string _nombreSolicitante;
-		
-		private string _apellidoSolicitante1;
-		
-		private string _apellidoSolicitante2;
-		
-		private int _telefono;
-		
-		private string _email;
-		
-		private string _asunto;
-		
-		private string _descripcion;
-		
-		private string _respuesta;
-		
-		private string _metodoIngreso;
-		
-		private string _generoSolicitante;
-		
-		private System.DateTime _fechaIngreso;
-		
-		private System.DateTime _fechaRespuesta;
-		
-		private string _estado;
-		
-		public SELECCIONAR_AUDITORIA_ConsultaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigoConsulta", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-		public string codigoConsulta
-		{
-			get
-			{
-				return this._codigoConsulta;
-			}
-			set
-			{
-				if ((this._codigoConsulta != value))
-				{
-					this._codigoConsulta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreSolicitante", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
-		public string nombreSolicitante
-		{
-			get
-			{
-				return this._nombreSolicitante;
-			}
-			set
-			{
-				if ((this._nombreSolicitante != value))
-				{
-					this._nombreSolicitante = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellidoSolicitante1", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string apellidoSolicitante1
-		{
-			get
-			{
-				return this._apellidoSolicitante1;
-			}
-			set
-			{
-				if ((this._apellidoSolicitante1 != value))
-				{
-					this._apellidoSolicitante1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellidoSolicitante2", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string apellidoSolicitante2
-		{
-			get
-			{
-				return this._apellidoSolicitante2;
-			}
-			set
-			{
-				if ((this._apellidoSolicitante2 != value))
-				{
-					this._apellidoSolicitante2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="Int NOT NULL")]
-		public int telefono
-		{
-			get
-			{
-				return this._telefono;
-			}
-			set
-			{
-				if ((this._telefono != value))
-				{
-					this._telefono = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this._email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_asunto", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string asunto
-		{
-			get
-			{
-				return this._asunto;
-			}
-			set
-			{
-				if ((this._asunto != value))
-				{
-					this._asunto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(500)")]
-		public string descripcion
-		{
-			get
-			{
-				return this._descripcion;
-			}
-			set
-			{
-				if ((this._descripcion != value))
-				{
-					this._descripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_respuesta", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string respuesta
-		{
-			get
-			{
-				return this._respuesta;
-			}
-			set
-			{
-				if ((this._respuesta != value))
-				{
-					this._respuesta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_metodoIngreso", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string metodoIngreso
-		{
-			get
-			{
-				return this._metodoIngreso;
-			}
-			set
-			{
-				if ((this._metodoIngreso != value))
-				{
-					this._metodoIngreso = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicitante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string generoSolicitante
-		{
-			get
-			{
-				return this._generoSolicitante;
-			}
-			set
-			{
-				if ((this._generoSolicitante != value))
-				{
-					this._generoSolicitante = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaIngreso", DbType="Date NOT NULL")]
-		public System.DateTime fechaIngreso
-		{
-			get
-			{
-				return this._fechaIngreso;
-			}
-			set
-			{
-				if ((this._fechaIngreso != value))
-				{
-					this._fechaIngreso = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaRespuesta", DbType="Date NOT NULL")]
-		public System.DateTime fechaRespuesta
-		{
-			get
-			{
-				return this._fechaRespuesta;
-			}
-			set
-			{
-				if ((this._fechaRespuesta != value))
-				{
-					this._fechaRespuesta = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string estado
-		{
-			get
-			{
-				return this._estado;
-			}
-			set
-			{
-				if ((this._estado != value))
-				{
-					this._estado = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SELECCIONAR_AUDITORIA_Consulta_TODOResult
 	{
 		
@@ -14138,6 +13860,302 @@ namespace Capa_Datos
 				if ((this._fechaPrestamo != value))
 				{
 					this._fechaPrestamo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_estado", DbType="VarChar(20)")]
+		public string estado
+		{
+			get
+			{
+				return this._estado;
+			}
+			set
+			{
+				if ((this._estado != value))
+				{
+					this._estado = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accion", DbType="VarChar(30)")]
+		public string accion
+		{
+			get
+			{
+				return this._accion;
+			}
+			set
+			{
+				if ((this._accion != value))
+				{
+					this._accion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="Date")]
+		public System.Nullable<System.DateTime> fecha
+		{
+			get
+			{
+				return this._fecha;
+			}
+			set
+			{
+				if ((this._fecha != value))
+				{
+					this._fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usuarioBD", DbType="VarChar(200)")]
+		public string usuarioBD
+		{
+			get
+			{
+				return this._usuarioBD;
+			}
+			set
+			{
+				if ((this._usuarioBD != value))
+				{
+					this._usuarioBD = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SELECCIONAR_AUDITORIA_ConsultaResult
+	{
+		
+		private int _Id;
+		
+		private string _codigoConsulta;
+		
+		private string _nombreSolicitante;
+		
+		private string _apellidoSolicitante1;
+		
+		private string _apellidoSolicitante2;
+		
+		private System.Nullable<int> _telefono;
+		
+		private string _email;
+		
+		private string _asunto;
+		
+		private string _descripcion;
+		
+		private string _respuesta;
+		
+		private string _metodoIngreso;
+		
+		private string _generoSolicitante;
+		
+		private string _estado;
+		
+		private string _accion;
+		
+		private System.Nullable<System.DateTime> _fecha;
+		
+		private string _usuarioBD;
+		
+		public SELECCIONAR_AUDITORIA_ConsultaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codigoConsulta", DbType="VarChar(40)")]
+		public string codigoConsulta
+		{
+			get
+			{
+				return this._codigoConsulta;
+			}
+			set
+			{
+				if ((this._codigoConsulta != value))
+				{
+					this._codigoConsulta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombreSolicitante", DbType="VarChar(40)")]
+		public string nombreSolicitante
+		{
+			get
+			{
+				return this._nombreSolicitante;
+			}
+			set
+			{
+				if ((this._nombreSolicitante != value))
+				{
+					this._nombreSolicitante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellidoSolicitante1", DbType="VarChar(20)")]
+		public string apellidoSolicitante1
+		{
+			get
+			{
+				return this._apellidoSolicitante1;
+			}
+			set
+			{
+				if ((this._apellidoSolicitante1 != value))
+				{
+					this._apellidoSolicitante1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellidoSolicitante2", DbType="VarChar(20)")]
+		public string apellidoSolicitante2
+		{
+			get
+			{
+				return this._apellidoSolicitante2;
+			}
+			set
+			{
+				if ((this._apellidoSolicitante2 != value))
+				{
+					this._apellidoSolicitante2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_telefono", DbType="Int")]
+		public System.Nullable<int> telefono
+		{
+			get
+			{
+				return this._telefono;
+			}
+			set
+			{
+				if ((this._telefono != value))
+				{
+					this._telefono = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(100)")]
+		public string email
+		{
+			get
+			{
+				return this._email;
+			}
+			set
+			{
+				if ((this._email != value))
+				{
+					this._email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_asunto", DbType="VarChar(50)")]
+		public string asunto
+		{
+			get
+			{
+				return this._asunto;
+			}
+			set
+			{
+				if ((this._asunto != value))
+				{
+					this._asunto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(500)")]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_respuesta", DbType="VarChar(MAX)")]
+		public string respuesta
+		{
+			get
+			{
+				return this._respuesta;
+			}
+			set
+			{
+				if ((this._respuesta != value))
+				{
+					this._respuesta = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_metodoIngreso", DbType="VarChar(20)")]
+		public string metodoIngreso
+		{
+			get
+			{
+				return this._metodoIngreso;
+			}
+			set
+			{
+				if ((this._metodoIngreso != value))
+				{
+					this._metodoIngreso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicitante", DbType="VarChar(10)")]
+		public string generoSolicitante
+		{
+			get
+			{
+				return this._generoSolicitante;
+			}
+			set
+			{
+				if ((this._generoSolicitante != value))
+				{
+					this._generoSolicitante = value;
 				}
 			}
 		}

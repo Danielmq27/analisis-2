@@ -926,26 +926,6 @@
       <Column Name="usuarioBD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SELECCIONAR_AUDITORIA_Consulta" Method="SELECCIONAR_AUDITORIA_Consulta">
-    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
-    <ElementType Name="SELECCIONAR_AUDITORIA_ConsultaResult">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="codigoConsulta" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="asunto" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="respuesta" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="metodoIngreso" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="estado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.SELECCIONAR_AUDITORIA_Consulta_TODO" Method="SELECCIONAR_AUDITORIA_Consulta_TODO">
     <ElementType Name="SELECCIONAR_AUDITORIA_Consulta_TODOResult">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -1038,6 +1018,27 @@
       <Column Name="informacionAdicional" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="generoSolicictante" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="fechaPrestamo" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="accion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="usuarioBD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SELECCIONAR_AUDITORIA_Consulta" Method="SELECCIONAR_AUDITORIA_Consulta">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SELECCIONAR_AUDITORIA_ConsultaResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codigoConsulta" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="asunto" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="respuesta" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="metodoIngreso" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="estado" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="accion" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
