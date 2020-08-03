@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
-    <Name>BackUp</Name>
-    <LastWriteTime>2020-07-29T19:16:44.7398872Z</LastWriteTime>
+    <Name>Restore</Name>
+    <LastWriteTime>2020-07-29T21:36:59.6590776Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2020-07-30T04:50:14.5100958Z</LastWriteTime>
+      <LastWriteTime>2020-07-29T21:36:59.5952491Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

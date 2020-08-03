@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{EAB1EAA8-5E86-46DB-B64D-8C8553BCF0B9}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{28F40419-C69A-49DA-9C2E-58A1B7BF44BF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -156,11 +156,11 @@
           SQLTask:FileTypeSelected="0"
           SQLTask:FilePath=""
           SQLTask:FolderPath="D:\BackUpDb"
-          SQLTask:CleanSubFolders="False"
+          SQLTask:CleanSubFolders="True"
           SQLTask:FileExtension=".bak"
           SQLTask:AgeBased="True"
           SQLTask:DeleteSpecificFile="False"
-          SQLTask:RemoveOlderThan="4"
+          SQLTask:RemoveOlderThan="1"
           SQLTask:TimeUnitsType="1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -218,7 +218,7 @@
         <NodeLayout
           Size="160.8,41.6"
           Id="Package\Tarea de limpieza"
-          TopLeft="339.166653189395,284.266668925816" />
+          TopLeft="338.333319889175,283.400002252262" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="144.433331214057,59.2333334297604">
@@ -293,26 +293,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="66.2666640175719,46.8000007025407"
+              EndConnector="65.4333307173524,45.9333340289867"
               Start="0,0"
-              End="66.2666640175719,39.3000007025407">
+              End="65.4333307173524,38.4333340289867">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.4000003512704" />
+                    End="0,18.9666670144934" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.4000003512704"
-                    Point2="0,23.4000003512704"
-                    Point3="4,23.4000003512704" />
+                    Point1="0,18.9666670144934"
+                    Point2="0,22.9666670144934"
+                    Point3="4,22.9666670144934" />
                   <mssgle:LineSegment
-                    End="62.2666640175719,23.4000003512704" />
+                    End="61.4333307173524,22.9666670144934" />
                   <mssgle:CubicBezierSegment
-                    Point1="62.2666640175719,23.4000003512704"
-                    Point2="66.2666640175719,23.4000003512704"
-                    Point3="66.2666640175719,27.4000003512704" />
+                    Point1="61.4333307173524,22.9666670144934"
+                    Point2="65.4333307173524,22.9666670144934"
+                    Point3="65.4333307173524,26.9666670144934" />
                   <mssgle:LineSegment
-                    End="66.2666640175719,39.3000007025407" />
+                    End="65.4333307173524,38.4333340289867" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
