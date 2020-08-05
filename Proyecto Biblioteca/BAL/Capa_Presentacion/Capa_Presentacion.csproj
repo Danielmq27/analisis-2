@@ -1036,6 +1036,7 @@
     <Compile Include="Models\ValidacionesExistentes\CedulaExiste.cs" />
     <Compile Include="Models\ValidacionesExistentes\CorreoExiste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\Seguridad.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

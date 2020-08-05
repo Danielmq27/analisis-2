@@ -1,5 +1,6 @@
 ﻿using Capa_Logica;
 using Capa_Presentacion.Models;
+using Capa_Presentacion.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.Nombre = item.nombre;
                     modelo.Apellido1 = item.apellido1;
                     modelo.Apellido2 = item.apellido2;
-                    modelo.Email = item.email;
+                    modelo.Email = Seguridad.Desencriptar(item.email);
                     modelo.Clave = item.clave;
                     modelo.IdRol = item.IdRol;
 
@@ -63,7 +64,7 @@ namespace Capa_Presentacion.Controllers
                     return View(usuario);
                 }
                 clsUsuario objUsuario = new clsUsuario();
-                bool resultado = objUsuario.AgregarUsuario(usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, usuario.Email, usuario.Clave, usuario.IdRol);
+                bool resultado = objUsuario.AgregarUsuario(usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, Seguridad.Encriptar(usuario.Email), Seguridad.Encriptar(usuario.Clave), usuario.IdRol);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -84,12 +85,12 @@ namespace Capa_Presentacion.Controllers
             {
                 clsUsuario usuario = new clsUsuario();
                 var dato = usuario.ConsultarUsuario(Id);
-                Usuario modelo = new Usuario();
+                UsuarioEditar modelo = new UsuarioEditar();
                 modelo.Cedula = dato[0].cedula;
                 modelo.Nombre = dato[0].nombre;
                 modelo.Apellido1 = dato[0].apellido1;
                 modelo.Apellido2 = dato[0].apellido2;
-                modelo.Email = dato[0].email;
+                modelo.Email = Seguridad.Desencriptar(dato[0].email);
                 modelo.Clave = dato[0].clave;
                 modelo.IdRol = dato[0].IdRol;
                 return View(modelo);
@@ -100,7 +101,7 @@ namespace Capa_Presentacion.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Actualizar(int Id, Usuario usuario)
+        public ActionResult Actualizar(int Id, UsuarioEditar usuario)
         {
             try
             {
@@ -109,7 +110,7 @@ namespace Capa_Presentacion.Controllers
                     return View(usuario);
                 }
                 clsUsuario objUsuario = new clsUsuario();
-                bool resultado = objUsuario.ActualizarUsuario(usuario.Id, usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, usuario.Email, usuario.Clave, usuario.IdRol);
+                bool resultado = objUsuario.ActualizarUsuario(usuario.Id, usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, Seguridad.Encriptar(usuario.Email), Seguridad.Encriptar(usuario.Clave), usuario.IdRol);
                 if (resultado)
                 {
                     return RedirectToAction("Index");

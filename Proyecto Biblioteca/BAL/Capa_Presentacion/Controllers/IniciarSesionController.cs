@@ -1,5 +1,6 @@
 ﻿using Capa_Logica;
 using Capa_Presentacion.Models;
+using Capa_Presentacion.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace Capa_Presentacion.Controllers
             try
             {
                 clsUsuario usuario = new clsUsuario();
-                var objUsuario = usuario.Login(correo, clave);
+                var objUsuario = usuario.Login(Seguridad.Encriptar(correo), Seguridad.Encriptar(clave));
 
                 if (objUsuario.Count()>0)
                 {
