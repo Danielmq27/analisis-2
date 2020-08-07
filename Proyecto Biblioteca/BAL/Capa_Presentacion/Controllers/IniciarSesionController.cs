@@ -32,7 +32,8 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "IniciarSesion");
+                    TempData["msg"] = "<script>alert('Correo o contraseña incorrectos');</script>";
+                    return View("Index"); // Error 404
                 }
             }
             catch (Exception ex)

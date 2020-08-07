@@ -61,7 +61,7 @@
                                     </td>
                                     <td>
                                         @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" }) |
-                                        @Html.ActionLink(" Eliminar", "Eliminar", new { id = item.Id }, new { @class = "btn btn-danger btn-sm fa fa-trash-o" })
+                                        @Html.ActionLink(" Eliminar", "Eliminar", new { id = item.Id }, new { @class = "btn btn-danger btn-sm fa fa-trash-o", onclick = "return confirm ('Esta seguro que quieres eliminar este usuario?');"})
                                     </td>
                                 </tr>
                             }

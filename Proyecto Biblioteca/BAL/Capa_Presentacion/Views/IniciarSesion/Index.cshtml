@@ -1,6 +1,4 @@
-﻿@model IEnumerable<Capa_Presentacion.Models.Usuario>
-
-@{
+﻿@{
     Layout = null;
 }
 
@@ -15,6 +13,7 @@
     @System.Web.Optimization.Styles.Render("~/Css")
 </head>
 <body class="hold-transition login-page">
+    @Html.Raw(TempData["msg"])
     <div class="login-box">
         <div class="login-logo">
             <a href="../IniciarSesion/Index"><b>Biblioteca Asamblea Legislativa</b></a>
@@ -22,7 +21,6 @@
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">Por favor ingrese sus credenciales</p>
-
             <form action="@Url.Action("Entrar", "IniciarSesion")" id="frm" method="post">
                 <div class="form-group has-feedback">
                     <input type="email" class="form-control" placeholder="Correo" id="Correo" name="Correo" autocomplete="off" required>
@@ -50,7 +48,6 @@
         </div>
         <!-- /.login-box-body -->
     </div>
-    @System.Web.Optimization.Scripts.Render("~/Js")
 </body>
 </html>
 
