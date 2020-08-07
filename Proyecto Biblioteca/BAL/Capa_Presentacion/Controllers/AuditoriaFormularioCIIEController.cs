@@ -34,6 +34,8 @@ namespace Capa_Presentacion.Controllers
                     modelo.TipoDespacho = item.tipoDespacho;
                     modelo.Fraccion = item.fraccion;
                     modelo.EspecificacionDespacho = item.especificacionDespacho;
+                    modelo.Tema = item.tema;
+                    modelo.InformacionRequerida = item.informacionRequerida;
                     modelo.UsoInformacion = item.usoInformacion;
                     modelo.GeneroSolicitante = item.generoSolicitante;
                     modelo.Estado = item.estado;
@@ -70,6 +72,8 @@ namespace Capa_Presentacion.Controllers
                 modelo.TipoDespacho = dato[0].tipoDespacho;
                 modelo.Fraccion = dato[0].fraccion;
                 modelo.EspecificacionDespacho = dato[0].especificacionDespacho;
+                modelo.Tema = dato[0].tema;
+                modelo.InformacionRequerida = dato[0].informacionRequerida;
                 modelo.UsoInformacion = dato[0].usoInformacion;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
                 modelo.Estado = dato[0].estado;

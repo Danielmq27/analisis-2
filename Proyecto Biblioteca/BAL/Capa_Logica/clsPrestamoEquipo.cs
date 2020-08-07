@@ -41,7 +41,7 @@ namespace Capa_Logica
             }
         }
 
-        //Metodo para agregar un Prestamo Equipo
+        //Metodo para agregar un Prestamo de Equipo
         public bool AgregarPrestamoEquipo(string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, string Cedula, string Departamento, string TipoEquipo, string Implementos, string EspecificacionImplementos, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado)
         {
             try
@@ -65,7 +65,7 @@ namespace Capa_Logica
             }
         }
 
-        //Metodo para actualizar un Prestamo Equipo
+        //Metodo para actualizar un Prestamo de Equipo
         public bool ActualizarPrestamoEquipo(int Id, string CodigoPrestamoEquipo, string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, string Cedula, string Departamento, string TipoEquipo, string Implementos, string EspecificacionImplementos, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado)
         {
             try
@@ -80,7 +80,7 @@ namespace Capa_Logica
             }
         }
 
-        //Metodo para eliminar un Prestamo Equipo
+        //Metodo para eliminar un Prestamo de Equipo
         public bool EliminarPrestamoEquipo(int Id)
         {
             try

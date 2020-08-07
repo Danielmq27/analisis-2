@@ -29,6 +29,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.NombreSolicitante = item.nombreSolicitante;
                     modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
                     modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.Telefono = (int)item.telefono;
                     modelo.Departamento = item.departamento;
                     modelo.NombreActividad = item.nombreActividad;
                     modelo.Categoria = item.categoria;
@@ -66,6 +67,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
+                modelo.Telefono = (int)dato[0].telefono;
                 modelo.Departamento = dato[0].departamento;
                 modelo.NombreActividad = dato[0].nombreActividad;
                 modelo.Categoria = dato[0].categoria;
