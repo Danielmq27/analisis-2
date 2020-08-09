@@ -3447,16 +3447,30 @@ table.text-center, table.text-center td, table.text-center th {
 }
 
     .login-logo a, .register-logo a {
-        color: #444
+        color: #fff
     }
 
 .login-page, .register-page {
-    background: #d2d6de
+    background: linear-gradient(rgba(26, 26, 26,.7), rgba(26, 26, 26,.7)), url('../../../Imagenes/fondo.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 .login-box, .register-box {
     width: 360px;
     margin: 7% auto
+}
+
+.principal-texto, .principal-year{
+    text-align:center;
+}
+
+.principal-imagen {
+    display: block;
+    margin: auto;
+    height: 30%;
+    width: 30%
 }
 
 @media (max-width:768px) {

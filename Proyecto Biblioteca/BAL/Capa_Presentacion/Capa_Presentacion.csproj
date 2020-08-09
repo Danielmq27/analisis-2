@@ -109,6 +109,7 @@
     <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Imagenes\fondo.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
@@ -986,6 +987,7 @@
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Imagenes\logo.png" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -1005,11 +1007,13 @@
     <Compile Include="Controllers\AuditoriaPrestamoEquipoController.cs" />
     <Compile Include="Controllers\AuditoriaPrestamoPermanenteController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FormularioCIIEController.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
     <Compile Include="Controllers\PrestamoAudiovisualController.cs" />
     <Compile Include="Controllers\PrestamoEquipoController.cs" />
     <Compile Include="Controllers\PrestamoPermanenteController.cs" />
+    <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1162,7 +1166,7 @@
     <Content Include="Content\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Content\plugins\input-mask\phone-codes\phone-codes.json" />
     <None Include="packages.config" />
-    <Content Include="Views\Shared\_Direccion.cshtml" />
+    <Content Include="Views\Shared\_Administrador.cshtml" />
     <Content Include="Views\Rol\Index.cshtml" />
     <Content Include="Views\IniciarSesion\Index.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
@@ -1193,6 +1197,11 @@
     <Content Include="Views\Consulta\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaConsulta\Index.cshtml" />
     <Content Include="Views\AuditoriaConsulta\Detalles.cshtml" />
+    <Content Include="Views\Principal\Administrador.cshtml" />
+    <Content Include="Views\Principal\Editar.cshtml" />
+    <Content Include="Views\Principal\Consultar.cshtml" />
+    <Content Include="Views\Shared\_Consultar.cshtml" />
+    <Content Include="Views\Shared\_Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1203,6 +1212,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa_Datos\Capa_Datos.csproj">

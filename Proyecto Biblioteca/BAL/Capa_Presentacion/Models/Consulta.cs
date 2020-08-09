@@ -7,86 +7,88 @@ using System.Web;
 
 namespace Capa_Presentacion.Models
 {
+    //Mapeo de la tabla Consulta
     public class Consulta
     {
-        //El atributo Id no lleva ningun DataAnnotations ya que no se le monstrara al usuario
+        //Atrubuto Id
         public int Id { get; set; }
 
-        //El [Display] le otorga un nombre mas amigable al usuario
-        [Display(Name = "Código Consulta")]
         //Atributo CodigoCIIE
+        [Display(Name = "Código Consulta")]
         public string CodigoConsulta { get; set; }
 
-        //[Required] nos dice que este atributo es requerido
-        [Required]
-        //[StringLength] nos permite darle al campo un numero maximo de caracteres
-        [StringLength(40)]
-        //[RegularExpression("^[a-zA-Z])] nos permite decirle al usuario que este campo solo acepta caracteres de tipo [a-z y A-Z]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Nombre del Solicitante solo acepta letras")]
-        //El [Display] le otorga un nombre mas amigable al usuario
-        [Display(Name = "Nombre del Solicitante")]
         //Atributo NombreSolicitante
+        [Required]
+        [StringLength(40)]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Nombre del Solicitante solo acepta letras")]
+        [Display(Name = "Nombre del Solicitante")]
         public string NombreSolicitante { get; set; }
 
-        //[Required] nos dice que este atributo es requerido
-        [Required]
-        //[StringLength] nos permite darle al campo un numero maximo de caracteres
-        [StringLength(20)]
-        //[RegularExpression("^[a-zA-Z])] nos permite decirle al usuario que este campo solo acepta caracteres de tipo [a-z y A-Z]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Primer Apellido del Solicitante solo acepta letras")]
-        //El [Display] le otorga un nombre mas amigable al usuario
-        [Display(Name = "Primer Apellido del Solicitante")]
         //Atributo ApellidoSolicitante1
+        [Required]
+        [StringLength(20)]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Primer Apellido del Solicitante solo acepta letras")]
+        [Display(Name = "Primer Apellido del Solicitante")]
         public string ApellidoSolicitante1 { get; set; }
 
+        //Atributo ApellidoSolicitante2
         [Required]
         [StringLength(20)]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Segundo Apellido del Solicitante solo acepta letras")]
         [Display(Name = "Segundo Apellido del Solicitante")]
         public string ApellidoSolicitante2 { get; set; }
 
+        //Atributo Telefono
         [Required]
         [Display(Name = "Teléfono")]
         public int Telefono { get; set; }
 
+        //Atributo Email
         [Required]
         [EmailAddress]
         [StringLength(100)]
         [Display(Name = "Correo Electrónico")]
         public string Email { get; set; }
 
+        //Atributo Asunto
         [Required]
         [StringLength(50)]
         public string Asunto { get; set; }
 
+        //Atributo Descripcion
         [StringLength(500)]
         [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
 
+        //Atributo Respuesta
         [Required]
         public string Respuesta { get; set; }
 
+        //Atributo MetodoIngreso
         [Required]
         [StringLength(20)]
         [Display(Name = "Método de Ingreso")]
         public string MetodoIngreso { get; set; }
 
+        //Atributo FechaIngreso
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Fecha de Ingreso")]
         public DateTime FechaIngreso { get; set; }
 
+        //Atributo FechaRespuesta
         [Required]
         [DataType(DataType.Date)]
-        //Este atributo define si la fecha de respuesta es despues de la fecha inicial, si no dara un error //Esto no lo HE PROBADO
-        [GreaterThanEqualTo("FechaIngreso")]
+        [GreaterThanEqualTo("FechaIngreso", ErrorMessage = "La fecha de respuesta no puede ser menor a la fecha de ingreso")]
         [Display(Name = "Fecha de Respuesta")]
         public DateTime FechaRespuesta { get; set; }
 
+        //Atributo Estado
         [Required]
         [StringLength(20)]
         public string Estado { get; set; }
 
+        //Atributo GeneroSolicitante
         [Required]
         [StringLength(10)]
         [Display(Name = "Género del Solicitante")]

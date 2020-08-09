@@ -1,4 +1,5 @@
-﻿using Capa_Logica;
+﻿using Capa_Datos;
+using Capa_Logica;
 using Capa_Presentacion.Models;
 using Capa_Presentacion.Tools;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Usuario = Capa_Datos.Usuario;
 
 namespace Capa_Presentacion.Controllers
 {
@@ -23,17 +25,32 @@ namespace Capa_Presentacion.Controllers
             try
             {
                 clsUsuario usuario = new clsUsuario();
-                var objUsuario = usuario.Login(Seguridad.Encriptar(correo), Seguridad.Encriptar(clave));
-
-                if (objUsuario.Count()>0)
-                {
-                    Session["User"] = objUsuario.First();
-                    return RedirectToAction("Index", "Rol");
-                }
-                else
+                var oUsuario = usuario.Login(Seguridad.Encriptar(correo), Seguridad.Encriptar(clave)).First();
+                if (oUsuario == null)
                 {
                     TempData["msg"] = "<script>alert('Correo o contraseña incorrectos');</script>";
-                    return View("Index"); // Error 404
+                    return View("Index");
+                }
+                else if (oUsuario.IdRol == 1)
+                {
+                    Session["Usuario"] = oUsuario;
+                    Session["nombreUsuario"] = oUsuario.nombre + " " + oUsuario.apellido1;
+                    Session["Rol"] = "Administrador";
+                    return RedirectToAction("Administrador", "Principal");
+                } 
+                else if (oUsuario.IdRol == 2)
+                {
+                    Session["Usuario"] = oUsuario;
+                    Session["nombreUsuario"] = oUsuario.nombre + " " + oUsuario.apellido1;
+                    Session["Rol"] = "Editar";
+                    return RedirectToAction("Editar", "Principal");
+                } 
+                else
+                {
+                    Session["Usuario"] = oUsuario;
+                    Session["nombreUsuario"] = oUsuario.nombre + " " + oUsuario.apellido1;
+                    Session["Rol"] = "Consultar";
+                    return RedirectToAction("Consultar", "Principal");
                 }
             }
             catch (Exception ex)
