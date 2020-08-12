@@ -75,6 +75,7 @@ namespace Capa_Presentacion.Controllers
                 int cantidad = bd.Usuario.Where(p => p.email == Seguridad.Encriptar(correo) && p.cedula == cedula).Count();
                 if (cantidad == 0)
                 {
+                    //Mensaje de error
                     TempData["msg"] = "<script>alert('Usuario no existe');</script>";
                     return View("Recuperar");
                 }
@@ -94,8 +95,14 @@ namespace Capa_Presentacion.Controllers
                     //Encriptar la nueva clave
                      string contraEncriptada = Seguridad.Encriptar(nuevaContra);
 
-                    oUsuario.clave = contraEncriptada;
-                    Correo.enviarCorreo(correo, "Recuperar Clave", "Se reseteo su clave , ahora su clave es :" + nuevaContra, " ");
+                    //Actualizamos la contraseña del usuario
+                    clsUsuario clsUsuario = new clsUsuario();
+                    clsUsuario.ActualizarUsuario(oUsuario.Id, oUsuario.cedula, oUsuario.nombre, oUsuario.apellido1, oUsuario.apellido2, oUsuario.email, contraEncriptada, oUsuario.IdRol);
+
+                    //Enviamos el correo
+                    Correo.enviarCorreo(correo, "Recuperar Clave", "Se reseteo su clave , ahora su clave es :" + nuevaContra, "");
+
+                    //Mensaje de exito
                     TempData["msg"] = "<script>alert('Se ha enviado su nueva contraseña exitosamente al correo!');</script>";
                     return View("Index");
                 }

@@ -16,25 +16,24 @@ namespace Capa_Presentacion.Tools
             int rpta = 0;
             try
             {
+                //Atributos guardatos en el Web.config
                 string correo = ConfigurationManager.AppSettings["correo"];
                 string clave = ConfigurationManager.AppSettings["clave"];
                 string servidor = ConfigurationManager.AppSettings["servidor"];
                 int puerto = int.Parse(ConfigurationManager.AppSettings["puerto"]);
+
                 //Data del correo (definimos)
-                MailMessage mail = new MailMessage();
-                mail.Subject = asunto;
+                MailMessage mail = new MailMessage(correo, nombreCorreo, asunto, contenido);
                 mail.IsBodyHtml = true;
-                mail.Body = contenido;
-                mail.From = new MailAddress(correo);
-                mail.To.Add(new MailAddress(nombreCorreo));
+
                 //Envio de correo
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = servidor;
+                SmtpClient smtp = new SmtpClient(servidor);
                 smtp.EnableSsl = true;
                 smtp.Port = puerto;
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new NetworkCredential(correo, clave);
                 smtp.Send(mail);
+                smtp.Dispose();
                 rpta = 1;
 
             }

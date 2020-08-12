@@ -491,30 +491,6 @@ namespace Capa_Datos
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INSERTAR_CIIE")]
-		public int INSERTAR_CIIE(
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(40)")] string nombreSolicitante, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string apellidoSolicitante1, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string apellidoSolicitante2, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> telefono, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string email, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(40)")] string tipoDespacho, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string fraccion, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string especificacionDespacho, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string tipoConsulta, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string especificacionConsulta, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string tema, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string informacionRequerida, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(40)")] string usoInformacion, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string generoSolicitante, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fechaIngreso, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fechaRespuesta, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string estado)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta, tema, informacionRequerida, usoInformacion, generoSolicitante, fechaIngreso, fechaRespuesta, estado);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INSERTAR_CONSULTA")]
 		public int INSERTAR_CONSULTA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(40)")] string nombreSolicitante, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string apellidoSolicitante1, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string apellidoSolicitante2, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> telefono, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string asunto, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(500)")] string descripcion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string respuesta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string metodoIngreso, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string generoSolicitante, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fechaIngreso, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fechaRespuesta, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string estado)
 		{
@@ -665,6 +641,69 @@ namespace Capa_Datos
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((ISingleResult<SELECCIONAR_AUDITORIA_ConsultaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CantidadTipoUsuarioFromTo")]
+		public ISingleResult<CantidadTipoUsuarioFromToResult> CantidadTipoUsuarioFromTo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CantidadTipoUsuarioFromToResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CantidadTipoUsuarioIngreso")]
+		public ISingleResult<CantidadTipoUsuarioIngresoResult> CantidadTipoUsuarioIngreso([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CantidadTipoUsuarioIngresoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CantidadTipoUsuarioRespuesta")]
+		public ISingleResult<CantidadTipoUsuarioRespuestaResult> CantidadTipoUsuarioRespuesta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CantidadTipoUsuarioRespuestaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CantidaRangoFechasIngreso")]
+		public ISingleResult<CantidaRangoFechasIngresoResult> CantidaRangoFechasIngreso([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CantidaRangoFechasIngresoResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CantidaRangoFechasRespuesta")]
+		public ISingleResult<CantidaRangoFechasRespuestaResult> CantidaRangoFechasRespuesta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CantidaRangoFechasRespuestaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INSERTAR_CIIE")]
+		public int INSERTAR_CIIE(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(40)")] string nombreSolicitante, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string apellidoSolicitante1, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string apellidoSolicitante2, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> telefono, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string email, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(40)")] string tipoDespacho, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string fraccion, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string especificacionDespacho, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string tipoConsulta, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string especificacionConsulta, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string tema, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(MAX)")] string informacionRequerida, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(40)")] string usoInformacion, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(10)")] string generoSolicitante, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fechaIngreso, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fechaRespuesta, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string estado, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string cedulaUsuario, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(40)")] string nombre, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string apellido1, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string apellido2)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta, tema, informacionRequerida, usoInformacion, generoSolicitante, fechaIngreso, fechaRespuesta, estado, cedulaUsuario, nombre, apellido1, apellido2);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -14220,6 +14259,244 @@ namespace Capa_Datos
 				if ((this._usuarioBD != value))
 				{
 					this._usuarioBD = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CantidadTipoUsuarioFromToResult
+	{
+		
+		private string _Tipo_Usuario;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _Porcentaje;
+		
+		public CantidadTipoUsuarioFromToResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo_Usuario", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string Tipo_Usuario
+		{
+			get
+			{
+				return this._Tipo_Usuario;
+			}
+			set
+			{
+				if ((this._Tipo_Usuario != value))
+				{
+					this._Tipo_Usuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Porcentaje", DbType="Int")]
+		public System.Nullable<int> Porcentaje
+		{
+			get
+			{
+				return this._Porcentaje;
+			}
+			set
+			{
+				if ((this._Porcentaje != value))
+				{
+					this._Porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CantidadTipoUsuarioIngresoResult
+	{
+		
+		private string _tipoDespacho;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _Porcentaje;
+		
+		public CantidadTipoUsuarioIngresoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoDespacho", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string tipoDespacho
+		{
+			get
+			{
+				return this._tipoDespacho;
+			}
+			set
+			{
+				if ((this._tipoDespacho != value))
+				{
+					this._tipoDespacho = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Porcentaje", DbType="Int")]
+		public System.Nullable<int> Porcentaje
+		{
+			get
+			{
+				return this._Porcentaje;
+			}
+			set
+			{
+				if ((this._Porcentaje != value))
+				{
+					this._Porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CantidadTipoUsuarioRespuestaResult
+	{
+		
+		private string _tipoDespacho;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _Porcentaje;
+		
+		public CantidadTipoUsuarioRespuestaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipoDespacho", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string tipoDespacho
+		{
+			get
+			{
+				return this._tipoDespacho;
+			}
+			set
+			{
+				if ((this._tipoDespacho != value))
+				{
+					this._tipoDespacho = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Porcentaje", DbType="Int")]
+		public System.Nullable<int> Porcentaje
+		{
+			get
+			{
+				return this._Porcentaje;
+			}
+			set
+			{
+				if ((this._Porcentaje != value))
+				{
+					this._Porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CantidaRangoFechasIngresoResult
+	{
+		
+		private System.Nullable<int> _Column1;
+		
+		public CantidaRangoFechasIngresoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
+		public System.Nullable<int> Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CantidaRangoFechasRespuestaResult
+	{
+		
+		private System.Nullable<int> _Column1;
+		
+		public CantidaRangoFechasRespuestaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
+		public System.Nullable<int> Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
 				}
 			}
 		}

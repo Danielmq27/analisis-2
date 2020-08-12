@@ -67,6 +67,7 @@ namespace Capa_Presentacion.Controllers
                 bool resultado = objUsuario.AgregarUsuario(usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, Seguridad.Encriptar(usuario.Email), Seguridad.Encriptar(usuario.Clave), usuario.IdRol);
                 if (resultado)
                 {
+                    Correo.enviarCorreo(usuario.Email, "Biblioteca Asamble Legislativa","Bienvenido al sistema, su clave temporal es:" + usuario.Clave, "");
                     return RedirectToAction("Index");
                 } else
                 {

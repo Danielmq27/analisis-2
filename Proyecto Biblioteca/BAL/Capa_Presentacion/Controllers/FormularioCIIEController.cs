@@ -73,6 +73,7 @@ namespace Capa_Presentacion.Controllers
                 {
                     return View(formularioCIIE);
                 }
+                Capa_Datos.Usuario oUsuario = (Capa_Datos.Usuario)Session["Usuario"];
                 clsFormularioCIIE objFormularioCIIE = new clsFormularioCIIE();
                 bool resultado = objFormularioCIIE.AgregarFormularioCIIE(formularioCIIE.NombreSolicitante, formularioCIIE.ApellidoSolicitante1, formularioCIIE.ApellidoSolicitante2, formularioCIIE.Telefono, formularioCIIE.Email, formularioCIIE.TipoDespacho, formularioCIIE.Fraccion, formularioCIIE.EspecificacionDespacho, formularioCIIE.TipoConsulta, formularioCIIE.EspecificacionConsulta, formularioCIIE.Tema, formularioCIIE.InformacionRequerida, formularioCIIE.UsoInformacion, formularioCIIE.GeneroSolicitante, formularioCIIE.FechaIngreso, formularioCIIE.FechaRespuesta, formularioCIIE.Estado);
                 if (resultado)

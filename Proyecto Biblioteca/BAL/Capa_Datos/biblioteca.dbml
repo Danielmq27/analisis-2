@@ -738,26 +738,6 @@
     <Parameter Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.INSERTAR_CIIE" Method="INSERTAR_CIIE">
-    <Parameter Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
-    <Parameter Name="email" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="tipoDespacho" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="fraccion" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="especificacionDespacho" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="tipoConsulta" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="especificacionConsulta" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="tema" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="informacionRequerida" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="usoInformacion" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="estado" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.INSERTAR_CONSULTA" Method="INSERTAR_CONSULTA">
     <Parameter Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" />
     <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" />
@@ -1044,5 +1024,70 @@
       <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="usuarioBD" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.CantidadTipoUsuarioFromTo" Method="CantidadTipoUsuarioFromTo">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CantidadTipoUsuarioFromToResult">
+      <Column Name="Tipo_Usuario" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CantidadTipoUsuarioIngreso" Method="CantidadTipoUsuarioIngreso">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CantidadTipoUsuarioIngresoResult">
+      <Column Name="tipoDespacho" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CantidadTipoUsuarioRespuesta" Method="CantidadTipoUsuarioRespuesta">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CantidadTipoUsuarioRespuestaResult">
+      <Column Name="tipoDespacho" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CantidaRangoFechasIngreso" Method="CantidaRangoFechasIngreso">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CantidaRangoFechasIngresoResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CantidaRangoFechasRespuesta" Method="CantidaRangoFechasRespuesta">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CantidaRangoFechasRespuestaResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.INSERTAR_CIIE" Method="INSERTAR_CIIE">
+    <Parameter Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="tipoDespacho" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="fraccion" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="especificacionDespacho" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="tipoConsulta" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="especificacionConsulta" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="tema" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="informacionRequerida" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="usoInformacion" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="estado" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="cedulaUsuario" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellido1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="apellido2" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>
