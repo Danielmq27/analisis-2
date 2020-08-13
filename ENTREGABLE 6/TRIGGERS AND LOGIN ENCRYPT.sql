@@ -198,7 +198,7 @@ Se trabaja con dos variables temporales @maxcode, que se usa para almacenar el v
 en el IF, en la variable @codigoCIIE se almacena un valor construido por CAST del @maxCode, que servira para identificar las filas de las tablas de manera unica sin hacer referencia
 a la llave autoincremental*/
 GO
-create PROCEDURE INSERTAR_CIIE 
+alter PROCEDURE INSERTAR_CIIE 
 (@nombreSolicitante varchar(40), @apellidoSolicitante1 VARCHAR(20), @apellidoSolicitante2 VARCHAR(20), @telefono INTEGER,
 @email VARCHAR(100), @tipoDespacho VARCHAR(40), @fraccion VARCHAR(10), @especificacionDespacho VARCHAR(50),
 @tipoConsulta VARCHAR(20), @especificacionConsulta VARCHAR(50), @tema VARCHAR(50), @informacionRequerida VARCHAR(max), 
@@ -208,7 +208,7 @@ AS
 DECLARE
 @codigoCIIE varchar(40),
 @maxCode int;
-set @maxCode = (select MAX (Id) from [dbo].[FormularioCIIE]);
+set @maxCode = (select MAX (Consecutivo) from [dbo].[RefConsecutivoCIIE]);
 if( @maxCode IS NULL) 
 SET @codigoCIIE= 'CIIE-1'
 ELSE
@@ -307,7 +307,7 @@ Se trabaja con dos variables temporales @maxcode, que se usa para almacenar el v
 en el IF, en la variable @codigoPE se almacena un valor construido por CAST del @maxCode, que servira para identificar las filas de las tablas de manera unica sin hacer referencia
 a la llave autoincremental*/
 GO
-create PROCEDURE INSERTAR_PrestamoEquipo
+alter PROCEDURE INSERTAR_PrestamoEquipo
 (
 @nombreSolicitante VARCHAR(40) ,@apellidoSolicitante1 VARCHAR(20) ,@apellidoSolicitante2 VARCHAR(20) ,@cedulaSolicitante VARCHAR(20) ,@departamento VARCHAR(40) ,
 @tipoEquipo VARCHAR(20) ,@implementos VARCHAR(40),@especificacionImplementos VARCHAR(50),@generoSolicictante VARCHAR(10) ,
@@ -316,7 +316,7 @@ as
 declare
 @codigoPrestamoEquipo varchar(40),
 @maxCode int;
-set @maxCode = (select MAX (Id) from PrestamoEquipo);
+set @maxCode = (select MAX (Consecutivo) from RefConsecutivoPE);
 if( @maxCode IS NULL) 
 SET @codigoPrestamoEquipo= 'CPE-1'
 ELSE
@@ -411,7 +411,7 @@ Se trabaja con dos variables temporales @maxcode, que se usa para almacenar el v
 en el IF, en la variable @codigoPP se almacena un valor construido por CAST del @maxCode, que servira para identificar las filas de las tablas de manera unica sin hacer referencia
 a la llave autoincremental*/
 GO
-CREATE PROCEDURE INSERTAR_PrestamoPermanente
+Alter PROCEDURE INSERTAR_PrestamoPermanente
 (@nombreSolicitante VARCHAR(40) ,@apellidoSolicitante1 VARCHAR(20) ,@apellidoSolicitante2 VARCHAR(20) ,@despacho VARCHAR(40) ,@telefono INTEGER ,
 @extension VARCHAR(10),@informacionAdicional VARCHAR(max),@generoSolicictante VARCHAR(10) ,@fechaPrestamo DATE ,@estado VARCHAR(20),@cedulaUsuario varchar(20), @nombre VARCHAR(40),
 @apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
@@ -419,7 +419,7 @@ AS
 DECLARE
 @codigoPrestamoPermanente varchar(40),
 @maxCode int;
-set @maxCode = (select MAX (Id) from PrestamoPermanente);
+set @maxCode = (select MAX (Consecutivo) from RefConsecutivoPP);
 if( @maxCode IS NULL) 
 SET @codigoPrestamoPermanente= 'CPP-1'
 ELSE
@@ -519,7 +519,7 @@ Se trabaja con dos variables temporales @maxcode, que se usa para almacenar el v
 en el IF, en la variable @codigoConsulta se almacena un valor construido por CAST del @maxCode, que servira para identificar las filas de las tablas de manera unica sin hacer referencia
 a la llave autoincremental*/
 go
-create proc INSERTAR_CONSULTA
+alter proc INSERTAR_CONSULTA
 (@nombreSolicitante varchar(40) ,@apellidoSolicitante1 VARCHAR(20) ,@apellidoSolicitante2 VARCHAR(20) ,@telefono INTEGER ,
 @email VARCHAR(100) ,@asunto VARCHAR(50) ,@descripcion VARCHAR(500),@respuesta VARCHAR(max) ,@metodoIngreso VARCHAR(20) ,@generoSolicitante VARCHAR(10) ,
 @fechaIngreso DATE ,@fechaRespuesta DATE ,@estado VARCHAR(20),@cedulaUsuario varchar(20), @nombre VARCHAR(40),@apellido1 VARCHAR(20), @apellido2 VARCHAR(20))
@@ -527,7 +527,7 @@ AS
 DECLARE
 @codigoConsulta varchar(40),
 @maxCode int;
-set @maxCode = (select MAX (Id) from Consulta);
+set @maxCode = (select MAX (Consecutivo) from RefConsecutivoConsulta);
 if( @maxCode IS NULL) 
 SET @codigoConsulta= 'CC-1'
 ELSE
@@ -627,7 +627,7 @@ Se trabaja con dos variables temporales @maxcode, que se usa para almacenar el v
 en el IF, en la variable @codigoPA se almacena un valor construido por CAST del @maxCode, que servira para identificar las filas de las tablas de manera unica sin hacer referencia
 a la llave autoincremental*/
 GO
-CREATE PROC INSERTAR_AUDIOVISUAL
+alter PROC INSERTAR_AUDIOVISUAL
 (@nombreSolicitante varchar(40) ,@apellidoSolicitante1 VARCHAR(20) ,@apellidoSolicitante2 VARCHAR(20) ,@telefono INTEGER ,@departamento VARCHAR(40),
 @nombreActividad VARCHAR(50) ,@categoria VARCHAR(40) ,@especificacionCategoria VARCHAR(100),@ubicacion VARCHAR(100),@horaInicio DATETIME ,
 @horaFin DATETIME ,@descripcion VARCHAR(500) ,@equipoRequerido VARCHAR(40) ,@aforo INTEGER ,@generoSolicitante VARCHAR(10) ,
@@ -637,7 +637,7 @@ AS
 DECLARE
 @codigoAudiovisual varchar(40),
 @maxCode int;
-set @maxCode = (select MAX (Id) from PrestamoAudiovisual);
+set @maxCode = (select MAX (Consecutivo) from RefConsecutivoPA);
 if( @maxCode IS NULL) 
 SET @codigoAudiovisual= 'CPA-1'
 ELSE
@@ -1061,3 +1061,121 @@ select  codigoPrestamoAudiovisual, nombreSolicitante, apellidoSolicitante1, apel
 ubicacion, horaInicio, horaFin, descripcion, equipoRequerido, aforo, generoSolicitante, 'DELETE', getdate(), suser_sname()
 from deleted;
 end;
+
+
+--Triggers de referencia consecutiva
+GO
+CREATE TRIGGER INSERTAR_CONSECUTIVO_CIIE
+ON FormularioCIIE
+for insert
+as
+begin
+insert into RefConsecutivoCIIE
+(Consecutivo)
+SELECT Id
+from inserted
+END
+
+--Triggers de referencia consecutiva
+GO
+CREATE TRIGGER INSERTAR_CONSECUTIVO_PE
+ON PrestamoEquipo
+for insert
+as
+begin
+insert into RefConsecutivoPE
+(Consecutivo)
+SELECT Id
+from inserted
+END
+
+--Triggers de referencia consecutiva
+GO
+CREATE TRIGGER INSERTAR_CONSECUTIVO_PP
+ON PrestamoPermanente
+for insert
+as
+begin
+insert into RefConsecutivoPP
+(Consecutivo)
+SELECT Id
+from inserted
+END
+
+
+--Triggers de referencia consecutiva
+GO
+CREATE TRIGGER INSERTAR_CONSECUTIVO_CONSULTA
+ON Consulta
+for insert
+as
+begin
+insert into RefConsecutivoConsulta
+(Consecutivo)
+SELECT Id
+from inserted
+END
+
+
+--Triggers de referencia consecutiva
+GO
+CREATE TRIGGER INSERTAR_CONSECUTIVO_PA
+ON PrestamoAudiovisual
+for insert
+as
+begin
+insert into RefConsecutivoPA
+(Consecutivo)
+SELECT Id
+from inserted
+END
+
+
+
+/*--Funcion full borrado + identity
+El siguiente procedimiento recibe 3 variables como parametro desde el sistema, con estas se hace un borrado 
+en secuencia respetando las dependencias de las llaves foraneas, de manera tal que se borra la tabla de 
+referncia (alimentada por el trigger para obtener los consecutivos), la tabla de control de usuarios por formulario y la tabla del formulario
+reiniciando el Identity con el comando 'RESEED, 0'*/
+GO
+
+CREATE PROCEDURE [dbo].[BORRAR_TABLAS]
+(	
+	@psTabla VARCHAR(100),
+	@psTabla1 VARCHAR(100),
+	@psTabla2 VARCHAR(100)
+)
+AS 
+BEGIN
+	
+	DECLARE @Tabla	AS NVARCHAR(2000)
+	DECLARE @Indice AS NVARCHAR(2000)
+
+	DECLARE @Tabla1	AS NVARCHAR(2000)
+	DECLARE @Indice1 AS NVARCHAR(2000)
+
+	DECLARE @Tabla2	AS NVARCHAR(2000)
+	DECLARE @Indice2 AS NVARCHAR(2000)
+
+	SET @Tabla = 'DELETE FROM ' +  @psTabla
+	EXEC sp_executesql @Tabla
+
+	SET @Indice = 'DBCC CHECKIDENT(' + CHAR(39) + @psTabla + CHAR(39) + ', RESEED, 0)'
+	EXEC sp_executesql @Indice
+
+
+	SET @Tabla1 = 'DELETE FROM ' +  @psTabla1
+	EXEC sp_executesql @Tabla1
+
+	SET @Indice1 = 'DBCC CHECKIDENT(' + CHAR(39) + @psTabla1 + CHAR(39) + ', RESEED, 0)'
+	EXEC sp_executesql @Indice1
+
+
+	SET @Tabla2 = 'DELETE FROM ' +  @psTabla2
+	EXEC sp_executesql @Tabla2
+
+	SET @Indice2 = 'DBCC CHECKIDENT(' + CHAR(39) + @psTabla2 + CHAR(39) + ', RESEED, 0)'
+	EXEC sp_executesql @Indice2
+	
+END
+
