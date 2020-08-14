@@ -54,7 +54,8 @@
                                     </td>
                                     <td>
                                         @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" }) |
-                                        @Html.ActionLink(" Eliminar", "Eliminar", new { id = item.Id }, new { @class = "btn btn-danger btn-sm fa fa-trash-o", onclick = "return confirm ('Estas seguro? Esta opción elimina todas las trazas de auditoria');" })
+                                        @Html.ActionLink(" Eliminar", "Eliminar", new { id = item.Id }, new { @class = "btn btn-danger btn-sm fa fa-trash-o" }) |
+                                        @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
                                     </td>
                                 </tr>
                             }
@@ -62,7 +63,7 @@
                         <tfoot>
                             <tr>
                                 <td>
-                                    @Html.ActionLink(" Eliminar tabla", "EliminarTabla", null, new { @class = "btn btn-danger btn-sm fa fa-trash-o" })
+                                    @Html.ActionLink(" Eliminar tabla", "EliminarTabla", null, new { @class = "btn btn-danger btn-sm fa fa-trash-o", onclick = "return confirm ('Estas seguro? Esta opción elimina todas las trazas de auditoria');" })
                                 </td>
                             </tr>
                         </tfoot>

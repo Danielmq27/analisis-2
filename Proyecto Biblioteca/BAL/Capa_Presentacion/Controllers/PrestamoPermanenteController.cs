@@ -150,7 +150,7 @@ namespace Capa_Presentacion.Controllers
                     Apellido1Usuario, Apellido2Usuario);
                 if (resultado)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Administrador");
                 }
                 else
                 {
@@ -201,15 +201,20 @@ namespace Capa_Presentacion.Controllers
                     return View(prestamoPermanente);
                 }
                 clsPrestamoPermanente objPrestamoPermanente = new clsPrestamoPermanente();
+                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
+                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
                 bool resultado = objPrestamoPermanente.ActualizarPrestamoPermanente(prestamoPermanente.Id, 
                     prestamoPermanente.CodigoPrestamoPermanente, prestamoPermanente.NombreSolicitante, 
                     prestamoPermanente.ApellidoSolicitante1, prestamoPermanente.ApellidoSolicitante2,
                     prestamoPermanente.Despacho, prestamoPermanente.Telefono, prestamoPermanente.Extension,
                     prestamoPermanente.InformacionAdicional, prestamoPermanente.GeneroSolicitante, 
-                    prestamoPermanente.FechaPrestamo, prestamoPermanente.Estado);
+                    prestamoPermanente.FechaPrestamo, prestamoPermanente.Estado, CedulaUsuario, NombreUsuario, 
+                    Apellido1Usuario, Apellido2Usuario);
                 if (resultado)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Administrador");
                 }
                 else
                 {
@@ -222,6 +227,39 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
+        public ActionResult Detalles(int id)
+        {
+            try
+            {
+                clsPrestamoPermanente prestamoPermanente = new clsPrestamoPermanente();
+                var dato = prestamoPermanente.ConsultarPrestamoPermanente(id);
+                PrestamoPermanente modelo = new PrestamoPermanente();
+                modelo.Id = dato[0].Id;
+                modelo.CodigoPrestamoPermanente = dato[0].codigoPrestamoPermanente;
+                modelo.NombreSolicitante = dato[0].nombreSolicitante;
+                modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
+                modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
+                modelo.Despacho = dato[0].despacho;
+                modelo.Telefono = dato[0].telefono;
+                modelo.Extension = dato[0].extension;
+                modelo.InformacionAdicional = dato[0].informacionAdicional;
+                modelo.GeneroSolicitante = dato[0].generoSolicictante;
+                modelo.FechaPrestamo = dato[0].fechaPrestamo;
+                modelo.Estado = dato[0].estado;
+                modelo.CedulaUsuario = dato[0].cedulaUsuario;
+                modelo.Nombre = dato[0].nombre;
+                modelo.Apellido1 = dato[0].apellido1;
+                modelo.Apellido2 = dato[0].apellido2;
+
+                return View(modelo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
 
         public ActionResult Eliminar(int Id)
         {

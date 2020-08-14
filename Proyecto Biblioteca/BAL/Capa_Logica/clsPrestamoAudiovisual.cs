@@ -66,12 +66,18 @@ namespace Capa_Logica
         }
 
         //Metodo para actualizar un Prestamo Audiovisual
-        public bool ActualizarPrestamoAudioVisual(int Id, string CodigoPrestamoAudioVisual, string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, int Telefono, string Departamento, string NombreActividad, string Categoria, string EspecificacionCategoria, string Ubicacion, DateTime HoraInicio, DateTime HoraFinal, string Descripcion, string EquipoRequerido, int Aforo, string GneroSolicitante)
+        public bool ActualizarPrestamoAudioVisual(int Id, string CodigoPrestamoAudioVisual, string NombreSolicitante, 
+            string Apellido1Solicitante, string Apellido2Solicitante, int Telefono, string Departamento, string NombreActividad,
+            string Categoria, string EspecificacionCategoria, string Ubicacion, DateTime HoraInicio, DateTime HoraFinal,
+            string Descripcion, string EquipoRequerido, int Aforo, string GneroSolicitante, string Cedula, string Nombre, 
+            string Apellido1, string Apellido2)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.ACTUALIZAR_AUDIOVISUAL(Id, CodigoPrestamoAudioVisual, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Telefono, Departamento, NombreActividad, Categoria, EspecificacionCategoria, Ubicacion, HoraInicio, HoraFinal, Descripcion, EquipoRequerido, Aforo, GneroSolicitante);
+                dc.ACTUALIZAR_AUDIOVISUAL(Id, CodigoPrestamoAudioVisual, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante,
+                    Telefono, Departamento, NombreActividad, Categoria, EspecificacionCategoria, Ubicacion, HoraInicio, HoraFinal, 
+                    Descripcion, EquipoRequerido, Aforo, GneroSolicitante, Cedula, Nombre, Apellido1, Apellido2);
                 return true;
             }
             catch (Exception)

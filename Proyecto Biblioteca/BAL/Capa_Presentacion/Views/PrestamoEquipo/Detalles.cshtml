@@ -1,0 +1,155 @@
+﻿@model Capa_Presentacion.Models.PrestamoEquipo
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Administrador.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>PrestamoEquipo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoPrestamoEquipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoPrestamoEquipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreSolicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreSolicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApellidoSolicitante1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApellidoSolicitante1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApellidoSolicitante2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApellidoSolicitante2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CedulaSolicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CedulaSolicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoEquipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoEquipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Implementos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Implementos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EspecificacionImplementos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EspecificacionImplementos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GeneroSolicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeneroSolicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaIngreso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaRespuesta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRespuesta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CedulaUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CedulaUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

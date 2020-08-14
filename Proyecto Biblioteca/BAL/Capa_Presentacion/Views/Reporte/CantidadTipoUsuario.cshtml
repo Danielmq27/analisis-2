@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Administrador.cshtml";
 }
 <div class="content">
+    @Html.Raw(TempData["msg"])
     <form action="@Url.Action("ReporteCantidadTipoUsuario", "Reporte")" id="frm" method="post">
         <div class="form-group">
             <div class="col-xs-12">

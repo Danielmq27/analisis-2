@@ -73,12 +73,15 @@ namespace Capa_Logica
         //Metodo para actualizar un Prestamo de Equipo
         public bool ActualizarPrestamoEquipo(int Id, string CodigoPrestamoEquipo, string NombreSolicitante, string Apellido1Solicitante,
             string Apellido2Solicitante, string Cedula, string Departamento, string TipoEquipo, string Implementos, 
-            string EspecificacionImplementos, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado)
+            string EspecificacionImplementos, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, 
+            string Estado, string CedulaUsuario, string Nombre, string Apellido1, string Apellido2)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.ACTUALIZAR_PrestamoEquipo(Id, CodigoPrestamoEquipo, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Cedula, Departamento, TipoEquipo, Implementos, EspecificacionImplementos, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado);
+                dc.ACTUALIZAR_PrestamoEquipo(Id, CodigoPrestamoEquipo, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, 
+                    Cedula, Departamento, TipoEquipo, Implementos, EspecificacionImplementos, GeneroSolicitante, FechaIngreso,
+                    FechaRespuesta, Estado, CedulaUsuario, Nombre, Apellido1, Apellido2);
                 return true;
             }
             catch (Exception)

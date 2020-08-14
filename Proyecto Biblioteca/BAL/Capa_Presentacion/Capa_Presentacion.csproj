@@ -1229,6 +1229,10 @@
     <Content Include="Views\PrestamoPermanente\Editar.cshtml" />
     <Content Include="Views\PrestamoPermanente\Consultar.cshtml" />
     <Content Include="Views\FormularioCIIE\Detalles.cshtml" />
+    <Content Include="Views\Consulta\Detalles.cshtml" />
+    <Content Include="Views\PrestamoAudiovisual\Detalles.cshtml" />
+    <Content Include="Views\PrestamoEquipo\Detalles.cshtml" />
+    <Content Include="Views\PrestamoPermanente\Detalles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

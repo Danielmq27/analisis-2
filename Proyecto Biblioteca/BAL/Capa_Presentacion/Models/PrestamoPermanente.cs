@@ -73,5 +73,23 @@ namespace Capa_Presentacion.Models
         [Required]
         [StringLength(20)]
         public string Estado { get; set; }
+
+        //*Control*//
+
+        //Atributo CedulaUsuario
+        [Display(Name = "Cédula Usuario")]
+        public string CedulaUsuario { get; set; }
+
+        //Atributo NombreUsuario
+        [Display(Name = "Nombre")]
+        public string Nombre { get; set; }
+
+        //Atributo ApellidoUsuario1
+        [Display(Name = "Primer apellido")]
+        public string Apellido1 { get; set; }
+
+        //Atributo ApellidoUsuario2
+        [Display(Name = "Segundo apellido")]
+        public string Apellido2 { get; set; }
     }
 }
