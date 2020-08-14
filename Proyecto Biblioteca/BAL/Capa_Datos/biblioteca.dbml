@@ -363,14 +363,6 @@
       <Column Name="descripcion" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SELECCIONAR_ROL" Method="SELECCIONAR_ROL">
-    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="SELECCIONAR_ROLResult">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.SELECCIONAR_REFERENCIA_TODO" Method="SELECCIONAR_REFERENCIA_TODO">
     <ElementType Name="SELECCIONAR_REFERENCIA_TODOResult">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -1088,6 +1080,12 @@
     <Parameter Name="nombre" Type="System.String" DbType="VarChar(40)" />
     <Parameter Name="apellido1" Type="System.String" DbType="VarChar(20)" />
     <Parameter Name="apellido2" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BORRAR_TABLAS" Method="BORRAR_TABLAS">
+    <Parameter Name="psTabla" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="psTabla1" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="psTabla2" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

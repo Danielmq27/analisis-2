@@ -316,13 +316,6 @@ namespace Capa_Datos
 			return ((ISingleResult<SELECCIONAR_ROL_TODOResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SELECCIONAR_ROL")]
-		public ISingleResult<SELECCIONAR_ROLResult> SELECCIONAR_ROL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Id", DbType="Int")] System.Nullable<int> id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
-			return ((ISingleResult<SELECCIONAR_ROLResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SELECCIONAR_REFERENCIA_TODO")]
 		public ISingleResult<SELECCIONAR_REFERENCIA_TODOResult> SELECCIONAR_REFERENCIA_TODO()
 		{
@@ -703,6 +696,13 @@ namespace Capa_Datos
 					[global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string apellido2)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nombreSolicitante, apellidoSolicitante1, apellidoSolicitante2, telefono, email, tipoDespacho, fraccion, especificacionDespacho, tipoConsulta, especificacionConsulta, tema, informacionRequerida, usoInformacion, generoSolicitante, fechaIngreso, fechaRespuesta, estado, cedulaUsuario, nombre, apellido1, apellido2);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BORRAR_TABLAS")]
+		public int BORRAR_TABLAS([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string psTabla, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string psTabla1, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string psTabla2)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), psTabla, psTabla1, psTabla2);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -7614,68 +7614,6 @@ namespace Capa_Datos
 		private string _descripcion;
 		
 		public SELECCIONAR_ROL_TODOResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this._nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string descripcion
-		{
-			get
-			{
-				return this._descripcion;
-			}
-			set
-			{
-				if ((this._descripcion != value))
-				{
-					this._descripcion = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SELECCIONAR_ROLResult
-	{
-		
-		private int _Id;
-		
-		private string _nombre;
-		
-		private string _descripcion;
-		
-		public SELECCIONAR_ROLResult()
 		{
 		}
 		

@@ -11,7 +11,87 @@ namespace Capa_Presentacion.Controllers
     public class PrestamoAudiovisualController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Administrador()
+        {
+            try
+            {
+                List<PrestamoAudiovisual> listaPrestamoAudiovisual = new List<PrestamoAudiovisual>();
+                clsPrestamoAudiovisual prestamoAudiovisual = new clsPrestamoAudiovisual();
+                var data = prestamoAudiovisual.ConsultarPrestamosAudioVisual().ToList();
+                foreach (var item in data)
+                {
+                    PrestamoAudiovisual modelo = new PrestamoAudiovisual();
+                    modelo.Id = item.Id;
+                    modelo.CodigoPrestamoAudiovisual = item.codigoPrestamoAudiovisual;
+                    modelo.NombreSolicitante = item.nombreSolicitante;
+                    modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
+                    modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.Telefono = item.telefono;
+                    modelo.Departamento = item.departamento;
+                    modelo.NombreActividad = item.nombreActividad;
+                    modelo.Categoria = item.categoria;
+                    modelo.EspecificacionCategoria = item.especificacionCategoria;
+                    modelo.Ubicacion = item.ubicacion;
+                    modelo.HoraInicio = item.horaInicio;
+                    modelo.HoraFinal = item.horaFin;
+                    modelo.Descripcion = item.descripcion;
+                    modelo.EquipoRequerido = item.equipoRequerido;
+                    modelo.Aforo = item.aforo;
+                    modelo.GeneroSolicitante = item.generoSolicitante;
+
+                    listaPrestamoAudiovisual.Add(modelo);
+                }
+
+                return View(listaPrestamoAudiovisual);
+            }
+            catch
+            {
+                return RedirectToAction("505", "Error");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Editar()
+        {
+            try
+            {
+                List<PrestamoAudiovisual> listaPrestamoAudiovisual = new List<PrestamoAudiovisual>();
+                clsPrestamoAudiovisual prestamoAudiovisual = new clsPrestamoAudiovisual();
+                var data = prestamoAudiovisual.ConsultarPrestamosAudioVisual().ToList();
+                foreach (var item in data)
+                {
+                    PrestamoAudiovisual modelo = new PrestamoAudiovisual();
+                    modelo.Id = item.Id;
+                    modelo.CodigoPrestamoAudiovisual = item.codigoPrestamoAudiovisual;
+                    modelo.NombreSolicitante = item.nombreSolicitante;
+                    modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
+                    modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.Telefono = item.telefono;
+                    modelo.Departamento = item.departamento;
+                    modelo.NombreActividad = item.nombreActividad;
+                    modelo.Categoria = item.categoria;
+                    modelo.EspecificacionCategoria = item.especificacionCategoria;
+                    modelo.Ubicacion = item.ubicacion;
+                    modelo.HoraInicio = item.horaInicio;
+                    modelo.HoraFinal = item.horaFin;
+                    modelo.Descripcion = item.descripcion;
+                    modelo.EquipoRequerido = item.equipoRequerido;
+                    modelo.Aforo = item.aforo;
+                    modelo.GeneroSolicitante = item.generoSolicitante;
+
+                    listaPrestamoAudiovisual.Add(modelo);
+                }
+
+                return View(listaPrestamoAudiovisual);
+            }
+            catch
+            {
+                return RedirectToAction("505", "Error");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Consultar()
         {
             try
             {
@@ -156,7 +236,7 @@ namespace Capa_Presentacion.Controllers
                 bool resultado = prestamoAudiovisual.EliminarPrestamoAudioVisual(Id);
                 if (resultado)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Administrador");
                 }
                 else
                 {

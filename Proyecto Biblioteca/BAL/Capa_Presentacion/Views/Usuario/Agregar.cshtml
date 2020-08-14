@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Agregar";
     Layout = "~/Views/Shared/_Administrador.cshtml";
+    List<SelectListItem> listaRoles = (List<SelectListItem>)ViewBag.lista;
 }
 @using (Html.BeginForm())
 {
@@ -63,14 +64,15 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.IdRol, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.IdRol, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.IdRol, new SelectList(ViewBag.listaRoles, "Id", "nombre"), "Seleccione", new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.IdRol, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Crear" class="btn btn-default" />
+                    @Html.ActionLink("Cancelar", "Index", "Usuario", null, new { @class = "btn btn-danger" })
+                    <input type="submit" value="Guardar" class="btn btn-success" />
                 </div>
             </div>
         </div>

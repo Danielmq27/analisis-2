@@ -11,7 +11,83 @@ namespace Capa_Presentacion.Controllers
     public class PrestamoEquipoController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Administrador()
+        {
+            try
+            {
+                List<PrestamoEquipo> listaPrestamoEquipo = new List<PrestamoEquipo>();
+                clsPrestamoEquipo prestamoEquipo = new clsPrestamoEquipo();
+                var data = prestamoEquipo.ConsultarPrestamosEquipo().ToList();
+                foreach (var item in data)
+                {
+                    PrestamoEquipo modelo = new PrestamoEquipo();
+                    modelo.Id = item.Id;
+                    modelo.CodigoPrestamoEquipo = item.codigoPrestamoEquipo;
+                    modelo.NombreSolicitante = item.nombreSolicitante;
+                    modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
+                    modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.CodigoPrestamoEquipo = item.codigoPrestamoEquipo;
+                    modelo.CedulaSolicitante = item.cedulaSolicitante;
+                    modelo.Departamento = item.departamento;
+                    modelo.TipoEquipo = item.tipoEquipo;
+                    modelo.Implementos = item.implementos;
+                    modelo.EspecificacionImplementos = item.especificacionImplementos;
+                    modelo.GeneroSolicitante = item.generoSolicictante;
+                    modelo.FechaIngreso = item.fechaIngreso;
+                    modelo.FechaRespuesta = item.fechaRespuesta;
+                    modelo.Estado = item.estado;
+
+                    listaPrestamoEquipo.Add(modelo);
+                }
+
+                return View(listaPrestamoEquipo);
+            }
+            catch
+            {
+                return RedirectToAction("Roles", "Index");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Editar()
+        {
+            try
+            {
+                List<PrestamoEquipo> listaPrestamoEquipo = new List<PrestamoEquipo>();
+                clsPrestamoEquipo prestamoEquipo = new clsPrestamoEquipo();
+                var data = prestamoEquipo.ConsultarPrestamosEquipo().ToList();
+                foreach (var item in data)
+                {
+                    PrestamoEquipo modelo = new PrestamoEquipo();
+                    modelo.Id = item.Id;
+                    modelo.CodigoPrestamoEquipo = item.codigoPrestamoEquipo;
+                    modelo.NombreSolicitante = item.nombreSolicitante;
+                    modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
+                    modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.CodigoPrestamoEquipo = item.codigoPrestamoEquipo;
+                    modelo.CedulaSolicitante = item.cedulaSolicitante;
+                    modelo.Departamento = item.departamento;
+                    modelo.TipoEquipo = item.tipoEquipo;
+                    modelo.Implementos = item.implementos;
+                    modelo.EspecificacionImplementos = item.especificacionImplementos;
+                    modelo.GeneroSolicitante = item.generoSolicictante;
+                    modelo.FechaIngreso = item.fechaIngreso;
+                    modelo.FechaRespuesta = item.fechaRespuesta;
+                    modelo.Estado = item.estado;
+
+                    listaPrestamoEquipo.Add(modelo);
+                }
+
+                return View(listaPrestamoEquipo);
+            }
+            catch
+            {
+                return RedirectToAction("Roles", "Index");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Consultar()
         {
             try
             {
@@ -152,7 +228,7 @@ namespace Capa_Presentacion.Controllers
                 bool resultado = prestamoEquipo.EliminarPrestamoEquipo(Id);
                 if (resultado)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Administrador");
                 }
                 else
                 {

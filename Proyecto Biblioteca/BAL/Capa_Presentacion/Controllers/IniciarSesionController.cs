@@ -34,6 +34,11 @@ namespace Capa_Presentacion.Controllers
                         Session["Usuario"] = Usuario;
                         Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
                         Session["Rol"] = "Administrador";
+                        //Tabla control
+                        Session["cedula"] = Usuario.cedula;
+                        Session["nombre"] = Usuario.nombre;
+                        Session["apellido1"] = Usuario.apellido1;
+                        Session["apellido2"] = Usuario.apellido2;
                         return RedirectToAction("Administrador", "Principal");
                     }else if (Usuario.IdRol == 2)
                     {

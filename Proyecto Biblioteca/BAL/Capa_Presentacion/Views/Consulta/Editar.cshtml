@@ -1,8 +1,8 @@
-﻿@model IEnumerable<Capa_Presentacion.Models.FormularioCIIE>
+﻿@model IEnumerable<Capa_Presentacion.Models.Consulta>
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Administrador.cshtml";
+    Layout = "~/Views/Shared/_Editar.cshtml";
 }
 
 <section class="content">
@@ -10,7 +10,7 @@
         <div class="col-xs-12">
             <div>
                 <div class="box-header">
-                    <h3 class="box-title">FORMULARIOS CIIE</h3>
+                    <h3 class="box-title">CONSULTAS</h3>
                 </div>
                 <div class="box-body">
                     @Html.ActionLink(" Agregar", "Agregar", null, new { @class = "btn btn-success btn-sm fa fa-plus" })
@@ -20,7 +20,7 @@
                         <thead>
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.CodigoCIIE)
+                                    @Html.DisplayNameFor(model => model.CodigoConsulta)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.NombreSolicitante)
@@ -40,29 +40,28 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CodigoCIIE)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NombreSolicitante)
-                                    @Html.DisplayFor(modelItem => item.ApellidoSolicitante1)
-                                    @Html.DisplayFor(modelItem => item.ApellidoSolicitante2)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.FechaIngreso)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.FechaRespuesta)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Estado)
-                                </td>
-                                <td>
-                                    @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" }) |
-                                    @Html.ActionLink(" Eliminar", "Eliminar", new { id = item.Id }, new { @class = "btn btn-danger btn-sm fa fa-trash-o" })
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CodigoConsulta)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NombreSolicitante)
+                                        @Html.DisplayFor(modelItem => item.ApellidoSolicitante1)
+                                        @Html.DisplayFor(modelItem => item.ApellidoSolicitante2)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FechaIngreso)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FechaRespuesta)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Estado)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" })
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                     </table>
@@ -75,3 +74,4 @@
     </div>
     <!-- /.row -->
 </section>
+

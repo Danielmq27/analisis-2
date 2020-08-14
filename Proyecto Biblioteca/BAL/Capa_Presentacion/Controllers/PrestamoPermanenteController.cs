@@ -11,7 +11,77 @@ namespace Capa_Presentacion.Controllers
     public class PrestamoPermanenteController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Administrador()
+        {
+            try
+            {
+                List<PrestamoPermanente> listaPrestamoPermanente = new List<PrestamoPermanente>();
+                clsPrestamoPermanente prestamoPermanente = new clsPrestamoPermanente();
+                var data = prestamoPermanente.ConsultarPrestamosPermanente().ToList();
+                foreach (var item in data)
+                {
+                    PrestamoPermanente modelo = new PrestamoPermanente();
+                    modelo.Id = item.Id;
+                    modelo.CodigoPrestamoPermanente = item.codigoPrestamoPermanente;
+                    modelo.NombreSolicitante = item.nombreSolicitante;
+                    modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
+                    modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.Despacho = item.despacho;
+                    modelo.Telefono = item.telefono;
+                    modelo.Extension = item.extension;
+                    modelo.InformacionAdicional = item.informacionAdicional;
+                    modelo.GeneroSolicitante = item.generoSolicictante;
+                    modelo.FechaPrestamo = item.fechaPrestamo;
+                    modelo.Estado = item.estado;
+
+                    listaPrestamoPermanente.Add(modelo);
+                }
+
+                return View(listaPrestamoPermanente);
+            }
+            catch
+            {
+                return RedirectToAction("505", "Error");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Editar()
+        {
+            try
+            {
+                List<PrestamoPermanente> listaPrestamoPermanente = new List<PrestamoPermanente>();
+                clsPrestamoPermanente prestamoPermanente = new clsPrestamoPermanente();
+                var data = prestamoPermanente.ConsultarPrestamosPermanente().ToList();
+                foreach (var item in data)
+                {
+                    PrestamoPermanente modelo = new PrestamoPermanente();
+                    modelo.Id = item.Id;
+                    modelo.CodigoPrestamoPermanente = item.codigoPrestamoPermanente;
+                    modelo.NombreSolicitante = item.nombreSolicitante;
+                    modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
+                    modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.Despacho = item.despacho;
+                    modelo.Telefono = item.telefono;
+                    modelo.Extension = item.extension;
+                    modelo.InformacionAdicional = item.informacionAdicional;
+                    modelo.GeneroSolicitante = item.generoSolicictante;
+                    modelo.FechaPrestamo = item.fechaPrestamo;
+                    modelo.Estado = item.estado;
+
+                    listaPrestamoPermanente.Add(modelo);
+                }
+
+                return View(listaPrestamoPermanente);
+            }
+            catch
+            {
+                return RedirectToAction("505", "Error");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Consultar()
         {
             try
             {
@@ -147,7 +217,7 @@ namespace Capa_Presentacion.Controllers
                 bool resultado = prestamoPermanente.EliminarPrestamoPermanente(Id);
                 if (resultado)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Administrador");
                 }
                 else
                 {

@@ -25,20 +25,5 @@ namespace Capa_Logica
             }
 
         }
-
-        //Metodo para consultar un Rol
-        public List<SELECCIONAR_ROLResult> ConsultarRol(int Id)
-        {
-            try
-            {
-                bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<SELECCIONAR_ROLResult> data = dc.SELECCIONAR_ROL(Id).ToList();
-                return data;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
     }
 }

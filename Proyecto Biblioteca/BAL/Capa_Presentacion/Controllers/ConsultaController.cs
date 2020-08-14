@@ -11,7 +11,83 @@ namespace Capa_Presentacion.Controllers
     public class ConsultaController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Administrador()
+        {
+            try
+            {
+                List<Consulta> listaConsulta = new List<Consulta>();
+                clsConsulta consulta = new clsConsulta();
+                var data = consulta.ConsultarConsultas().ToList();
+                foreach (var item in data)
+                {
+                    Consulta modelo = new Consulta();
+                    modelo.Id = item.Id;
+                    modelo.CodigoConsulta = item.codigoConsulta;
+                    modelo.NombreSolicitante = item.nombreSolicitante;
+                    modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
+                    modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.Telefono = item.telefono;
+                    modelo.Email = item.email;
+                    modelo.Asunto = item.asunto;
+                    modelo.Descripcion = item.descripcion;
+                    modelo.Respuesta = item.respuesta;
+                    modelo.MetodoIngreso = item.metodoIngreso;
+                    modelo.FechaIngreso = item.fechaIngreso;
+                    modelo.FechaRespuesta = item.fechaRespuesta;
+                    modelo.Estado = item.estado;
+                    modelo.GeneroSolicitante = modelo.GeneroSolicitante;
+
+                    listaConsulta.Add(modelo);
+                }
+
+                return View(listaConsulta);
+            }
+            catch
+            {
+                return RedirectToAction("505", "Error");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Editar()
+        {
+            try
+            {
+                List<Consulta> listaConsulta = new List<Consulta>();
+                clsConsulta consulta = new clsConsulta();
+                var data = consulta.ConsultarConsultas().ToList();
+                foreach (var item in data)
+                {
+                    Consulta modelo = new Consulta();
+                    modelo.Id = item.Id;
+                    modelo.CodigoConsulta = item.codigoConsulta;
+                    modelo.NombreSolicitante = item.nombreSolicitante;
+                    modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
+                    modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.Telefono = item.telefono;
+                    modelo.Email = item.email;
+                    modelo.Asunto = item.asunto;
+                    modelo.Descripcion = item.descripcion;
+                    modelo.Respuesta = item.respuesta;
+                    modelo.MetodoIngreso = item.metodoIngreso;
+                    modelo.FechaIngreso = item.fechaIngreso;
+                    modelo.FechaRespuesta = item.fechaRespuesta;
+                    modelo.Estado = item.estado;
+                    modelo.GeneroSolicitante = modelo.GeneroSolicitante;
+
+                    listaConsulta.Add(modelo);
+                }
+
+                return View(listaConsulta);
+            }
+            catch
+            {
+                return RedirectToAction("505", "Error");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Consultar()
         {
             try
             {

@@ -58,28 +58,13 @@
                                         <small>@HttpContext.Current.Session["Rol"].ToString()</small>
                                     </p>
                                 </li>
-                                <!-- Menu Body -->
-                                <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Seguidores</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Ventas</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Amigos</a>
-                                        </div>
-                                    </div>
-                                    <!-- /.row -->
-                                </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                                        <a href="#" class="btn btn-success btn-sm">Cambiar contraseña</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                                        <a href="#" class="btn btn-danger btn-sm">Cerrar sesión</a>
                                     </div>
                                 </li>
                             </ul>
@@ -131,9 +116,9 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index", "PrestamoAudiovisual")"><i class="fa fa-circle-o"></i> Préstamo Audiovisual</a></li>
-                            <li><a href="@Url.Action("Index", "PrestamoEquipo")"><i class="fa fa-circle-o"></i> Préstamo de Equipo</a></li>
-                            <li><a href="@Url.Action("Index", "PrestamoPermanente")"><i class="fa fa-circle-o"></i> Préstamo Permanente</a></li>
+                            <li><a href="@Url.Action("Administrador", "PrestamoAudiovisual")"><i class="fa fa-circle-o"></i> Préstamo Audiovisual</a></li>
+                            <li><a href="@Url.Action("Administrador", "PrestamoEquipo")"><i class="fa fa-circle-o"></i> Préstamo de Equipo</a></li>
+                            <li><a href="@Url.Action("Administrador", "PrestamoPermanente")"><i class="fa fa-circle-o"></i> Préstamo Permanente</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -152,8 +137,8 @@
                             <li><a href="@Url.Action("Index", "AuditoriaConsulta")"><i class="fa fa-circle-o"></i> Consulta</a></li>
                         </ul>
                     </li>
-                    <li><a href="@Url.Action("Index", "Consulta")"><i class="fa fa-book"></i> <span>Consulta</span></a></li>
-                    <li><a href="@Url.Action("Index", "FormularioCIIE")"><i class="fa fa-book"></i> <span>Formulario CIIE</span></a></li>
+                    <li><a href="@Url.Action("Administrador", "Consulta")"><i class="fa fa-book"></i> <span>Consulta</span></a></li>
+                    <li><a href="@Url.Action("Administrador", "FormularioCIIE")"><i class="fa fa-book"></i> <span>Formulario CIIE</span></a></li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-users"></i> <span>Mantenimientos</span>

@@ -1,4 +1,5 @@
-﻿using Capa_Logica;
+﻿using Capa_Datos;
+using Capa_Logica;
 using Capa_Presentacion.Models;
 using Capa_Presentacion.Tools;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Usuario = Capa_Presentacion.Models.Usuario;
 
 namespace Capa_Presentacion.Controllers
 {
@@ -41,11 +43,12 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
-
         public ActionResult Agregar()
         {
             try
             {
+                clsRol rol = new clsRol();
+                ViewBag.listaRoles = rol.ConsultarRoles();
                 return View();
             }
             catch
@@ -61,6 +64,8 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    clsRol rol = new clsRol();
+                    ViewBag.listaRoles = rol.ConsultarRoles();
                     return View(usuario);
                 }
                 clsUsuario objUsuario = new clsUsuario();
@@ -84,6 +89,7 @@ namespace Capa_Presentacion.Controllers
         {
             try
             {
+                clsRol rol = new clsRol();
                 clsUsuario usuario = new clsUsuario();
                 var dato = usuario.ConsultarUsuario(Id);
                 UsuarioEditar modelo = new UsuarioEditar();
@@ -94,6 +100,9 @@ namespace Capa_Presentacion.Controllers
                 modelo.Email = Seguridad.Desencriptar(dato[0].email);
                 modelo.Clave = dato[0].clave;
                 modelo.IdRol = dato[0].IdRol;
+
+
+                ViewBag.listaRoles = rol.ConsultarRoles();
                 return View(modelo);
             }
             catch
@@ -108,10 +117,12 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    clsRol rol = new clsRol();
+                    ViewBag.listaRoles = rol.ConsultarRoles();
                     return View(usuario);
                 }
                 clsUsuario objUsuario = new clsUsuario();
-                bool resultado = objUsuario.ActualizarUsuario(usuario.Id, usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, Seguridad.Encriptar(usuario.Email), Seguridad.Encriptar(usuario.Clave), usuario.IdRol);
+                bool resultado = objUsuario.ActualizarUsuario(usuario.Id, usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, Seguridad.Encriptar(usuario.Email), usuario.Clave, usuario.IdRol);
                 if (resultado)
                 {
                     return RedirectToAction("Index");

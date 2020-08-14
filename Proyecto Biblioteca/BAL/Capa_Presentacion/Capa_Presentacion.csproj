@@ -998,7 +998,6 @@
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Imagenes\logo.png" />
-    <Content Include="itextsharp.dll" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -1186,27 +1185,27 @@
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Actualizar.cshtml" />
     <Content Include="Views\Usuario\Agregar.cshtml" />
-    <Content Include="Views\FormularioCIIE\Index.cshtml" />
+    <Content Include="Views\FormularioCIIE\Administrador.cshtml" />
     <Content Include="Views\FormularioCIIE\Agregar.cshtml" />
     <Content Include="Views\FormularioCIIE\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaFormularioCIIE\Index.cshtml" />
     <Content Include="Views\AuditoriaFormularioCIIE\Detalles.cshtml" />
-    <Content Include="Views\PrestamoEquipo\Index.cshtml" />
+    <Content Include="Views\PrestamoEquipo\Administrador.cshtml" />
     <Content Include="Views\PrestamoEquipo\Agregar.cshtml" />
     <Content Include="Views\PrestamoEquipo\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaPrestamoEquipo\Index.cshtml" />
     <Content Include="Views\AuditoriaPrestamoEquipo\Detalles.cshtml" />
-    <Content Include="Views\PrestamoAudiovisual\Index.cshtml" />
+    <Content Include="Views\PrestamoAudiovisual\Administrador.cshtml" />
     <Content Include="Views\PrestamoAudiovisual\Agregar.cshtml" />
     <Content Include="Views\PrestamoAudiovisual\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaPrestamoAudiovisual\Index.cshtml" />
     <Content Include="Views\AuditoriaPrestamoAudiovisual\Detalles.cshtml" />
-    <Content Include="Views\PrestamoPermanente\Index.cshtml" />
+    <Content Include="Views\PrestamoPermanente\Administrador.cshtml" />
     <Content Include="Views\PrestamoPermanente\Agregar.cshtml" />
     <Content Include="Views\PrestamoPermanente\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaPrestamoPermanente\Index.cshtml" />
     <Content Include="Views\AuditoriaPrestamoPermanente\Detalles.cshtml" />
-    <Content Include="Views\Consulta\Index.cshtml" />
+    <Content Include="Views\Consulta\Administrador.cshtml" />
     <Content Include="Views\Consulta\Agregar.cshtml" />
     <Content Include="Views\Consulta\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaConsulta\Index.cshtml" />
@@ -1219,6 +1218,16 @@
     <Content Include="Views\IniciarSesion\Recuperar.cshtml" />
     <Content Include="Views\Reporte\CantidadTipoUsuario.cshtml" />
     <Content Include="Views\Reporte\ReporteCantidadTipoUsuario.cshtml" />
+    <Content Include="Views\FormularioCIIE\Consultar.cshtml" />
+    <Content Include="Views\FormularioCIIE\Editar.cshtml" />
+    <Content Include="Views\Consulta\Editar.cshtml" />
+    <Content Include="Views\Consulta\Consultar.cshtml" />
+    <Content Include="Views\PrestamoAudiovisual\Editar.cshtml" />
+    <Content Include="Views\PrestamoAudiovisual\Consultar.cshtml" />
+    <Content Include="Views\PrestamoEquipo\Consultar.cshtml" />
+    <Content Include="Views\PrestamoEquipo\Editar.cshtml" />
+    <Content Include="Views\PrestamoPermanente\Editar.cshtml" />
+    <Content Include="Views\PrestamoPermanente\Consultar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -11,7 +11,7 @@ namespace Capa_Presentacion.Controllers
     public class FormularioCIIEController : Controller
     {
         // GET: FormularioCIIE
-        public ActionResult Index()
+        public ActionResult Administrador()
         {
             try
             {
@@ -48,7 +48,89 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                return RedirectToAction("Administrador", "Principal");
+            }
+        }
+
+        public ActionResult Editar()
+        {
+            try
+            {
+                List<FormularioCIIE> listaFormularioCIIE = new List<FormularioCIIE>();
+                clsFormularioCIIE formularioCIIE = new clsFormularioCIIE();
+                var data = formularioCIIE.ConsultarFormulariosCIIE().ToList();
+                foreach (var item in data)
+                {
+                    FormularioCIIE modelo = new FormularioCIIE();
+                    modelo.Id = Convert.ToInt32(item.Id);
+                    modelo.CodigoCIIE = item.codigoCIIE;
+                    modelo.NombreSolicitante = item.nombreSolicitante;
+                    modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
+                    modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.Telefono = item.telefono;
+                    modelo.Email = item.email;
+                    modelo.TipoDespacho = item.tipoDespacho;
+                    modelo.Fraccion = item.fraccion;
+                    modelo.EspecificacionDespacho = item.especificacionDespacho;
+                    modelo.TipoConsulta = item.tipoConsulta;
+                    modelo.EspecificacionConsulta = item.especificacionConsulta;
+                    modelo.Tema = item.tema;
+                    modelo.InformacionRequerida = item.informacionRequerida;
+                    modelo.UsoInformacion = item.usoInformacion;
+                    modelo.GeneroSolicitante = item.generoSolicitante;
+                    modelo.FechaIngreso = item.fechaIngreso;
+                    modelo.FechaRespuesta = item.fechaRespuesta;
+                    modelo.Estado = item.estado;
+
+                    listaFormularioCIIE.Add(modelo);
+
+                }
+                return View(listaFormularioCIIE);
+            }
+            catch
+            {
+                return RedirectToAction("Consultar", "Principal");
+            }
+        }
+
+        public ActionResult Consultar()
+        {
+            try
+            {
+                List<FormularioCIIE> listaFormularioCIIE = new List<FormularioCIIE>();
+                clsFormularioCIIE formularioCIIE = new clsFormularioCIIE();
+                var data = formularioCIIE.ConsultarFormulariosCIIE().ToList();
+                foreach (var item in data)
+                {
+                    FormularioCIIE modelo = new FormularioCIIE();
+                    modelo.Id = Convert.ToInt32(item.Id);
+                    modelo.CodigoCIIE = item.codigoCIIE;
+                    modelo.NombreSolicitante = item.nombreSolicitante;
+                    modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
+                    modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.Telefono = item.telefono;
+                    modelo.Email = item.email;
+                    modelo.TipoDespacho = item.tipoDespacho;
+                    modelo.Fraccion = item.fraccion;
+                    modelo.EspecificacionDespacho = item.especificacionDespacho;
+                    modelo.TipoConsulta = item.tipoConsulta;
+                    modelo.EspecificacionConsulta = item.especificacionConsulta;
+                    modelo.Tema = item.tema;
+                    modelo.InformacionRequerida = item.informacionRequerida;
+                    modelo.UsoInformacion = item.usoInformacion;
+                    modelo.GeneroSolicitante = item.generoSolicitante;
+                    modelo.FechaIngreso = item.fechaIngreso;
+                    modelo.FechaRespuesta = item.fechaRespuesta;
+                    modelo.Estado = item.estado;
+
+                    listaFormularioCIIE.Add(modelo);
+
+                }
+                return View(listaFormularioCIIE);
+            }
+            catch
+            {
+                return RedirectToAction("Consultar", "Principal");
             }
         }
 
@@ -73,9 +155,12 @@ namespace Capa_Presentacion.Controllers
                 {
                     return View(formularioCIIE);
                 }
-                Capa_Datos.Usuario oUsuario = (Capa_Datos.Usuario)Session["Usuario"];
                 clsFormularioCIIE objFormularioCIIE = new clsFormularioCIIE();
-                bool resultado = objFormularioCIIE.AgregarFormularioCIIE(formularioCIIE.NombreSolicitante, formularioCIIE.ApellidoSolicitante1, formularioCIIE.ApellidoSolicitante2, formularioCIIE.Telefono, formularioCIIE.Email, formularioCIIE.TipoDespacho, formularioCIIE.Fraccion, formularioCIIE.EspecificacionDespacho, formularioCIIE.TipoConsulta, formularioCIIE.EspecificacionConsulta, formularioCIIE.Tema, formularioCIIE.InformacionRequerida, formularioCIIE.UsoInformacion, formularioCIIE.GeneroSolicitante, formularioCIIE.FechaIngreso, formularioCIIE.FechaRespuesta, formularioCIIE.Estado);
+                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
+                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
+                bool resultado = objFormularioCIIE.AgregarFormularioCIIE(formularioCIIE.NombreSolicitante, formularioCIIE.ApellidoSolicitante1, formularioCIIE.ApellidoSolicitante2, formularioCIIE.Telefono, formularioCIIE.Email, formularioCIIE.TipoDespacho, formularioCIIE.Fraccion, formularioCIIE.EspecificacionDespacho, formularioCIIE.TipoConsulta, formularioCIIE.EspecificacionConsulta, formularioCIIE.Tema, formularioCIIE.InformacionRequerida, formularioCIIE.UsoInformacion, formularioCIIE.GeneroSolicitante, formularioCIIE.FechaIngreso, formularioCIIE.FechaRespuesta, formularioCIIE.Estado, CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -166,6 +251,29 @@ namespace Capa_Presentacion.Controllers
                 }
             }
             catch (Exception)
+            {
+                return RedirectToAction("505", "Error");
+            }
+        }
+
+        public ActionResult EliminarTabla()
+        {
+            try
+            {
+                string tabla = "RefConsecutivoCIIE";
+                string tabla1 = "Usuario_FormularioCIIE";
+                string tabla2 = "FormularioCIIE";
+                clsControl control = new clsControl();
+                bool resultado = control.Eliminar_Tabla(tabla, tabla1, tabla2);
+                if (resultado)
+                {
+                    return RedirectToAction("Index");
+                } else
+                {
+                    return RedirectToAction("404", "Error");
+                }
+            }
+            catch
             {
                 return RedirectToAction("505", "Error");
             }
