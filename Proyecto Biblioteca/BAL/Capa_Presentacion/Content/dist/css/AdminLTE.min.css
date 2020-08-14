@@ -3466,6 +3466,11 @@ table.text-center, table.text-center td, table.text-center th {
     text-align:center;
 }
 
+.titulo-reporte{
+    font-size: 16px;
+    color: black;
+}
+
 .principal-imagen {
     display: block;
     margin: auto;

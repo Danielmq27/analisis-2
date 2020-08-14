@@ -1025,6 +1025,7 @@
     <Compile Include="Controllers\PrestamoPermanenteController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Controllers\ReporteController.cs" />
+    <Compile Include="Controllers\ReporteFormularioCIIEController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1233,6 +1234,11 @@
     <Content Include="Views\PrestamoAudiovisual\Detalles.cshtml" />
     <Content Include="Views\PrestamoEquipo\Detalles.cshtml" />
     <Content Include="Views\PrestamoPermanente\Detalles.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\Administrador.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\Editar.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngreso.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaRespuesta.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngresoFechaRespuesta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
