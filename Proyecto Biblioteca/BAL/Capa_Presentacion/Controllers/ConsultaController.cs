@@ -147,7 +147,14 @@ namespace Capa_Presentacion.Controllers
                     return View(consulta);
                 }
                 clsConsulta objConsulta = new clsConsulta();
-                bool resultado = objConsulta.AgregarConsulta(consulta.NombreSolicitante, consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso, consulta.FechaRespuesta, consulta.Estado);
+                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
+                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
+                bool resultado = objConsulta.AgregarConsulta(consulta.NombreSolicitante, consulta.ApellidoSolicitante1, 
+                    consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion, 
+                    consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso, 
+                    consulta.FechaRespuesta, consulta.Estado, CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -205,7 +212,10 @@ namespace Capa_Presentacion.Controllers
                     return View(consulta);
                 }
                 clsConsulta objConsulta = new clsConsulta();
-                bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, consulta.NombreSolicitante, consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso, consulta.FechaRespuesta, consulta.Estado);
+                bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, consulta.NombreSolicitante, 
+                    consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, 
+                    consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
+                    consulta.FechaRespuesta, consulta.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -238,6 +248,30 @@ namespace Capa_Presentacion.Controllers
                 }
             }
             catch (Exception)
+            {
+                return RedirectToAction("505", "Error");
+            }
+        }
+
+        public ActionResult EliminarTabla()
+        {
+            try
+            {
+                string tabla = "RefConsecutivoConsulta";
+                string tabla1 = "Usuario_Consulta";
+                string tabla2 = "Consulta";
+                clsControl control = new clsControl();
+                bool resultado = control.Eliminar_Tabla(tabla, tabla1, tabla2);
+                if (resultado)
+                {
+                    return RedirectToAction("Administrador");
+                }
+                else
+                {
+                    return RedirectToAction("404", "Error");
+                }
+            }
+            catch
             {
                 return RedirectToAction("505", "Error");
             }

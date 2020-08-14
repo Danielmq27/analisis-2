@@ -40,31 +40,38 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CodigoConsulta)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NombreSolicitante)
-                                    @Html.DisplayFor(modelItem => item.ApellidoSolicitante1)
-                                    @Html.DisplayFor(modelItem => item.ApellidoSolicitante2)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.FechaIngreso)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.FechaRespuesta)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Estado)
-                                </td>
-                                <td>
-                                    @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" }) |
-                                    @Html.ActionLink(" Eliminar", "Eliminar", new { id = item.Id }, new { @class = "btn btn-danger btn-sm fa fa-trash-o" })
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CodigoConsulta)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NombreSolicitante)
+                                        @Html.DisplayFor(modelItem => item.ApellidoSolicitante1)
+                                        @Html.DisplayFor(modelItem => item.ApellidoSolicitante2)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FechaIngreso)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FechaRespuesta)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Estado)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" }) |
+                                        @Html.ActionLink(" Eliminar", "Eliminar", new { id = item.Id }, new { @class = "btn btn-danger btn-sm fa fa-trash-o" })
+                                    </td>
+                                </tr>
                             }
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(" Eliminar tabla", "EliminarTabla", null, new { @class = "btn btn-danger btn-sm fa fa-trash-o", onclick = "return confirm ('Estas seguro? Esta opción elimina todas las trazas de auditoria');" })
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
                 <!-- /.box-body -->

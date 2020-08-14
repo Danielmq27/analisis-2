@@ -153,7 +153,17 @@ namespace Capa_Presentacion.Controllers
                     return View(prestamoAudiovisual);
                 }
                 clsPrestamoAudiovisual objPrestamoAudiovisual = new clsPrestamoAudiovisual();
-                bool resultado = objPrestamoAudiovisual.AgregarPrestamoAudioVisual(prestamoAudiovisual.NombreSolicitante, prestamoAudiovisual.ApellidoSolicitante1, prestamoAudiovisual.ApellidoSolicitante2, prestamoAudiovisual.Telefono, prestamoAudiovisual.Departamento, prestamoAudiovisual.NombreActividad, prestamoAudiovisual.Categoria, prestamoAudiovisual.EspecificacionCategoria, prestamoAudiovisual.Ubicacion, prestamoAudiovisual.HoraInicio, prestamoAudiovisual.HoraFinal, prestamoAudiovisual.Descripcion, prestamoAudiovisual.EquipoRequerido, prestamoAudiovisual.Aforo, prestamoAudiovisual.GeneroSolicitante);
+                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
+                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
+                bool resultado = objPrestamoAudiovisual.AgregarPrestamoAudioVisual(prestamoAudiovisual.NombreSolicitante,
+                    prestamoAudiovisual.ApellidoSolicitante1, prestamoAudiovisual.ApellidoSolicitante2, prestamoAudiovisual.Telefono, 
+                    prestamoAudiovisual.Departamento, prestamoAudiovisual.NombreActividad, prestamoAudiovisual.Categoria, 
+                    prestamoAudiovisual.EspecificacionCategoria, prestamoAudiovisual.Ubicacion, prestamoAudiovisual.HoraInicio,
+                    prestamoAudiovisual.HoraFinal, prestamoAudiovisual.Descripcion, prestamoAudiovisual.EquipoRequerido,
+                    prestamoAudiovisual.Aforo, prestamoAudiovisual.GeneroSolicitante, CedulaUsuario, NombreUsuario, Apellido1Usuario,
+                    Apellido2Usuario);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -244,6 +254,30 @@ namespace Capa_Presentacion.Controllers
                 }
             }
             catch (Exception)
+            {
+                return RedirectToAction("505", "Error");
+            }
+        }
+
+        public ActionResult EliminarTabla()
+        {
+            try
+            {
+                string tabla = "RefConsecutivoPA";
+                string tabla1 = "Usuario_PrestamoAudiovisual";
+                string tabla2 = "PrestamoAudiovisual";
+                clsControl control = new clsControl();
+                bool resultado = control.Eliminar_Tabla(tabla, tabla1, tabla2);
+                if (resultado)
+                {
+                    return RedirectToAction("Administrador");
+                }
+                else
+                {
+                    return RedirectToAction("404", "Error");
+                }
+            }
+            catch
             {
                 return RedirectToAction("505", "Error");
             }

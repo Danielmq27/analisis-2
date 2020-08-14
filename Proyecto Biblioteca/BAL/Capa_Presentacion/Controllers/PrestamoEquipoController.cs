@@ -147,7 +147,16 @@ namespace Capa_Presentacion.Controllers
                     return View(prestamoEquipo);
                 }
                 clsPrestamoEquipo objPrestamoEquipo = new clsPrestamoEquipo();
-                bool resultado = objPrestamoEquipo.AgregarPrestamoEquipo(prestamoEquipo.NombreSolicitante, prestamoEquipo.ApellidoSolicitante1, prestamoEquipo.ApellidoSolicitante2, prestamoEquipo.CedulaSolicitante, prestamoEquipo.Departamento, prestamoEquipo.TipoEquipo, prestamoEquipo.Implementos, prestamoEquipo.EspecificacionImplementos, prestamoEquipo.GeneroSolicitante, prestamoEquipo.FechaIngreso, prestamoEquipo.FechaRespuesta, prestamoEquipo.Estado);
+                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
+                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
+                bool resultado = objPrestamoEquipo.AgregarPrestamoEquipo(prestamoEquipo.NombreSolicitante, 
+                    prestamoEquipo.ApellidoSolicitante1, prestamoEquipo.ApellidoSolicitante2, prestamoEquipo.CedulaSolicitante, 
+                    prestamoEquipo.Departamento, prestamoEquipo.TipoEquipo, prestamoEquipo.Implementos, 
+                    prestamoEquipo.EspecificacionImplementos, prestamoEquipo.GeneroSolicitante, prestamoEquipo.FechaIngreso, 
+                    prestamoEquipo.FechaRespuesta, prestamoEquipo.Estado, CedulaUsuario, NombreUsuario, Apellido1Usuario, 
+                    Apellido2Usuario);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -204,7 +213,11 @@ namespace Capa_Presentacion.Controllers
                     return View(prestamoEquipo);
                 }
                 clsPrestamoEquipo objPrestamoEquipo = new clsPrestamoEquipo();
-                bool resultado = objPrestamoEquipo.ActualizarPrestamoEquipo(prestamoEquipo.Id, prestamoEquipo.CodigoPrestamoEquipo, prestamoEquipo.NombreSolicitante, prestamoEquipo.ApellidoSolicitante1, prestamoEquipo.ApellidoSolicitante2, prestamoEquipo.CedulaSolicitante, prestamoEquipo.Departamento, prestamoEquipo.TipoEquipo, prestamoEquipo.Implementos, prestamoEquipo.EspecificacionImplementos, prestamoEquipo.GeneroSolicitante, prestamoEquipo.FechaIngreso, prestamoEquipo.FechaRespuesta, prestamoEquipo.Estado);
+                bool resultado = objPrestamoEquipo.ActualizarPrestamoEquipo(prestamoEquipo.Id, prestamoEquipo.CodigoPrestamoEquipo, 
+                    prestamoEquipo.NombreSolicitante, prestamoEquipo.ApellidoSolicitante1, prestamoEquipo.ApellidoSolicitante2, 
+                    prestamoEquipo.CedulaSolicitante, prestamoEquipo.Departamento, prestamoEquipo.TipoEquipo, 
+                    prestamoEquipo.Implementos, prestamoEquipo.EspecificacionImplementos, prestamoEquipo.GeneroSolicitante, 
+                    prestamoEquipo.FechaIngreso, prestamoEquipo.FechaRespuesta, prestamoEquipo.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -236,6 +249,30 @@ namespace Capa_Presentacion.Controllers
                 }
             }
             catch (Exception)
+            {
+                return RedirectToAction("505", "Error");
+            }
+        }
+
+        public ActionResult EliminarTabla()
+        {
+            try
+            {
+                string tabla = "RefConsecutivoPE";
+                string tabla1 = "Usuario_PrestamoEquipo";
+                string tabla2 = "PrestamoEquipo";
+                clsControl control = new clsControl();
+                bool resultado = control.Eliminar_Tabla(tabla, tabla1, tabla2);
+                if (resultado)
+                {
+                    return RedirectToAction("Administrador");
+                }
+                else
+                {
+                    return RedirectToAction("404", "Error");
+                }
+            }
+            catch
             {
                 return RedirectToAction("505", "Error");
             }

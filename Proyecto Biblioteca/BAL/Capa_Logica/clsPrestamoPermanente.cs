@@ -43,13 +43,13 @@ namespace Capa_Logica
         }
 
         //Metodo para agregar un Prestamo Permanente
-        public bool AgregarPrestamoPermanente(string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, string Despacho, int Telefono, string Extension, string InformacionAdicional, string GeneroSolicitante, DateTime FechaPrestamo, string Estado)
+        public bool AgregarPrestamoPermanente(string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, string Despacho, int Telefono, string Extension, string InformacionAdicional, string GeneroSolicitante, DateTime FechaPrestamo, string Estado, string CedulaUsuario, string Nombre, string Apellido1, string Apellido2)
         {
             try
             {
                 int respuesta = 1;
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                respuesta = dc.INSERTAR_PrestamoPermanente(NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Despacho, Telefono, Extension, InformacionAdicional, GeneroSolicitante, FechaPrestamo, Estado);
+                respuesta = dc.INSERTAR_PrestamoPermanente(NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Despacho, Telefono, Extension, InformacionAdicional, GeneroSolicitante, FechaPrestamo, Estado, CedulaUsuario, Nombre, Apellido1, Apellido2);
                 if (respuesta == 0)
                 {
                     return true;

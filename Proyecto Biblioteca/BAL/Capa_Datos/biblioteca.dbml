@@ -508,53 +508,6 @@
       <Column Name="estado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SELECCIONAR_CIIE_TODO" Method="SELECCIONAR_CIIE_TODO">
-    <ElementType Name="SELECCIONAR_CIIE_TODOResult">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="codigoCIIE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="tipoDespacho" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="fraccion" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="especificacionDespacho" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="tipoConsulta" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="especificacionConsulta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="tema" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="informacionRequerida" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="usoInformacion" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="estado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.SELECCIONAR_CIIE" Method="SELECCIONAR_CIIE">
-    <Parameter Name="id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="SELECCIONAR_CIIEResult">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="codigoCIIE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="tipoDespacho" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="fraccion" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="especificacionDespacho" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="tipoConsulta" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="especificacionConsulta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="tema" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="informacionRequerida" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="usoInformacion" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="estado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.SELECCIONAR_AUDITORIA_CIIE_TODO" Method="SELECCIONAR_AUDITORIA_CIIE_TODO">
     <ElementType Name="SELECCIONAR_AUDITORIA_CIIE_TODOResult">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -671,34 +624,6 @@
     <Parameter Name="IDROL" Parameter="iDROL" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.INSERTAR_PrestamoPermanente" Method="INSERTAR_PrestamoPermanente">
-    <Parameter Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="despacho" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
-    <Parameter Name="extension" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="informacionAdicional" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="fechaPrestamo" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="estado" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.INSERTAR_PrestamoEquipo" Method="INSERTAR_PrestamoEquipo">
-    <Parameter Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="cedulaSolicitante" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="departamento" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="tipoEquipo" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="implementos" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="especificacionImplementos" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="generoSolicictante" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="estado" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.INSERTAR_FRACCION" Method="INSERTAR_FRACCION">
     <Parameter Name="NOMBRE" Parameter="nOMBRE" Type="System.String" DbType="VarChar(40)" />
     <Parameter Name="DESCRIPCION" Parameter="dESCRIPCION" Type="System.String" DbType="VarChar(100)" />
@@ -710,40 +635,6 @@
   </Function>
   <Function Name="dbo.BORRAR_USUARIO" Method="BORRAR_USUARIO">
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.INSERTAR_AUDIOVISUAL" Method="INSERTAR_AUDIOVISUAL">
-    <Parameter Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
-    <Parameter Name="departamento" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="nombreActividad" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="categoria" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="especificacionCategoria" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="ubicacion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="horaInicio" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="horaFin" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(500)" />
-    <Parameter Name="equipoRequerido" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="aforo" Type="System.Int32" DbType="Int" />
-    <Parameter Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.INSERTAR_CONSULTA" Method="INSERTAR_CONSULTA">
-    <Parameter Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" />
-    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
-    <Parameter Name="email" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="asunto" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(500)" />
-    <Parameter Name="respuesta" Type="System.String" DbType="VarChar(MAX)" />
-    <Parameter Name="metodoIngreso" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="estado" Type="System.String" DbType="VarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.ACTUALIZAR_USUARIO" Method="ACTUALIZAR_USUARIO">
@@ -1087,5 +978,140 @@
     <Parameter Name="psTabla1" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="psTabla2" Type="System.String" DbType="VarChar(100)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.INSERTAR_CONSULTA" Method="INSERTAR_CONSULTA">
+    <Parameter Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="asunto" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="respuesta" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="metodoIngreso" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="estado" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="cedulaUsuario" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellido1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="apellido2" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.INSERTAR_AUDIOVISUAL" Method="INSERTAR_AUDIOVISUAL">
+    <Parameter Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="departamento" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="nombreActividad" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="categoria" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="especificacionCategoria" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ubicacion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="horaInicio" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="horaFin" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="descripcion" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="equipoRequerido" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="aforo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="generoSolicitante" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="cedulaUsuario" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellido1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="apellido2" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.INSERTAR_PrestamoEquipo" Method="INSERTAR_PrestamoEquipo">
+    <Parameter Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="cedulaSolicitante" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="departamento" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="tipoEquipo" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="implementos" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="especificacionImplementos" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="generoSolicictante" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="estado" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="cedulaUsuario" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellido1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="apellido2" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.INSERTAR_PrestamoPermanente" Method="INSERTAR_PrestamoPermanente">
+    <Parameter Name="nombreSolicitante" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="despacho" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="extension" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="informacionAdicional" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="generoSolicictante" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="fechaPrestamo" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="estado" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="cedulaUsuario" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nombre" Type="System.String" DbType="VarChar(40)" />
+    <Parameter Name="apellido1" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="apellido2" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SELECCIONAR_CIIE" Method="SELECCIONAR_CIIE">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SELECCIONAR_CIIEResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codigoCIIE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="tipoDespacho" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="fraccion" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="especificacionDespacho" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tipoConsulta" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="especificacionConsulta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tema" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="informacionRequerida" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="usoInformacion" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cedulaUsuario" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="codigoCIIE1" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SELECCIONAR_CIIE_TODO" Method="SELECCIONAR_CIIE_TODO">
+    <ElementType Name="SELECCIONAR_CIIE_TODOResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codigoCIIE" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="tipoDespacho" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="fraccion" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="especificacionDespacho" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tipoConsulta" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="especificacionConsulta" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tema" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="informacionRequerida" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="usoInformacion" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cedulaUsuario" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="codigoCIIE1" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>
