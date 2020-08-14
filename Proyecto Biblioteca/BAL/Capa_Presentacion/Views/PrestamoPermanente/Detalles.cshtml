@@ -1,0 +1,139 @@
+﻿@model Capa_Presentacion.Models.PrestamoPermanente
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Administrador.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>PrestamoPermanente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoPrestamoPermanente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoPrestamoPermanente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreSolicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreSolicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApellidoSolicitante1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApellidoSolicitante1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApellidoSolicitante2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApellidoSolicitante2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Despacho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Despacho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Extension)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Extension)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InformacionAdicional)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InformacionAdicional)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GeneroSolicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GeneroSolicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaPrestamo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaPrestamo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CedulaUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CedulaUsuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

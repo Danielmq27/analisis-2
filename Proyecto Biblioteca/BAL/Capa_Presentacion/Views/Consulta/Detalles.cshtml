@@ -1,20 +1,21 @@
-﻿@model Capa_Presentacion.Models.FormularioCIIE
+﻿@model Capa_Presentacion.Models.Consulta
 
 @{
     ViewBag.Title = "Detalles";
     Layout = "~/Views/Shared/_Administrador.cshtml";
 }
+
 <div class="content">
     <div>
-        <h4>FormularioCIIE</h4>
+        <h4>Consulta</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.CodigoCIIE)
+                @Html.DisplayNameFor(model => model.CodigoConsulta)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.CodigoCIIE)
+                @Html.DisplayFor(model => model.CodigoConsulta)
             </dd>
 
             <dt>
@@ -58,75 +59,35 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.TipoDespacho)
+                @Html.DisplayNameFor(model => model.Asunto)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.TipoDespacho)
+                @Html.DisplayFor(model => model.Asunto)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Fraccion)
+                @Html.DisplayNameFor(model => model.Descripcion)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Fraccion)
+                @Html.DisplayFor(model => model.Descripcion)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.EspecificacionDespacho)
+                @Html.DisplayNameFor(model => model.Respuesta)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.EspecificacionDespacho)
+                @Html.DisplayFor(model => model.Respuesta)
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.TipoConsulta)
+                @Html.DisplayNameFor(model => model.MetodoIngreso)
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.TipoConsulta)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.EspecificacionConsulta)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.EspecificacionConsulta)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Tema)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Tema)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.InformacionRequerida)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.InformacionRequerida)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.UsoInformacion)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.UsoInformacion)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.GeneroSolicitante)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.GeneroSolicitante)
+                @Html.DisplayFor(model => model.MetodoIngreso)
             </dd>
 
             <dt>
@@ -152,6 +113,15 @@
             <dd>
                 @Html.DisplayFor(model => model.Estado)
             </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GeneroSolicitante)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GeneroSolicitante)
+            </dd>
+
             <dt>
                 @Html.DisplayNameFor(model => model.CedulaUsuario)
             </dt>
@@ -187,5 +157,4 @@
         </dl>
     </div>
 </div>
-
 

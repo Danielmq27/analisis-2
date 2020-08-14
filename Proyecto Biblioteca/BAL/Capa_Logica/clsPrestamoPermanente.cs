@@ -67,12 +67,17 @@ namespace Capa_Logica
         }
 
         //Metodo para actualizar un Prestamo Permanente
-        public bool ActualizarPrestamoPermanente(int Id, string CodigoPrestamoPermanente, string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, string Despacho, int Telefono, string Extension, string InformacionAdicional, string GeneroSolicitante, DateTime FechaPrestamo, string Estado)
+        public bool ActualizarPrestamoPermanente(int Id, string CodigoPrestamoPermanente, string NombreSolicitante, 
+            string Apellido1Solicitante, string Apellido2Solicitante, string Despacho, int Telefono, string Extension, 
+            string InformacionAdicional, string GeneroSolicitante, DateTime FechaPrestamo, string Estado, string Cedula,
+            string Nombre, string Apellido1, string Apellido2)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.ACTUALIZAR_PrestamoPermanente(Id, CodigoPrestamoPermanente, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Despacho, Telefono, Extension, InformacionAdicional, GeneroSolicitante, FechaPrestamo, Estado);
+                dc.ACTUALIZAR_PrestamoPermanente(Id, CodigoPrestamoPermanente, NombreSolicitante, Apellido1Solicitante, 
+                    Apellido2Solicitante, Despacho, Telefono, Extension, InformacionAdicional, GeneroSolicitante, 
+                    FechaPrestamo, Estado, Cedula, Nombre, Apellido1, Apellido2);
                 return true;
             }
             catch (Exception)

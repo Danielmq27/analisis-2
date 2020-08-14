@@ -46,7 +46,8 @@ namespace Capa_Presentacion.Controllers
             }
             else
             {
-                return View();
+                TempData["msg"] = "<script>alert('No existen registros con base a los parametros ingresados!');</script>";
+                return View("CantidadTipoUsuario");
             }
         }
 

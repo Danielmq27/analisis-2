@@ -10,6 +10,7 @@ namespace Capa_Presentacion.Controllers
 {
     public class ConsultaController : Controller
     {
+        //Vista del rol administrador para visualizar las consultas
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -48,6 +49,7 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
+        //Vista del rol editar para visualizar las consultas
         [HttpGet]
         public ActionResult Editar()
         {
@@ -86,6 +88,7 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
+        //Vista del rol consultar para visualizar las consultas
         [HttpGet]
         public ActionResult Consultar()
         {
@@ -157,7 +160,7 @@ namespace Capa_Presentacion.Controllers
                     consulta.FechaRespuesta, consulta.Estado, CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
                 if (resultado)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Administrador");
                 }
                 else
                 {
@@ -212,13 +215,17 @@ namespace Capa_Presentacion.Controllers
                     return View(consulta);
                 }
                 clsConsulta objConsulta = new clsConsulta();
+                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
+                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
                 bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, consulta.NombreSolicitante, 
                     consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, 
                     consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
-                    consulta.FechaRespuesta, consulta.Estado);
+                    consulta.FechaRespuesta, consulta.Estado, CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
                 if (resultado)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Administrador");
                 }
                 else
                 {
@@ -231,6 +238,40 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
+        public ActionResult Detalles(int id)
+        {
+            try
+            {
+                clsConsulta consulta = new clsConsulta();
+                var dato = consulta.ConsultarConsulta(id);
+                Consulta modelo = new Consulta();
+                modelo.Id = dato[0].Id;
+                modelo.CodigoConsulta = dato[0].codigoConsulta;
+                modelo.NombreSolicitante = dato[0].nombreSolicitante;
+                modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
+                modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
+                modelo.Telefono = dato[0].telefono;
+                modelo.Email = dato[0].email;
+                modelo.Asunto = dato[0].asunto;
+                modelo.Descripcion = dato[0].descripcion;
+                modelo.Respuesta = dato[0].respuesta;
+                modelo.MetodoIngreso = dato[0].metodoIngreso;
+                modelo.FechaIngreso = dato[0].fechaIngreso;
+                modelo.FechaRespuesta = dato[0].fechaRespuesta;
+                modelo.Estado = dato[0].estado;
+                modelo.GeneroSolicitante = dato[0].generoSolicitante;
+                modelo.CedulaUsuario = dato[0].cedulaUsuario;
+                modelo.Nombre = dato[0].nombre;
+                modelo.Apellido1 = dato[0].apellido1;
+                modelo.Apellido2 = dato[0].apellido2;
+                return View(modelo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public ActionResult Eliminar(int Id)
         {
@@ -240,7 +281,7 @@ namespace Capa_Presentacion.Controllers
                 bool resultado = consulta.EliminarConsulta(Id);
                 if (resultado)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Administrador");
                 }
                 else
                 {

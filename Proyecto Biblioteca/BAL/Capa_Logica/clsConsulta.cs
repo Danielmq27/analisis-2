@@ -73,13 +73,15 @@ namespace Capa_Logica
         //Metodo para actualizar una Consulta
         public bool ActualizarConsulta(int Id, string CodigoConsulta, string NombreSolicitante, string Apellido1Solicitante, 
             string Apellido2Solicitante, int Telefono, string Email, string Asunto, string Descripcion, string Respuesta, 
-            string MetodoIngreso, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado)
+            string MetodoIngreso, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado,
+            string Cedula, string Nombre, string Apellido1, string Apellido2)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
                 dc.ACTUALIZAR_CONSULTA(Id, CodigoConsulta, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Telefono,
-                    Email, Asunto, Descripcion, Respuesta, MetodoIngreso, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado);
+                    Email, Asunto, Descripcion, Respuesta, MetodoIngreso, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado,
+                    Cedula, Nombre, Apellido1, Apellido2);
                 return true;
             }
             catch (Exception)
