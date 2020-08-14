@@ -474,6 +474,36 @@ fecha date,
 usuarioBD varchar(200)
 );
 
+
+create table RefConsecutivoCIIE(
+Id INTEGER identity(1,1) primary key,
+Consecutivo INT NOT NULL
+);
+
+
+create table RefConsecutivoConsulta(
+Id INTEGER identity(1,1) primary key,
+Consecutivo INT NOT NULL
+);
+
+create table RefConsecutivoPP(
+Id INTEGER identity(1,1) primary key,
+Consecutivo INT NOT NULL
+);
+
+
+create table RefConsecutivoPA(
+Id INTEGER identity(1,1) primary key,
+Consecutivo INT NOT NULL
+);
+
+
+create table RefConsecutivoPE(
+Id INTEGER identity(1,1) primary key,
+Consecutivo INT NOT NULL
+);
+
+
 Create table Fracciones(
 Id INTEGER identity(1,1) primary key,
 Nombre varchar(40) not null,
