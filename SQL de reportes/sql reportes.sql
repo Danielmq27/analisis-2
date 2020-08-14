@@ -181,7 +181,7 @@ end
 
 
 /* Proceimiento que devuelve la cantida de reportes por tipo de usuario y su porcentaje en un rango de fechas de respuesta al sistema, las cuales son pasadas como parametros desde el sistema
-para el formulario CIIE*/
+para el formulario*/
 go
 CREATE procedure CANTIDAD_METODO_INGRESO_CONSULTA_RESPUESTA (@fecFrom date, @fecTo date)
 as 
@@ -194,7 +194,7 @@ end
 
 
 
-/* Procedimiento que devuelve la cantidad de registros de la tabla Formulario CIIE en un rango de fechas (Ingreso y respuesta) las cuales son pasadas como parametro 
+/* Procedimiento que devuelve la cantidad de registros de la tabla en un rango de fechas (Ingreso y respuesta) las cuales son pasadas como parametro 
 desde el sistema, orenado por tipo de usuario, cantidad y su porcentaje relativo sobre el total de lineas que hay en la tabla*/
 go
 CREATE procedure CANTIDAD_METODO_INGRESO_CONSULTA_FROM_TO (@fecFrom date, @fecTo date)
@@ -277,4 +277,165 @@ group by generoSolicictante
 END
 
 
+
+--Reportes PA
+go
+CREATE procedure CANTIDAD_DEPARTAMENTO_INGRESO_PA (@fecFrom date, @fecTo date)
+as 
+begin
+select departamento, COUNT(departamento) as Cantidad, count(departamento)*100/ (select count(*) from PrestamoAudiovisual where horaInicio between @fecFrom and @fecTo) as porcentaje
+from PrestamoAudiovisual 
+where horaInicio between @fecFrom and @fecTo
+group by departamento
+end
+
+
+/* Proceimiento que devuelve la cantida de reportes por tipo de usuario y su porcentaje en un rango de fechas de respuesta al sistema, las cuales son pasadas como parametros desde el sistema
+para el formulario*/
+go
+CREATE procedure CANTIDAD_DEPARTAMENTO_Salida_PA (@fecFrom date, @fecTo date)
+as 
+begin
+select departamento, COUNT(departamento) as Cantidad, count(departamento)*100/ (select count(*) from PrestamoAudiovisual where horaFin between @fecFrom and @fecTo) as porcentaje
+from PrestamoAudiovisual 
+where horaFin between @fecFrom and @fecTo
+group by departamento
+end
+
+
+
+/* Procedimiento que devuelve la cantidad de registros de la tabla en un rango de fechas (Ingreso y respuesta) las cuales son pasadas como parametro 
+desde el sistema, orenado por tipo de usuario, cantidad y su porcentaje relativo sobre el total de lineas que hay en la tabla*/
+go
+CREATE procedure CANTIDAD_DEPARTAMENTO_FROM_TO (@fecFrom date, @fecTo date)
+as
+begin
+select departamento AS Departamento, COUNT(departamento) as Cantidad, count(departamento)*100/ (select count(*) from PrestamoAudiovisual where horaInicio >= @fecFrom and  horaFin <= @fecTo) as Porcentaje
+from PrestamoAudiovisual
+where horaInicio >= @fecFrom and  horaFin <= @fecTo
+group by departamento
+end
+
+
+
+--
+--
+--
+go 
+CREATE procedure CANTIDAD_GENERO_INGRESO_PA (@fecFrom date, @fecTo date)
+as 
+begin
+select generoSolicitante, COUNT(generoSolicitante) as Cantidad, count(generoSolicitante)*100/ (select count(*) from PrestamoAudiovisual where horaInicio between @fecFrom and @fecTo) as porcentaje
+from PrestamoAudiovisual 
+where horaInicio between @fecFrom and @fecTo
+group by generoSolicitante
+END
+
+--
+go 
+CREATE procedure CANTIDAD_GENERO_FIN_PA (@fecFrom date, @fecTo date)
+as 
+begin
+select generoSolicitante, COUNT(generoSolicitante) as Cantidad, count(generoSolicitante)*100/ (select count(*) from PrestamoAudiovisual where horaFin between @fecFrom and @fecTo) as porcentaje
+from PrestamoAudiovisual 
+where horaFin between @fecFrom and @fecTo
+group by generoSolicitante
+END
+
+
+
+
+--
+go 
+create procedure CANTIDAD_GENERO_FROM_TO_PA (@fecFrom date, @fecTo date)
+as 
+begin
+select generoSolicitante, COUNT(generoSolicitante) as Cantidad, count(generoSolicitante)*100/ (select count(*) from PrestamoAudiovisual where horaInicio >= @fecFrom and  horaFin <= @fecTo) as porcentaje
+from PrestamoAudiovisual 
+where horaInicio >= @fecFrom and  horaFin <= @fecTo
+group by generoSolicitante
+END
+
+
+
+
+
+--Reportes PE	
+go
+CREATE procedure CANTIDAD_DEPARTAMENTO_INGRESO_PE (@fecFrom date, @fecTo date)
+as 
+begin
+select departamento, COUNT(departamento) as Cantidad, count(departamento)*100/ (select count(*) from PrestamoEquipo where fechaIngreso between @fecFrom and @fecTo) as porcentaje
+from PrestamoEquipo 
+where fechaIngreso between @fecFrom and @fecTo
+group by departamento
+end
+
+
+/* Proceimiento que devuelve la cantida de reportes por tipo de usuario y su porcentaje en un rango de fechas de respuesta al sistema, las cuales son pasadas como parametros desde el sistema
+para el formulario*/
+go
+CREATE procedure CANTIDAD_DEPARTAMENTO_SALIDA_PE (@fecFrom date, @fecTo date)
+as 
+begin
+select departamento, COUNT(departamento) as Cantidad, count(departamento)*100/ (select count(*) from PrestamoEquipo where fechaRespuesta between @fecFrom and @fecTo) as porcentaje
+from PrestamoEquipo 
+where fechaRespuesta between @fecFrom and @fecTo
+group by departamento
+end
+
+
+
+/* Procedimiento que devuelve la cantidad de registros de la tabla en un rango de fechas (Ingreso y respuesta) las cuales son pasadas como parametro 
+desde el sistema, orenado por tipo de usuario, cantidad y su porcentaje relativo sobre el total de lineas que hay en la tabla*/
+go
+CREATE procedure CANTIDAD_DEPARTAMENTO_FROM_TO_PE (@fecFrom date, @fecTo date)
+as
+begin
+select departamento AS Departamento, COUNT(departamento) as Cantidad, count(departamento)*100/ (select count(*) from PrestamoEquipo where fechaIngreso >= @fecFrom and  fechaRespuesta <= @fecTo) as Porcentaje
+from PrestamoEquipo
+where fechaIngreso >= @fecFrom and  fechaRespuesta <= @fecTo
+group by departamento
+end
+
+
+
+--
+--
+--
+go 
+CREATE procedure CANTIDAD_GENERO_INGRESO_PE (@fecFrom date, @fecTo date)
+as 
+begin
+select generoSolicictante, COUNT(generoSolicictante) as Cantidad, count(generoSolicictante)*100/ (select count(*) from PrestamoEquipo where fechaIngreso between @fecFrom and @fecTo) as porcentaje
+from PrestamoEquipo 
+where fechaIngreso between @fecFrom and @fecTo
+group by generoSolicictante
+END
+
+--
+go 
+CREATE procedure CANTIDAD_GENERO_SALIDA_PE (@fecFrom date, @fecTo date)
+as 
+begin
+select generoSolicictante, COUNT(generoSolicictante) as Cantidad, count(generoSolicictante)*100/ (select count(*) from PrestamoEquipo where fechaRespuesta between @fecFrom and @fecTo) as porcentaje
+from PrestamoEquipo 
+where fechaRespuesta between @fecFrom and @fecTo
+group by generoSolicictante
+END
+
+
+
+
+
+--
+go 
+create procedure CANTIDAD_GENERO_FROM_TO_PE (@fecFrom date, @fecTo date)
+as 
+begin
+select generoSolicictante, COUNT(generoSolicictante) as Cantidad, count(generoSolicictante)*100/ (select count(*) from PrestamoEquipo where fechaIngreso >= @fecFrom and  fechaRespuesta <= @fecTo) as porcentaje
+from PrestamoEquipo 
+where fechaIngreso >= @fecFrom and  fechaRespuesta <= @fecTo
+group by generoSolicictante
+END
 
