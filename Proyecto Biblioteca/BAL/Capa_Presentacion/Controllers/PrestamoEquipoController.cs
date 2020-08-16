@@ -129,6 +129,14 @@ namespace Capa_Presentacion.Controllers
         {
             try
             {
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                 return View();
             }
             catch (Exception)
@@ -144,6 +152,14 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    ViewBag.genero = new SelectList(new[] {
+                    new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                    new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estado = new SelectList(new[] {
+                    new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                    new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                     return View(prestamoEquipo);
                 }
                 clsPrestamoEquipo objPrestamoEquipo = new clsPrestamoEquipo();
@@ -195,6 +211,14 @@ namespace Capa_Presentacion.Controllers
                 modelo.FechaIngreso = dato[0].fechaIngreso;
                 modelo.FechaRespuesta = dato[0].fechaRespuesta;
                 modelo.Estado = dato[0].estado;
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                 return View(modelo);
             }
             catch
@@ -210,6 +234,14 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    ViewBag.genero = new SelectList(new[] {
+                    new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                    new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estado = new SelectList(new[] {
+                    new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                    new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                     return View(prestamoEquipo);
                 }
                 clsPrestamoEquipo objPrestamoEquipo = new clsPrestamoEquipo();

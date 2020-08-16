@@ -120,6 +120,14 @@ namespace Capa_Presentacion.Controllers
         {
             try
             {
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                 return View();
             }
             catch (Exception)
@@ -135,6 +143,14 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    ViewBag.genero = new SelectList(new[] {
+                    new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                    new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estado = new SelectList(new[] {
+                    new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                    new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                     return View(prestamoPermanente);
                 }
                 clsPrestamoPermanente objPrestamoPermanente = new clsPrestamoPermanente();
@@ -183,6 +199,14 @@ namespace Capa_Presentacion.Controllers
                 modelo.GeneroSolicitante = dato[0].generoSolicictante;
                 modelo.FechaPrestamo = dato[0].fechaPrestamo;
                 modelo.Estado = dato[0].estado;
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                 return View(modelo);
             }
             catch
@@ -198,6 +222,14 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    ViewBag.genero = new SelectList(new[] {
+                    new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                    new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estado = new SelectList(new[] {
+                    new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                    new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                     return View(prestamoPermanente);
                 }
                 clsPrestamoPermanente objPrestamoPermanente = new clsPrestamoPermanente();

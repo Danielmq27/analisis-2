@@ -26,9 +26,6 @@
                                     @Html.DisplayNameFor(model => model.NombreSolicitante)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.CedulaSolicitante)
-                                </th>
-                                <th>
                                     @Html.DisplayNameFor(model => model.FechaIngreso)
                                 </th>
                                 <th>
@@ -54,9 +51,6 @@
                                         @Html.DisplayFor(modelItem => item.ApellidoSolicitante2)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.CedulaSolicitante)
-                                    </td>
-                                    <td>
                                         @Html.DisplayFor(modelItem => item.FechaIngreso)
                                     </td>
                                     <td>
@@ -67,7 +61,9 @@
                                     </td>
                                     <td>
                                         @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" }) |
-                                        @Html.ActionLink(" Eliminar", "Eliminar", new { id = item.Id }, new { @class = "btn btn-danger btn-sm fa fa-trash-o" }) |
+                                        <button type="button" onclick="PopupEliminar(@item.Id)" class="btn btn-danger btn-sm fa fa-trash-o" data-toggle="modal" data-target="#alertaEliminar">
+                                            Eliminar
+                                        </button> |
                                         @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
                                     </td>
                                 </tr>
@@ -76,7 +72,9 @@
                         <tfoot>
                             <tr>
                                 <td>
-                                    @Html.ActionLink(" Eliminar tabla", "EliminarTabla", null, new { @class = "btn btn-danger btn-sm fa fa-trash-o" , onclick = "return confirm ('Estas seguro? Esta opción elimina todas las trazas de auditoria');"})
+                                    <button type="button" class="btn btn-danger btn-sm fa fa-trash-o" data-toggle="modal" data-target="#alertaEliminarTabla">
+                                        Eliminar tabla
+                                    </button>
                                 </td>
                             </tr>
                         </tfoot>
@@ -90,3 +88,65 @@
     </div>
     <!-- /.row -->
 </section>
+
+<!--Formulario para eliminar-->
+@using (Html.BeginForm("Eliminar", "PrestamoEquipo", FormMethod.Post, new { @id = "frmEliminar" }))
+{
+    @Html.Hidden("Id");
+}
+<!-- Ventana para eliminar  -->
+<div class="modal fade" id="alertaEliminar" tabindex="-1" aria-labelledby="alertaEliminar" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLabel">Estas seguro que quieres eliminar este prestamo?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                <button type="button" onclick="Eliminar()" class="btn btn-success">Sí</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Formulario para eliminar tabla -->
+@using (Html.BeginForm("EliminarTabla", "PrestamoEquipo", FormMethod.Post, new { @id = "frmEliminarTabla" }))
+{
+
+}
+<!-- Ventana para eliminar tabla -->
+<div class="modal fade" id="alertaEliminarTabla" tabindex="-1" aria-labelledby="alertaEliminarTabla" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLabel">Estas seguro? Esta opción elimina todas las trazas de auditoria</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                <button type="button" onclick="EliminarTabla()" class="btn btn-success">Sí</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function PopupEliminar(Id) {
+        document.getElementById("Id").value = Id;
+    }
+
+    function Eliminar() {
+        var frmEliminar = document.getElementById("frmEliminar");
+        frmEliminar.submit();
+    }
+
+    function EliminarTabla() {
+        var frmEliminar = document.getElementById("frmEliminarTabla");
+        frmEliminar.submit();
+    }
+</script>

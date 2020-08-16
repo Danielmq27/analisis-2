@@ -135,6 +135,10 @@ namespace Capa_Presentacion.Controllers
         {
             try
             {
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
                 return View();
             }
             catch (Exception)
@@ -150,6 +154,10 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    ViewBag.genero = new SelectList(new[] {
+                        new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                        new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
                     return View(prestamoAudiovisual);
                 }
                 clsPrestamoAudiovisual objPrestamoAudiovisual = new clsPrestamoAudiovisual();
@@ -204,6 +212,10 @@ namespace Capa_Presentacion.Controllers
                 modelo.EquipoRequerido = dato[0].equipoRequerido;
                 modelo.Aforo = dato[0].aforo;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
                 return View(modelo);
             }
             catch
@@ -219,6 +231,10 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    ViewBag.genero = new SelectList(new[] {
+                        new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                        new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
                     return View(prestamoAudiovisual);
                 }
                 clsPrestamoAudiovisual objPrestamoAudiovisual = new clsPrestamoAudiovisual();

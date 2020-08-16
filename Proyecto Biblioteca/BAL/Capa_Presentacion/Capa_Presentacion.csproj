@@ -1042,7 +1042,6 @@
     <Compile Include="Controllers\PrestamoEquipoController.cs" />
     <Compile Include="Controllers\PrestamoPermanenteController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
-    <Compile Include="Controllers\ReporteController.cs" />
     <Compile Include="Controllers\ReporteFormularioCIIEController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -1235,8 +1234,6 @@
     <Content Include="Views\Shared\_Consultar.cshtml" />
     <Content Include="Views\Shared\_Editar.cshtml" />
     <Content Include="Views\IniciarSesion\Recuperar.cshtml" />
-    <Content Include="Views\Reporte\CantidadTipoUsuario.cshtml" />
-    <Content Include="Views\Reporte\ReporteCantidadTipoUsuario.cshtml" />
     <Content Include="Views\FormularioCIIE\Consultar.cshtml" />
     <Content Include="Views\FormularioCIIE\Editar.cshtml" />
     <Content Include="Views\Consulta\Editar.cshtml" />

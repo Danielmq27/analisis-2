@@ -53,7 +53,6 @@
     <Compile Include="clsPrestamoAudiovisual.cs" />
     <Compile Include="clsPrestamoEquipo.cs" />
     <Compile Include="clsPrestamoPermanente.cs" />
-    <Compile Include="clsReporte.cs" />
     <Compile Include="clsReporteFormularioCIIE.cs" />
     <Compile Include="clsRol.cs" />
     <Compile Include="clsUsuario.cs" />

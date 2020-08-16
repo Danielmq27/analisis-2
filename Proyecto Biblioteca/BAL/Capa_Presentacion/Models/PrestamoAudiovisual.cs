@@ -39,7 +39,6 @@ namespace Capa_Presentacion.Models
 
         //Atributo Telefono
         [Required]
-        [DataType(DataType.PhoneNumber)]
         [Display(Name = "Teléfono")]
         public int Telefono { get; set; }
 
@@ -85,6 +84,7 @@ namespace Capa_Presentacion.Models
         //Atributo Descripcion
         [Required]
         [StringLength(500)]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
 
