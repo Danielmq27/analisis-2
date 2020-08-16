@@ -450,6 +450,10 @@
     <Parameter Name="id" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.BORRAR_CIIE" Method="BORRAR_CIIE">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.BORRAR_CONSULTA" Method="BORRAR_CONSULTA">
     <Parameter Name="id" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -476,45 +480,252 @@
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.CantidadTipoUsuarioFromTo" Method="CantidadTipoUsuarioFromTo">
+  <Function Name="dbo.CANTIDAD_DEPARTAMENTO_FROM_TO" Method="CANTIDAD_DEPARTAMENTO_FROM_TO">
     <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
     <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
-    <ElementType Name="CantidadTipoUsuarioFromToResult">
+    <ElementType Name="CANTIDAD_DEPARTAMENTO_FROM_TOResult">
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_DEPARTAMENTO_FROM_TO_PE" Method="CANTIDAD_DEPARTAMENTO_FROM_TO_PE">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_DEPARTAMENTO_FROM_TO_PEResult">
+      <Column Name="Departamento" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_DEPARTAMENTO_INGRESO_PA" Method="CANTIDAD_DEPARTAMENTO_INGRESO_PA">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_DEPARTAMENTO_INGRESO_PAResult">
+      <Column Name="departamento" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_DEPARTAMENTO_INGRESO_PE" Method="CANTIDAD_DEPARTAMENTO_INGRESO_PE">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_DEPARTAMENTO_INGRESO_PEResult">
+      <Column Name="departamento" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_DEPARTAMENTO_Salida_PA" Method="CANTIDAD_DEPARTAMENTO_Salida_PA">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_DEPARTAMENTO_Salida_PAResult">
+      <Column Name="departamento" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_DEPARTAMENTO_SALIDA_PE" Method="CANTIDAD_DEPARTAMENTO_SALIDA_PE">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_DEPARTAMENTO_SALIDA_PEResult">
+      <Column Name="departamento" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_DESPACHO_INGRESO_PP" Method="CANTIDAD_DESPACHO_INGRESO_PP">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_DESPACHO_INGRESO_PPResult">
+      <Column Name="despacho" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_FIN_PA" Method="CANTIDAD_GENERO_FIN_PA">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_FIN_PAResult">
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_FROM_TO_CIIE" Method="CANTIDAD_GENERO_FROM_TO_CIIE">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_FROM_TO_CIIEResult">
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_FROM_TO_CONSULTA" Method="CANTIDAD_GENERO_FROM_TO_CONSULTA">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_FROM_TO_CONSULTAResult">
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_FROM_TO_PA" Method="CANTIDAD_GENERO_FROM_TO_PA">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_FROM_TO_PAResult">
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_FROM_TO_PE" Method="CANTIDAD_GENERO_FROM_TO_PE">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_FROM_TO_PEResult">
+      <Column Name="generoSolicictante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_INGRESO_CIIE" Method="CANTIDAD_GENERO_INGRESO_CIIE">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_INGRESO_CIIEResult">
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_INGRESO_CONSULTA" Method="CANTIDAD_GENERO_INGRESO_CONSULTA">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_INGRESO_CONSULTAResult">
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_INGRESO_PA" Method="CANTIDAD_GENERO_INGRESO_PA">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_INGRESO_PAResult">
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_INGRESO_PE" Method="CANTIDAD_GENERO_INGRESO_PE">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_INGRESO_PEResult">
+      <Column Name="generoSolicictante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_INGRESO_PP" Method="CANTIDAD_GENERO_INGRESO_PP">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_INGRESO_PPResult">
+      <Column Name="generoSolicictante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_RESPUESTA_CIIE" Method="CANTIDAD_GENERO_RESPUESTA_CIIE">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_RESPUESTA_CIIEResult">
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_RESPUESTA_CONSULTA" Method="CANTIDAD_GENERO_RESPUESTA_CONSULTA">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_RESPUESTA_CONSULTAResult">
+      <Column Name="generoSolicitante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_GENERO_SALIDA_PE" Method="CANTIDAD_GENERO_SALIDA_PE">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_GENERO_SALIDA_PEResult">
+      <Column Name="generoSolicictante" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_METODO_INGRESO_CONSULTA" Method="CANTIDAD_METODO_INGRESO_CONSULTA">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_METODO_INGRESO_CONSULTAResult">
+      <Column Name="metodoIngreso" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_METODO_INGRESO_CONSULTA_FROM_TO" Method="CANTIDAD_METODO_INGRESO_CONSULTA_FROM_TO">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_METODO_INGRESO_CONSULTA_FROM_TOResult">
+      <Column Name="MetodoIngreso" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_METODO_INGRESO_CONSULTA_RESPUESTA" Method="CANTIDAD_METODO_INGRESO_CONSULTA_RESPUESTA">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_METODO_INGRESO_CONSULTA_RESPUESTAResult">
+      <Column Name="metodoIngreso" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_RANGO_FECHAS_INGRESO" Method="CANTIDAD_RANGO_FECHAS_INGRESO">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_RANGO_FECHAS_INGRESOResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_RANGO_FECHAS_RESPUESTA" Method="CANTIDAD_RANGO_FECHAS_RESPUESTA">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_RANGO_FECHAS_RESPUESTAResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.CANTIDAD_TIPO_USUARIO_FROM_TO_CIIE" Method="CANTIDAD_TIPO_USUARIO_FROM_TO_CIIE">
+    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="CANTIDAD_TIPO_USUARIO_FROM_TO_CIIEResult">
       <Column Name="Tipo_Usuario" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.CantidadTipoUsuarioIngreso" Method="CantidadTipoUsuarioIngreso">
+  <Function Name="dbo.CANTIDAD_TIPO_USUARIO_INGRESO_CIIE" Method="CANTIDAD_TIPO_USUARIO_INGRESO_CIIE">
     <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
     <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
-    <ElementType Name="CantidadTipoUsuarioIngresoResult">
+    <ElementType Name="CANTIDAD_TIPO_USUARIO_INGRESO_CIIEResult">
       <Column Name="tipoDespacho" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.CantidadTipoUsuarioRespuesta" Method="CantidadTipoUsuarioRespuesta">
+  <Function Name="dbo.CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIE" Method="CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIE">
     <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
     <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
-    <ElementType Name="CantidadTipoUsuarioRespuestaResult">
+    <ElementType Name="CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIEResult">
       <Column Name="tipoDespacho" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.CantidaRangoFechasIngreso" Method="CantidaRangoFechasIngreso">
-    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
-    <ElementType Name="CantidaRangoFechasIngresoResult">
-      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.CantidaRangoFechasRespuesta" Method="CantidaRangoFechasRespuesta">
-    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
-    <ElementType Name="CantidaRangoFechasRespuestaResult">
-      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.INSERTAR_AUDIOVISUAL" Method="INSERTAR_AUDIOVISUAL">
@@ -1169,9 +1380,5 @@
       <Column Name="clave" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="IdRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.BORRAR_CIIE" Method="BORRAR_CIIE">
-    <Parameter Name="id" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
   </Function>
 </Database>

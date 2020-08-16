@@ -22,7 +22,9 @@ namespace Capa_Presentacion.App_Start
                 "~/Content/plugins/slimScroll/jquery.slimscroll.min.js",
                 "~/Content/plugins/fastclick/fastclick.js",
                 "~/Content/plugins/iCheck/icheck.min.js",
-                "~/Content/plugins/fastclick/fastclick.js"));
+                "~/Content/plugins/fastclick/fastclick.js",
+                "~/Content/alertifyjs/alertify.js",
+                "~/Content/alertifyjs/alertify.min.js"));
 
             bundles.Add(new StyleBundle("~/Css").Include(
                 "~/Content/bootstrap/css/bootstrap.min.css",
@@ -30,7 +32,9 @@ namespace Capa_Presentacion.App_Start
                 "~/Content/dist/css/skins/_all-skins.min.css",
                 "~/Content/plugins/datatables/dataTables.bootstrap.css",
                 "~/Content/dist/css/AdminLTE.min.css",
-                "~/Content/plugins/iCheck/square/blue.css"));
+                "~/Content/plugins/iCheck/square/blue.css",
+                "~/Content/alertifyjs/css/alertify.css",
+                "~/Content/alertifyjs/css/alertify.min.css"));
 
             BundleTable.EnableOptimizations = true;
         }

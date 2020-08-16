@@ -9,12 +9,12 @@ namespace Capa_Logica
 {
     public class clsReporte
     {
-        public List<CantidadTipoUsuarioIngresoResult> CantidadTipoUsuarioIngreso(DateTime fechaFrom, DateTime fechaTo)
+        public List<CANTIDAD_TIPO_USUARIO_INGRESO_CIIEResult> CantidadTipoUsuarioIngreso(DateTime fechaFrom, DateTime fechaTo)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<CantidadTipoUsuarioIngresoResult> data = dc.CantidadTipoUsuarioIngreso(fechaFrom, fechaTo).ToList();
+                List<CANTIDAD_TIPO_USUARIO_INGRESO_CIIEResult> data = dc.CANTIDAD_TIPO_USUARIO_INGRESO_CIIE(fechaFrom, fechaTo).ToList();
                 return data;
             }
             catch (Exception)

@@ -9,12 +9,12 @@ namespace Capa_Logica
 {
     public class clsReporteFormularioCIIE
     {
-        public List<CantidadTipoUsuarioIngresoResult> CantidadTipoUsuarioFechaIngreso(DateTime Fecha1, DateTime Fecha2)
+        public List<CANTIDAD_TIPO_USUARIO_INGRESO_CIIEResult> CantidadTipoUsuarioFechaIngreso(DateTime Fecha1, DateTime Fecha2)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<CantidadTipoUsuarioIngresoResult> data = dc.CantidadTipoUsuarioIngreso(Fecha1, Fecha2).ToList();
+                List<CANTIDAD_TIPO_USUARIO_INGRESO_CIIEResult> data = dc.CANTIDAD_TIPO_USUARIO_INGRESO_CIIE(Fecha1, Fecha2).ToList();
                 return data;
             }
             catch (Exception)
@@ -23,12 +23,12 @@ namespace Capa_Logica
             }
         }
 
-        public List<CantidadTipoUsuarioRespuestaResult> CantidadTipoUsuarioFechaRespuesta(DateTime Fecha1, DateTime Fecha2)
+        public List<CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIEResult> CantidadTipoUsuarioFechaRespuesta(DateTime Fecha1, DateTime Fecha2)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<CantidadTipoUsuarioRespuestaResult> data = dc.CantidadTipoUsuarioRespuesta(Fecha1, Fecha2).ToList();
+                List<CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIEResult> data = dc.CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIE(Fecha1, Fecha2).ToList();
                 return data;
             }
             catch (Exception)
@@ -37,12 +37,12 @@ namespace Capa_Logica
             }
         }
 
-        public List<CantidadTipoUsuarioFromToResult> CantidadTipoUsuarioFechaIngresoFechaRespuesta(DateTime Fecha1, DateTime Fecha2)
+        public List<CANTIDAD_TIPO_USUARIO_FROM_TO_CIIEResult> CantidadTipoUsuarioFechaIngresoFechaRespuesta(DateTime Fecha1, DateTime Fecha2)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<CantidadTipoUsuarioFromToResult> data = dc.CantidadTipoUsuarioFromTo(Fecha1, Fecha2).ToList();
+                List<CANTIDAD_TIPO_USUARIO_FROM_TO_CIIEResult> data = dc.CANTIDAD_TIPO_USUARIO_FROM_TO_CIIE(Fecha1, Fecha2).ToList();
                 return data;
             }
             catch (Exception)

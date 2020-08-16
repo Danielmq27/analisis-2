@@ -115,6 +115,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\alertifyjs\alertify.js" />
+    <Content Include="Content\alertifyjs\alertify.min.js" />
+    <Content Include="Content\alertifyjs\css\alertify.css" />
+    <Content Include="Content\alertifyjs\css\alertify.min.css" />
+    <Content Include="Content\alertifyjs\css\alertify.rtl.css" />
+    <Content Include="Content\alertifyjs\css\alertify.rtl.min.css" />
+    <Content Include="Content\alertifyjs\css\themes\bootstrap.css" />
+    <Content Include="Content\alertifyjs\css\themes\bootstrap.min.css" />
+    <Content Include="Content\alertifyjs\css\themes\bootstrap.rtl.css" />
+    <Content Include="Content\alertifyjs\css\themes\bootstrap.rtl.min.css" />
+    <Content Include="Content\alertifyjs\css\themes\default.css" />
+    <Content Include="Content\alertifyjs\css\themes\default.min.css" />
+    <Content Include="Content\alertifyjs\css\themes\default.rtl.css" />
+    <Content Include="Content\alertifyjs\css\themes\default.rtl.min.css" />
+    <Content Include="Content\alertifyjs\css\themes\semantic.css" />
+    <Content Include="Content\alertifyjs\css\themes\semantic.min.css" />
+    <Content Include="Content\alertifyjs\css\themes\semantic.rtl.css" />
+    <Content Include="Content\alertifyjs\css\themes\semantic.rtl.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
@@ -1236,9 +1254,9 @@
     <Content Include="Views\PrestamoPermanente\Detalles.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\Administrador.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\Editar.cshtml" />
-    <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngreso.cshtml" />
-    <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaRespuesta.cshtml" />
-    <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngresoFechaRespuesta.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngresoCIIE.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaRespuestaCIIE.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngresoFechaRespuestaCIIE.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -424,6 +424,13 @@ namespace Capa_Datos
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BORRAR_CIIE")]
+		public int BORRAR_CIIE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BORRAR_CONSULTA")]
 		public int BORRAR_CONSULTA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id)
 		{
@@ -466,39 +473,200 @@ namespace Capa_Datos
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CantidadTipoUsuarioFromTo")]
-		public ISingleResult<CantidadTipoUsuarioFromToResult> CantidadTipoUsuarioFromTo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_DEPARTAMENTO_FROM_TO")]
+		public ISingleResult<CANTIDAD_DEPARTAMENTO_FROM_TOResult> CANTIDAD_DEPARTAMENTO_FROM_TO([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
-			return ((ISingleResult<CantidadTipoUsuarioFromToResult>)(result.ReturnValue));
+			return ((ISingleResult<CANTIDAD_DEPARTAMENTO_FROM_TOResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CantidadTipoUsuarioIngreso")]
-		public ISingleResult<CantidadTipoUsuarioIngresoResult> CantidadTipoUsuarioIngreso([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_DEPARTAMENTO_FROM_TO_PE")]
+		public ISingleResult<CANTIDAD_DEPARTAMENTO_FROM_TO_PEResult> CANTIDAD_DEPARTAMENTO_FROM_TO_PE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
-			return ((ISingleResult<CantidadTipoUsuarioIngresoResult>)(result.ReturnValue));
+			return ((ISingleResult<CANTIDAD_DEPARTAMENTO_FROM_TO_PEResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CantidadTipoUsuarioRespuesta")]
-		public ISingleResult<CantidadTipoUsuarioRespuestaResult> CantidadTipoUsuarioRespuesta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_DEPARTAMENTO_INGRESO_PA")]
+		public ISingleResult<CANTIDAD_DEPARTAMENTO_INGRESO_PAResult> CANTIDAD_DEPARTAMENTO_INGRESO_PA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
-			return ((ISingleResult<CantidadTipoUsuarioRespuestaResult>)(result.ReturnValue));
+			return ((ISingleResult<CANTIDAD_DEPARTAMENTO_INGRESO_PAResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CantidaRangoFechasIngreso")]
-		public ISingleResult<CantidaRangoFechasIngresoResult> CantidaRangoFechasIngreso([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_DEPARTAMENTO_INGRESO_PE")]
+		public ISingleResult<CANTIDAD_DEPARTAMENTO_INGRESO_PEResult> CANTIDAD_DEPARTAMENTO_INGRESO_PE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
-			return ((ISingleResult<CantidaRangoFechasIngresoResult>)(result.ReturnValue));
+			return ((ISingleResult<CANTIDAD_DEPARTAMENTO_INGRESO_PEResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CantidaRangoFechasRespuesta")]
-		public ISingleResult<CantidaRangoFechasRespuestaResult> CantidaRangoFechasRespuesta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_DEPARTAMENTO_Salida_PA")]
+		public ISingleResult<CANTIDAD_DEPARTAMENTO_Salida_PAResult> CANTIDAD_DEPARTAMENTO_Salida_PA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
-			return ((ISingleResult<CantidaRangoFechasRespuestaResult>)(result.ReturnValue));
+			return ((ISingleResult<CANTIDAD_DEPARTAMENTO_Salida_PAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_DEPARTAMENTO_SALIDA_PE")]
+		public ISingleResult<CANTIDAD_DEPARTAMENTO_SALIDA_PEResult> CANTIDAD_DEPARTAMENTO_SALIDA_PE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_DEPARTAMENTO_SALIDA_PEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_DESPACHO_INGRESO_PP")]
+		public ISingleResult<CANTIDAD_DESPACHO_INGRESO_PPResult> CANTIDAD_DESPACHO_INGRESO_PP([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_DESPACHO_INGRESO_PPResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_FIN_PA")]
+		public ISingleResult<CANTIDAD_GENERO_FIN_PAResult> CANTIDAD_GENERO_FIN_PA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_FIN_PAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_FROM_TO_CIIE")]
+		public ISingleResult<CANTIDAD_GENERO_FROM_TO_CIIEResult> CANTIDAD_GENERO_FROM_TO_CIIE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_FROM_TO_CIIEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_FROM_TO_CONSULTA")]
+		public ISingleResult<CANTIDAD_GENERO_FROM_TO_CONSULTAResult> CANTIDAD_GENERO_FROM_TO_CONSULTA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_FROM_TO_CONSULTAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_FROM_TO_PA")]
+		public ISingleResult<CANTIDAD_GENERO_FROM_TO_PAResult> CANTIDAD_GENERO_FROM_TO_PA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_FROM_TO_PAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_FROM_TO_PE")]
+		public ISingleResult<CANTIDAD_GENERO_FROM_TO_PEResult> CANTIDAD_GENERO_FROM_TO_PE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_FROM_TO_PEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_INGRESO_CIIE")]
+		public ISingleResult<CANTIDAD_GENERO_INGRESO_CIIEResult> CANTIDAD_GENERO_INGRESO_CIIE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_INGRESO_CIIEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_INGRESO_CONSULTA")]
+		public ISingleResult<CANTIDAD_GENERO_INGRESO_CONSULTAResult> CANTIDAD_GENERO_INGRESO_CONSULTA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_INGRESO_CONSULTAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_INGRESO_PA")]
+		public ISingleResult<CANTIDAD_GENERO_INGRESO_PAResult> CANTIDAD_GENERO_INGRESO_PA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_INGRESO_PAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_INGRESO_PE")]
+		public ISingleResult<CANTIDAD_GENERO_INGRESO_PEResult> CANTIDAD_GENERO_INGRESO_PE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_INGRESO_PEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_INGRESO_PP")]
+		public ISingleResult<CANTIDAD_GENERO_INGRESO_PPResult> CANTIDAD_GENERO_INGRESO_PP([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_INGRESO_PPResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_RESPUESTA_CIIE")]
+		public ISingleResult<CANTIDAD_GENERO_RESPUESTA_CIIEResult> CANTIDAD_GENERO_RESPUESTA_CIIE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_RESPUESTA_CIIEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_RESPUESTA_CONSULTA")]
+		public ISingleResult<CANTIDAD_GENERO_RESPUESTA_CONSULTAResult> CANTIDAD_GENERO_RESPUESTA_CONSULTA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_RESPUESTA_CONSULTAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_GENERO_SALIDA_PE")]
+		public ISingleResult<CANTIDAD_GENERO_SALIDA_PEResult> CANTIDAD_GENERO_SALIDA_PE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_GENERO_SALIDA_PEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_METODO_INGRESO_CONSULTA")]
+		public ISingleResult<CANTIDAD_METODO_INGRESO_CONSULTAResult> CANTIDAD_METODO_INGRESO_CONSULTA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_METODO_INGRESO_CONSULTAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_METODO_INGRESO_CONSULTA_FROM_TO")]
+		public ISingleResult<CANTIDAD_METODO_INGRESO_CONSULTA_FROM_TOResult> CANTIDAD_METODO_INGRESO_CONSULTA_FROM_TO([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_METODO_INGRESO_CONSULTA_FROM_TOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_METODO_INGRESO_CONSULTA_RESPUESTA")]
+		public ISingleResult<CANTIDAD_METODO_INGRESO_CONSULTA_RESPUESTAResult> CANTIDAD_METODO_INGRESO_CONSULTA_RESPUESTA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_METODO_INGRESO_CONSULTA_RESPUESTAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_RANGO_FECHAS_INGRESO")]
+		public ISingleResult<CANTIDAD_RANGO_FECHAS_INGRESOResult> CANTIDAD_RANGO_FECHAS_INGRESO([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_RANGO_FECHAS_INGRESOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_RANGO_FECHAS_RESPUESTA")]
+		public ISingleResult<CANTIDAD_RANGO_FECHAS_RESPUESTAResult> CANTIDAD_RANGO_FECHAS_RESPUESTA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_RANGO_FECHAS_RESPUESTAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_TIPO_USUARIO_FROM_TO_CIIE")]
+		public ISingleResult<CANTIDAD_TIPO_USUARIO_FROM_TO_CIIEResult> CANTIDAD_TIPO_USUARIO_FROM_TO_CIIE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_TIPO_USUARIO_FROM_TO_CIIEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_TIPO_USUARIO_INGRESO_CIIE")]
+		public ISingleResult<CANTIDAD_TIPO_USUARIO_INGRESO_CIIEResult> CANTIDAD_TIPO_USUARIO_INGRESO_CIIE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_TIPO_USUARIO_INGRESO_CIIEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIE")]
+		public ISingleResult<CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIEResult> CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
+			return ((ISingleResult<CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIEResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INSERTAR_AUDIOVISUAL")]
@@ -817,13 +985,6 @@ namespace Capa_Datos
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((ISingleResult<SELECCIONAR_USUARIOResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.BORRAR_CIIE")]
-		public int BORRAR_CIIE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id);
-			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -7572,7 +7733,1485 @@ namespace Capa_Datos
 		}
 	}
 	
-	public partial class CantidadTipoUsuarioFromToResult
+	public partial class CANTIDAD_DEPARTAMENTO_FROM_TOResult
+	{
+		
+		private string _Departamento;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _Porcentaje;
+		
+		public CANTIDAD_DEPARTAMENTO_FROM_TOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departamento", DbType="VarChar(40)")]
+		public string Departamento
+		{
+			get
+			{
+				return this._Departamento;
+			}
+			set
+			{
+				if ((this._Departamento != value))
+				{
+					this._Departamento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Porcentaje", DbType="Int")]
+		public System.Nullable<int> Porcentaje
+		{
+			get
+			{
+				return this._Porcentaje;
+			}
+			set
+			{
+				if ((this._Porcentaje != value))
+				{
+					this._Porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_DEPARTAMENTO_FROM_TO_PEResult
+	{
+		
+		private string _Departamento;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _Porcentaje;
+		
+		public CANTIDAD_DEPARTAMENTO_FROM_TO_PEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Departamento", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string Departamento
+		{
+			get
+			{
+				return this._Departamento;
+			}
+			set
+			{
+				if ((this._Departamento != value))
+				{
+					this._Departamento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Porcentaje", DbType="Int")]
+		public System.Nullable<int> Porcentaje
+		{
+			get
+			{
+				return this._Porcentaje;
+			}
+			set
+			{
+				if ((this._Porcentaje != value))
+				{
+					this._Porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_DEPARTAMENTO_INGRESO_PAResult
+	{
+		
+		private string _departamento;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_DEPARTAMENTO_INGRESO_PAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_departamento", DbType="VarChar(40)")]
+		public string departamento
+		{
+			get
+			{
+				return this._departamento;
+			}
+			set
+			{
+				if ((this._departamento != value))
+				{
+					this._departamento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_DEPARTAMENTO_INGRESO_PEResult
+	{
+		
+		private string _departamento;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_DEPARTAMENTO_INGRESO_PEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_departamento", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string departamento
+		{
+			get
+			{
+				return this._departamento;
+			}
+			set
+			{
+				if ((this._departamento != value))
+				{
+					this._departamento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_DEPARTAMENTO_Salida_PAResult
+	{
+		
+		private string _departamento;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_DEPARTAMENTO_Salida_PAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_departamento", DbType="VarChar(40)")]
+		public string departamento
+		{
+			get
+			{
+				return this._departamento;
+			}
+			set
+			{
+				if ((this._departamento != value))
+				{
+					this._departamento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_DEPARTAMENTO_SALIDA_PEResult
+	{
+		
+		private string _departamento;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_DEPARTAMENTO_SALIDA_PEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_departamento", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string departamento
+		{
+			get
+			{
+				return this._departamento;
+			}
+			set
+			{
+				if ((this._departamento != value))
+				{
+					this._departamento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_DESPACHO_INGRESO_PPResult
+	{
+		
+		private string _despacho;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_DESPACHO_INGRESO_PPResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_despacho", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string despacho
+		{
+			get
+			{
+				return this._despacho;
+			}
+			set
+			{
+				if ((this._despacho != value))
+				{
+					this._despacho = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_FIN_PAResult
+	{
+		
+		private string _generoSolicitante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_FIN_PAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicitante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicitante
+		{
+			get
+			{
+				return this._generoSolicitante;
+			}
+			set
+			{
+				if ((this._generoSolicitante != value))
+				{
+					this._generoSolicitante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_FROM_TO_CIIEResult
+	{
+		
+		private string _generoSolicitante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_FROM_TO_CIIEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicitante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicitante
+		{
+			get
+			{
+				return this._generoSolicitante;
+			}
+			set
+			{
+				if ((this._generoSolicitante != value))
+				{
+					this._generoSolicitante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_FROM_TO_CONSULTAResult
+	{
+		
+		private string _generoSolicitante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_FROM_TO_CONSULTAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicitante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicitante
+		{
+			get
+			{
+				return this._generoSolicitante;
+			}
+			set
+			{
+				if ((this._generoSolicitante != value))
+				{
+					this._generoSolicitante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_FROM_TO_PAResult
+	{
+		
+		private string _generoSolicitante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_FROM_TO_PAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicitante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicitante
+		{
+			get
+			{
+				return this._generoSolicitante;
+			}
+			set
+			{
+				if ((this._generoSolicitante != value))
+				{
+					this._generoSolicitante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_FROM_TO_PEResult
+	{
+		
+		private string _generoSolicictante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_FROM_TO_PEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicictante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicictante
+		{
+			get
+			{
+				return this._generoSolicictante;
+			}
+			set
+			{
+				if ((this._generoSolicictante != value))
+				{
+					this._generoSolicictante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_INGRESO_CIIEResult
+	{
+		
+		private string _generoSolicitante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_INGRESO_CIIEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicitante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicitante
+		{
+			get
+			{
+				return this._generoSolicitante;
+			}
+			set
+			{
+				if ((this._generoSolicitante != value))
+				{
+					this._generoSolicitante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_INGRESO_CONSULTAResult
+	{
+		
+		private string _generoSolicitante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_INGRESO_CONSULTAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicitante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicitante
+		{
+			get
+			{
+				return this._generoSolicitante;
+			}
+			set
+			{
+				if ((this._generoSolicitante != value))
+				{
+					this._generoSolicitante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_INGRESO_PAResult
+	{
+		
+		private string _generoSolicitante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_INGRESO_PAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicitante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicitante
+		{
+			get
+			{
+				return this._generoSolicitante;
+			}
+			set
+			{
+				if ((this._generoSolicitante != value))
+				{
+					this._generoSolicitante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_INGRESO_PEResult
+	{
+		
+		private string _generoSolicictante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_INGRESO_PEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicictante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicictante
+		{
+			get
+			{
+				return this._generoSolicictante;
+			}
+			set
+			{
+				if ((this._generoSolicictante != value))
+				{
+					this._generoSolicictante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_INGRESO_PPResult
+	{
+		
+		private string _generoSolicictante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_INGRESO_PPResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicictante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicictante
+		{
+			get
+			{
+				return this._generoSolicictante;
+			}
+			set
+			{
+				if ((this._generoSolicictante != value))
+				{
+					this._generoSolicictante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_RESPUESTA_CIIEResult
+	{
+		
+		private string _generoSolicitante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_RESPUESTA_CIIEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicitante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicitante
+		{
+			get
+			{
+				return this._generoSolicitante;
+			}
+			set
+			{
+				if ((this._generoSolicitante != value))
+				{
+					this._generoSolicitante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_RESPUESTA_CONSULTAResult
+	{
+		
+		private string _generoSolicitante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_RESPUESTA_CONSULTAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicitante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicitante
+		{
+			get
+			{
+				return this._generoSolicitante;
+			}
+			set
+			{
+				if ((this._generoSolicitante != value))
+				{
+					this._generoSolicitante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_GENERO_SALIDA_PEResult
+	{
+		
+		private string _generoSolicictante;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_GENERO_SALIDA_PEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_generoSolicictante", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string generoSolicictante
+		{
+			get
+			{
+				return this._generoSolicictante;
+			}
+			set
+			{
+				if ((this._generoSolicictante != value))
+				{
+					this._generoSolicictante = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_METODO_INGRESO_CONSULTAResult
+	{
+		
+		private string _metodoIngreso;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_METODO_INGRESO_CONSULTAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_metodoIngreso", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string metodoIngreso
+		{
+			get
+			{
+				return this._metodoIngreso;
+			}
+			set
+			{
+				if ((this._metodoIngreso != value))
+				{
+					this._metodoIngreso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_METODO_INGRESO_CONSULTA_FROM_TOResult
+	{
+		
+		private string _MetodoIngreso;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _Porcentaje;
+		
+		public CANTIDAD_METODO_INGRESO_CONSULTA_FROM_TOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MetodoIngreso", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string MetodoIngreso
+		{
+			get
+			{
+				return this._MetodoIngreso;
+			}
+			set
+			{
+				if ((this._MetodoIngreso != value))
+				{
+					this._MetodoIngreso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Porcentaje", DbType="Int")]
+		public System.Nullable<int> Porcentaje
+		{
+			get
+			{
+				return this._Porcentaje;
+			}
+			set
+			{
+				if ((this._Porcentaje != value))
+				{
+					this._Porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_METODO_INGRESO_CONSULTA_RESPUESTAResult
+	{
+		
+		private string _metodoIngreso;
+		
+		private System.Nullable<int> _Cantidad;
+		
+		private System.Nullable<int> _porcentaje;
+		
+		public CANTIDAD_METODO_INGRESO_CONSULTA_RESPUESTAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_metodoIngreso", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string metodoIngreso
+		{
+			get
+			{
+				return this._metodoIngreso;
+			}
+			set
+			{
+				if ((this._metodoIngreso != value))
+				{
+					this._metodoIngreso = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cantidad", DbType="Int")]
+		public System.Nullable<int> Cantidad
+		{
+			get
+			{
+				return this._Cantidad;
+			}
+			set
+			{
+				if ((this._Cantidad != value))
+				{
+					this._Cantidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_porcentaje", DbType="Int")]
+		public System.Nullable<int> porcentaje
+		{
+			get
+			{
+				return this._porcentaje;
+			}
+			set
+			{
+				if ((this._porcentaje != value))
+				{
+					this._porcentaje = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_RANGO_FECHAS_INGRESOResult
+	{
+		
+		private System.Nullable<int> _Column1;
+		
+		public CANTIDAD_RANGO_FECHAS_INGRESOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
+		public System.Nullable<int> Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_RANGO_FECHAS_RESPUESTAResult
+	{
+		
+		private System.Nullable<int> _Column1;
+		
+		public CANTIDAD_RANGO_FECHAS_RESPUESTAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
+		public System.Nullable<int> Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_TIPO_USUARIO_FROM_TO_CIIEResult
 	{
 		
 		private string _Tipo_Usuario;
@@ -7581,7 +9220,7 @@ namespace Capa_Datos
 		
 		private System.Nullable<int> _Porcentaje;
 		
-		public CantidadTipoUsuarioFromToResult()
+		public CANTIDAD_TIPO_USUARIO_FROM_TO_CIIEResult()
 		{
 		}
 		
@@ -7634,7 +9273,7 @@ namespace Capa_Datos
 		}
 	}
 	
-	public partial class CantidadTipoUsuarioIngresoResult
+	public partial class CANTIDAD_TIPO_USUARIO_INGRESO_CIIEResult
 	{
 		
 		private string _tipoDespacho;
@@ -7643,7 +9282,7 @@ namespace Capa_Datos
 		
 		private System.Nullable<int> _Porcentaje;
 		
-		public CantidadTipoUsuarioIngresoResult()
+		public CANTIDAD_TIPO_USUARIO_INGRESO_CIIEResult()
 		{
 		}
 		
@@ -7696,7 +9335,7 @@ namespace Capa_Datos
 		}
 	}
 	
-	public partial class CantidadTipoUsuarioRespuestaResult
+	public partial class CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIEResult
 	{
 		
 		private string _tipoDespacho;
@@ -7705,7 +9344,7 @@ namespace Capa_Datos
 		
 		private System.Nullable<int> _Porcentaje;
 		
-		public CantidadTipoUsuarioRespuestaResult()
+		public CANTIDAD_TIPO_USUARIO_RESPUESTA_CIIEResult()
 		{
 		}
 		
@@ -7753,58 +9392,6 @@ namespace Capa_Datos
 				if ((this._Porcentaje != value))
 				{
 					this._Porcentaje = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CantidaRangoFechasIngresoResult
-	{
-		
-		private System.Nullable<int> _Column1;
-		
-		public CantidaRangoFechasIngresoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
-		public System.Nullable<int> Column1
-		{
-			get
-			{
-				return this._Column1;
-			}
-			set
-			{
-				if ((this._Column1 != value))
-				{
-					this._Column1 = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CantidaRangoFechasRespuestaResult
-	{
-		
-		private System.Nullable<int> _Column1;
-		
-		public CantidaRangoFechasRespuestaResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
-		public System.Nullable<int> Column1
-		{
-			get
-			{
-				return this._Column1;
-			}
-			set
-			{
-				if ((this._Column1 != value))
-				{
-					this._Column1 = value;
 				}
 			}
 		}
