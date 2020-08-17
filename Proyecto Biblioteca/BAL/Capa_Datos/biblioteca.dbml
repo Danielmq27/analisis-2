@@ -687,20 +687,6 @@
       <Column Name="porcentaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.CANTIDAD_RANGO_FECHAS_INGRESO" Method="CANTIDAD_RANGO_FECHAS_INGRESO">
-    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
-    <ElementType Name="CANTIDAD_RANGO_FECHAS_INGRESOResult">
-      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.CANTIDAD_RANGO_FECHAS_RESPUESTA" Method="CANTIDAD_RANGO_FECHAS_RESPUESTA">
-    <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />
-    <ElementType Name="CANTIDAD_RANGO_FECHAS_RESPUESTAResult">
-      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.CANTIDAD_TIPO_USUARIO_FROM_TO_CIIE" Method="CANTIDAD_TIPO_USUARIO_FROM_TO_CIIE">
     <Parameter Name="fecFrom" Type="System.DateTime" DbType="Date" />
     <Parameter Name="fecTo" Type="System.DateTime" DbType="Date" />

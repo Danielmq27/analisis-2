@@ -55,6 +55,9 @@
     <Compile Include="clsPrestamoPermanente.cs" />
     <Compile Include="clsReporteConsulta.cs" />
     <Compile Include="clsReporteFormularioCIIE.cs" />
+    <Compile Include="clsReportePrestamoAudiovisual.cs" />
+    <Compile Include="clsReportePrestamoEquipo.cs" />
+    <Compile Include="clsReportePrestamoPermanente.cs" />
     <Compile Include="clsRol.cs" />
     <Compile Include="clsUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -634,20 +634,6 @@ namespace Capa_Datos
 			return ((ISingleResult<CANTIDAD_METODO_INGRESO_CONSULTA_RESPUESTAResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_RANGO_FECHAS_INGRESO")]
-		public ISingleResult<CANTIDAD_RANGO_FECHAS_INGRESOResult> CANTIDAD_RANGO_FECHAS_INGRESO([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
-			return ((ISingleResult<CANTIDAD_RANGO_FECHAS_INGRESOResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_RANGO_FECHAS_RESPUESTA")]
-		public ISingleResult<CANTIDAD_RANGO_FECHAS_RESPUESTAResult> CANTIDAD_RANGO_FECHAS_RESPUESTA([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fecFrom, fecTo);
-			return ((ISingleResult<CANTIDAD_RANGO_FECHAS_RESPUESTAResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_TIPO_USUARIO_FROM_TO_CIIE")]
 		public ISingleResult<CANTIDAD_TIPO_USUARIO_FROM_TO_CIIEResult> CANTIDAD_TIPO_USUARIO_FROM_TO_CIIE([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecFrom, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Date")] System.Nullable<System.DateTime> fecTo)
 		{
@@ -9154,58 +9140,6 @@ namespace Capa_Datos
 				if ((this._porcentaje != value))
 				{
 					this._porcentaje = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CANTIDAD_RANGO_FECHAS_INGRESOResult
-	{
-		
-		private System.Nullable<int> _Column1;
-		
-		public CANTIDAD_RANGO_FECHAS_INGRESOResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
-		public System.Nullable<int> Column1
-		{
-			get
-			{
-				return this._Column1;
-			}
-			set
-			{
-				if ((this._Column1 != value))
-				{
-					this._Column1 = value;
-				}
-			}
-		}
-	}
-	
-	public partial class CANTIDAD_RANGO_FECHAS_RESPUESTAResult
-	{
-		
-		private System.Nullable<int> _Column1;
-		
-		public CANTIDAD_RANGO_FECHAS_RESPUESTAResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
-		public System.Nullable<int> Column1
-		{
-			get
-			{
-				return this._Column1;
-			}
-			set
-			{
-				if ((this._Column1 != value))
-				{
-					this._Column1 = value;
 				}
 			}
 		}
