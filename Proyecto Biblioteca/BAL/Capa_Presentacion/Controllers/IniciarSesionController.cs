@@ -11,14 +11,25 @@ using Usuario = Capa_Datos.Usuario;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador IniciarSesionController
     public class IniciarSesionController : Controller
     {
+        //Accion para el iniciar sesion
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
+            }
         }
 
+        //Accion para validar el acceso
         [HttpPost]
         public ActionResult Entrar(string correo, string clave)
         {
@@ -45,6 +56,11 @@ namespace Capa_Presentacion.Controllers
                         Session["Usuario"] = Usuario;
                         Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
                         Session["Rol"] = "Editar";
+                        //Tabla control
+                        Session["cedula"] = Usuario.cedula;
+                        Session["nombre"] = Usuario.nombre;
+                        Session["apellido1"] = Usuario.apellido1;
+                        Session["apellido2"] = Usuario.apellido2;
                         return RedirectToAction("Editar", "Principal");
                     } else
                     {
@@ -62,55 +78,74 @@ namespace Capa_Presentacion.Controllers
             }
             catch (Exception ex)
             {
-                return Content("Ocurrio un error :(" + ex.Message);
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para recuperar el acceso
         [HttpGet]
         public ActionResult Recuperar()
         {
-            return View();
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
+            }
         }
 
+        //Accion para recuperar el acceso
         [HttpPost]
         public ActionResult Recuperar(string correo, string cedula)
         {
-            using(var bd = new bibliotecaDataContext())
+            try
             {
-                int cantidad = bd.Usuario.Where(p => p.email == Seguridad.Encriptar(correo) && p.cedula == cedula).Count();
-                if (cantidad == 0)
+                using (var bd = new bibliotecaDataContext())
                 {
-                    //Mensaje de error
-                    TempData["msg"] = "<script>alert('Usuario no existe');</script>";
-                    return View("Recuperar");
+                    int cantidad = bd.Usuario.Where(p => p.email == Seguridad.Encriptar(correo) && p.cedula == cedula).Count();
+                    if (cantidad == 0)
+                    {
+                        //Mensaje de error
+                        TempData["msg"] = "<script>alert('Usuario no existe');</script>";
+                        return View("Recuperar");
+                    }
+                    else
+                    {
+                        //Se recupera el id del Usuario
+                        Usuario oUsuario = bd.Usuario.Where(p => p.email == Seguridad.Encriptar(correo) && p.cedula == cedula).First();
+
+                        //Nueva clave
+                        Random ra = new Random();
+                        int n1 = ra.Next(0, 9);
+                        int n2 = ra.Next(0, 9);
+                        int n3 = ra.Next(0, 9);
+                        int n4 = ra.Next(0, 9);
+                        string nuevaContra = n1.ToString() + n2.ToString() + n3.ToString() + n4.ToString();
+
+                        //Encriptar la nueva clave
+                        string contraEncriptada = Seguridad.Encriptar(nuevaContra);
+
+                        //Actualizamos la contraseña del usuario
+                        clsUsuario clsUsuario = new clsUsuario();
+                        clsUsuario.ActualizarUsuario(oUsuario.Id, oUsuario.cedula, oUsuario.nombre, oUsuario.apellido1, oUsuario.apellido2, oUsuario.email, contraEncriptada, oUsuario.IdRol);
+
+                        //Enviamos el correo
+                        Correo.enviarCorreo(correo, "Recuperar Clave", "Se reseteo su clave , ahora su clave es :" + nuevaContra, "");
+
+                        //Mensaje de exito
+                        TempData["msg"] = "<script>alert('Se ha enviado su nueva contraseña exitosamente al correo!');</script>";
+                        return View("Index");
+                    }
                 }
-                else
-                {
-                    //Se recupera el id del Usuario
-                    Usuario oUsuario = bd.Usuario.Where(p => p.email == Seguridad.Encriptar(correo) && p.cedula == cedula).First();
-
-                    //Nueva clave
-                    Random ra = new Random();
-                    int n1 = ra.Next(0, 9);
-                    int n2 = ra.Next(0, 9);
-                    int n3 = ra.Next(0, 9);
-                    int n4 = ra.Next(0, 9);
-                    string nuevaContra = n1.ToString() + n2.ToString() + n3.ToString() + n4.ToString();
-
-                    //Encriptar la nueva clave
-                     string contraEncriptada = Seguridad.Encriptar(nuevaContra);
-
-                    //Actualizamos la contraseña del usuario
-                    clsUsuario clsUsuario = new clsUsuario();
-                    clsUsuario.ActualizarUsuario(oUsuario.Id, oUsuario.cedula, oUsuario.nombre, oUsuario.apellido1, oUsuario.apellido2, oUsuario.email, contraEncriptada, oUsuario.IdRol);
-
-                    //Enviamos el correo
-                    Correo.enviarCorreo(correo, "Recuperar Clave", "Se reseteo su clave , ahora su clave es :" + nuevaContra, "");
-
-                    //Mensaje de exito
-                    TempData["msg"] = "<script>alert('Se ha enviado su nueva contraseña exitosamente al correo!');</script>";
-                    return View("Index");
-                }
+            }
+            catch (Exception)
+            {
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }

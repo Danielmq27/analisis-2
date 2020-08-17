@@ -1062,11 +1062,6 @@
     <Compile Include="Models\ReporteFormularioCIIE.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Models\UsuarioConsulta.cs" />
-    <Compile Include="Models\UsuarioFormularioCIIE.cs" />
-    <Compile Include="Models\UsuarioPrestamoAudiovisual.cs" />
-    <Compile Include="Models\UsuarioPrestamoEquipo.cs" />
-    <Compile Include="Models\UsuarioPrestamoPermanente.cs" />
     <Compile Include="Models\ValidacionesExistentes\CedulaExiste.cs" />
     <Compile Include="Models\ValidacionesExistentes\CorreoExiste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1254,6 +1249,11 @@
     <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngresoCIIE.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaRespuestaCIIE.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngresoFechaRespuestaCIIE.cshtml" />
+    <Content Include="Views\Error\Error404.cshtml" />
+    <Content Include="Views\Error\Error500.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\CantidadGeneroFechaIngresoCIIE.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\CantidadGeneroFechaRespuestaCIIE.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\CantidadGeneroFechaIngresoFechaRespuestaCIIE.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1264,7 +1264,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Properties\PublishProfiles\" />
-    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa_Datos\Capa_Datos.csproj">

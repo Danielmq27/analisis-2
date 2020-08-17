@@ -8,9 +8,11 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador RolController
     public class RolController : Controller
     {
-
+        //Accion para ver lo roles
+        [HttpGet]
         public ActionResult Index()
         {
             try
@@ -33,7 +35,8 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("Index", "IniciarSesion");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }

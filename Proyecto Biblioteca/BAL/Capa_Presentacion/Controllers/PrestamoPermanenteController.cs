@@ -8,8 +8,10 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador PrestamoPermanenteController
     public class PrestamoPermanenteController : Controller
     {
+        //Accion para el rol administrador para ver todos los prestamos permanentes
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -41,10 +43,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para el rol editar para ver todos los prestamos permanentes
         [HttpGet]
         public ActionResult Editar()
         {
@@ -76,10 +80,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para el rol consultar para ver todos los prestamos permanentes
         [HttpGet]
         public ActionResult Consultar()
         {
@@ -111,10 +117,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar prestamos permanentes
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -132,10 +140,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar prestamos permanentes
         [HttpPost]
         public ActionResult Agregar(PrestamoPermanente prestamoPermanente)
         {
@@ -170,16 +180,18 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    //Pagina de ERROR
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para actualizar prestamos permanentes
         [HttpGet]
         public ActionResult Actualizar(int Id)
         {
@@ -211,10 +223,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para actualizar prestamos permanentes
         [HttpPost]
         public ActionResult Actualizar(int Id, PrestamoPermanente prestamoPermanente)
         {
@@ -250,15 +264,19 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para detalles de un prestamo permanente
+        [HttpGet]
         public ActionResult Detalles(int id)
         {
             try
@@ -287,12 +305,14 @@ namespace Capa_Presentacion.Controllers
             }
             catch (Exception)
             {
-
-                throw;
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
 
         }
 
+        //Accion para eliminar prestamos permanentes
+        [HttpPost]
         public ActionResult Eliminar(int Id)
         {
             try
@@ -305,15 +325,19 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para eliminar todos los prestamos permanentes
+        [HttpPost]
         public ActionResult EliminarTabla()
         {
             try
@@ -329,12 +353,14 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }

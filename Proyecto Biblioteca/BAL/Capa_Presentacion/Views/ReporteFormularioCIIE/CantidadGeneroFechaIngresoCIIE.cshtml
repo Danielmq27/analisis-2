@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Capa_Presentacion.Models.ReporteFormularioCIIE>
+
+@{
+    ViewBag.Title = "ReporteCantidadGenero";
+    Layout = "~/Views/Shared/_Administrador.cshtml";
+}
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div>
+                <div class="box-header">
+                    <h3 class="box-title">Reporte</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.tipoGenero)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.cantidad)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.porcentaje)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.tipoGenero)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.cantidad)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.porcentaje)%
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(" Descargar reporte", "ReporteGeneroFechaIngresoCIIEXLS", null, new { @class = "btn btn-success btn-sm fa fa-file-excel-o" }) |
+                                    @Html.ActionLink(" Descargar reporte", "ReporteGeneroFechaIngresoCIIEPDF", null, new { @class = "btn btn-danger btn-sm fa fa-file-pdf-o" })
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>

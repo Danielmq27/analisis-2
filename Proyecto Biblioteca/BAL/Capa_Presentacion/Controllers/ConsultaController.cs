@@ -8,9 +8,10 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador ConsultaController
     public class ConsultaController : Controller
     {
-        //Vista del rol administrador para visualizar las consultas
+        //Accion del rol administrador para visualizar las consultas
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -45,11 +46,11 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                return RedirectToAction("Error500", "Error");
             }
         }
 
-        //Vista del rol editar para visualizar las consultas
+        //Accion del rol editar para visualizar las consultas
         [HttpGet]
         public ActionResult Editar()
         {
@@ -84,11 +85,11 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                return RedirectToAction("Error500", "Error");
             }
         }
 
-        //Vista del rol consultar para visualizar las consultas
+        //Accion del rol consultar para visualizar las consultas
         [HttpGet]
         public ActionResult Consultar()
         {
@@ -123,23 +124,34 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar :GET
         [HttpGet]
         public ActionResult Agregar()
         {
             try
             {
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                 return View();
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar :POST
         [HttpPost]
         public ActionResult Agregar(Consulta consulta)
         {
@@ -147,9 +159,19 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
+                    //Retornamos el modelo
                     return View(consulta);
                 }
                 clsConsulta objConsulta = new clsConsulta();
+                //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
                 string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
                 string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
@@ -164,16 +186,18 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    //Pagina de ERROR
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para actualizar :GET
         [HttpGet]
         public ActionResult Actualizar(int Id)
         {
@@ -197,14 +221,24 @@ namespace Capa_Presentacion.Controllers
                 modelo.FechaRespuesta = dato[0].fechaRespuesta;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
                 modelo.Estado = dato[0].estado;
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                 return View(modelo);
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para actualizar .POST
         [HttpPost]
         public ActionResult Actualizar(int Id, Consulta consulta)
         {
@@ -212,9 +246,19 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
+                    //Retornamos el modelo
                     return View(consulta);
                 }
                 clsConsulta objConsulta = new clsConsulta();
+                //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
                 string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
                 string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
@@ -229,15 +273,19 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para detalles :GET
+        [HttpGet]
         public ActionResult Detalles(int id)
         {
             try
@@ -268,11 +316,13 @@ namespace Capa_Presentacion.Controllers
             }
             catch (Exception)
             {
-
-                throw;
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para eliminar :POST
+        [HttpPost]
         public ActionResult Eliminar(int Id)
         {
             try
@@ -285,15 +335,19 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para eliminar la tabla :GET
+        [HttpPost]
         public ActionResult EliminarTabla()
         {
             try
@@ -309,12 +363,14 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }

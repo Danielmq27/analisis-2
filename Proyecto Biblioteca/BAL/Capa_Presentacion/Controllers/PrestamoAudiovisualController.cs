@@ -8,8 +8,10 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador PrestamoAudiovisualController
     public class PrestamoAudiovisualController : Controller
     {
+        //Accion para el rol administrador para ver los prestamos audiovisuales
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -46,10 +48,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para  el rol editar para ver los prestamos audiovisuales
         [HttpGet]
         public ActionResult Editar()
         {
@@ -86,10 +90,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para el rol consultar para ver los prestamos audiovisuales
         [HttpGet]
         public ActionResult Consultar()
         {
@@ -126,10 +132,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar prestamos audiovisuales
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -143,10 +151,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar prestamos audiovisuales
         [HttpPost]
         public ActionResult Agregar(PrestamoAudiovisual prestamoAudiovisual)
         {
@@ -178,16 +188,18 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    //Pagina de ERROR
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para actualizar prestamos audiovisuales
         [HttpGet]
         public ActionResult Actualizar(int Id)
         {
@@ -220,10 +232,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para actualizar prestamos audiovisuales
         [HttpPost]
         public ActionResult Actualizar(int Id, PrestamoAudiovisual prestamoAudiovisual)
         {
@@ -256,15 +270,19 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para detalles de un prestamo audiovisual
+        [HttpGet]
         public ActionResult Detalles(int id)
         {
             try
@@ -298,11 +316,13 @@ namespace Capa_Presentacion.Controllers
             }
             catch (Exception)
             {
-
-                throw;
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para actualizar eliminar audiovisuales
+        [HttpPost]
         public ActionResult Eliminar(int Id)
         {
             try
@@ -315,15 +335,19 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para eliminar todos los prestamos audiovisuales
+        [HttpPost]
         public ActionResult EliminarTabla()
         {
             try
@@ -339,12 +363,14 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }

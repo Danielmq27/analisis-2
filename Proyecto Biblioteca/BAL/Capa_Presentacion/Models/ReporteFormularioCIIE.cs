@@ -11,6 +11,9 @@ namespace Capa_Presentacion.Models
         [Display(Name = "Tipo de usuario")]
         public string tipoDespacho { get; set; }
 
+        [Display(Name = "Género")]
+        public string tipoGenero { get; set; }
+
         [Display(Name = "Cantidad")]
         public int cantidad { get; set; }
 

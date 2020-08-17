@@ -8,19 +8,26 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador AuditoriaPrestamoAudiovisualController
     public class AuditoriaPrestamoAudiovisualController : Controller
     {
+        //Accion para ver todas las auditorias de prestamos audiovisuales
         [HttpGet]
         public ActionResult Index()
         {
             try
             {
+                //Listado de AuditoriaPrestamoAudiovisual
                 List<AuditoriaPrestamoAudiovisual> listaAuditoriaPrestamoAudiovisual = new List<AuditoriaPrestamoAudiovisual>();
+                //Llamado de clsAuditoriaPrestamoAudiovisual
                 clsAuditoriaPrestamoAudiovisual auditoriaPrestamoAudiovisual = new clsAuditoriaPrestamoAudiovisual();
+                //Llamado de metodo ConsultarAuditoriasPrestamoAudiovisual
                 var data = auditoriaPrestamoAudiovisual.ConsultarAuditoriasPrestamoAudiovisual();
                 foreach (var item in data)
                 {
+                    //Llamado del modelo
                     AuditoriaPrestamoAudiovisual modelo = new AuditoriaPrestamoAudiovisual();
+                    // Llenamos el modelo con los datos de la BD
                     modelo.Id = Convert.ToInt32(item.Id);
                     modelo.CodigoPrestamoAudiovisual = item.codigoPrestamoAudiovisual;
                     modelo.Fecha = (DateTime)item.fecha;
@@ -44,21 +51,29 @@ namespace Capa_Presentacion.Controllers
 
                     listaAuditoriaPrestamoAudiovisual.Add(modelo);
                 }
+                //Mandamos los datos a la vista
                 return View(listaAuditoriaPrestamoAudiovisual);
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para ver los detalles de una auditoria
+        [HttpGet]
         public ActionResult Detalles(int Id)
         {
             try
             {
+                //Llamado de clsAuditoriaPrestamoAudiovisual 
                 clsAuditoriaPrestamoAudiovisual auditoriaPrestamoAudiovisual = new clsAuditoriaPrestamoAudiovisual();
+                //Llamado de metodo ConsultarAuditoriaFormularioCIIE
                 var dato = auditoriaPrestamoAudiovisual.ConsultarAuditoriaPrestamoAudiovisual(Id);
+                //Llamado del modelo
                 AuditoriaPrestamoAudiovisual modelo = new AuditoriaPrestamoAudiovisual();
+                // Llenamos el modelo con los datos de la BD
                 modelo.Id = Convert.ToInt32(dato[0].Id);
                 modelo.CodigoPrestamoAudiovisual = dato[0].codigoPrestamoAudiovisual;
                 modelo.Fecha = (DateTime)dato[0].fecha;
@@ -79,12 +94,13 @@ namespace Capa_Presentacion.Controllers
                 modelo.EquipoRequerido = dato[0].equipoRequerido;
                 modelo.Aforo = (int)dato[0].aforo;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
-
+                //Mandamos los datos a la vista
                 return View(modelo);
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }

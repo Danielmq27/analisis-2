@@ -11,8 +11,11 @@ using Usuario = Capa_Presentacion.Models.Usuario;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador UsuarioController
     public class UsuarioController : Controller
     {
+        //Accion para ver todos los usuarios
+        [HttpGet]
         public ActionResult Index()
         {
             try
@@ -39,10 +42,13 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar un usuario
+        [HttpGet]
         public ActionResult Agregar()
         {
             try
@@ -53,10 +59,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar un usuario
         [HttpPost]
         public ActionResult Agregar(Usuario usuario)
         {
@@ -76,15 +84,19 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Index");
                 } else
                 {
-                    return RedirectToAction("Agregar", "Usuario");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("Agregar", "Usuario");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para actualizar un usuario
+        [HttpGet]
         public ActionResult Actualizar(int Id)
         {
             try
@@ -107,9 +119,11 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
+        //Accion para actualizar un usuario
         [HttpPost]
         public ActionResult Actualizar(int Id, UsuarioEditar usuario)
         {
@@ -129,15 +143,19 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para eliminar un 
+        [HttpPost]
         public ActionResult Eliminar(int Id)
         {
             try
@@ -150,12 +168,14 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }

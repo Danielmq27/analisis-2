@@ -8,19 +8,26 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador AuditoriaPrestamoEquipoController
     public class AuditoriaPrestamoEquipoController : Controller
     {
+        //Accion para ver todas las auditorias de prestamos de equipo
         [HttpGet]
         public ActionResult Index()
         {
             try
             {
+                //Listado de AuditoriaPrestamoEquipo
                 List<AuditoriaPrestamoEquipo> listaAuditoriaPrestamoEquipo = new List<AuditoriaPrestamoEquipo>();
+                //Llamado de clsAuditoriaPrestamoEquipo
                 clsAuditoriaPrestamoEquipo auditoriaPrestamoEquipo = new clsAuditoriaPrestamoEquipo();
+                //Llamado de metodo ConsultarAuditoriasPrestamoEquipo
                 var data = auditoriaPrestamoEquipo.ConsultarAuditoriasPrestamoEquipo();
                 foreach (var item in data)
                 {
+                    //Llamado del modelo
                     AuditoriaPrestamoEquipo modelo = new AuditoriaPrestamoEquipo();
+                    // Llenamos el modelo con los datos de la BD
                     modelo.Id = Convert.ToInt32(item.Id);
                     modelo.CodigoPrestamoEquipo = item.codigoPrestamoEquipo;
                     modelo.Fecha = (DateTime)item.fecha;
@@ -39,21 +46,28 @@ namespace Capa_Presentacion.Controllers
 
                     listaAuditoriaPrestamoEquipo.Add(modelo);
                 }
+                //Mandamos los datos a la vista
                 return View(listaAuditoriaPrestamoEquipo);
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
             }
         }
-
+        //Accion para ver los detalles de una auditoria
+        [HttpGet]
         public ActionResult Detalles(int Id)
         {
             try
             {
+                //Llamado de clsAuditoriaPrestamoEquipo 
                 clsAuditoriaPrestamoEquipo auditoriaPrestamoEquipo = new clsAuditoriaPrestamoEquipo();
+                //Llamado de metodo ConsultarAuditoriaPrestamoEquipo
                 var dato = auditoriaPrestamoEquipo.ConsultarAuditoriaPrestamoEquipo(Id);
+                //Llamado del modelo
                 AuditoriaPrestamoEquipo modelo = new AuditoriaPrestamoEquipo();
+                // Llenamos el modelo con los datos de la BD
                 modelo.Id = Convert.ToInt32(dato[0].Id);
                 modelo.CodigoPrestamoEquipo = dato[0].codigoPrestamoEquipo;
                 modelo.Fecha = (DateTime)dato[0].fecha;
@@ -69,12 +83,13 @@ namespace Capa_Presentacion.Controllers
                 modelo.EspecificacionImplementos = dato[0].especificacionImplementos;
                 modelo.GeneroSolicitante = dato[0].generoSolicictante;
                 modelo.Estado = dato[0].estado;
-
+                //Mandamos los datos a la vista
                 return View(modelo);
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }

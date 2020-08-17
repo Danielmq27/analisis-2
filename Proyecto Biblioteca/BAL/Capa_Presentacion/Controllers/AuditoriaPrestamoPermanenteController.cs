@@ -8,19 +8,26 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador AuditoriaPrestamoPermanenteController
     public class AuditoriaPrestamoPermanenteController : Controller
     {
+        //Accion para ver todas las auditorias de prestamos permanentes
         [HttpGet]
         public ActionResult Index()
         {
             try
             {
+                //Listado de AuditoriaPrestamoPermanente
                 List<AuditoriaPrestamoPermanente> listaAuditoriaPrestamoPermanente = new List<AuditoriaPrestamoPermanente>();
+                //Llamado de clsAuditoriaPrestamoPermanente
                 clsAuditoriaPrestamoPermanente auditoriaPrestamoPermanente = new clsAuditoriaPrestamoPermanente();
+                //Llamado de metodo ConsultarAuditoriasPrestamoPermanente
                 var data = auditoriaPrestamoPermanente.ConsultarAuditoriasPrestamoPermanente();
                 foreach (var item in data)
                 {
+                    //Llamado del modelo
                     AuditoriaPrestamoPermanente modelo = new AuditoriaPrestamoPermanente();
+                    // Llenamos el modelo con los datos de la BD
                     modelo.Id = Convert.ToInt32(item.Id);
                     modelo.CodigoPrestamoPermanente = item.codigoPrestamoPermanente;
                     modelo.Fecha = (DateTime)item.fecha;
@@ -39,21 +46,29 @@ namespace Capa_Presentacion.Controllers
 
                     listaAuditoriaPrestamoPermanente.Add(modelo);
                 }
+                //Mandamos los datos a la vista
                 return View(listaAuditoriaPrestamoPermanente);
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para ver los detalles de una auditoria
+        [HttpGet]
         public ActionResult Detalles(int Id)
         {
             try
             {
+                //Llamado de clsAuditoriaPrestamoPermanente 
                 clsAuditoriaPrestamoPermanente auditoriaPrestamoPermanente = new clsAuditoriaPrestamoPermanente();
+                //Llamado de metodo ConsultarAuditoriaPrestamoPermanente
                 var dato = auditoriaPrestamoPermanente.ConsultarAuditoriaPrestamoPermanente(Id);
+                //Llamado del modelo
                 AuditoriaPrestamoPermanente modelo = new AuditoriaPrestamoPermanente();
+                // Llenamos el modelo con los datos de la BD
                 modelo.Id = Convert.ToInt32(dato[0].Id);
                 modelo.CodigoPrestamoPermanente = dato[0].codigoPrestamoPermanente;
                 modelo.Fecha = (DateTime)dato[0].fecha;
@@ -69,12 +84,13 @@ namespace Capa_Presentacion.Controllers
                 modelo.GeneroSolicitante = dato[0].generoSolicictante;
                 modelo.FechaPrestamo = (DateTime)dato[0].fechaPrestamo;
                 modelo.Estado = dato[0].estado;
-
+                //Mandamos los datos a la vista
                 return View(modelo);
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }

@@ -19,6 +19,7 @@
     <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+    @Html.Raw(TempData["msg"])
     <!-- Site wrapper -->
     <div class="wrapper">
 
@@ -61,10 +62,12 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-success btn-sm">Cambiar contraseña</a>
+                                        <button type="button" class="btn btn-success btn-flat" data-toggle="modal" data-target="#alertaCambiar">
+                                            Cambiar Contraseña
+                                        </button>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-danger btn-sm">Cerrar sesión</a>
+                                        <a href="@Url.Action("CerrarSesion", "Principal")" class="btn btn-danger btn-flat fa fa-arrow-left" title="Cerrar Sesión"></a>
                                     </div>
                                 </li>
                             </ul>
@@ -160,8 +163,21 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> Prestamos</a></li>
+                            <li><a href="@Url.Action("Administrador", "ReporteConsulta")"><i class="fa fa-circle-o"></i> Consulta</a></li>
                             <li><a href="@Url.Action("Administrador", "ReporteFormularioCIIE")"><i class="fa fa-circle-o"></i> Formulario CIIE</a></li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-circle-o"></i> Prestamos
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="#"><i class="fa fa-circle-o"></i> Prestamo Audiovisual</a></li>
+                                    <li><a href="#"><i class="fa fa-circle-o"></i> Prestamo de Equipo</a></li>
+                                    <li><a href="#"><i class="fa fa-circle-o"></i> Prestamo Permanente</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -379,6 +395,39 @@
              immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
     </div>
+    <!-- Ventana para actualizar contraseña  -->
+    <div class="modal fade" id="alertaCambiar" tabindex="-1" aria-labelledby="alertaCambiar" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Cambiar contraseña</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="@Url.Action("Cambiar", "Principal")" id="frmCambiar" method="post">
+                        <div class="form-group">
+                            <label>Contraseña actual</label>
+                            <input type="password" id="ClaveTemporal" name="ClaveTemporal" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password" id="Clave" name="Clave" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Confirmar contraseña</label>
+                            <input type="password" id="ClaveConfirmar" name="ClaveConfirmar" class="form-control" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" onclick="Cambiar()" class="btn btn-success">Cambiar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     @System.Web.Optimization.Scripts.Render("~/Js")
     <script>
         $(function () {
@@ -392,6 +441,11 @@
                 "autoWidth": true
             });
         });
+
+        function Cambiar() {
+            var frmCambiar = document.getElementById("frmCambiar");
+            frmCambiar.submit();
+        }
     </script>
 </body>
 </html>

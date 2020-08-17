@@ -8,19 +8,26 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador AuditoriaConsultaController
     public class AuditoriaConsultaController : Controller
     {
+        //Accion para ver todas las auditorias de consultas
         [HttpGet]
         public ActionResult Index()
         {
             try
             {
+                //Listado de AuditoriaConsulta
                 List<AuditoriaConsulta> listaAuditoriaConsulta = new List<AuditoriaConsulta>();
+                //Llamado de clsAuditoriaConsulta
                 clsAuditoriaConsulta auditoriaConsulta = new clsAuditoriaConsulta();
+                //Llamado de metodo ConsultarAuditoriasConsulta
                 var data = auditoriaConsulta.ConsultarAuditoriasConsulta();
                 foreach (var item in data)
                 {
+                    //Llamado del modelo
                     AuditoriaConsulta modelo = new AuditoriaConsulta();
+                    // Llenamos el modelo con los datos de la BD
                     modelo.Id = Convert.ToInt32(item.Id);
                     modelo.CodigoConsulta = item.codigoConsulta;
                     modelo.Fecha = (DateTime)item.fecha;
@@ -40,21 +47,29 @@ namespace Capa_Presentacion.Controllers
 
                     listaAuditoriaConsulta.Add(modelo);
                 }
+                //Mandamos los datos a la vista
                 return View(listaAuditoriaConsulta);
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de error
+                return RedirectToAction("500", "Error");
             }
         }
 
+        //Accion para ver los detalles de una auditoria
+        [HttpGet]
         public ActionResult Detalles(int Id)
         {
             try
             {
+                //Llamado de clsAuditoriaConsulta 
                 clsAuditoriaConsulta auditoriaConsulta = new clsAuditoriaConsulta();
+                //Llamado de metodo ConsultarAuditoriaConsulta
                 var dato = auditoriaConsulta.ConsultarAuditoriaConsulta(Id);
+                //Llamado del modelo
                 AuditoriaConsulta modelo = new AuditoriaConsulta();
+                // Llenamos el modelo con los datos de la BD
                 modelo.Id = Convert.ToInt32(dato[0].Id);
                 modelo.CodigoConsulta = dato[0].codigoConsulta;
                 modelo.Fecha = (DateTime)dato[0].fecha;
@@ -71,12 +86,13 @@ namespace Capa_Presentacion.Controllers
                 modelo.Respuesta = dato[0].respuesta;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
                 modelo.Estado = dato[0].estado;
-
+                //Mandamos los datos a la vista
                 return View(modelo);
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de error
+                return RedirectToAction("500", "Error");
             }
         }
     }

@@ -8,8 +8,10 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador PrestamoEquipoController
     public class PrestamoEquipoController : Controller
     {
+        //Accion para el rol administrador para ver los prestamos de equipo
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -44,10 +46,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para el rol editar para ver los prestamos de equipo
         [HttpGet]
         public ActionResult Editar()
         {
@@ -82,10 +86,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para el rol consultar para ver los prestamos de equipo
         [HttpGet]
         public ActionResult Consultar()
         {
@@ -120,10 +126,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar prestamos de equipo
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -141,10 +149,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch (Exception)
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar prestamos de equipo
         [HttpPost]
         public ActionResult Agregar(PrestamoEquipo prestamoEquipo)
         {
@@ -179,16 +189,18 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    //Pagina de ERROR
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para actualizar prestamos de equipo
         [HttpGet]
         public ActionResult Actualizar(int Id)
         {
@@ -223,10 +235,12 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para actualizar prestamos de equipo
         [HttpPost]
         public ActionResult Actualizar(int Id, PrestamoEquipo prestamoEquipo)
         {
@@ -261,15 +275,19 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para datellates de un prestamo de equipo
+        [HttpGet]
         public ActionResult Detalles(int id)
         {
             try
@@ -301,11 +319,14 @@ namespace Capa_Presentacion.Controllers
             }
             catch (Exception)
             {
-
-                throw;
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+
+        //Accion para eliminar prestamos de equipo
+        [HttpPost]
         public ActionResult Eliminar(int Id)
         {
             try
@@ -318,15 +339,20 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+
+        //Accion para eliminar todos prestamos de equipo
+        [HttpPost]
         public ActionResult EliminarTabla()
         {
             try
@@ -342,12 +368,14 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }

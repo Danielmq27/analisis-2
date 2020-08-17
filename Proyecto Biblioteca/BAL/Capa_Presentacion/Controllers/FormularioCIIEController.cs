@@ -8,9 +8,11 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador FormularioCIIEController
     public class FormularioCIIEController : Controller
     {
-        // GET: FormularioCIIE
+        //Accion del rol administrador para vizualisar los formularios del CIIE
+        [HttpGet]
         public ActionResult Administrador()
         {
             try
@@ -52,10 +54,13 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("Administrador", "Principal");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion del rol editar para vizualisar los formularios del CIIE
+        [HttpGet]
         public ActionResult Editar()
         {
             try
@@ -93,10 +98,13 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("Consultar", "Principal");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion del rol consultar para vizualisar los formularios del CIIE
+        [HttpGet]
         public ActionResult Consultar()
         {
             try
@@ -134,22 +142,35 @@ namespace Capa_Presentacion.Controllers
             }
             catch
             {
-                return RedirectToAction("Consultar", "Principal");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar un formularios del CIIE
+        [HttpGet]
         public ActionResult Agregar()
         {
             try
             {
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                 return View();
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para agregar un formularios del CIIE
         [HttpPost]
         public ActionResult Agregar(FormularioCIIE formularioCIIE)
         {
@@ -157,9 +178,19 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
+                    //Retornamos el modelo
                     return View(formularioCIIE);
                 }
                 clsFormularioCIIE objFormularioCIIE = new clsFormularioCIIE();
+                //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
                 string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
                 string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
@@ -177,16 +208,19 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    //Pagina de ERROR
-                    return RedirectToAction("Agregar", "FormularioCIIE");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("Agregar", "Usuario");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para actualizar un formularios del CIIE
+        [HttpGet]
         public ActionResult Actualizar(int Id)
         {
             try
@@ -212,13 +246,24 @@ namespace Capa_Presentacion.Controllers
                 modelo.FechaIngreso = dato[0].fechaIngreso;
                 modelo.FechaRespuesta = dato[0].fechaRespuesta;
                 modelo.Estado = dato[0].estado;
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
                 return View(modelo);
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
+
+        //Accion para actualizar un formularios del CIIE
         [HttpPost]
         public ActionResult Actualizar(int Id, FormularioCIIE formularioCIIE)
         {
@@ -226,9 +271,19 @@ namespace Capa_Presentacion.Controllers
             {
                 if (!ModelState.IsValid)
                 {
+                    ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estado = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
+                    //Retornamos el modelo
                     return View(formularioCIIE);
                 }
                 clsFormularioCIIE objFormularioCIIE = new clsFormularioCIIE();
+                //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
                 string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
                 string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
@@ -246,15 +301,19 @@ namespace Capa_Presentacion.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("504", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para ver un formularios del CIIE
+        [HttpGet]
         public ActionResult Detalles(int id)
         {
             try
@@ -289,11 +348,13 @@ namespace Capa_Presentacion.Controllers
             }
             catch (Exception)
             {
-
-                throw;
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para eliminar un formularios del CIIE
+        [HttpPost]
         public ActionResult Eliminar(int Id)
         {
             try
@@ -302,19 +363,23 @@ namespace Capa_Presentacion.Controllers
                 bool resultado = formularioCIIE.EliminarFormularioCIIE(Id);
                 if (resultado)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Administrador");
                 }
                 else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error500", "Error");
                 }
             }
             catch (Exception)
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para eliminar todos los formularios del CIIE
+        [HttpPost]
         public ActionResult EliminarTabla()
         {
             try
@@ -329,12 +394,14 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Administrador");
                 } else
                 {
-                    return RedirectToAction("404", "Error");
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
                 }
             }
             catch
             {
-                return RedirectToAction("505", "Error");
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }

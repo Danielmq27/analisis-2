@@ -8,19 +8,26 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador AuditoriaFormularioCIIEController
     public class AuditoriaFormularioCIIEController : Controller
     {
-        // GET: AuditoriaFormularioCIIE
+        //Accion para ver todas las auditorias de formulario del ciie
+        [HttpGet]
         public ActionResult Index()
         {
             try
             {
+                //Listado de AuditoriaFormularioCIIE
                 List<AuditoriaFormularioCIIE> listaAuditoriaCIIE = new List<AuditoriaFormularioCIIE>();
+                //Llamado de clsAuditoriaFormularioCIIE
                 clsAuditoriaFormularioCIIE auditoriaFormularioCIIE = new clsAuditoriaFormularioCIIE();
+                //Llamado de metodo ConsultarAuditoriasFormularioCIIE
                 var data = auditoriaFormularioCIIE.ConsultarAuditoriasFormularioCIIE();
                 foreach (var item in data)
                 {
+                    //Llamado del modelo
                     AuditoriaFormularioCIIE modelo = new AuditoriaFormularioCIIE();
+                    // Llenamos el modelo con los datos de la BD
                     modelo.Id = Convert.ToInt32(item.Id);
                     modelo.CodigoCIIE = item.codigoCIIE;
                     modelo.Fecha = (DateTime)item.fecha;
@@ -44,21 +51,29 @@ namespace Capa_Presentacion.Controllers
 
                     listaAuditoriaCIIE.Add(modelo);
                 }
+                //Mandamos los datos a la vista
                 return View(listaAuditoriaCIIE);
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
             }
         }
 
+        //Accion para ver los detalles de una auditoria
+        [HttpGet]
         public ActionResult Detalles(int Id)
         {
             try
             {
+                //Llamado de clsAuditoriaFormularioCIIE 
                 clsAuditoriaFormularioCIIE auditoriaFormularioCIIE = new clsAuditoriaFormularioCIIE();
+                //Llamado de metodo ConsultarAuditoriaFormularioCIIE
                 var dato = auditoriaFormularioCIIE.ConsultarAuditoriaFormularioCIIE(Id);
+                //Llamado del modelo
                 AuditoriaFormularioCIIE modelo = new AuditoriaFormularioCIIE();
+                // Llenamos el modelo con los datos de la BD
                 modelo.Id = Convert.ToInt32(dato[0].Id);
                 modelo.CodigoCIIE = dato[0].codigoCIIE;
                 modelo.Fecha = (DateTime)dato[0].fecha;
@@ -79,11 +94,13 @@ namespace Capa_Presentacion.Controllers
                 modelo.Estado = dato[0].estado;
                 modelo.EspecificacionConsulta = dato[0].especificacionConsulta;
                 modelo.TipoConsulta = dato[0].tipoConsulta;
+                //Mandamos los datos a la vista
                 return View(modelo);
             }
             catch
             {
-                return RedirectToAction("Roles", "Index");
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
             }
         }
     }
