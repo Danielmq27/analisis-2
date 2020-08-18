@@ -3451,7 +3451,7 @@ table.text-center, table.text-center td, table.text-center th {
     }
 
 .login-page, .register-page {
-    background: linear-gradient(rgba(26, 26, 26,.7), rgba(26, 26, 26,.7)), url('../../../Imagenes/fondo.jpg');
+    background: linear-gradient(rgba(26, 26, 26,.7), rgba(26, 26, 26,.7));
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;

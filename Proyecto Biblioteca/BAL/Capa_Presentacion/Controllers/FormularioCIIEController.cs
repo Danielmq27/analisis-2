@@ -157,7 +157,7 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
-                ViewBag.estado = new SelectList(new[] {
+                ViewBag.estados = new SelectList(new[] {
                 new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
                 new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
                                                }, "Value", "Text");
@@ -182,7 +182,7 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
-                    ViewBag.estado = new SelectList(new[] {
+                    ViewBag.estados = new SelectList(new[] {
                 new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
                 new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
                                                }, "Value", "Text");
@@ -250,7 +250,7 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
-                ViewBag.estado = new SelectList(new[] {
+                ViewBag.estados = new SelectList(new[] {
                 new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
                 new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
                                                }, "Value", "Text");
@@ -275,7 +275,7 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
-                    ViewBag.estado = new SelectList(new[] {
+                    ViewBag.estados = new SelectList(new[] {
                 new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
                 new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
                                                }, "Value", "Text");
