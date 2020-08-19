@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador ConsultaController
+    [ValidarSesion]
     public class ConsultaController : Controller
     {
         //Accion del rol administrador para visualizar las consultas
+        [Acceso]
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -56,6 +59,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion del rol editar para visualizar las consultas
+        [Acceso]
         [HttpGet]
         public ActionResult Editar()
         {
@@ -100,6 +104,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion del rol consultar para visualizar las consultas
+        [Acceso]
         [HttpGet]
         public ActionResult Consultar()
         {
@@ -144,6 +149,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar :GET
+        [Acceso]
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -171,6 +177,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar :POST
+        [Acceso]
         [HttpPost]
         public ActionResult Agregar(Consulta consulta)
         {
@@ -221,6 +228,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar :GET
+        [Acceso]
         [HttpGet]
         public ActionResult Actualizar(int Id)
         {
@@ -266,6 +274,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar .POST
+        [Acceso]
         [HttpPost]
         public ActionResult Actualizar(int Id, Consulta consulta)
         {
@@ -316,6 +325,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para detalles :GET
+        [Acceso]
         [HttpGet]
         public ActionResult Detalles(int id)
         {
@@ -357,6 +367,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para eliminar :POST
+        [Acceso]
         [HttpPost]
         public ActionResult Eliminar(int Id)
         {
@@ -386,6 +397,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para eliminar la tabla :GET
+        [Acceso]
         [HttpPost]
         public ActionResult EliminarTabla()
         {

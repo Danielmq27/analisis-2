@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,12 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    //Controlador BitacoraController
+    [ValidarSesion]
     public class BitacoraController : Controller
     {
         //Accion para ver las auditorias
+        [Acceso]
         [HttpGet]
         public ActionResult Administrador()
         {

@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador AuditoriaFormularioCIIEController
+    [ValidarSesion]
     public class AuditoriaFormularioCIIEController : Controller
     {
         //Accion para ver todas las auditorias de formulario del ciie
+        [Acceso]
         [HttpGet]
         public ActionResult Index()
         {
@@ -66,6 +69,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para ver los detalles de una auditoria
+        [Acceso]
         [HttpGet]
         public ActionResult Detalles(int Id)
         {

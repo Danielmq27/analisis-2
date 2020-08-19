@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,12 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
+    [ValidarSesion]
     //Controlador RolController
     public class RolController : Controller
     {
         //Accion para ver lo roles
+        [Acceso]
         [HttpGet]
         public ActionResult Index()
         {

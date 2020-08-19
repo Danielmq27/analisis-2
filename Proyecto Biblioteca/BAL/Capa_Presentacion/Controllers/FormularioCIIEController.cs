@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador FormularioCIIEController
+    [ValidarSesion]
     public class FormularioCIIEController : Controller
     {
         //Accion del rol administrador para vizualisar los formularios del CIIE
+        [Acceso]
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -64,6 +67,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion del rol editar para vizualisar los formularios del CIIE
+        [Acceso]
         [HttpGet]
         public ActionResult Editar()
         {
@@ -112,6 +116,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion del rol consultar para vizualisar los formularios del CIIE
+        [Acceso]
         [HttpGet]
         public ActionResult Consultar()
         {
@@ -160,6 +165,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar un formularios del CIIE
+        [Acceso]
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -187,6 +193,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar un formularios del CIIE
+        [Acceso]
         [HttpPost]
         public ActionResult Agregar(FormularioCIIE formularioCIIE)
         {
@@ -240,6 +247,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar un formularios del CIIE
+        [Acceso]
         [HttpGet]
         public ActionResult Actualizar(int Id)
         {
@@ -288,6 +296,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar un formularios del CIIE
+        [Acceso]
         [HttpPost]
         public ActionResult Actualizar(int Id, FormularioCIIE formularioCIIE)
         {
@@ -341,6 +350,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para ver un formularios del CIIE
+        [Acceso]
         [HttpGet]
         public ActionResult Detalles(int id)
         {
@@ -386,6 +396,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para eliminar un formularios del CIIE
+        [Acceso]
         [HttpPost]
         public ActionResult Eliminar(int Id)
         {
@@ -415,6 +426,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para eliminar todos los formularios del CIIE
+        [Acceso]
         [HttpPost]
         public ActionResult EliminarTabla()
         {

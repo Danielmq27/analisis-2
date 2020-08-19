@@ -1050,6 +1050,8 @@
     <Compile Include="Controllers\ReportePrestamoPermanenteController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Filters\Acceso.cs" />
+    <Compile Include="Filters\ValidarSesion.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

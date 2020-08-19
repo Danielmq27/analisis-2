@@ -1,5 +1,6 @@
 ﻿using Capa_Datos;
 using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using Capa_Presentacion.Tools;
 using System;
@@ -15,6 +16,7 @@ namespace Capa_Presentacion.Controllers
     public class IniciarSesionController : Controller
     {
         //Accion para el iniciar sesion
+        [Acceso]
         [HttpGet]
         public ActionResult Index()
         {
@@ -30,6 +32,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para validar el acceso
+        [Acceso]
         [HttpPost]
         public ActionResult Entrar(string correo, string clave)
         {
@@ -84,6 +87,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para recuperar el acceso
+        [Acceso]
         [HttpGet]
         public ActionResult Recuperar()
         {
@@ -99,6 +103,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para recuperar el acceso
+        [Acceso]
         [HttpPost]
         public ActionResult Recuperar(string correo, string cedula)
         {

@@ -1,5 +1,6 @@
 ﻿using Capa_Datos;
 using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Tools;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador PrincipalController
+    [ValidarSesion]
     public class PrincipalController : Controller
     {
         //Accion para el rol administrador
+        [Acceso]
         public ActionResult Administrador()
         {
             try
@@ -27,6 +30,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para el rol editar
+        [Acceso]
         public ActionResult Editar()
         {
             try
@@ -41,6 +45,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para el rol consultar
+        [Acceso]
         public ActionResult Consultar()
         {
             try
@@ -54,6 +59,8 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
+        //Accion para cerarr sesion
+        [Acceso]
         public ActionResult CerrarSesion()
         {
             try
@@ -99,6 +106,8 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
+        //Accion para cambiar la clave
+        [Acceso]
         public ActionResult Cambiar(string ClaveTemporal, string Clave, string ClaveConfirmar)
         {
             try

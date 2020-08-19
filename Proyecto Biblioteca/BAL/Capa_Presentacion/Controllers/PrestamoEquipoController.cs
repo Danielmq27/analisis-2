@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador PrestamoEquipoController
+    [ValidarSesion]
     public class PrestamoEquipoController : Controller
     {
         //Accion para el rol administrador para ver los prestamos de equipo
+        [Acceso]
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -56,6 +59,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para el rol editar para ver los prestamos de equipo
+        [Acceso]
         [HttpGet]
         public ActionResult Editar()
         {
@@ -100,6 +104,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para el rol consultar para ver los prestamos de equipo
+        [Acceso]
         [HttpGet]
         public ActionResult Consultar()
         {
@@ -144,6 +149,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar prestamos de equipo
+        [Acceso]
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -171,6 +177,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar prestamos de equipo
+        [Acceso]
         [HttpPost]
         public ActionResult Agregar(PrestamoEquipo prestamoEquipo)
         {
@@ -221,6 +228,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar prestamos de equipo
+        [Acceso]
         [HttpGet]
         public ActionResult Actualizar(int Id)
         {
@@ -264,6 +272,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar prestamos de equipo
+        [Acceso]
         [HttpPost]
         public ActionResult Actualizar(int Id, PrestamoEquipo prestamoEquipo)
         {
@@ -314,6 +323,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para datellates de un prestamo de equipo
+        [Acceso]
         [HttpGet]
         public ActionResult Detalles(int id)
         {
@@ -357,6 +367,7 @@ namespace Capa_Presentacion.Controllers
 
 
         //Accion para eliminar prestamos de equipo
+        [Acceso]
         [HttpPost]
         public ActionResult Eliminar(int Id)
         {
@@ -387,6 +398,7 @@ namespace Capa_Presentacion.Controllers
 
 
         //Accion para eliminar todos prestamos de equipo
+        [Acceso]
         [HttpPost]
         public ActionResult EliminarTabla()
         {

@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -15,9 +16,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlaor ReportePrestamoEquipoController
+    [ValidarSesion]
     public class ReportePrestamoEquipoController : Controller
     {
         //Accion para el rol Administrador
+        [Acceso]
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -25,6 +28,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de departamentos por fechas de ingreso
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadDepartamentoFechaIngresoPE(DateTime Fecha1, DateTime Fecha2)
         {
@@ -54,6 +58,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de ingreso
+        [Acceso]
         public FileResult ReporteDepartamentoFechaIngresoPEXLS()
         {
             byte[] buffer;
@@ -99,6 +104,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso
+        [Acceso]
         public FileResult ReporteDepartamentoFechaIngresoPEPDF()
         {
             //Se crea documento
@@ -151,6 +157,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de departamentos por fechas de respuesta
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadDepartamentoFechaRespuestaPE(DateTime Fecha1, DateTime Fecha2)
         {
@@ -180,6 +187,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de respuesta
+        [Acceso]
         public FileResult ReporteDepartamentoFechaRespuestaPEXLS()
         {
             byte[] buffer;
@@ -225,6 +233,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de departamentos por fechas de respuesta
+        [Acceso]
         public FileResult ReporteDepartamentoFechaRespuestaPEPDF()
         {
             //Se crea documento
@@ -277,6 +286,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de departamentos por fechas de ingreso y fechas de respuesta
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadDepartamentoFechaIngresoFechaRespuestaPE(DateTime Fecha1, DateTime Fecha2)
         {
@@ -306,6 +316,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de ingreso y fechas de respuesta
+        [Acceso]
         public FileResult ReporteDepartamentoFechaIngresoFechaRespuestaPEXLS()
         {
             byte[] buffer;
@@ -351,6 +362,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso y fechas de respuesta
+        [Acceso]
         public FileResult ReporteDepartamentoFechaIngresoFechaRespuestaPEPDF()
         {
             //Se crea documento
@@ -403,6 +415,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de genero de usuario por fechas de ingreso
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadGeneroFechaIngresoPE(DateTime Fecha1, DateTime Fecha2)
         {
@@ -432,6 +445,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de ingreso
+        [Acceso]
         public FileResult ReporteGeneroFechaIngresoPEXLS()
         {
             byte[] buffer;
@@ -477,6 +491,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso
+        [Acceso]
         public FileResult ReporteGeneroFechaIngresoPEPDF()
         {
             //Se crea documento
@@ -529,6 +544,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de genero de usuario por fechas de respuesta
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadGeneroFechaRespuestaPE(DateTime Fecha1, DateTime Fecha2)
         {
@@ -558,6 +574,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de respuesta
+        [Acceso]
         public FileResult ReporteGeneroFechaRespuestaPEXLS()
         {
             byte[] buffer;
@@ -603,6 +620,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de genero de usuario por fechas de respuesta
+        [Acceso]
         public FileResult ReporteGeneroFechaRespuestaPEPDF()
         {
             //Se crea documento
@@ -655,6 +673,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de genero de usuario por fechas de ingreso
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadGeneroFechaIngresoFechaRespuestaPE(DateTime Fecha1, DateTime Fecha2)
         {
@@ -684,6 +703,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de respuesta
+        [Acceso]
         public FileResult ReporteGeneroFechaIngresoFechaRespuestaPEXLS()
         {
             byte[] buffer;
@@ -729,6 +749,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso y fecha de respuesta
+        [Acceso]
         public FileResult ReporteGeneroFechaIngresoFechaRespuestaPEPDF()
         {
             //Se crea documento

@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador PrestamoAudiovisualController
+    [ValidarSesion]
     public class PrestamoAudiovisualController : Controller
     {
         //Accion para el rol administrador para ver los prestamos audiovisuales
+        [Acceso]
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -58,6 +61,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para  el rol editar para ver los prestamos audiovisuales
+        [Acceso]
         [HttpGet]
         public ActionResult Editar()
         {
@@ -104,6 +108,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para el rol consultar para ver los prestamos audiovisuales
+        [Acceso]
         [HttpGet]
         public ActionResult Consultar()
         {
@@ -150,6 +155,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar prestamos audiovisuales
+        [Acceso]
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -173,6 +179,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar prestamos audiovisuales
+        [Acceso]
         [HttpPost]
         public ActionResult Agregar(PrestamoAudiovisual prestamoAudiovisual)
         {
@@ -220,6 +227,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar prestamos audiovisuales
+        [Acceso]
         [HttpGet]
         public ActionResult Actualizar(int Id)
         {
@@ -262,6 +270,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar prestamos audiovisuales
+        [Acceso]
         [HttpPost]
         public ActionResult Actualizar(int Id, PrestamoAudiovisual prestamoAudiovisual)
         {
@@ -310,6 +319,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para detalles de un prestamo audiovisual
+        [Acceso]
         [HttpGet]
         public ActionResult Detalles(int id)
         {
@@ -354,6 +364,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar eliminar audiovisuales
+        [Acceso]
         [HttpPost]
         public ActionResult Eliminar(int Id)
         {
@@ -383,6 +394,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para eliminar todos los prestamos audiovisuales
+        [Acceso]
         [HttpPost]
         public ActionResult EliminarTabla()
         {

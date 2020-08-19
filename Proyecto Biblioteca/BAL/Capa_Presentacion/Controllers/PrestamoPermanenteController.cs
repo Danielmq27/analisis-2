@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador PrestamoPermanenteController
+    [ValidarSesion]
     public class PrestamoPermanenteController : Controller
     {
         //Accion para el rol administrador para ver todos los prestamos permanentes
+        [Acceso]
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -53,6 +56,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para el rol editar para ver todos los prestamos permanentes
+        [Acceso]
         [HttpGet]
         public ActionResult Editar()
         {
@@ -94,6 +98,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para el rol consultar para ver todos los prestamos permanentes
+        [Acceso]
         [HttpGet]
         public ActionResult Consultar()
         {
@@ -135,6 +140,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar prestamos permanentes
+        [Acceso]
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -162,6 +168,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar prestamos permanentes
+        [Acceso]
         [HttpPost]
         public ActionResult Agregar(PrestamoPermanente prestamoPermanente)
         {
@@ -212,6 +219,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar prestamos permanentes
+        [Acceso]
         [HttpGet]
         public ActionResult Actualizar(int Id)
         {
@@ -253,6 +261,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar prestamos permanentes
+        [Acceso]
         [HttpPost]
         public ActionResult Actualizar(int Id, PrestamoPermanente prestamoPermanente)
         {
@@ -304,6 +313,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para detalles de un prestamo permanente
+        [Acceso]
         [HttpGet]
         public ActionResult Detalles(int id)
         {
@@ -344,6 +354,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para eliminar prestamos permanentes
+        [Acceso]
         [HttpPost]
         public ActionResult Eliminar(int Id)
         {
@@ -373,6 +384,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para eliminar todos los prestamos permanentes
+        [Acceso]
         [HttpPost]
         public ActionResult EliminarTabla()
         {

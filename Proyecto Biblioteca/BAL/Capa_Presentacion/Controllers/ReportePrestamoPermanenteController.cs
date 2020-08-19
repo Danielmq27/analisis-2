@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -15,9 +16,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador ReportePrestamoPermanenteController
+    [ValidarSesion]
     public class ReportePrestamoPermanenteController : Controller
     {
         //Accion para el rol Administrador
+        [Acceso]
         [HttpGet]
         public ActionResult Administrador()
         {
@@ -25,6 +28,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de departamentos por fechas de ingreso
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadDespachoFechaIngresoPP(DateTime Fecha1, DateTime Fecha2)
         {
@@ -54,6 +58,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de ingreso
+        [Acceso]
         public FileResult ReporteDespachoFechaIngresoPPXLS()
         {
             byte[] buffer;
@@ -99,6 +104,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso
+        [Acceso]
         public FileResult ReporteDespachoFechaIngresoPPPDF()
         {
             //Se crea documento
@@ -151,6 +157,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de departamentos por fechas de ingreso
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadGeneroFechaIngresoPP(DateTime Fecha1, DateTime Fecha2)
         {
@@ -180,6 +187,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero por fechas de ingreso
+        [Acceso]
         public FileResult ReporteGeneroFechaIngresoPPXLS()
         {
             byte[] buffer;
@@ -225,6 +233,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de genero por fechas de ingreso
+        [Acceso]
         public FileResult ReporteGeneroFechaIngresoPPPDF()
         {
             //Se crea documento

@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador AuditoriaPrestamoEquipoController
+    [ValidarSesion]
     public class AuditoriaPrestamoEquipoController : Controller
     {
         //Accion para ver todas las auditorias de prestamos de equipo
+        [Acceso]
         [HttpGet]
         public ActionResult Index()
         {
@@ -60,6 +63,7 @@ namespace Capa_Presentacion.Controllers
             }
         }
         //Accion para ver los detalles de una auditoria
+        [Acceso]
         [HttpGet]
         public ActionResult Detalles(int Id)
         {
