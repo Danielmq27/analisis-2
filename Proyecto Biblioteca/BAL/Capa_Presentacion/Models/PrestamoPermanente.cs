@@ -67,6 +67,7 @@ namespace Capa_Presentacion.Models
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Fecha del Préstamo")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaPrestamo { get; set; }
 
         //Atributo Estado

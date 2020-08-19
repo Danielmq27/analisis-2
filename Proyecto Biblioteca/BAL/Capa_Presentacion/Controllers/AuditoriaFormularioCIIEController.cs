@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador AuditoriaFormularioCIIEController
+    [ValidarSesion]
     public class AuditoriaFormularioCIIEController : Controller
     {
         //Accion para ver todas las auditorias de formulario del ciie
+        [Acceso]
         [HttpGet]
         public ActionResult Index()
         {
@@ -54,14 +57,19 @@ namespace Capa_Presentacion.Controllers
                 //Mandamos los datos a la vista
                 return View(listaAuditoriaCIIE);
             }
-            catch
+            catch (Exception ex)
             {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("AuditoriaFormularioCIIE", "Index", ex.Message, NombreUsuario, 0);
                 //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
 
         //Accion para ver los detalles de una auditoria
+        [Acceso]
         [HttpGet]
         public ActionResult Detalles(int Id)
         {
@@ -97,8 +105,12 @@ namespace Capa_Presentacion.Controllers
                 //Mandamos los datos a la vista
                 return View(modelo);
             }
-            catch
+            catch (Exception ex)
             {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("AuditoriaFormularioCIIE", "Detalles", ex.Message, NombreUsuario, 0);
                 //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }

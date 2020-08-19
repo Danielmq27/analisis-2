@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capa_Presentacion.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador ErrorController
+    [ValidarSesion]
     public class ErrorController : Controller
     {
         //Accion Error404

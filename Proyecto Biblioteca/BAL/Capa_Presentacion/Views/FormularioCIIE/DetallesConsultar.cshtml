@@ -1,0 +1,191 @@
+﻿@model Capa_Presentacion.Models.FormularioCIIE
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Consultar.cshtml";
+}
+<div class="content">
+    <div>
+        <h4>Detalles formulario CIIE</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CodigoCIIE)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CodigoCIIE)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NombreSolicitante)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NombreSolicitante)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ApellidoSolicitante1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ApellidoSolicitante1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ApellidoSolicitante2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ApellidoSolicitante2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TipoDespacho)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TipoDespacho)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fraccion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fraccion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EspecificacionDespacho)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EspecificacionDespacho)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TipoConsulta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TipoConsulta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EspecificacionConsulta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EspecificacionConsulta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tema)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tema)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.InformacionRequerida)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InformacionRequerida)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UsoInformacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UsoInformacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GeneroSolicitante)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GeneroSolicitante)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaIngreso)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaRespuesta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaRespuesta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Estado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Estado)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CedulaUsuario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CedulaUsuario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Apellido1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Apellido1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Apellido2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Apellido2)
+            </dd>
+        </dl>
+        @Html.ActionLink("Regresar", "Consultar", "FormularioCIIE", null, new { @class = "btn btn-danger" })
+    </div>
+</div>
+
+

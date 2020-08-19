@@ -1,0 +1,160 @@
+﻿@model Capa_Presentacion.Models.Consulta
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Consultar.cshtml";
+}
+
+<div class="content">
+    <div>
+        <h4>Detalles consulta</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CodigoConsulta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CodigoConsulta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NombreSolicitante)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NombreSolicitante)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ApellidoSolicitante1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ApellidoSolicitante1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ApellidoSolicitante2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ApellidoSolicitante2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Asunto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Asunto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Respuesta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Respuesta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MetodoIngreso)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MetodoIngreso)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaIngreso)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaRespuesta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaRespuesta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Estado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Estado)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GeneroSolicitante)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GeneroSolicitante)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CedulaUsuario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CedulaUsuario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Apellido1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Apellido1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Apellido2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Apellido2)
+            </dd>
+        </dl>
+        @Html.ActionLink("Regresar", "Consultar", "Consulta", null, new { @class = "btn btn-danger" })
+    </div>
+</div>
+

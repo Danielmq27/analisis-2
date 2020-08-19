@@ -7,7 +7,7 @@
 
 <div class="content">
     <div>
-        <h4>Consulta</h4>
+        <h4>Detalles consulta</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -153,8 +153,8 @@
             <dd>
                 @Html.DisplayFor(model => model.Apellido2)
             </dd>
-
         </dl>
+        @Html.ActionLink("Regresar", "Administrador", "Consulta", null, new { @class = "btn btn-danger" })
     </div>
 </div>
 

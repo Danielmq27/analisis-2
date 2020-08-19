@@ -72,13 +72,15 @@ namespace Capa_Presentacion.Models
         //Atributo HoraInicio
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Hora Inicio")]
+        [Display(Name = "Fecha Inicio")] //Hora Inicio
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime HoraInicio { get; set; }
 
         //Atributo HoraFinal
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Hora Final")]
+        [Display(Name = "Fecha Final")]  //Hora Final
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime HoraFinal { get; set; }
 
         //Atributo Descripcion

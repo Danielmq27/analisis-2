@@ -972,6 +972,20 @@ namespace Capa_Datos
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((ISingleResult<SELECCIONAR_USUARIOResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INSERTAR_BITACORA")]
+		public int INSERTAR_BITACORA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CONTROLADOR", DbType="NVarChar(100)")] string cONTROLADOR, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="METODO", DbType="NVarChar(100)")] string mETODO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MENSAJE", DbType="NVarChar(MAX)")] string mENSAJE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USUARIO", DbType="VarChar(50)")] string uSUARIO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TIPO", DbType="Int")] System.Nullable<int> tIPO)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cONTROLADOR, mETODO, mENSAJE, uSUARIO, tIPO);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SELECCIONAR_BITACORAS")]
+		public ISingleResult<SELECCIONAR_BITACORASResult> SELECCIONAR_BITACORAS()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SELECCIONAR_BITACORASResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AuditoriaConsulta")]
@@ -16894,6 +16908,140 @@ namespace Capa_Datos
 				if ((this._IdRol != value))
 				{
 					this._IdRol = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SELECCIONAR_BITACORASResult
+	{
+		
+		private int _Id;
+		
+		private string _Controlador;
+		
+		private string _Metodo;
+		
+		private string _Mensaje;
+		
+		private string _Usuario;
+		
+		private System.Nullable<System.DateTime> _Fecha;
+		
+		private System.Nullable<int> _Tipo;
+		
+		public SELECCIONAR_BITACORASResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Controlador", DbType="NVarChar(100)")]
+		public string Controlador
+		{
+			get
+			{
+				return this._Controlador;
+			}
+			set
+			{
+				if ((this._Controlador != value))
+				{
+					this._Controlador = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Metodo", DbType="NVarChar(100)")]
+		public string Metodo
+		{
+			get
+			{
+				return this._Metodo;
+			}
+			set
+			{
+				if ((this._Metodo != value))
+				{
+					this._Metodo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mensaje", DbType="NVarChar(MAX)")]
+		public string Mensaje
+		{
+			get
+			{
+				return this._Mensaje;
+			}
+			set
+			{
+				if ((this._Mensaje != value))
+				{
+					this._Mensaje = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Usuario", DbType="VarChar(50)")]
+		public string Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				if ((this._Usuario != value))
+				{
+					this._Usuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="Date")]
+		public System.Nullable<System.DateTime> Fecha
+		{
+			get
+			{
+				return this._Fecha;
+			}
+			set
+			{
+				if ((this._Fecha != value))
+				{
+					this._Fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="Int")]
+		public System.Nullable<int> Tipo
+		{
+			get
+			{
+				return this._Tipo;
+			}
+			set
+			{
+				if ((this._Tipo != value))
+				{
+					this._Tipo = value;
 				}
 			}
 		}

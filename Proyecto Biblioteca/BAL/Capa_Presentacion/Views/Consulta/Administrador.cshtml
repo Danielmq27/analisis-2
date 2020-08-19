@@ -89,7 +89,7 @@
 </section>
 
 <!--Formulario para eliminar-->
-@using (Html.BeginForm("Eliminar", "PrestamoEquipo", FormMethod.Post, new { @id = "frmEliminar" }))
+@using (Html.BeginForm("Eliminar", "Consulta", FormMethod.Post, new { @id = "frmEliminar" }))
 {
     @Html.Hidden("Id");
 }
@@ -112,7 +112,7 @@
 </div>
 
 <!-- Formulario para eliminar tabla -->
-@using (Html.BeginForm("EliminarTabla", "PrestamoEquipo", FormMethod.Post, new { @id = "frmEliminarTabla" }))
+@using (Html.BeginForm("EliminarTabla", "Consulta", FormMethod.Post, new { @id = "frmEliminarTabla" }))
 {
 
 }

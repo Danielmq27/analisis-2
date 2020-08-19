@@ -1,5 +1,6 @@
 ﻿using Capa_Datos;
 using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using Capa_Presentacion.Tools;
 using System;

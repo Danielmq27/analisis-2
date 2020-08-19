@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Capa_Presentacion.Models.ReporteFormularioCIIE>
+
+@{
+    ViewBag.Title = "CantidadTipoUsuario";
+    Layout = "~/Views/Shared/_Administrador.cshtml";
+}
+<div class="content">
+    @Html.Raw(TempData["msg"])
+    <div class="row">
+        <!--REPORTES DE CANTIDAD DE USUARIOS-->
+        <h4 class="principal-texto">Reportes de cantidad de departamentos por rangos de fecha</h4>
+        <div class="col-lg-4">
+            <form action="@Url.Action("CantidadDepartamentoFechaIngresoPE", "ReportePrestamoEquipo")" id="frm" method="post">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <h4 class="titulo-reporte">Reporte por fechas de ingreso</h4>
+                    </div>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Ingreso</label>
+                    <input type="date" class="form-control" id="Fecha1" name="Fecha1" autocomplete="off" required>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Ingreso</label>
+                    <input type="date" class="form-control" id="Fecha2" name="Fecha2" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-success btn-block btn-flat">Generar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4">
+            <form action="@Url.Action("CantidadDepartamentoFechaRespuestaPE", "ReportePrestamoEquipo")" id="frm" method="post">
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <h4 class="titulo-reporte">Reporte por fechas de respuesta</h4>
+                    </div>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Respuesta</label>
+                    <input type="date" class="form-control" id="Fecha1" name="Fecha1" autocomplete="off" required>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Respuesta</label>
+                    <input type="date" class="form-control" id="Fecha2" name="Fecha2" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-success btn-block btn-flat">Generar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4">
+            <form action="@Url.Action("CantidadDepartamentoFechaIngresoFechaRespuestaPE", "ReportePrestamoEquipo")" id="frm" method="post">
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <h4 class="titulo-reporte">Reporte por fechas de ingreso y respuesta</h4>
+                    </div>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Ingreso</label>
+                    <input type="date" class="form-control" id="Fecha1" name="Fecha1" autocomplete="off" required>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Respuesta</label>
+                    <input type="date" class="form-control" id="Fecha2" name="Fecha2" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-success btn-block btn-flat">Generar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <!--REPORTES DE GENERO-->
+        <h4 class="principal-texto">Reportes de cantidad de genero de usuarios por rangos de fecha</h4>
+        <div class="col-lg-4">
+            <form action="@Url.Action("CantidadGeneroFechaIngresoPE", "ReportePrestamoEquipo")" id="frm" method="post">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <h4 class="titulo-reporte">Reporte por fechas de ingreso</h4>
+                    </div>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Ingreso</label>
+                    <input type="date" class="form-control" id="Fecha1" name="Fecha1" autocomplete="off" required>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Ingreso</label>
+                    <input type="date" class="form-control" id="Fecha2" name="Fecha2" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-success btn-block btn-flat">Generar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4">
+            <form action="@Url.Action("CantidadGeneroFechaRespuestaPE", "ReportePrestamoEquipo")" id="frm" method="post">
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <h4 class="titulo-reporte">Reporte por fechas de respuesta</h4>
+                    </div>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Respuesta</label>
+                    <input type="date" class="form-control" id="Fecha1" name="Fecha1" autocomplete="off" required>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Respuesta</label>
+                    <input type="date" class="form-control" id="Fecha2" name="Fecha2" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-success btn-block btn-flat">Generar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4">
+            <form action="@Url.Action("CantidadGeneroFechaIngresoFechaRespuestaPE", "ReportePrestamoEquipo")" id="frm" method="post">
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <h4 class="titulo-reporte">Reporte por fechas de ingreso y respuesta</h4>
+                    </div>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Ingreso</label>
+                    <input type="date" class="form-control" id="Fecha1" name="Fecha1" autocomplete="off" required>
+                </div>
+                <div class="form-group has-feedback col-lg-12">
+                    <label>Fecha Respuesta</label>
+                    <input type="date" class="form-control" id="Fecha2" name="Fecha2" autocomplete="off" required>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-success btn-block btn-flat">Generar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+

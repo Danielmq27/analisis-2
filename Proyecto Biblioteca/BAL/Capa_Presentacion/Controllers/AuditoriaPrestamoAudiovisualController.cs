@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,11 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador AuditoriaPrestamoAudiovisualController
+    [ValidarSesion]
     public class AuditoriaPrestamoAudiovisualController : Controller
     {
         //Accion para ver todas las auditorias de prestamos audiovisuales
+        [Acceso]
         [HttpGet]
         public ActionResult Index()
         {
@@ -54,14 +57,19 @@ namespace Capa_Presentacion.Controllers
                 //Mandamos los datos a la vista
                 return View(listaAuditoriaPrestamoAudiovisual);
             }
-            catch
+            catch (Exception ex)
             {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("AuditoriaPrestamoAudiovisual", "Index", ex.Message, NombreUsuario, 0);
                 //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
 
         //Accion para ver los detalles de una auditoria
+        [Acceso]
         [HttpGet]
         public ActionResult Detalles(int Id)
         {
@@ -97,8 +105,12 @@ namespace Capa_Presentacion.Controllers
                 //Mandamos los datos a la vista
                 return View(modelo);
             }
-            catch
+            catch (Exception ex)
             {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("AuditoriaPrestamoAudiovisual", "Detalles", ex.Message, NombreUsuario, 0);
                 //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }

@@ -1,4 +1,5 @@
 ﻿using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -15,23 +16,19 @@ using System.Web.Mvc;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador ReporteFormularioCIIEController
+    [ValidarSesion]
     public class ReporteFormularioCIIEController : Controller
     {
         //Accion para el rol Administrador
+        [Acceso]
         [HttpGet]
         public ActionResult Administrador()
         {
             return View();
         }
 
-        //Accion para el rol Editar
-        [HttpGet]
-        public ActionResult Editar()
-        {
-            return View();
-        }
-
         //Accion de la cantidad de tipos de usuario por fechas de ingreso
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadUsuariosFechaIngresoCIIE(DateTime Fecha1, DateTime Fecha2)
         {
@@ -61,6 +58,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de ingreso
+        [Acceso]
         public FileResult ReporteUsuariosFechaIngresoCIIEXLS()
         {
             byte[] buffer;
@@ -106,6 +104,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso
+        [Acceso]
         public FileResult ReporteUsuariosFechaIngresoCIIEPDF()
         {
             //Se crea documento
@@ -158,6 +157,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de tipos de usuario por fechas de respuesta
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadUsuariosFechaRespuestaCIIE(DateTime Fecha1, DateTime Fecha2)
         {
@@ -187,6 +187,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de respuesta
+        [Acceso]
         public FileResult ReporteUsuariosFechaRespuestaCIIEXLS()
         {
             byte[] buffer;
@@ -232,6 +233,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de respuesta
+        [Acceso]
         public FileResult ReporteUsuariosFechaRespuestaCIIEPDF()
         {
             //Se crea documento
@@ -284,6 +286,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de tipos de usuario por fechas de ingreso y fechas de respuesta
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadUsuariosFechaIngresoFechaRespuestaCIIE (DateTime Fecha1, DateTime Fecha2)
         {
@@ -313,6 +316,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de ingreso y fechas de respuesta
+        [Acceso]
         public FileResult ReporteUsuariosFechaIngresoFechaRespuestaCIIEXLS()
         {
             byte[] buffer;
@@ -358,6 +362,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso y fechas de respuesta
+        [Acceso]
         public FileResult ReporteUsuariosFechaIngresoFechaRespuestaCIIEPDF()
         {
             //Se crea documento
@@ -410,6 +415,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de genero de usuario por fechas de ingreso
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadGeneroFechaIngresoCIIE(DateTime Fecha1, DateTime Fecha2)
         {
@@ -439,6 +445,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de ingreso
+        [Acceso]
         public FileResult ReporteGeneroFechaIngresoCIIEXLS()
         {
             byte[] buffer;
@@ -484,6 +491,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso
+        [Acceso]
         public FileResult ReporteGeneroFechaIngresoCIIEPDF()
         {
             //Se crea documento
@@ -536,6 +544,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de genero de usuario por fechas de respuesta
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadGeneroFechaRespuestaCIIE(DateTime Fecha1, DateTime Fecha2)
         {
@@ -565,6 +574,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de respuesta
+        [Acceso]
         public FileResult ReporteGeneroFechaRespuestaCIIEXLS()
         {
             byte[] buffer;
@@ -610,6 +620,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de genero de usuario por fechas de respuesta
+        [Acceso]
         public FileResult ReporteGeneroFechaRespuestaCIIEPDF()
         {
             //Se crea documento
@@ -662,6 +673,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion de la cantidad de genero de usuario por fechas de ingreso
+        [Acceso]
         [HttpPost]
         public ActionResult CantidadGeneroFechaIngresoFechaRespuestaCIIE(DateTime Fecha1, DateTime Fecha2)
         {
@@ -691,6 +703,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de respuesta
+        [Acceso]
         public FileResult ReporteGeneroFechaIngresoFechaRespuestaCIIEXLS()
         {
             byte[] buffer;
@@ -736,6 +749,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso y fecha de respuesta
+        [Acceso]
         public FileResult ReporteGeneroFechaIngresoFechaRespuestaCIIEPDF()
         {
             //Se crea documento

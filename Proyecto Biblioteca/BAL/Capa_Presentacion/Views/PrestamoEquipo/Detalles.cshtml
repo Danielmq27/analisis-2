@@ -5,10 +5,9 @@
     Layout = "~/Views/Shared/_Administrador.cshtml";
 }
 
-<h2>Detalles</h2>
 
-<div>
-    <h4>PrestamoEquipo</h4>
+<div class="content">
+    <h4>Detalles prestamo de equipo</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -148,8 +147,5 @@
         </dd>
 
     </dl>
+    @Html.ActionLink("Regresar", "Administrador", "PrestamoEquipo", null, new { @class = "btn btn-danger" })
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

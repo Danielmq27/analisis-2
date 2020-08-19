@@ -13,7 +13,7 @@
                     <h3 class="box-title">FORMULARIOS CIIE</h3>
                 </div>
                 <div class="box-body">
-                    @Html.ActionLink(" Agregar", "Agregar", null, new { @class = "btn btn-success btn-sm fa fa-plus" })
+                    @Html.ActionLink(" Agregar", "AgregarEditar", null, new { @class = "btn btn-success btn-sm fa fa-plus" })
                 </div>
                 <div class="box-body">
                     <table id="example1" class="table table-bordered table-striped">
@@ -59,7 +59,7 @@
                                         @Html.DisplayFor(modelItem => item.Estado)
                                     </td>
                                     <td>
-                                        @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" })
+                                        @Html.ActionLink(" Actualizar", "ActualizarEditar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" })
                                     </td>
                                 </tr>
                             }

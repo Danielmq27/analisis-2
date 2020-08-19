@@ -26,7 +26,7 @@ namespace Capa_Logica
         }
 
         //Metodo para generar un reporte de cantidad de departamento por fecha de respuesta
-        public List<CANTIDAD_DEPARTAMENTO_Salida_PAResult> CantidadTipoUsuarioFechaRespuesta(DateTime Fecha1, DateTime Fecha2)
+        public List<CANTIDAD_DEPARTAMENTO_Salida_PAResult> CantidadDepartamentoFechaRespuesta(DateTime Fecha1, DateTime Fecha2)
         {
             try
             {
@@ -41,7 +41,7 @@ namespace Capa_Logica
         }
 
         //Metodo para generar un reporte de cantidad de departamento por fecha de ingreso y fecha de respuesta
-        public List<CANTIDAD_DEPARTAMENTO_FROM_TOResult> CantidadTipoUsuarioFechaIngresoFechaRespuesta(DateTime Fecha1, DateTime Fecha2)
+        public List<CANTIDAD_DEPARTAMENTO_FROM_TOResult> CantidadDepartamentoFechaIngresoFechaRespuesta(DateTime Fecha1, DateTime Fecha2)
         {
             try
             {

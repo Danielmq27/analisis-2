@@ -1,5 +1,6 @@
 ﻿using Capa_Datos;
 using Capa_Logica;
+using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using Capa_Presentacion.Tools;
 using System;
@@ -12,9 +13,11 @@ using Usuario = Capa_Presentacion.Models.Usuario;
 namespace Capa_Presentacion.Controllers
 {
     //Controlador UsuarioController
+    [ValidarSesion]
     public class UsuarioController : Controller
     {
         //Accion para ver todos los usuarios
+        [Acceso]
         [HttpGet]
         public ActionResult Index()
         {
@@ -48,6 +51,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar un usuario
+        [Acceso]
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -65,6 +69,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para agregar un usuario
+        [Acceso]
         [HttpPost]
         public ActionResult Agregar(Usuario usuario)
         {
@@ -96,6 +101,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Accion para actualizar un usuario
+        [Acceso]
         [HttpGet]
         public ActionResult Actualizar(int Id)
         {
@@ -124,6 +130,7 @@ namespace Capa_Presentacion.Controllers
             }
         }
         //Accion para actualizar un usuario
+        [Acceso]
         [HttpPost]
         public ActionResult Actualizar(int Id, UsuarioEditar usuario)
         {
@@ -154,7 +161,8 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
-        //Accion para eliminar un 
+        //Accion para eliminar un usuario
+        [Acceso]
         [HttpPost]
         public ActionResult Eliminar(int Id)
         {

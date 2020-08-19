@@ -104,6 +104,7 @@ namespace Capa_Presentacion.Models
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Fecha de Ingreso")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaIngreso { get; set; }
 
         //Atributo FechaRespuesta
@@ -111,6 +112,7 @@ namespace Capa_Presentacion.Models
         [DataType(DataType.Date)]
         [GreaterThanEqualTo("FechaIngreso")]
         [Display(Name = "Fecha de Respuesta")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaRespuesta { get; set; }
 
         //Atributo Estado
