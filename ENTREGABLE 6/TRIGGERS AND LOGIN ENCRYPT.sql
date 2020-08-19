@@ -1179,3 +1179,37 @@ BEGIN
 	
 END
 
+
+
+
+
+
+create table Bitacora(
+Id int identity(1,1) primary key,
+Controlador nvarchar(100),
+Metodo nvarchar(100),
+Mensaje nvarchar(Max),
+Usuario varchar (50),
+Tipo int,
+Fecha date
+);
+
+go
+alter procedure INSERTAR_BITACORA(
+@CONTROLADOR nvarchar(100) , @METODO nvarchar(100), @MENSAJE nvarchar(Max), @USUARIO varchar (50), @TIPO int, @FECHA DATE
+)
+AS 
+BEGIN
+INSERT INTO Bitacora (Controlador, Metodo, Mensaje, Usuario, Tipo, Fecha)
+values
+(@CONTROLADOR, @METODO, @MENSAJE, @USUARIO, @TIPO, getdate())
+END
+
+
+
+go
+CREATE PROC SELECCIONAR_BITACORAS
+AS
+BEGIN
+select * from Bitacora
+END
