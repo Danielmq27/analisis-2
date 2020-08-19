@@ -8,9 +8,9 @@
     @Html.Raw(TempData["msg"])
     <div class="row">
         <!--REPORTES DE CANTIDAD DE USUARIOS-->
-        <h4 class="principal-texto">Reportes de cantidad de usuarios por rangos de fecha</h4>
+        <h4 class="principal-texto">Reportes de cantidad de metodos de ingreso por rangos de fecha</h4>
         <div class="col-lg-4">
-            <form action="@Url.Action("CantidadUsuariosFechaIngresoCIIE", "ReporteFormularioCIIE")" id="frm" method="post">
+            <form action="@Url.Action("CantidadMetodoIngresoFechaIngresoConsulta", "ReporteConsulta")" id="frm" method="post">
                 <div class="form-group">
                     <div class="col-sm-12">
                         <h4 class="titulo-reporte">Reporte por fechas de ingreso</h4>
@@ -32,7 +32,7 @@
             </form>
         </div>
         <div class="col-lg-4">
-            <form action="@Url.Action("CantidadUsuariosFechaRespuestaCIIE", "ReporteFormularioCIIE")" id="frm" method="post">
+            <form action="@Url.Action("CantidadMetodoIngresoFechaRespuestaConsulta", "ReporteConsulta")" id="frm" method="post">
                 <div class="form-group">
                     <div class="col-xs-12">
                         <h4 class="titulo-reporte">Reporte por fechas de respuesta</h4>
@@ -54,7 +54,7 @@
             </form>
         </div>
         <div class="col-lg-4">
-            <form action="@Url.Action("CantidadUsuariosFechaIngresoFechaRespuestaCIIE", "ReporteFormularioCIIE")" id="frm" method="post">
+            <form action="@Url.Action("CantidadMetodoIngresoFechaIngresoFechaRespuestaConsulta", "ReporteConsulta")" id="frm" method="post">
                 <div class="form-group">
                     <div class="col-lg-12">
                         <h4 class="titulo-reporte">Reporte por fechas de ingreso y respuesta</h4>
@@ -82,7 +82,7 @@
         <!--REPORTES DE GENERO-->
         <h4 class="principal-texto">Reportes de cantidad de genero de usuarios por rangos de fecha</h4>
         <div class="col-lg-4">
-            <form action="@Url.Action("CantidadGeneroFechaIngresoCIIE", "ReporteFormularioCIIE")" id="frm" method="post">
+            <form action="@Url.Action("CantidadGeneroFechaIngresoConsulta", "ReporteConsulta")" id="frm" method="post">
                 <div class="form-group">
                     <div class="col-sm-12">
                         <h4 class="titulo-reporte">Reporte por fechas de ingreso</h4>
@@ -104,7 +104,7 @@
             </form>
         </div>
         <div class="col-lg-4">
-            <form action="@Url.Action("CantidadGeneroFechaRespuestaCIIE", "ReporteFormularioCIIE")" id="frm" method="post">
+            <form action="@Url.Action("CantidadGeneroFechaRespuestaConsulta", "ReporteConsulta")" id="frm" method="post">
                 <div class="form-group">
                     <div class="col-xs-12">
                         <h4 class="titulo-reporte">Reporte por fechas de respuesta</h4>
@@ -126,7 +126,7 @@
             </form>
         </div>
         <div class="col-lg-4">
-            <form action="@Url.Action("CantidadGeneroFechaIngresoFechaRespuestaCIIE", "ReporteFormularioCIIE")" id="frm" method="post">
+            <form action="@Url.Action("CantidadGeneroFechaIngresoFechaRespuestaConsulta", "ReporteConsulta")" id="frm" method="post">
                 <div class="form-group">
                     <div class="col-lg-12">
                         <h4 class="titulo-reporte">Reporte por fechas de ingreso y respuesta</h4>

@@ -14,8 +14,8 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
-    //Controlador ReporteFormularioCIIEController
-    public class ReporteFormularioCIIEController : Controller
+    //Controlador ReporteConsultaController
+    public class ReporteConsultaController : Controller
     {
         //Accion para el rol Administrador
         [HttpGet]
@@ -26,25 +26,25 @@ namespace Capa_Presentacion.Controllers
 
         //Accion de la cantidad de tipos de usuario por fechas de ingreso
         [HttpPost]
-        public ActionResult CantidadUsuariosFechaIngresoCIIE(DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadMetodoIngresoFechaIngresoConsulta(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteFormularioCIIE reporte = new clsReporteFormularioCIIE();
-            var obj = reporte.CantidadTipoUsuarioFechaIngreso(Fecha1, Fecha2);
+            clsReporteConsulta reporte = new clsReporteConsulta();
+            var obj = reporte.CantidadMetodoIngresoFechaIngreso(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteFormularioCIIE> listaReportesFormularioCIIE = new List<ReporteFormularioCIIE>();
-                var data = reporte.CantidadTipoUsuarioFechaIngreso(Fecha1, Fecha2).ToList();
+                List<ReporteConsulta> listaReportesConsulta = new List<ReporteConsulta>();
+                var data = reporte.CantidadMetodoIngresoFechaIngreso(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteFormularioCIIE modelo = new ReporteFormularioCIIE();
-                    modelo.tipoDespacho = item.tipoDespacho;
+                    ReporteConsulta modelo = new ReporteConsulta();
+                    modelo.tipoMetodo = item.metodoIngreso;
                     modelo.cantidad = (int)item.Cantidad;
-                    modelo.porcentaje = (int)item.Porcentaje;
+                    modelo.porcentaje = (int)item.porcentaje;
 
-                    listaReportesFormularioCIIE.Add(modelo);
+                    listaReportesConsulta.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesFormularioCIIE;
-                return View(listaReportesFormularioCIIE);
+                Session["Reportes"] = listaReportesConsulta;
+                return View(listaReportesConsulta);
             }
             else
             {
@@ -54,7 +54,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de ingreso
-        public FileResult ReporteUsuariosFechaIngresoCIIEXLS()
+        public FileResult ReporteMetodoIngresoFechaIngresoConsultaXLS()
         {
             byte[] buffer;
 
@@ -68,7 +68,7 @@ namespace Capa_Presentacion.Controllers
                 ExcelWorksheet ew = ep.Workbook.Worksheets[0];
 
                 //Nombres de las columnas
-                ew.Cells[1, 1].Value = "Tipo de usuario";
+                ew.Cells[1, 1].Value = "Metodo de ingreso";
                 ew.Cells[1, 2].Value = "Cantidad";
                 ew.Cells[1, 3].Value = "Porcentaje";
 
@@ -84,11 +84,11 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    ew.Cells[i + 2, 1].Value = lista[i].tipoDespacho;
+                    ew.Cells[i + 2, 1].Value = lista[i].tipoMetodo;
                     ew.Cells[i + 2, 2].Value = lista[i].cantidad;
                     ew.Cells[i + 2, 3].Value = lista[i].porcentaje + "%";
                 }
@@ -99,7 +99,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso
-        public FileResult ReporteUsuariosFechaIngresoCIIEPDF()
+        public FileResult ReporteMetodoIngresoFechaIngresoConsultaPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -110,7 +110,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por tipos de usuarios por fecha de ingreso del formulario del CIIE");
+                Paragraph titulo = new Paragraph("Reporte por metodos de ingreso por fecha de ingreso de las consultas");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -121,7 +121,7 @@ namespace Capa_Presentacion.Controllers
                 float[] values = new float[3] { 25, 15, 15 };
                 table.SetWidths(values);
                 //Creamos celdas
-                PdfPCell celda1 = new PdfPCell(new Phrase("Tipo de usario"));
+                PdfPCell celda1 = new PdfPCell(new Phrase("Metodo de ingreso"));
                 celda1.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda1);
 
@@ -133,11 +133,11 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    table.AddCell(lista[i].tipoDespacho);
+                    table.AddCell(lista[i].tipoMetodo);
                     table.AddCell(lista[i].cantidad.ToString());
                     table.AddCell(lista[i].porcentaje.ToString() + "%");
                 }
@@ -152,25 +152,25 @@ namespace Capa_Presentacion.Controllers
 
         //Accion de la cantidad de tipos de usuario por fechas de respuesta
         [HttpPost]
-        public ActionResult CantidadUsuariosFechaRespuestaCIIE(DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadMetodoIngresoFechaRespuestaConsulta(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteFormularioCIIE reporte = new clsReporteFormularioCIIE();
-            var obj = reporte.CantidadTipoUsuarioFechaIngresoFechaRespuesta(Fecha1, Fecha2);
+            clsReporteConsulta reporte = new clsReporteConsulta();
+            var obj = reporte.CantidadMetodoIngresoFechaRespuesta(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteFormularioCIIE> listaReportesFormularioCIIE = new List<ReporteFormularioCIIE>();
-                var data = reporte.CantidadTipoUsuarioFechaRespuesta(Fecha1, Fecha2).ToList();
+                List<ReporteConsulta> listaReportesConsulta = new List<ReporteConsulta>();
+                var data = reporte.CantidadMetodoIngresoFechaRespuesta(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteFormularioCIIE modelo = new ReporteFormularioCIIE();
-                    modelo.tipoDespacho = item.tipoDespacho;
+                    ReporteConsulta modelo = new ReporteConsulta();
+                    modelo.tipoMetodo = item.metodoIngreso;
                     modelo.cantidad = (int)item.Cantidad;
-                    modelo.porcentaje = (int)item.Porcentaje;
+                    modelo.porcentaje = (int)item.porcentaje;
 
-                    listaReportesFormularioCIIE.Add(modelo);
+                    listaReportesConsulta.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesFormularioCIIE;
-                return View(listaReportesFormularioCIIE);
+                Session["Reportes"] = listaReportesConsulta;
+                return View(listaReportesConsulta);
             }
             else
             {
@@ -180,7 +180,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de respuesta
-        public FileResult ReporteUsuariosFechaRespuestaCIIEXLS()
+        public FileResult ReporteReporteConsultaFechaRespuestaConsultaXLS()
         {
             byte[] buffer;
 
@@ -194,7 +194,7 @@ namespace Capa_Presentacion.Controllers
                 ExcelWorksheet ew = ep.Workbook.Worksheets[0];
 
                 //Nombres de las columnas
-                ew.Cells[1, 1].Value = "Tipo de usuario";
+                ew.Cells[1, 1].Value = "Metodo de ingreso";
                 ew.Cells[1, 2].Value = "Cantidad";
                 ew.Cells[1, 3].Value = "Porcentaje";
 
@@ -210,11 +210,11 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    ew.Cells[i + 2, 1].Value = lista[i].tipoDespacho;
+                    ew.Cells[i + 2, 1].Value = lista[i].tipoMetodo;
                     ew.Cells[i + 2, 2].Value = lista[i].cantidad;
                     ew.Cells[i + 2, 3].Value = lista[i].porcentaje + "%";
                 }
@@ -225,7 +225,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de respuesta
-        public FileResult ReporteUsuariosFechaRespuestaCIIEPDF()
+        public FileResult ReporteMetodoIngresoFechaRespuestaConsultaPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -236,7 +236,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por tipos de usuarios por fecha de respuesta del formulario del CIIE");
+                Paragraph titulo = new Paragraph("Reporte por metodos de ingreso por fecha de respuesta de consultas");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -259,11 +259,11 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    table.AddCell(lista[i].tipoDespacho);
+                    table.AddCell(lista[i].tipoMetodo);
                     table.AddCell(lista[i].cantidad.ToString());
                     table.AddCell(lista[i].porcentaje.ToString() + "%");
                 }
@@ -278,25 +278,25 @@ namespace Capa_Presentacion.Controllers
 
         //Accion de la cantidad de tipos de usuario por fechas de ingreso y fechas de respuesta
         [HttpPost]
-        public ActionResult CantidadUsuariosFechaIngresoFechaRespuestaCIIE (DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadMetodoIngresoFechaIngresoFechaRespuestaConsulta(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteFormularioCIIE reporte = new clsReporteFormularioCIIE();
-            var obj = reporte.CantidadTipoUsuarioFechaIngresoFechaRespuesta(Fecha1, Fecha2);
+            clsReporteConsulta reporte = new clsReporteConsulta();
+            var obj = reporte.CantidadMetodoIngresoFechaIngresoFechaRespuesta(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteFormularioCIIE> listaReportesFormularioCIIE = new List<ReporteFormularioCIIE>();
-                var data = reporte.CantidadTipoUsuarioFechaIngresoFechaRespuesta(Fecha1, Fecha2).ToList();
+                List<ReporteConsulta> listaReportesConsulta = new List<ReporteConsulta>();
+                var data = reporte.CantidadMetodoIngresoFechaIngresoFechaRespuesta(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteFormularioCIIE modelo = new ReporteFormularioCIIE();
-                    modelo.tipoDespacho = item.Tipo_Usuario;
+                    ReporteConsulta modelo = new ReporteConsulta();
+                    modelo.tipoMetodo = item.MetodoIngreso;
                     modelo.cantidad = (int)item.Cantidad;
                     modelo.porcentaje = (int)item.Porcentaje;
 
-                    listaReportesFormularioCIIE.Add(modelo);
+                    listaReportesConsulta.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesFormularioCIIE;
-                return View(listaReportesFormularioCIIE);
+                Session["Reportes"] = listaReportesConsulta;
+                return View(listaReportesConsulta);
             }
             else
             {
@@ -306,7 +306,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de ingreso y fechas de respuesta
-        public FileResult ReporteUsuariosFechaIngresoFechaRespuestaCIIEXLS()
+        public FileResult ReporteMetodoIngresoFechaIngresoFechaRespuestaConcultaXLS()
         {
             byte[] buffer;
 
@@ -320,7 +320,7 @@ namespace Capa_Presentacion.Controllers
                 ExcelWorksheet ew = ep.Workbook.Worksheets[0];
 
                 //Nombres de las columnas
-                ew.Cells[1, 1].Value = "Tipo de usuario";
+                ew.Cells[1, 1].Value = "Metodo de ingreso";
                 ew.Cells[1, 2].Value = "Cantidad";
                 ew.Cells[1, 3].Value = "Porcentaje";
 
@@ -336,11 +336,11 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    ew.Cells[i + 2, 1].Value = lista[i].tipoDespacho;
+                    ew.Cells[i + 2, 1].Value = lista[i].tipoMetodo;
                     ew.Cells[i + 2, 2].Value = lista[i].cantidad;
                     ew.Cells[i + 2, 3].Value = lista[i].porcentaje + "%";
                 }
@@ -351,7 +351,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso y fechas de respuesta
-        public FileResult ReporteUsuariosFechaIngresoFechaRespuestaCIIEPDF()
+        public FileResult ReporteMetodoIngresoFechaIngresoFechaRespuestaCIIEPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -362,7 +362,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por tipos de usuarios por fecha de ingreso y fecha de respuesta del formulario del CIIE");
+                Paragraph titulo = new Paragraph("Reporte por metodos de ingreso por fecha de ingreso y fecha de respuesta de consultas");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -373,7 +373,7 @@ namespace Capa_Presentacion.Controllers
                 float[] values = new float[3] { 25, 15, 15 };
                 table.SetWidths(values);
                 //Creamos celdas
-                PdfPCell celda1 = new PdfPCell(new Phrase("Tipo de usario"));
+                PdfPCell celda1 = new PdfPCell(new Phrase("Metodo de ingreso"));
                 celda1.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda1);
 
@@ -385,11 +385,11 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    table.AddCell(lista[i].tipoDespacho);
+                    table.AddCell(lista[i].tipoMetodo);
                     table.AddCell(lista[i].cantidad.ToString());
                     table.AddCell(lista[i].porcentaje.ToString() + "%");
                 }
@@ -404,25 +404,25 @@ namespace Capa_Presentacion.Controllers
 
         //Accion de la cantidad de genero de usuario por fechas de ingreso
         [HttpPost]
-        public ActionResult CantidadGeneroFechaIngresoCIIE(DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadGeneroFechaIngresoConsulta(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteFormularioCIIE reporte = new clsReporteFormularioCIIE();
+            clsReporteConsulta reporte = new clsReporteConsulta();
             var obj = reporte.CantidadGeneroFechaIngreso(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteFormularioCIIE> listaReportesFormularioCIIE = new List<ReporteFormularioCIIE>();
+                List<ReporteConsulta> listaReportesConsulta= new List<ReporteConsulta>();
                 var data = reporte.CantidadGeneroFechaIngreso(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteFormularioCIIE modelo = new ReporteFormularioCIIE();
+                    ReporteConsulta modelo = new ReporteConsulta();
                     modelo.tipoGenero = item.generoSolicitante;
                     modelo.cantidad = (int)item.Cantidad;
                     modelo.porcentaje = (int)item.porcentaje;
 
-                    listaReportesFormularioCIIE.Add(modelo);
+                    listaReportesConsulta.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesFormularioCIIE;
-                return View(listaReportesFormularioCIIE);
+                Session["Reportes"] = listaReportesConsulta;
+                return View(listaReportesConsulta);
             }
             else
             {
@@ -432,7 +432,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de ingreso
-        public FileResult ReporteGeneroFechaIngresoCIIEXLS()
+        public FileResult ReporteGeneroFechaIngresoConsultaXLS()
         {
             byte[] buffer;
 
@@ -462,7 +462,7 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
@@ -477,7 +477,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso
-        public FileResult ReporteGeneroFechaIngresoCIIEPDF()
+        public FileResult ReporteGeneroFechaIngresoConsultaPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -488,7 +488,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de ingreso del formulario del CIIE");
+                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de ingreso de consultas");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -511,7 +511,7 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
@@ -530,25 +530,25 @@ namespace Capa_Presentacion.Controllers
 
         //Accion de la cantidad de genero de usuario por fechas de respuesta
         [HttpPost]
-        public ActionResult CantidadGeneroFechaRespuestaCIIE(DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadGeneroFechaRespuestaConsulta(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteFormularioCIIE reporte = new clsReporteFormularioCIIE();
+            clsReporteConsulta reporte = new clsReporteConsulta();
             var obj = reporte.CantidadGeneroFechaRespuesta(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteFormularioCIIE> listaReportesFormularioCIIE = new List<ReporteFormularioCIIE>();
+                List<ReporteConsulta> listaReportesConsulta = new List<ReporteConsulta>();
                 var data = reporte.CantidadGeneroFechaRespuesta(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteFormularioCIIE modelo = new ReporteFormularioCIIE();
+                    ReporteConsulta modelo = new ReporteConsulta();
                     modelo.tipoGenero = item.generoSolicitante;
                     modelo.cantidad = (int)item.Cantidad;
                     modelo.porcentaje = (int)item.porcentaje;
 
-                    listaReportesFormularioCIIE.Add(modelo);
+                    listaReportesConsulta.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesFormularioCIIE;
-                return View(listaReportesFormularioCIIE);
+                Session["Reportes"] = listaReportesConsulta;
+                return View(listaReportesConsulta);
             }
             else
             {
@@ -558,7 +558,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de respuesta
-        public FileResult ReporteGeneroFechaRespuestaCIIEXLS()
+        public FileResult ReporteGeneroFechaRespuestaConsultaXLS()
         {
             byte[] buffer;
 
@@ -588,7 +588,7 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
@@ -603,7 +603,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de genero de usuario por fechas de respuesta
-        public FileResult ReporteGeneroFechaRespuestaCIIEPDF()
+        public FileResult ReporteGeneroFechaRespuestaConsultaPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -614,7 +614,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de respuesta del formulario del CIIE");
+                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de respuesta de consultas");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -637,7 +637,7 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
@@ -656,25 +656,25 @@ namespace Capa_Presentacion.Controllers
 
         //Accion de la cantidad de genero de usuario por fechas de ingreso
         [HttpPost]
-        public ActionResult CantidadGeneroFechaIngresoFechaRespuestaCIIE(DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadGeneroFechaIngresoFechaRespuestaConsulta(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteFormularioCIIE reporte = new clsReporteFormularioCIIE();
+            clsReporteConsulta reporte = new clsReporteConsulta();
             var obj = reporte.CantidadGeneroFechaIngresoFechaRespuesta(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteFormularioCIIE> listaReportesFormularioCIIE = new List<ReporteFormularioCIIE>();
+                List<ReporteConsulta> listaReportesConsulta = new List<ReporteConsulta>();
                 var data = reporte.CantidadGeneroFechaIngresoFechaRespuesta(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteFormularioCIIE modelo = new ReporteFormularioCIIE();
+                    ReporteConsulta modelo = new ReporteConsulta();
                     modelo.tipoGenero = item.generoSolicitante;
                     modelo.cantidad = (int)item.Cantidad;
                     modelo.porcentaje = (int)item.porcentaje;
 
-                    listaReportesFormularioCIIE.Add(modelo);
+                    listaReportesConsulta.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesFormularioCIIE;
-                return View(listaReportesFormularioCIIE);
+                Session["Reportes"] = listaReportesConsulta;
+                return View(listaReportesConsulta);
             }
             else
             {
@@ -684,7 +684,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de respuesta
-        public FileResult ReporteGeneroFechaIngresoFechaRespuestaCIIEXLS()
+        public FileResult ReporteGeneroFechaIngresoFechaRespuestaConsultaXLS()
         {
             byte[] buffer;
 
@@ -714,7 +714,7 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
@@ -729,7 +729,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso y fecha de respuesta
-        public FileResult ReporteGeneroFechaIngresoFechaRespuestaCIIEPDF()
+        public FileResult ReporteGeneroFechaIngresoFechaRespuestaConsultaPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -740,7 +740,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de ingreso y fecha de respuesta del formulario del CIIE");
+                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de ingreso y fecha de respuesta de consultas");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -763,7 +763,7 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteFormularioCIIE> lista = (List<ReporteFormularioCIIE>)Session["Reportes"];
+                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {

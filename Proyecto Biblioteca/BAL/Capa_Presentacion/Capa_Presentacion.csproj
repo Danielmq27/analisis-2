@@ -1042,6 +1042,7 @@
     <Compile Include="Controllers\PrestamoEquipoController.cs" />
     <Compile Include="Controllers\PrestamoPermanenteController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
+    <Compile Include="Controllers\ReporteConsultaController.cs" />
     <Compile Include="Controllers\ReporteFormularioCIIEController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -1059,6 +1060,7 @@
     <Compile Include="Models\PrestamoEquipo.cs" />
     <Compile Include="Models\PrestamoPermanente.cs" />
     <Compile Include="Models\Referencia.cs" />
+    <Compile Include="Models\ReporteConsulta.cs" />
     <Compile Include="Models\ReporteFormularioCIIE.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
@@ -1245,7 +1247,6 @@
     <Content Include="Views\PrestamoEquipo\Detalles.cshtml" />
     <Content Include="Views\PrestamoPermanente\Detalles.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\Administrador.cshtml" />
-    <Content Include="Views\ReporteFormularioCIIE\Editar.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngresoCIIE.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaRespuestaCIIE.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngresoFechaRespuestaCIIE.cshtml" />
@@ -1254,6 +1255,13 @@
     <Content Include="Views\ReporteFormularioCIIE\CantidadGeneroFechaIngresoCIIE.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\CantidadGeneroFechaRespuestaCIIE.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\CantidadGeneroFechaIngresoFechaRespuestaCIIE.cshtml" />
+    <Content Include="Views\ReporteConsulta\CantidadMetodoIngresoFechaRespuestaConsulta.cshtml" />
+    <Content Include="Views\ReporteConsulta\CantidadMetodoIngresoFechaIngresoFechaRespuestaConsulta.cshtml" />
+    <Content Include="Views\ReporteConsulta\CantidadMetodoIngresoFechaIngresoConsulta.cshtml" />
+    <Content Include="Views\ReporteConsulta\CantidadGeneroFechaRespuestaConsulta.cshtml" />
+    <Content Include="Views\ReporteConsulta\CantidadGeneroFechaIngresoFechaRespuestaConsulta.cshtml" />
+    <Content Include="Views\ReporteConsulta\CantidadGeneroFechaIngresoConsulta.cshtml" />
+    <Content Include="Views\ReporteConsulta\Administrador.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

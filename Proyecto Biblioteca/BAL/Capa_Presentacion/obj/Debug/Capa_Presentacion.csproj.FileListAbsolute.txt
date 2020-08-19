@@ -92,6 +92,8 @@ C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentaci
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Antlr3.Runtime.dll
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Capa_Datos.dll
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Capa_Logica.dll
+C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\EPPlus.dll
+C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\itextsharp.dll
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\MvcValidationExtensions.dll
@@ -108,6 +110,7 @@ C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentaci
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Capa_Datos.dll.config
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Capa_Logica.pdb
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Antlr3.Runtime.pdb
+C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\EPPlus.xml
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Newtonsoft.Json.xml
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\System.Web.Optimization.xml
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\System.Web.Razor.xml
@@ -128,6 +131,3 @@ C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentaci
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Debug\Capa_Presentacion.csproj.CopyComplete
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Debug\Capa_Presentacion.dll
 C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Debug\Capa_Presentacion.pdb
-C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\EPPlus.dll
-C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\itextsharp.dll
-C:\Users\Freddy Arias\Desktop\analisis-2\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\EPPlus.xml
