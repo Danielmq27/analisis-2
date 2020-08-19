@@ -1,20 +1,21 @@
-﻿@model Capa_Presentacion.Models.PrestamoPermanente
+﻿@model Capa_Presentacion.Models.PrestamoEquipo
 
 @{
     ViewBag.Title = "Detalles";
-    Layout = "~/Views/Shared/_Administrador.cshtml";
+    Layout = "~/Views/Shared/_Consultar.cshtml";
 }
 
+
 <div class="content">
-    <h4>PrestamoPermanente</h4>
+    <h4>PrestamoEquipo</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CodigoPrestamoPermanente)
+            @Html.DisplayNameFor(model => model.CodigoPrestamoEquipo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CodigoPrestamoPermanente)
+            @Html.DisplayFor(model => model.CodigoPrestamoEquipo)
         </dd>
 
         <dt>
@@ -42,35 +43,43 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Despacho)
+            @Html.DisplayNameFor(model => model.CedulaSolicitante)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Despacho)
+            @Html.DisplayFor(model => model.CedulaSolicitante)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Telefono)
+            @Html.DisplayNameFor(model => model.Departamento)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Telefono)
+            @Html.DisplayFor(model => model.Departamento)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Extension)
+            @Html.DisplayNameFor(model => model.TipoEquipo)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Extension)
+            @Html.DisplayFor(model => model.TipoEquipo)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.InformacionAdicional)
+            @Html.DisplayNameFor(model => model.Implementos)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.InformacionAdicional)
+            @Html.DisplayFor(model => model.Implementos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EspecificacionImplementos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EspecificacionImplementos)
         </dd>
 
         <dt>
@@ -82,11 +91,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FechaPrestamo)
+            @Html.DisplayNameFor(model => model.FechaIngreso)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FechaPrestamo)
+            @Html.DisplayFor(model => model.FechaIngreso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaRespuesta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaRespuesta)
         </dd>
 
         <dt>
@@ -130,5 +147,5 @@
         </dd>
 
     </dl>
-    @Html.ActionLink("Regresar", "Administrador", "PrestamoPermanente", null, new { @class = "btn btn-danger" })
+    @Html.ActionLink("Regresar", "Consultar", "PrestamoEquipo", null, new { @class = "btn btn-danger" })
 </div>

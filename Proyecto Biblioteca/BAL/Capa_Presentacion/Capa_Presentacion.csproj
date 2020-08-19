@@ -1290,6 +1290,21 @@
     <Content Include="Views\ReportePrestamoPermanente\CantidadDespachoFechaIngresoPP.cshtml" />
     <Content Include="Views\ReportePrestamoPermanente\Administrador.cshtml" />
     <Content Include="Views\Bitacora\Administrador.cshtml" />
+    <Content Include="Views\FormularioCIIE\ActualizarEditar.cshtml" />
+    <Content Include="Views\FormularioCIIE\AgregarEditar.cshtml" />
+    <Content Include="Views\Consulta\ActualizarEditar.cshtml" />
+    <Content Include="Views\Consulta\AgregarEditar.cshtml" />
+    <Content Include="Views\PrestamoAudiovisual\ActualizarEditar.cshtml" />
+    <Content Include="Views\PrestamoAudiovisual\AgregarEditar.cshtml" />
+    <Content Include="Views\PrestamoEquipo\AgregarEditar.cshtml" />
+    <Content Include="Views\PrestamoEquipo\ActualizarEditar.cshtml" />
+    <Content Include="Views\PrestamoPermanente\ActualizarEditar.cshtml" />
+    <Content Include="Views\PrestamoPermanente\AgregarEditar.cshtml" />
+    <Content Include="Views\Consulta\DetallesConsultar.cshtml" />
+    <Content Include="Views\FormularioCIIE\DetallesConsultar.cshtml" />
+    <Content Include="Views\PrestamoAudiovisual\DetallesConsultar.cshtml" />
+    <Content Include="Views\PrestamoEquipo\DetallesConsultar.cshtml" />
+    <Content Include="Views\PrestamoPermanente\DetallesConsultar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

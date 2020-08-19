@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Detalles";
-    Layout = "~/Views/Shared/_Administrador.cshtml";
+    Layout = "~/Views/Shared/_Consultar.cshtml";
 }
 <div class="content">
     <div>
@@ -184,7 +184,7 @@
                 @Html.DisplayFor(model => model.Apellido2)
             </dd>
         </dl>
-        @Html.ActionLink("Regresar", "Administrador", "FormularioCIIE", null, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Regresar", "Consultar", "FormularioCIIE", null, new { @class = "btn btn-danger" })
     </div>
 </div>
 

@@ -31,6 +31,7 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.Estado)
                                 </th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,6 +54,9 @@
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Estado)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink(" Detalles", "DetallesConsultar", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
                                     </td>
                                 </tr>
                             }

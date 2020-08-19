@@ -227,6 +227,85 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
+        //Accion para agregar :GET
+        [Acceso]
+        [HttpGet]
+        public ActionResult AgregarEditar()
+        {
+            try
+            {
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                ViewBag.estados = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
+                return View();
+            }
+            catch (Exception ex)
+            {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("Consulta", "Agregar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
+            }
+        }
+
+        //Accion para agregar :POST
+        [Acceso]
+        [HttpPost]
+        public ActionResult AgregarEditar(Consulta consulta)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estados = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
+                    //Retornamos el modelo
+                    return View(consulta);
+                }
+                clsConsulta objConsulta = new clsConsulta();
+                //Variables de SESSION
+                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
+                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
+                bool resultado = objConsulta.AgregarConsulta(consulta.NombreSolicitante, consulta.ApellidoSolicitante1,
+                    consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion,
+                    consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
+                    consulta.FechaRespuesta, consulta.Estado, CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
+                if (resultado)
+                {
+                    return RedirectToAction("Administrador");
+                }
+                else
+                {
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("Consulta", "Agreagar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
+            }
+        }
+
         //Accion para actualizar :GET
         [Acceso]
         [HttpGet]
@@ -324,10 +403,149 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
+        //Accion para actualizar :GET
+        [Acceso]
+        [HttpGet]
+        public ActionResult ActualizarEditar(int Id)
+        {
+            try
+            {
+                clsConsulta consulta = new clsConsulta();
+                var dato = consulta.ConsultarConsulta(Id);
+                Consulta modelo = new Consulta();
+                modelo.CodigoConsulta = dato[0].codigoConsulta;
+                modelo.NombreSolicitante = dato[0].nombreSolicitante;
+                modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
+                modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
+                modelo.Telefono = dato[0].telefono;
+                modelo.Telefono = dato[0].telefono;
+                modelo.Email = dato[0].email;
+                modelo.Asunto = dato[0].asunto;
+                modelo.Descripcion = dato[0].descripcion;
+                modelo.Respuesta = dato[0].respuesta;
+                modelo.MetodoIngreso = dato[0].metodoIngreso;
+                modelo.FechaIngreso = dato[0].fechaIngreso;
+                modelo.FechaRespuesta = dato[0].fechaRespuesta;
+                modelo.GeneroSolicitante = dato[0].generoSolicitante;
+                modelo.Estado = dato[0].estado;
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                ViewBag.estados = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
+                return View(modelo);
+            }
+            catch (Exception ex)
+            {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("Consulta", "Actualizar", ex.Message, NombreUsuario, 0);
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
+            }
+        }
+
+        //Accion para actualizar .POST
+        [Acceso]
+        [HttpPost]
+        public ActionResult ActualizarEditar(int Id, Consulta consulta)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estados = new SelectList(new[] {
+                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
+                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                                               }, "Value", "Text");
+                    //Retornamos el modelo
+                    return View(consulta);
+                }
+                clsConsulta objConsulta = new clsConsulta();
+                //Variables de SESSION
+                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
+                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
+                bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, consulta.NombreSolicitante,
+                    consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto,
+                    consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
+                    consulta.FechaRespuesta, consulta.Estado, CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
+                if (resultado)
+                {
+                    return RedirectToAction("Administrador");
+                }
+                else
+                {
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("Consulta", "Actualizar", ex.Message, NombreUsuario, 0);
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
+            }
+        }
+
         //Accion para detalles :GET
         [Acceso]
         [HttpGet]
         public ActionResult Detalles(int id)
+        {
+            try
+            {
+                clsConsulta consulta = new clsConsulta();
+                var dato = consulta.ConsultarConsulta(id);
+                Consulta modelo = new Consulta();
+                modelo.Id = dato[0].Id;
+                modelo.CodigoConsulta = dato[0].codigoConsulta;
+                modelo.NombreSolicitante = dato[0].nombreSolicitante;
+                modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
+                modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
+                modelo.Telefono = dato[0].telefono;
+                modelo.Email = dato[0].email;
+                modelo.Asunto = dato[0].asunto;
+                modelo.Descripcion = dato[0].descripcion;
+                modelo.Respuesta = dato[0].respuesta;
+                modelo.MetodoIngreso = dato[0].metodoIngreso;
+                modelo.FechaIngreso = dato[0].fechaIngreso;
+                modelo.FechaRespuesta = dato[0].fechaRespuesta;
+                modelo.Estado = dato[0].estado;
+                modelo.GeneroSolicitante = dato[0].generoSolicitante;
+                modelo.CedulaUsuario = dato[0].cedulaUsuario;
+                modelo.Nombre = dato[0].nombre;
+                modelo.Apellido1 = dato[0].apellido1;
+                modelo.Apellido2 = dato[0].apellido2;
+                return View(modelo);
+            }
+            catch (Exception ex)
+            {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("Consulta", "Actualizar", ex.Message, NombreUsuario, 0);
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
+            }
+        }
+
+        //Accion para detalles :GET
+        [Acceso]
+        [HttpGet]
+        public ActionResult DetallesConsultar(int id)
         {
             try
             {
