@@ -14,8 +14,8 @@ using System.Web.Mvc;
 
 namespace Capa_Presentacion.Controllers
 {
-    //Controlador ReporteConsultaController
-    public class ReporteConsultaController : Controller
+    //Controlador ReportePrestamoAudiovisualController
+    public class ReportePrestamoAudiovisualController : Controller
     {
         //Accion para el rol Administrador
         [HttpGet]
@@ -24,27 +24,27 @@ namespace Capa_Presentacion.Controllers
             return View();
         }
 
-        //Accion de la cantidad de metodos de ingreso por fechas de ingreso
+        //Accion de la cantidad de departamentos por fechas de ingreso
         [HttpPost]
-        public ActionResult CantidadMetodoIngresoFechaIngresoConsulta(DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadDepartamentoFechaIngresoPA(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteConsulta reporte = new clsReporteConsulta();
-            var obj = reporte.CantidadMetodoIngresoFechaIngreso(Fecha1, Fecha2);
+            clsReportePrestamoAudiovisual reporte = new clsReportePrestamoAudiovisual();
+            var obj = reporte.CantidadDepartamentoFechaIngreso(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteConsulta> listaReportesConsulta = new List<ReporteConsulta>();
-                var data = reporte.CantidadMetodoIngresoFechaIngreso(Fecha1, Fecha2).ToList();
+                List<ReportePA> listaReportes = new List<ReportePA>();
+                var data = reporte.CantidadDepartamentoFechaIngreso(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteConsulta modelo = new ReporteConsulta();
-                    modelo.tipoMetodo = item.metodoIngreso;
+                    ReportePA modelo = new ReportePA();
+                    modelo.departamento = item.departamento;
                     modelo.cantidad = (int)item.Cantidad;
                     modelo.porcentaje = (int)item.porcentaje;
 
-                    listaReportesConsulta.Add(modelo);
+                    listaReportes.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesConsulta;
-                return View(listaReportesConsulta);
+                Session["Reportes"] = listaReportes;
+                return View(listaReportes);
             }
             else
             {
@@ -53,8 +53,8 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
-        //Metodo para generar un reporte en excel de cantidad de metodos de ingreso por fechas de ingreso
-        public FileResult ReporteMetodoIngresoFechaIngresoConsultaXLS()
+        //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de ingreso
+        public FileResult ReporteDepartamentoFechaIngresoPAXLS()
         {
             byte[] buffer;
 
@@ -68,7 +68,7 @@ namespace Capa_Presentacion.Controllers
                 ExcelWorksheet ew = ep.Workbook.Worksheets[0];
 
                 //Nombres de las columnas
-                ew.Cells[1, 1].Value = "Metodo de ingreso";
+                ew.Cells[1, 1].Value = "Departamento";
                 ew.Cells[1, 2].Value = "Cantidad";
                 ew.Cells[1, 3].Value = "Porcentaje";
 
@@ -84,11 +84,11 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    ew.Cells[i + 2, 1].Value = lista[i].tipoMetodo;
+                    ew.Cells[i + 2, 1].Value = lista[i].departamento;
                     ew.Cells[i + 2, 2].Value = lista[i].cantidad;
                     ew.Cells[i + 2, 3].Value = lista[i].porcentaje + "%";
                 }
@@ -98,8 +98,8 @@ namespace Capa_Presentacion.Controllers
             return File(buffer, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         }
 
-        //Metodo para generar un reporte en pdf de cantidad de metodos de ingreso por fechas de ingreso
-        public FileResult ReporteMetodoIngresoFechaIngresoConsultaPDF()
+        //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso
+        public FileResult ReporteDepartamentoFechaIngresoPAPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -110,7 +110,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por metodos de ingreso por fecha de ingreso de las consultas");
+                Paragraph titulo = new Paragraph("Reporte por tipos de usuarios por departamento del prestamo audiovisual");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -121,7 +121,7 @@ namespace Capa_Presentacion.Controllers
                 float[] values = new float[3] { 25, 15, 15 };
                 table.SetWidths(values);
                 //Creamos celdas
-                PdfPCell celda1 = new PdfPCell(new Phrase("Metodo de ingreso"));
+                PdfPCell celda1 = new PdfPCell(new Phrase("Departamento"));
                 celda1.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda1);
 
@@ -133,11 +133,11 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    table.AddCell(lista[i].tipoMetodo);
+                    table.AddCell(lista[i].departamento);
                     table.AddCell(lista[i].cantidad.ToString());
                     table.AddCell(lista[i].porcentaje.ToString() + "%");
                 }
@@ -150,27 +150,27 @@ namespace Capa_Presentacion.Controllers
             return File(buffer, "application/pdf");
         }
 
-        //Accion de la cantidad de metodos de ingreso por fechas de respuesta
+        //Accion de la cantidad de departamentos por fechas de respuesta
         [HttpPost]
-        public ActionResult CantidadMetodoIngresoFechaRespuestaConsulta(DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadDepartamentoFechaRespuestaPA(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteConsulta reporte = new clsReporteConsulta();
-            var obj = reporte.CantidadMetodoIngresoFechaRespuesta(Fecha1, Fecha2);
+            clsReportePrestamoAudiovisual reporte = new clsReportePrestamoAudiovisual();
+            var obj = reporte.CantidadDepartamentoFechaRespuesta(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteConsulta> listaReportesConsulta = new List<ReporteConsulta>();
-                var data = reporte.CantidadMetodoIngresoFechaRespuesta(Fecha1, Fecha2).ToList();
+                List<ReportePA> listaReportes = new List<ReportePA>();
+                var data = reporte.CantidadDepartamentoFechaRespuesta(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteConsulta modelo = new ReporteConsulta();
-                    modelo.tipoMetodo = item.metodoIngreso;
+                    ReportePA modelo = new ReportePA();
+                    modelo.departamento = item.departamento;
                     modelo.cantidad = (int)item.Cantidad;
                     modelo.porcentaje = (int)item.porcentaje;
 
-                    listaReportesConsulta.Add(modelo);
+                    listaReportes.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesConsulta;
-                return View(listaReportesConsulta);
+                Session["Reportes"] = listaReportes;
+                return View(listaReportes);
             }
             else
             {
@@ -179,8 +179,8 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
-        //Metodo para generar un reporte en excel de cantidad de metodos de ingreso por fechas de respuesta
-        public FileResult ReporteReporteConsultaFechaRespuestaConsultaXLS()
+        //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de respuesta
+        public FileResult ReporteDepartamentoFechaRespuestaPAXLS()
         {
             byte[] buffer;
 
@@ -194,7 +194,7 @@ namespace Capa_Presentacion.Controllers
                 ExcelWorksheet ew = ep.Workbook.Worksheets[0];
 
                 //Nombres de las columnas
-                ew.Cells[1, 1].Value = "Metodo de ingreso";
+                ew.Cells[1, 1].Value = "Departamento";
                 ew.Cells[1, 2].Value = "Cantidad";
                 ew.Cells[1, 3].Value = "Porcentaje";
 
@@ -210,11 +210,11 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    ew.Cells[i + 2, 1].Value = lista[i].tipoMetodo;
+                    ew.Cells[i + 2, 1].Value = lista[i].departamento;
                     ew.Cells[i + 2, 2].Value = lista[i].cantidad;
                     ew.Cells[i + 2, 3].Value = lista[i].porcentaje + "%";
                 }
@@ -224,8 +224,8 @@ namespace Capa_Presentacion.Controllers
             return File(buffer, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         }
 
-        //Metodo para generar un reporte en pdf de cantidad de metodos de ingreso por fechas de respuesta
-        public FileResult ReporteMetodoIngresoFechaRespuestaConsultaPDF()
+        //Metodo para generar un reporte en pdf de cantidad de departamentos por fechas de respuesta
+        public FileResult ReporteDepartamentoFechaRespuestaPAPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -236,7 +236,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por metodos de ingreso por fecha de respuesta de consultas");
+                Paragraph titulo = new Paragraph("Reporte por departamento por fecha de respuesta del prestamo audiovisual");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -247,7 +247,7 @@ namespace Capa_Presentacion.Controllers
                 float[] values = new float[3] { 25, 15, 15 };
                 table.SetWidths(values);
                 //Creamos celdas
-                PdfPCell celda1 = new PdfPCell(new Phrase("Tipo de usario"));
+                PdfPCell celda1 = new PdfPCell(new Phrase("Departamento"));
                 celda1.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda1);
 
@@ -259,11 +259,11 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    table.AddCell(lista[i].tipoMetodo);
+                    table.AddCell(lista[i].departamento);
                     table.AddCell(lista[i].cantidad.ToString());
                     table.AddCell(lista[i].porcentaje.ToString() + "%");
                 }
@@ -276,27 +276,27 @@ namespace Capa_Presentacion.Controllers
             return File(buffer, "application/pdf");
         }
 
-        //Accion de la cantidad de metodos de ingreso por fechas de ingreso y fechas de respuesta
+        //Accion de la cantidad de departamentos por fechas de ingreso y fechas de respuesta
         [HttpPost]
-        public ActionResult CantidadMetodoIngresoFechaIngresoFechaRespuestaConsulta(DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadDepartamentoFechaIngresoFechaRespuestaPA(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteConsulta reporte = new clsReporteConsulta();
-            var obj = reporte.CantidadMetodoIngresoFechaIngresoFechaRespuesta(Fecha1, Fecha2);
+            clsReportePrestamoAudiovisual reporte = new clsReportePrestamoAudiovisual();
+            var obj = reporte.CantidadDepartamentoFechaIngresoFechaRespuesta(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteConsulta> listaReportesConsulta = new List<ReporteConsulta>();
-                var data = reporte.CantidadMetodoIngresoFechaIngresoFechaRespuesta(Fecha1, Fecha2).ToList();
+                List<ReportePA> listaReportes = new List<ReportePA>();
+                var data = reporte.CantidadDepartamentoFechaIngresoFechaRespuesta(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteConsulta modelo = new ReporteConsulta();
-                    modelo.tipoMetodo = item.MetodoIngreso;
+                    ReportePA modelo = new ReportePA();
+                    modelo.departamento = item.Departamento;
                     modelo.cantidad = (int)item.Cantidad;
                     modelo.porcentaje = (int)item.Porcentaje;
 
-                    listaReportesConsulta.Add(modelo);
+                    listaReportes.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesConsulta;
-                return View(listaReportesConsulta);
+                Session["Reportes"] = listaReportes;
+                return View(listaReportes);
             }
             else
             {
@@ -305,8 +305,8 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
-        //Metodo para generar un reporte en excel de cantidad de metodos de ingreso por fechas de ingreso y fechas de respuesta
-        public FileResult ReporteMetodoIngresoFechaIngresoFechaRespuestaConcultaXLS()
+        //Metodo para generar un reporte en excel de cantidad de tipos de usuario por fechas de ingreso y fechas de respuesta
+        public FileResult ReporteDepartamentoFechaIngresoFechaRespuestaPAXLS()
         {
             byte[] buffer;
 
@@ -320,7 +320,7 @@ namespace Capa_Presentacion.Controllers
                 ExcelWorksheet ew = ep.Workbook.Worksheets[0];
 
                 //Nombres de las columnas
-                ew.Cells[1, 1].Value = "Metodo de ingreso";
+                ew.Cells[1, 1].Value = "Departamento";
                 ew.Cells[1, 2].Value = "Cantidad";
                 ew.Cells[1, 3].Value = "Porcentaje";
 
@@ -336,11 +336,11 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    ew.Cells[i + 2, 1].Value = lista[i].tipoMetodo;
+                    ew.Cells[i + 2, 1].Value = lista[i].departamento;
                     ew.Cells[i + 2, 2].Value = lista[i].cantidad;
                     ew.Cells[i + 2, 3].Value = lista[i].porcentaje + "%";
                 }
@@ -350,8 +350,8 @@ namespace Capa_Presentacion.Controllers
             return File(buffer, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         }
 
-        //Metodo para generar un reporte en pdf de cantidad de metodos de ingreso por fechas de ingreso y fechas de respuesta
-        public FileResult ReporteMetodoIngresoFechaIngresoFechaRespuestaCIIEPDF()
+        //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso y fechas de respuesta
+        public FileResult ReporteDepartamentoFechaIngresoFechaRespuestaPAPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -362,7 +362,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por metodos de ingreso por fecha de ingreso y fecha de respuesta de consultas");
+                Paragraph titulo = new Paragraph("Reporte por departamento por fecha de ingreso y fecha de respuesta de prestamos audiovisuales");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -373,7 +373,7 @@ namespace Capa_Presentacion.Controllers
                 float[] values = new float[3] { 25, 15, 15 };
                 table.SetWidths(values);
                 //Creamos celdas
-                PdfPCell celda1 = new PdfPCell(new Phrase("Metodo de ingreso"));
+                PdfPCell celda1 = new PdfPCell(new Phrase("Departamento"));
                 celda1.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda1);
 
@@ -385,11 +385,11 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
-                    table.AddCell(lista[i].tipoMetodo);
+                    table.AddCell(lista[i].departamento);
                     table.AddCell(lista[i].cantidad.ToString());
                     table.AddCell(lista[i].porcentaje.ToString() + "%");
                 }
@@ -404,25 +404,25 @@ namespace Capa_Presentacion.Controllers
 
         //Accion de la cantidad de genero de usuario por fechas de ingreso
         [HttpPost]
-        public ActionResult CantidadGeneroFechaIngresoConsulta(DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadGeneroFechaIngresoPA(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteConsulta reporte = new clsReporteConsulta();
+            clsReportePrestamoAudiovisual reporte = new clsReportePrestamoAudiovisual();
             var obj = reporte.CantidadGeneroFechaIngreso(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteConsulta> listaReportesConsulta= new List<ReporteConsulta>();
+                List<ReportePA> listaReportes = new List<ReportePA>();
                 var data = reporte.CantidadGeneroFechaIngreso(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteConsulta modelo = new ReporteConsulta();
+                    ReportePA modelo = new ReportePA();
                     modelo.tipoGenero = item.generoSolicitante;
                     modelo.cantidad = (int)item.Cantidad;
                     modelo.porcentaje = (int)item.porcentaje;
 
-                    listaReportesConsulta.Add(modelo);
+                    listaReportes.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesConsulta;
-                return View(listaReportesConsulta);
+                Session["Reportes"] = listaReportes;
+                return View(listaReportes);
             }
             else
             {
@@ -432,7 +432,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de ingreso
-        public FileResult ReporteGeneroFechaIngresoConsultaXLS()
+        public FileResult ReporteGeneroFechaIngresoPAXLS()
         {
             byte[] buffer;
 
@@ -462,7 +462,7 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
@@ -477,7 +477,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso
-        public FileResult ReporteGeneroFechaIngresoConsultaPDF()
+        public FileResult ReporteGeneroFechaIngresoPAPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -488,7 +488,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de ingreso de consultas");
+                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de ingreso de prestamos audiovisuales");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -511,7 +511,7 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
@@ -530,25 +530,25 @@ namespace Capa_Presentacion.Controllers
 
         //Accion de la cantidad de genero de usuario por fechas de respuesta
         [HttpPost]
-        public ActionResult CantidadGeneroFechaRespuestaConsulta(DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadGeneroFechaRespuestaPA(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteConsulta reporte = new clsReporteConsulta();
+            clsReportePrestamoAudiovisual reporte = new clsReportePrestamoAudiovisual();
             var obj = reporte.CantidadGeneroFechaRespuesta(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteConsulta> listaReportesConsulta = new List<ReporteConsulta>();
+                List<ReportePA> listaReportes = new List<ReportePA>();
                 var data = reporte.CantidadGeneroFechaRespuesta(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteConsulta modelo = new ReporteConsulta();
+                    ReportePA modelo = new ReportePA();
                     modelo.tipoGenero = item.generoSolicitante;
                     modelo.cantidad = (int)item.Cantidad;
                     modelo.porcentaje = (int)item.porcentaje;
 
-                    listaReportesConsulta.Add(modelo);
+                    listaReportes.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesConsulta;
-                return View(listaReportesConsulta);
+                Session["Reportes"] = listaReportes;
+                return View(listaReportes);
             }
             else
             {
@@ -558,7 +558,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de respuesta
-        public FileResult ReporteGeneroFechaRespuestaConsultaXLS()
+        public FileResult ReporteGeneroFechaRespuestaPAXLS()
         {
             byte[] buffer;
 
@@ -588,7 +588,7 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
@@ -603,7 +603,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de genero de usuario por fechas de respuesta
-        public FileResult ReporteGeneroFechaRespuestaConsultaPDF()
+        public FileResult ReporteGeneroFechaRespuestaPAPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -614,7 +614,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de respuesta de consultas");
+                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de respuesta de prestamos audiovisuales");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -637,7 +637,7 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
@@ -656,25 +656,25 @@ namespace Capa_Presentacion.Controllers
 
         //Accion de la cantidad de genero de usuario por fechas de ingreso
         [HttpPost]
-        public ActionResult CantidadGeneroFechaIngresoFechaRespuestaConsulta(DateTime Fecha1, DateTime Fecha2)
+        public ActionResult CantidadGeneroFechaIngresoFechaRespuestaPA(DateTime Fecha1, DateTime Fecha2)
         {
-            clsReporteConsulta reporte = new clsReporteConsulta();
+            clsReportePrestamoAudiovisual reporte = new clsReportePrestamoAudiovisual();
             var obj = reporte.CantidadGeneroFechaIngresoFechaRespuesta(Fecha1, Fecha2);
             if (obj.Count() > 0)
             {
-                List<ReporteConsulta> listaReportesConsulta = new List<ReporteConsulta>();
+                List<ReportePA> listaReportes = new List<ReportePA>();
                 var data = reporte.CantidadGeneroFechaIngresoFechaRespuesta(Fecha1, Fecha2).ToList();
                 foreach (var item in data)
                 {
-                    ReporteConsulta modelo = new ReporteConsulta();
+                    ReportePA modelo = new ReportePA();
                     modelo.tipoGenero = item.generoSolicitante;
                     modelo.cantidad = (int)item.Cantidad;
                     modelo.porcentaje = (int)item.porcentaje;
 
-                    listaReportesConsulta.Add(modelo);
+                    listaReportes.Add(modelo);
                 }
-                Session["Reportes"] = listaReportesConsulta;
-                return View(listaReportesConsulta);
+                Session["Reportes"] = listaReportes;
+                return View(listaReportes);
             }
             else
             {
@@ -684,7 +684,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en excel de cantidad de genero de usuario por fechas de respuesta
-        public FileResult ReporteGeneroFechaIngresoFechaRespuestaConsultaXLS()
+        public FileResult ReporteGeneroFechaIngresoFechaRespuestaPAXLS()
         {
             byte[] buffer;
 
@@ -714,7 +714,7 @@ namespace Capa_Presentacion.Controllers
                     range.Style.Fill.BackgroundColor.SetColor(Color.Gray);
                 }
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {
@@ -729,7 +729,7 @@ namespace Capa_Presentacion.Controllers
         }
 
         //Metodo para generar un reporte en pdf de cantidad de tipos de usuario por fechas de ingreso y fecha de respuesta
-        public FileResult ReporteGeneroFechaIngresoFechaRespuestaConsultaPDF()
+        public FileResult ReporteGeneroFechaIngresoFechaRespuestaPAPDF()
         {
             //Se crea documento
             Document doc = new Document();
@@ -740,7 +740,7 @@ namespace Capa_Presentacion.Controllers
                 PdfWriter.GetInstance(doc, ms);
                 doc.Open();
                 //Damos titulo al PDF
-                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de ingreso y fecha de respuesta de consultas");
+                Paragraph titulo = new Paragraph("Reporte por genero de usuarios por fecha de ingreso y fecha de respuesta del prestamos audiovisuales");
                 titulo.Alignment = Element.ALIGN_CENTER;
                 doc.Add(titulo);
                 Paragraph espacio = new Paragraph(" ");
@@ -763,7 +763,7 @@ namespace Capa_Presentacion.Controllers
                 celda3.BackgroundColor = new BaseColor(82, 197, 211);
                 table.AddCell(celda3);
 
-                List<ReporteConsulta> lista = (List<ReporteConsulta>)Session["Reportes"];
+                List<ReportePA> lista = (List<ReportePA>)Session["Reportes"];
                 int nRegistros = lista.Count;
                 for (int i = 0; i < nRegistros; i++)
                 {

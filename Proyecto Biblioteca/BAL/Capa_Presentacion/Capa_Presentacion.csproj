@@ -1044,6 +1044,9 @@
     <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Controllers\ReporteConsultaController.cs" />
     <Compile Include="Controllers\ReporteFormularioCIIEController.cs" />
+    <Compile Include="Controllers\ReportePrestamoAudiovisualController.cs" />
+    <Compile Include="Controllers\ReportePrestamoEquipoController.cs" />
+    <Compile Include="Controllers\ReportePrestamoPermanenteController.cs" />
     <Compile Include="Controllers\RolController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1062,6 +1065,9 @@
     <Compile Include="Models\Referencia.cs" />
     <Compile Include="Models\ReporteConsulta.cs" />
     <Compile Include="Models\ReporteFormularioCIIE.cs" />
+    <Compile Include="Models\ReportePA.cs" />
+    <Compile Include="Models\ReportePE.cs" />
+    <Compile Include="Models\ReportePP.cs" />
     <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\ValidacionesExistentes\CedulaExiste.cs" />
@@ -1262,6 +1268,23 @@
     <Content Include="Views\ReporteConsulta\CantidadGeneroFechaIngresoFechaRespuestaConsulta.cshtml" />
     <Content Include="Views\ReporteConsulta\CantidadGeneroFechaIngresoConsulta.cshtml" />
     <Content Include="Views\ReporteConsulta\Administrador.cshtml" />
+    <Content Include="Views\ReportePrestamoAudiovisual\Administrador.cshtml" />
+    <Content Include="Views\ReportePrestamoAudiovisual\CantidadGeneroFechaIngresoPA.cshtml" />
+    <Content Include="Views\ReportePrestamoAudiovisual\CantidadGeneroFechaIngresoFechaRespuestaPA.cshtml" />
+    <Content Include="Views\ReportePrestamoAudiovisual\CantidadGeneroFechaRespuestaPA.cshtml" />
+    <Content Include="Views\ReportePrestamoAudiovisual\CantidadDepartamentoFechaIngresoPA.cshtml" />
+    <Content Include="Views\ReportePrestamoAudiovisual\CantidadDepartamentoFechaIngresoFechaRespuestaPA.cshtml" />
+    <Content Include="Views\ReportePrestamoAudiovisual\CantidadDepartamentoFechaRespuestaPA.cshtml" />
+    <Content Include="Views\ReportePrestamoEquipo\CantidadGeneroFechaRespuestaPE.cshtml" />
+    <Content Include="Views\ReportePrestamoEquipo\CantidadGeneroFechaIngresoPE.cshtml" />
+    <Content Include="Views\ReportePrestamoEquipo\CantidadGeneroFechaIngresoFechaRespuestaPE.cshtml" />
+    <Content Include="Views\ReportePrestamoEquipo\CantidadDepartamentoFechaRespuestaPE.cshtml" />
+    <Content Include="Views\ReportePrestamoEquipo\CantidadDepartamentoFechaIngresoPE.cshtml" />
+    <Content Include="Views\ReportePrestamoEquipo\CantidadDepartamentoFechaIngresoFechaRespuestaPE.cshtml" />
+    <Content Include="Views\ReportePrestamoEquipo\Administrador.cshtml" />
+    <Content Include="Views\ReportePrestamoPermanente\CantidadGeneroFechaIngresoPP.cshtml" />
+    <Content Include="Views\ReportePrestamoPermanente\CantidadDespachoFechaIngresoPP.cshtml" />
+    <Content Include="Views\ReportePrestamoPermanente\Administrador.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
