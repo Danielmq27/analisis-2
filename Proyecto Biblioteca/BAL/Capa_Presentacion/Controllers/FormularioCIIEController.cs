@@ -52,9 +52,13 @@ namespace Capa_Presentacion.Controllers
                 }
                 return View(listaFormularioCIIE);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("FormularioCIIE", "Administrador", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -96,9 +100,13 @@ namespace Capa_Presentacion.Controllers
                 }
                 return View(listaFormularioCIIE);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("FormularioCIIE", "Editar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -140,9 +148,13 @@ namespace Capa_Presentacion.Controllers
                 }
                 return View(listaFormularioCIIE);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("FormularioCIIE", "Consultar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -163,9 +175,13 @@ namespace Capa_Presentacion.Controllers
                                                }, "Value", "Text");
                 return View();
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("FormularioCIIE", "Agregar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -212,9 +228,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("FormularioCIIE", "Agregar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -256,9 +276,13 @@ namespace Capa_Presentacion.Controllers
                                                }, "Value", "Text");
                 return View(modelo);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("FormularioCIIE", "Actualizar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -305,9 +329,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("FormularioCIIE", "Actualizar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -346,9 +374,13 @@ namespace Capa_Presentacion.Controllers
                 modelo.Apellido2 = dato[0].apellido2;
                 return View(modelo);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("FormularioCIIE", "Detalles", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -371,9 +403,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error500", "Error");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("FormularioCIIE", "Eliminar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -398,9 +434,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("FormularioCIIE", "EliminarTabla", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }

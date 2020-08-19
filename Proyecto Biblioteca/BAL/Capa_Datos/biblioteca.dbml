@@ -1367,4 +1367,23 @@
       <Column Name="IdRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.INSERTAR_BITACORA" Method="INSERTAR_BITACORA">
+    <Parameter Name="CONTROLADOR" Parameter="cONTROLADOR" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="METODO" Parameter="mETODO" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="MENSAJE" Parameter="mENSAJE" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="USUARIO" Parameter="uSUARIO" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TIPO" Parameter="tIPO" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SELECCIONAR_BITACORAS" Method="SELECCIONAR_BITACORAS">
+    <ElementType Name="SELECCIONAR_BITACORASResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Controlador" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Metodo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Mensaje" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Usuario" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

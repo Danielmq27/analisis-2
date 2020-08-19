@@ -47,6 +47,7 @@
     <Compile Include="clsAuditoriaPrestamoAudiovisual.cs" />
     <Compile Include="clsAuditoriaPrestamoEquipo.cs" />
     <Compile Include="clsAuditoriaPrestamoPermanente.cs" />
+    <Compile Include="clsBitacora.cs" />
     <Compile Include="clsConsulta.cs" />
     <Compile Include="clsControl.cs" />
     <Compile Include="clsFormularioCIIE.cs" />

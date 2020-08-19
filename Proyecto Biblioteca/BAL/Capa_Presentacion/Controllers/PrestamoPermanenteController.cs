@@ -41,9 +41,13 @@ namespace Capa_Presentacion.Controllers
 
                 return View(listaPrestamoPermanente);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoPermanente", "Administrador", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -78,9 +82,13 @@ namespace Capa_Presentacion.Controllers
 
                 return View(listaPrestamoPermanente);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoPermanente", "Editar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -115,9 +123,13 @@ namespace Capa_Presentacion.Controllers
 
                 return View(listaPrestamoPermanente);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoPermanente", "Consultar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -138,9 +150,13 @@ namespace Capa_Presentacion.Controllers
                                                }, "Value", "Text");
                 return View();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoPermanente", "Agregar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -184,9 +200,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoPermanente", "Agregar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -221,9 +241,13 @@ namespace Capa_Presentacion.Controllers
                                                }, "Value", "Text");
                 return View(modelo);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoPermanente", "Actualizar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -268,9 +292,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoPermanente", "Actualizar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -303,9 +331,13 @@ namespace Capa_Presentacion.Controllers
 
                 return View(modelo);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoPermanente", "Detalles", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
 
@@ -329,9 +361,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoPermanente", "Eliminar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -357,9 +393,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoPermanente", "EliminarTabla", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }

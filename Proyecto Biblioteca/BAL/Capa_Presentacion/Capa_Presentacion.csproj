@@ -1034,6 +1034,7 @@
     <Compile Include="Controllers\AuditoriaPrestamoAudiovisualController.cs" />
     <Compile Include="Controllers\AuditoriaPrestamoEquipoController.cs" />
     <Compile Include="Controllers\AuditoriaPrestamoPermanenteController.cs" />
+    <Compile Include="Controllers\BitacoraController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FormularioCIIEController.cs" />
@@ -1057,6 +1058,7 @@
     <Compile Include="Models\AuditoriaPrestamoAudiovisual.cs" />
     <Compile Include="Models\AuditoriaPrestamoEquipo.cs" />
     <Compile Include="Models\AuditoriaPrestamoPermanente.cs" />
+    <Compile Include="Models\Bitacora.cs" />
     <Compile Include="Models\Consulta.cs" />
     <Compile Include="Models\FormularioCIIE.cs" />
     <Compile Include="Models\PrestamoAudiovisual.cs" />
@@ -1285,6 +1287,7 @@
     <Content Include="Views\ReportePrestamoPermanente\CantidadGeneroFechaIngresoPP.cshtml" />
     <Content Include="Views\ReportePrestamoPermanente\CantidadDespachoFechaIngresoPP.cshtml" />
     <Content Include="Views\ReportePrestamoPermanente\Administrador.cshtml" />
+    <Content Include="Views\Bitacora\Administrador.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

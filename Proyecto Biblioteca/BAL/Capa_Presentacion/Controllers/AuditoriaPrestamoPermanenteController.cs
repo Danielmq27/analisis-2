@@ -49,8 +49,12 @@ namespace Capa_Presentacion.Controllers
                 //Mandamos los datos a la vista
                 return View(listaAuditoriaPrestamoPermanente);
             }
-            catch
+            catch (Exception ex)
             {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("AuditoriaPrestamoPermanente", "Index", ex.Message, NombreUsuario, 0);
                 //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
@@ -87,8 +91,12 @@ namespace Capa_Presentacion.Controllers
                 //Mandamos los datos a la vista
                 return View(modelo);
             }
-            catch
+            catch (Exception ex)
             {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("AuditoriaPrestamoPermanente", "Detalles", ex.Message, NombreUsuario, 0);
                 //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }

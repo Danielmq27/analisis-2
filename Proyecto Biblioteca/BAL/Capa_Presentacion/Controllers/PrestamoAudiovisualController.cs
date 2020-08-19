@@ -46,9 +46,13 @@ namespace Capa_Presentacion.Controllers
 
                 return View(listaPrestamoAudiovisual);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoAudiovisual", "Administrador", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -88,9 +92,13 @@ namespace Capa_Presentacion.Controllers
 
                 return View(listaPrestamoAudiovisual);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoAudiovisual", "Editar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -130,9 +138,13 @@ namespace Capa_Presentacion.Controllers
 
                 return View(listaPrestamoAudiovisual);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoAudiovisual", "Consultar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -149,9 +161,13 @@ namespace Capa_Presentacion.Controllers
                                                }, "Value", "Text");
                 return View();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoAudiovisual", "Agregar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -192,9 +208,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoAudiovisual", "Agregar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -230,9 +250,13 @@ namespace Capa_Presentacion.Controllers
                                                }, "Value", "Text");
                 return View(modelo);
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoAudiovisual", "Actualizar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -274,9 +298,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoAudiovisual", "Actualizar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -314,9 +342,13 @@ namespace Capa_Presentacion.Controllers
 
                 return View(modelo);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoAudiovisual", "Detalles", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -339,9 +371,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoAudiovisual", "Eliminar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -367,9 +403,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("PrestamoAudiovisual", "EliminarTabla", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
