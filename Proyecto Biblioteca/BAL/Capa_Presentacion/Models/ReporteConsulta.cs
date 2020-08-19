@@ -8,7 +8,7 @@ namespace Capa_Presentacion.Models
 {
     public class ReporteConsulta
     {
-        [Display(Name = "Tipo de usuario")]
+        [Display(Name = "Metodo de ingreso")]
         public string tipoMetodo { get; set; }
 
         [Display(Name = "Género")]
