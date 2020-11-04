@@ -14,28 +14,28 @@ namespace Capa_Presentacion.Models
         public int Id { get; set; }
 
         //Atributo CodigoCIIE
-        [Display(Name = "Código CIIE")]
+        [Display(Name = "Código")]
         public string CodigoCIIE { get; set; }
 
         //Atributo NombreSolicitante
         [Required]
         [StringLength(40)]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Nombre del Solicitante solo acepta letras")]
-        [Display(Name = "Nombre del Solicitante")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo nombre del solicitante solo acepta letras")]
+        [Display(Name = "Nombre del solicitante")]
         public string NombreSolicitante { get; set; }
 
         //Atributo ApellidoSolicitante1
         [Required]
         [StringLength(20)]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Primer Apellido del Solicitante solo acepta letras")]
-        [Display(Name = "Primer Apellido del Solicitante")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo primer apellido del solicitante solo acepta letras")]
+        [Display(Name = "Primer apellido del solicitante")]
         public string ApellidoSolicitante1 { get; set; }
 
         //Atributo ApellidoSolicitante2
         [Required]
         [StringLength(20)]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Segundo Apellido del Solicitante solo acepta letras")]
-        [Display(Name = "Segundo Apellido del Solicitante")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo segundo apellido del solicitante solo acepta letras")]
+        [Display(Name = "Segundo apellido del solicitante")]
         public string ApellidoSolicitante2 { get; set; }
 
         //Atributo Telefono
@@ -47,13 +47,13 @@ namespace Capa_Presentacion.Models
         //Atributo Email
         [EmailAddress]
         [StringLength(100)]
-        [Display(Name = "Correo Electrónico")]
+        [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
 
         //Atributo TipoDespacho
         [Required]
         [StringLength(40)]
-        [Display(Name = "Tipo de Despacho")]
+        [Display(Name = "Tipo de despacho")]
         public string TipoDespacho { get; set; }
 
         //Atributo Fraccion
@@ -64,18 +64,18 @@ namespace Capa_Presentacion.Models
 
         //Atributo EspecificacionDespacho
         [StringLength(50)]
-        [Display(Name = "Especificación del Despacho")]
+        [Display(Name = "Especificación del despacho")]
         public string EspecificacionDespacho { get; set; }
 
         //Atributo TipoConsulta
         [Required]
         [StringLength(20)]
-        [Display(Name = "Tipo de Consulta")]
+        [Display(Name = "Tipo de consulta")]
         public string TipoConsulta { get; set; }
 
         //Atributo EspecificacionConsulta
         [StringLength(50)]
-        [Display(Name = "Especificación de la Consulta")]
+        [Display(Name = "Especificación de la consulta")]
         public string EspecificacionConsulta { get; set; }
 
         //Atributo Tema
@@ -85,25 +85,25 @@ namespace Capa_Presentacion.Models
 
         //Atributo InformacionRequerida
         [Required]
-        [Display(Name = "Información Requerida")]
+        [Display(Name = "Información requerida")]
         public string InformacionRequerida { get; set; }
 
         //Atributo UsoInformacion
         [Required]
         [StringLength(40)]
-        [Display(Name = "Uso de Información")]
+        [Display(Name = "Uso de información")]
         public string UsoInformacion { get; set; }
 
         //Atributo GeneroSolicitante
         [Required]
         [StringLength(10)]
-        [Display(Name = "Género del Solicitante")]
+        [Display(Name = "Género del solicitante")]
         public string GeneroSolicitante { get; set; }
 
         //Atributo FechaIngreso
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Fecha de Ingreso")]
+        [Display(Name = "Fecha de ingreso")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaIngreso { get; set; }
 
@@ -111,7 +111,7 @@ namespace Capa_Presentacion.Models
         [Required]
         [DataType(DataType.Date)]
         [GreaterThanEqualTo("FechaIngreso")]
-        [Display(Name = "Fecha de Respuesta")]
+        [Display(Name = "Fecha de respuesta")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaRespuesta { get; set; }
 
@@ -124,7 +124,7 @@ namespace Capa_Presentacion.Models
         //*Control*//
 
         //Atributo CedulaUsuario
-        [Display(Name = "Cédula Usuario")]
+        [Display(Name = "Cédula usuario")]
         public string CedulaUsuario { get; set; }
 
         //Atributo NombreUsuario

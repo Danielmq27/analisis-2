@@ -14,34 +14,34 @@ namespace Capa_Presentacion.Models
         public int Id { get; set; }
 
         //Atributo CodigoPrestamoEquipo
-        [Display(Name = "Código Prestamo Equipo")]
+        [Display(Name = "Código")]
         public string CodigoPrestamoEquipo { get; set; }
 
         //Atributo NombreSolicitante
         [Required]
         [StringLength(40)]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo nombre del solicitante solo acepta letras")]
-        [Display(Name = "Nombre del Solicitante")]
+        [Display(Name = "Nombre del solicitante")]
         public string NombreSolicitante { get; set; }
 
         //Atributo ApellidoSolicitante1
         [Required]
         [StringLength(20)]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo primer apellido del solicitante solo acepta letras")]
-        [Display(Name = "Primer Apellido del Solicitante")]
+        [Display(Name = "Primer apellido del solicitante")]
         public string ApellidoSolicitante1 { get; set; }
 
         //Atributo ApellidoSolicitante2
         [Required]
         [StringLength(20)]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo segundo apellido del solicitante solo acepta letras")]
-        [Display(Name = "Segundo Apellido del Solicitante")]
+        [Display(Name = "Segundo apellido del solicitante")]
         public string ApellidoSolicitante2 { get; set; }
 
         //Atributo CedulaSolicitante
         [Required]
         [StringLength(20)]
-        [Display(Name = "Cédula del Solicitante")]
+        [Display(Name = "Cédula del solicitante")]
         public string CedulaSolicitante { get; set; }
 
         //Atributo Departamento
@@ -52,7 +52,7 @@ namespace Capa_Presentacion.Models
         //Atributo TipoEquipo
         [Required]
         [StringLength(20)]
-        [Display(Name = "Tipo de Equipo")]
+        [Display(Name = "Tipo de equipo")]
         public string TipoEquipo { get; set; }
 
         //Atributo Implementos
@@ -61,19 +61,19 @@ namespace Capa_Presentacion.Models
 
         //Atributo EspecificacionImplementos
         [StringLength(50)]
-        [Display(Name = "Especificación de Implementos")]
+        [Display(Name = "Especificación de implementos")]
         public string EspecificacionImplementos { get; set; }
 
         //Atributo GeneroSolicitante
         [Required]
         [StringLength(10)]
-        [Display(Name = "Género del Solicitante")]
+        [Display(Name = "Género del solicitante")]
         public string GeneroSolicitante { get; set; }
 
         //Atributo FechaIngreso
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Fecha de Ingreso")]
+        [Display(Name = "Fecha de ingreso")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaIngreso { get; set; }
 
@@ -81,7 +81,7 @@ namespace Capa_Presentacion.Models
         [Required]
         [DataType(DataType.Date)]
         [GreaterThanEqualTo("FechaIngreso", ErrorMessage = "La fecha de respuesta no puede ser menor a la fecha de ingreso")]
-        [Display(Name = "Fecha de Respuesta")]
+        [Display(Name = "Fecha de respuesta")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaRespuesta { get; set; }
 
@@ -93,7 +93,7 @@ namespace Capa_Presentacion.Models
         //*Control*//
 
         //Atributo CedulaUsuario
-        [Display(Name = "Cédula Usuario")]
+        [Display(Name = "Cédula usuario")]
         public string CedulaUsuario { get; set; }
 
         //Atributo NombreUsuario

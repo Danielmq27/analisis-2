@@ -129,6 +129,7 @@ namespace Capa_Presentacion.Controllers
                 return RedirectToAction("Error500", "Error");
             }
         }
+
         //Accion para actualizar un usuario
         [Acceso]
         [HttpPost]
@@ -154,9 +155,13 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                //Pagina de Error
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("Usuario", "Actualizar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -180,8 +185,12 @@ namespace Capa_Presentacion.Controllers
                     return RedirectToAction("Error404", "Error");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("Usuario", "Eliminar", "INTENTO DE AUTODESTRUCCIÓN" + ex.Message, NombreUsuario, 0);
                 //Pagina de Error
                 return RedirectToAction("Error500", "Error");
             }

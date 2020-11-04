@@ -13,7 +13,7 @@ namespace Capa_Presentacion.Models
         public int Id { get; set; }
 
         //Atributo CodigoPrestamoAudiovisual
-        [Display(Name = "Código Préstamo Audiovisual")]
+        [Display(Name = "Código")]
         public string CodigoPrestamoAudiovisual { get; set; }
 
         //Atributo Fecha
@@ -27,15 +27,15 @@ namespace Capa_Presentacion.Models
         public string Usuario { get; set; }
 
         //Atributo NombreSolicitante
-        [Display(Name = "Nombre del Solicitante")]
+        [Display(Name = "Nombre del solicitante")]
         public string NombreSolicitante { get; set; }
 
         //Atributo ApellidoSolicitante1
-        [Display(Name = "Primer Apellido del Solicitante")]
+        [Display(Name = "Primer apellido del solicitante")]
         public string ApellidoSolicitante1 { get; set; }
 
         //Atributo ApellidoSolicitante2
-        [Display(Name = "Segundo Apellido del Solicitante")]
+        [Display(Name = "Segundo apellido del solicitante")]
         public string ApellidoSolicitante2 { get; set; }
 
         //Atributo Telefono
@@ -47,7 +47,7 @@ namespace Capa_Presentacion.Models
         public string Departamento { get; set; }
 
         //Atributo NombreActividad
-        [Display(Name = "Nombre de Actividad")]
+        [Display(Name = "Nombre de actividad")]
         public string NombreActividad { get; set; }
 
         //Atributo Categoria
@@ -55,7 +55,7 @@ namespace Capa_Presentacion.Models
         public string Categoria { get; set; }
 
         //Atributo EspecificacionCategoria
-        [Display(Name = "Especificación de Categoría")]
+        [Display(Name = "Especificación de categoría")]
         public string EspecificacionCategoria { get; set; }
 
         //Atributo Ubicacion
@@ -63,11 +63,11 @@ namespace Capa_Presentacion.Models
         public string Ubicacion { get; set; }
 
         //Atributo HoraInicio
-        [Display(Name = "Hora Inicio")]
+        [Display(Name = "Hora inicio")]
         public DateTime HoraInicio { get; set; }
 
         //Atributo HoraFinal
-        [Display(Name = "Hora Final")]
+        [Display(Name = "Hora final")]
         public DateTime HoraFinal { get; set; }
 
         //Atributo Descripcion
@@ -75,17 +75,14 @@ namespace Capa_Presentacion.Models
         public string Descripcion { get; set; }
 
         //Atributo EquipoRequerido
-        [Display(Name = "Equipo Requerido")]
+        [Display(Name = "Equipo requerido")]
         public string EquipoRequerido { get; set; }
 
         //Atributo Aforo
-        [Required]
         public int Aforo { get; set; }
 
         //Atributo GeneroSolicitante
-        [Required]
-        [StringLength(10)]
-        [Display(Name = "Género del Solicitante")]
+        [Display(Name = "Género del solicitante")]
         public string GeneroSolicitante { get; set; }
     }
 }

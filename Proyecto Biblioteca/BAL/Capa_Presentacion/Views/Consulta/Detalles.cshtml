@@ -7,154 +7,108 @@
 
 <div class="content">
     <div>
-        <h4>Detalles consulta</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.CodigoConsulta)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.CodigoConsulta)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.NombreSolicitante)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.NombreSolicitante)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ApellidoSolicitante1)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ApellidoSolicitante1)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ApellidoSolicitante2)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ApellidoSolicitante2)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Telefono)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Telefono)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Asunto)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Asunto)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Descripcion)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Respuesta)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Respuesta)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.MetodoIngreso)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.MetodoIngreso)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.FechaIngreso)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.FechaIngreso)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.FechaRespuesta)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.FechaRespuesta)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Estado)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Estado)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.GeneroSolicitante)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.GeneroSolicitante)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.CedulaUsuario)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.CedulaUsuario)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Nombre)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Apellido1)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Apellido1)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Apellido2)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Apellido2)
-            </dd>
-        </dl>
-        @Html.ActionLink("Regresar", "Administrador", "Consulta", null, new { @class = "btn btn-danger" })
+        <h4 class="principal-texto">DETALLES CONSULTA</h4>
+        <div class="box box-primary">
+            <div class="col-lg-12">
+                <div class="col-lg-6">
+                    <h6 class="principal-texto">DATOS DEL SOLICITANTE</h6>
+                    <div class="box box-danger">
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.NombreSolicitante)
+                            @Html.EditorFor(model => model.NombreSolicitante, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.ApellidoSolicitante1)
+                            @Html.EditorFor(model => model.ApellidoSolicitante1, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.ApellidoSolicitante2)
+                            @Html.EditorFor(model => model.ApellidoSolicitante2, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.Telefono)
+                            @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.Email)
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.GeneroSolicitante)
+                            @Html.EditorFor(model => model.GeneroSolicitante, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h6 class="principal-texto">DATOS DEL USUARIO QUE LLEVA LA CONSULTA</h6>
+                    <div class="box box-success">
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.CedulaUsuario)
+                            @Html.EditorFor(model => model.CedulaUsuario, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.Nombre)
+                            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.Apellido1)
+                            @Html.EditorFor(model => model.Apellido1, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.Apellido2)
+                            @Html.EditorFor(model => model.Apellido2, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <h6 class="principal-texto">DATOS DE LA SOLICITUD</h6>
+                <div class="box box-warning">
+                    <div class="col-lg-6">
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.CodigoConsulta)
+                            @Html.EditorFor(model => model.CodigoConsulta, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.Asunto)
+                            @Html.EditorFor(model => model.Asunto, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.Descripcion)
+                            @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.Respuesta)
+                            @Html.EditorFor(model => model.Respuesta, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.MetodoIngreso)
+                            @Html.EditorFor(model => model.MetodoIngreso, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.FechaIngreso)
+                            @Html.EditorFor(model => model.FechaIngreso, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.FechaRespuesta)
+                            @Html.EditorFor(model => model.FechaRespuesta, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.Estado)
+                            @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <br />
+                <div class="principal-texto">
+                    @Html.ActionLink("Regresar", "Index", "Consulta", null, new { @class = "btn btn-danger" })
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

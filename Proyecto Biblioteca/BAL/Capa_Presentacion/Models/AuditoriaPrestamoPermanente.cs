@@ -13,7 +13,7 @@ namespace Capa_Presentacion.Models
         public int Id { get; set; }
 
         //Atributo CodigoPrestamoPermanente
-        [Display(Name = "Código Préstamo Permanente")]
+        [Display(Name = "Código")]
         public string CodigoPrestamoPermanente { get; set; }
 
         //Atributo Fecha
@@ -27,15 +27,15 @@ namespace Capa_Presentacion.Models
         public string Usuario { get; set; }
 
         //Atributo NombreSolicitante
-        [Display(Name = "Nombre del Solicitante")]
+        [Display(Name = "Nombre del solicitante")]
         public string NombreSolicitante { get; set; }
 
         //Atributo ApellidoSolicitante1
-        [Display(Name = "Primer Apellido del Solicitante")]
+        [Display(Name = "Primer apellido del solicitante")]
         public string ApellidoSolicitante1 { get; set; }
 
         //Atributo ApellidoSolicitante2
-        [Display(Name = "Segundo Apellido del Solicitante")]
+        [Display(Name = "Segundo apellido del solicitante")]
         public string ApellidoSolicitante2 { get; set; }
 
         //Atributo Despacho
@@ -50,15 +50,15 @@ namespace Capa_Presentacion.Models
         public string Extension { get; set; }
 
         //Atributo InformacionAdicional
-        [Display(Name = "Información Adicional")]
+        [Display(Name = "Información adicional")]
         public string InformacionAdicional { get; set; }
 
         //Atributo GeneroSolicitante
-        [Display(Name = "Género del Solicitante")]
+        [Display(Name = "Género del solicitante")]
         public string GeneroSolicitante { get; set; }
 
         //Atributo FechaPrestamo
-        [Display(Name = "Fecha del Préstamo")]
+        [Display(Name = "Fecha del préstamo")]
         public DateTime FechaPrestamo { get; set; }
 
         //Atributo Estado

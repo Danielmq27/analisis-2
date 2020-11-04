@@ -1,74 +1,105 @@
 ﻿@model IEnumerable<Capa_Presentacion.Models.Usuario>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Administrador.cshtml";
+    ViewBag.Title = "Usuario | BAL";
+    string Rol = System.Web.HttpContext.Current.Session["Rol"] as String;
+    if (Rol == "Administrador")
+    {
+        Layout = "~/Views/Shared/_Administrador.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Consultar.cshtml";
+    }
 }
+
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
             <div>
                 <div class="box-header">
-                    <h3 class="box-title">USUARIOS</h3>
+                    <h4 class="principal-texto">USUARIOS</h4>
                 </div>
-                <div class="box-body">
-                    @Html.ActionLink(" Agregar", "Agregar", null, new { @class = "btn btn-success btn-sm fa fa-plus" })
-                </div>
-                <div class="box-body">
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Cedula)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Nombre)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.IdRol)
-                                </th>
-                                <th>
-                                    <label>Acciónes</label>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Cedula)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Nombre)
-                                        @Html.DisplayFor(modelItem => item.Apellido1)
-                                        @Html.DisplayFor(modelItem => item.Apellido2)
-                                    </td>
-                                    <td>
-                                        @if (item.IdRol == 1)
-                                        {
-                                            @Html.Label("Administrador")
+                <div class="box-body box box-info">
+                    @if (Rol == "Administrador" || Rol == "Editar")
+                    {
+                        @Html.ActionLink(" Agregar", "Agregar", null, new { @class = "btn btn-success btn-sm fa fa-plus" })
+                    }
+                    else
+                    {
 
-                                        }
-                                        else if (item.IdRol == 2)
-                                        {
-                                            @Html.Label("Editar")
-                                        }
-                                        else
-                                        {
-                                            @Html.Label("Consultar")
-                                        }
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" }) |
-                                        <button type="button" onclick="PopupEliminar(@item.Id)" class="btn btn-danger btn-sm fa fa-trash-o" data-toggle="modal" data-target="#alertaEliminar">
-                                            Eliminar
-                                        </button>
-                                    </td>
+                    }
+                    <div>
+                        <br />
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Cedula)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Nombre)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IdRol)
+                                    </th>
+                                    <th></th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cedula)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                            @Html.DisplayFor(modelItem => item.Apellido1)
+                                            @Html.DisplayFor(modelItem => item.Apellido2)
+                                        </td>
+                                        <td>
+                                            @if (item.IdRol == 1)
+                                            {
+                                                @Html.Name("Administrador")
+
+                                            }
+                                            else if (item.IdRol == 2)
+                                            {
+                                                @Html.Name("Editar")
+                                            }
+                                            else
+                                            {
+                                                @Html.Name("Consultar")
+                                            }
+                                        </td>
+                                        <td>
+                                            @if (Rol == "Administrador")
+                                            {
+                                                @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" })
+                                                @Html.Name(" | ")
+                                                <button type="button" onclick="PopupEliminar(@item.Id)" class="btn btn-danger btn-sm fa fa-trash-o" data-toggle="modal" data-target="#alertaEliminar">
+                                                    Eliminar
+                                                </button>
+                                                @Html.Name(" | ")
+                                                @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
+                                            }
+                                            else if (Rol == "Editar")
+                                            {
+                                                @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" })
+                                                @Html.Name(" | ")
+                                                @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -78,6 +109,14 @@
     </div>
     <!-- /.row -->
 </section>
+
+
+
+
+
+
+
+
 
 <!--Formulario para eliminar-->
 @using (Html.BeginForm("Eliminar", "Usuario", FormMethod.Post, new { @id = "frmEliminar" }))

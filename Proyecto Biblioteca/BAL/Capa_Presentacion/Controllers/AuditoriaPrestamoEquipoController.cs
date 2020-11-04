@@ -90,6 +90,8 @@ namespace Capa_Presentacion.Controllers
                 modelo.Implementos = dato[0].implementos;
                 modelo.EspecificacionImplementos = dato[0].especificacionImplementos;
                 modelo.GeneroSolicitante = dato[0].generoSolicictante;
+                modelo.FechaIngreso = (DateTime)dato[0].fechaInicio;
+                modelo.FechaRespuesta = (DateTime)dato[0].fechaFinal;
                 modelo.Estado = dato[0].estado;
                 //Mandamos los datos a la vista
                 return View(modelo);
@@ -100,6 +102,65 @@ namespace Capa_Presentacion.Controllers
                 string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
                 clsBitacora bitacora = new clsBitacora();
                 bitacora.AgregarBitacora("AuditoriaPrestamoEquipo", "Detalles", ex.Message, NombreUsuario, 0);
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
+            }
+        }
+
+        [Acceso]
+        [HttpPost]
+        public ActionResult RestaurarPrestamoEquipo(int Id)
+        {
+            try
+            {
+                clsAuditoriaPrestamoEquipo objPrestamoEquipo = new clsAuditoriaPrestamoEquipo();
+                var dato = objPrestamoEquipo.ConsultarAuditoriaPrestamoEquipo(Id);
+                //Llamado del modelo
+                AuditoriaPrestamoEquipo modelo = new AuditoriaPrestamoEquipo();
+                // Llenamos el modelo con los datos de la BD
+                modelo.Id = Convert.ToInt32(dato[0].Id);
+                modelo.CodigoPrestamoEquipo = dato[0].codigoPrestamoEquipo;
+                modelo.Fecha = (DateTime)dato[0].fecha;
+                modelo.Accion = dato[0].accion;
+                modelo.Usuario = dato[0].usuarioBD;
+                modelo.NombreSolicitante = dato[0].nombreSolicitante;
+                modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
+                modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
+                modelo.CedulaSolicitante = dato[0].cedulaSolicitante;
+                modelo.Departamento = dato[0].departamento;
+                modelo.TipoEquipo = dato[0].tipoEquipo;
+                modelo.Implementos = dato[0].implementos;
+                modelo.EspecificacionImplementos = dato[0].especificacionImplementos;
+                modelo.GeneroSolicitante = dato[0].generoSolicictante;
+                modelo.FechaIngreso = (DateTime)dato[0].fechaInicio;
+                modelo.FechaRespuesta = (DateTime)dato[0].fechaFinal;
+                modelo.Estado = dato[0].estado;
+                //Variables de SESSION
+                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
+                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
+                bool resultado = objPrestamoEquipo.RestaurarPrestamoEquipo(modelo.CodigoPrestamoEquipo, modelo.NombreSolicitante,
+                    modelo.ApellidoSolicitante1, modelo.ApellidoSolicitante2, modelo.CedulaSolicitante,
+                    modelo.Departamento, modelo.TipoEquipo, modelo.Implementos, modelo.EspecificacionImplementos,
+                    modelo.GeneroSolicitante, modelo.FechaIngreso, modelo.FechaRespuesta, modelo.Estado,
+                    CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
+                if (resultado)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("AuditoriaFormularioCIIE", "Recuperar", ex.Message, NombreUsuario, 0);
                 //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }

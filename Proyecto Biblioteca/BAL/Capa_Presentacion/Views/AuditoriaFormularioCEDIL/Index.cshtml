@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Capa_Presentacion.Models.AuditoriaFormularioCEDIL>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Administrador.cshtml";
+}
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div>
+                <div class="box-header">
+                    <h4 class="principal-texto">AUDITORIA FORMULARIO CEDIL</h4>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body box box-primary">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CodigoCEDIL)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Fecha)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Accion)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Usuario)
+                                </th>
+                                <th>
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CodigoCEDIL)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Fecha)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Accion)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Usuario)
+                                    </td>
+                                    <td>
+                                        @if (item.Accion == "UPDATE")
+                                        {
+                                            @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
+                                            @Html.Name(" | ");
+                                            <button type="button" onclick="PopupRestaurar(@item.Id)" class="btn btn-warning btn-sm fa fa-rotate-left" data-toggle="modal" data-target="#alertaRestaurar">
+                                                Restaurar
+                                            </button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+
+<!--Formulario para restaurar-->
+@using (Html.BeginForm("RestaurarCEDIL", "AuditoriaFormularioCEDIL", FormMethod.Post, new { @id = "frmRestaurar" }))
+{
+    @Html.Hidden("Id");
+}
+<!-- Ventana para restaurar  -->
+<div class="modal fade" id="alertaRestaurar" tabindex="-1" aria-labelledby="alertaRestaurar" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLabel">Estas seguro que quieres restaurar este formulario?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                <button type="button" onclick="Restaurar()" class="btn btn-success">Sí</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function PopupRestaurar(Id) {
+        document.getElementById("Id").value = Id;
+    }
+
+    function Restaurar() {
+        var frmRestaurar = document.getElementById("frmRestaurar");
+        frmRestaurar.submit();
+    }
+</script>
+

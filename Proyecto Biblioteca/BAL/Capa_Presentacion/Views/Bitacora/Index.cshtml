@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Capa_Presentacion.Models.Bitacora>
+
+@{
+    ViewBag.Title = "Administrador";
+    Layout = "~/Views/Shared/_Administrador.cshtml";
+}
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div>
+                <div class="box-header">
+                    <h4 class="principal-texto">BITÁCORA</h4>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body box box-warning">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Controlador)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Metodo)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Mensaje)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Usuario)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Fecha)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Tipo)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Controlador)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Metodo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Mensaje)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Usuario)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fecha)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Tipo)
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>

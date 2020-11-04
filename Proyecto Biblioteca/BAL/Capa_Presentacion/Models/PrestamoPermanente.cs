@@ -13,28 +13,28 @@ namespace Capa_Presentacion.Models
         public int Id { get; set; }
 
         //Atributo CodigoPrestamoPermanente
-        [Display(Name = "Código Préstamo Permanente")]
+        [Display(Name = "Código")]
         public string CodigoPrestamoPermanente { get; set; }
 
         //Atributo NombreSolicitante
         [Required]
         [StringLength(40)]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo nombre del solicitante solo acepta letras")]
-        [Display(Name = "Nombre del Solicitante")]
+        [Display(Name = "Nombre del solicitante")]
         public string NombreSolicitante { get; set; }
 
         //Atributo ApellidoSolicitante1
         [Required]
         [StringLength(20)]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo primer apellido del solicitante solo acepta letras")]
-        [Display(Name = "Primer Apellido del Solicitante")]
+        [Display(Name = "Primer apellido del solicitante")]
         public string ApellidoSolicitante1 { get; set; }
 
         //Atributo ApellidoSolicitante2
         [Required]
         [StringLength(20)]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo segundo apellido del solicitante solo acepta letras")]
-        [Display(Name = "Segundo Apellido del Solicitante")]
+        [Display(Name = "Segundo apellido del solicitante")]
         public string ApellidoSolicitante2 { get; set; }
 
         //Atributo Despacho
@@ -54,13 +54,13 @@ namespace Capa_Presentacion.Models
         public string Extension { get; set; }
 
         //Atributo InformacionAdicional
-        [Display(Name = "Información Adicional")]
+        [Display(Name = "Información adicional")]
         public string InformacionAdicional { get; set; }
 
         //Atributo GeneroSolicitante
         [Required]
         [StringLength(10)]
-        [Display(Name = "Género del Solicitante")]
+        [Display(Name = "Género del solicitante")]
         public string GeneroSolicitante { get; set; }
 
         //Atributo FechaPrestamo
@@ -78,7 +78,7 @@ namespace Capa_Presentacion.Models
         //*Control*//
 
         //Atributo CedulaUsuario
-        [Display(Name = "Cédula Usuario")]
+        [Display(Name = "Cédula usuario")]
         public string CedulaUsuario { get; set; }
 
         //Atributo NombreUsuario

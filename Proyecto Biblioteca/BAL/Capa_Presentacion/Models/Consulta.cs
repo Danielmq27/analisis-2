@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Linq;
 using System.Linq;
 using System.Web;
 
@@ -14,28 +15,28 @@ namespace Capa_Presentacion.Models
         public int Id { get; set; }
 
         //Atributo CodigoCIIE
-        [Display(Name = "Código Consulta")]
+        [Display(Name = "Código")]
         public string CodigoConsulta { get; set; }
 
         //Atributo NombreSolicitante
         [Required]
         [StringLength(40)]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Nombre del Solicitante solo acepta letras")]
-        [Display(Name = "Nombre del Solicitante")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo nombre del solicitante solo acepta letras")]
+        [Display(Name = "Nombre del solicitante")]
         public string NombreSolicitante { get; set; }
 
         //Atributo ApellidoSolicitante1
         [Required]
         [StringLength(20)]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Primer Apellido del Solicitante solo acepta letras")]
-        [Display(Name = "Primer Apellido del Solicitante")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo primer apellido del aolicitante solo acepta letras")]
+        [Display(Name = "Primer apellido del aolicitante")]
         public string ApellidoSolicitante1 { get; set; }
 
         //Atributo ApellidoSolicitante2
         [Required]
         [StringLength(20)]
-        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo Segundo Apellido del Solicitante solo acepta letras")]
-        [Display(Name = "Segundo Apellido del Solicitante")]
+        [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo segundo apellido del solicitante solo acepta letras")]
+        [Display(Name = "Segundo apellido del solicitante")]
         public string ApellidoSolicitante2 { get; set; }
 
         //Atributo Telefono
@@ -47,7 +48,7 @@ namespace Capa_Presentacion.Models
         [Required]
         [EmailAddress]
         [StringLength(100)]
-        [Display(Name = "Correo Electrónico")]
+        [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
 
         //Atributo Asunto
@@ -67,13 +68,13 @@ namespace Capa_Presentacion.Models
         //Atributo MetodoIngreso
         [Required]
         [StringLength(20)]
-        [Display(Name = "Método de Ingreso")]
+        [Display(Name = "Método de ingreso")]
         public string MetodoIngreso { get; set; }
 
         //Atributo FechaIngreso
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Fecha de Ingreso")]
+        [Display(Name = "Fecha de ingreso")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaIngreso { get; set; }
 
@@ -81,7 +82,7 @@ namespace Capa_Presentacion.Models
         [Required]
         [DataType(DataType.Date)]
         [GreaterThanEqualTo("FechaIngreso", ErrorMessage = "La fecha de respuesta no puede ser menor a la fecha de ingreso")]
-        [Display(Name = "Fecha de Respuesta")]
+        [Display(Name = "Fecha de respuesta")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaRespuesta { get; set; }
 
@@ -93,13 +94,13 @@ namespace Capa_Presentacion.Models
         //Atributo GeneroSolicitante
         [Required]
         [StringLength(10)]
-        [Display(Name = "Género del Solicitante")]
+        [Display(Name = "Género del solicitante")]
         public string GeneroSolicitante { get; set; }
 
         //*Control*//
 
         //Atributo CedulaUsuario
-        [Display(Name = "Cédula Usuario")]
+        [Display(Name = "Cédula usuario")]
         public string CedulaUsuario { get; set; }
 
         //Atributo NombreUsuario

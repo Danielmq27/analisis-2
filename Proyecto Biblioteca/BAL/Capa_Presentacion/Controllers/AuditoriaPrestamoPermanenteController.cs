@@ -105,5 +105,61 @@ namespace Capa_Presentacion.Controllers
                 return RedirectToAction("Error500", "Error");
             }
         }
+
+        [Acceso]
+        [HttpPost]
+        public ActionResult RestaurarPrestamoPermanente(int Id)
+        {
+            try
+            {
+                clsAuditoriaPrestamoPermanente objPrestamoPermanente = new clsAuditoriaPrestamoPermanente();
+                var dato = objPrestamoPermanente.ConsultarAuditoriaPrestamoPermanente(Id);
+                //Llamado del modelo
+                AuditoriaPrestamoPermanente modelo = new AuditoriaPrestamoPermanente();
+                // Llenamos el modelo con los datos de la BD
+                modelo.Id = Convert.ToInt32(dato[0].Id);
+                modelo.CodigoPrestamoPermanente = dato[0].codigoPrestamoPermanente;
+                modelo.Fecha = (DateTime)dato[0].fecha;
+                modelo.Accion = dato[0].accion;
+                modelo.Usuario = dato[0].usuarioBD;
+                modelo.NombreSolicitante = dato[0].nombreSolicitante;
+                modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
+                modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
+                modelo.Despacho = dato[0].despacho;
+                modelo.Telefono = (int)dato[0].telefono;
+                modelo.Extension = dato[0].extension;
+                modelo.InformacionAdicional = dato[0].informacionAdicional;
+                modelo.GeneroSolicitante = dato[0].generoSolicictante;
+                modelo.FechaPrestamo = (DateTime)dato[0].fechaPrestamo;
+                modelo.Estado = dato[0].estado;
+                //Variables de SESSION
+                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
+                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
+                bool resultado = objPrestamoPermanente.RestaurarPrestamoPermanente(modelo.CodigoPrestamoPermanente, modelo.NombreSolicitante,
+                    modelo.ApellidoSolicitante1, modelo.ApellidoSolicitante2, modelo.Despacho,
+                    modelo.Telefono, modelo.Extension, modelo.InformacionAdicional, modelo.GeneroSolicitante,
+                    modelo.FechaPrestamo, modelo.Estado, CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
+                if (resultado)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    //Pagina de Error
+                    return RedirectToAction("Error404", "Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("AuditoriaFormularioCIIE", "Recuperar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
+            }
+        }
     }
 }

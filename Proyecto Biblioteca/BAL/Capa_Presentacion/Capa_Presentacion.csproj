@@ -37,7 +37,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -137,7 +137,8 @@
     <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
     <Content Include="Content\bootstrap\css\bootstrap.min.css" />
-    <Content Include="Imagenes\fondo.jpg" />
+    <Content Include="Content\dist\img\logo-mini.PNG" />
+    <Content Include="Content\dist\img\logo.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
@@ -1015,6 +1016,7 @@
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Imagenes\fondito.jpg" />
     <Content Include="Imagenes\logo.png" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -1030,6 +1032,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AuditoriaConsultaController.cs" />
+    <Compile Include="Controllers\AuditoriaFormularioCEDILController.cs" />
     <Compile Include="Controllers\AuditoriaFormularioCIIEController.cs" />
     <Compile Include="Controllers\AuditoriaPrestamoAudiovisualController.cs" />
     <Compile Include="Controllers\AuditoriaPrestamoEquipoController.cs" />
@@ -1037,6 +1040,7 @@
     <Compile Include="Controllers\BitacoraController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FormularioCEDILController.cs" />
     <Compile Include="Controllers\FormularioCIIEController.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
     <Compile Include="Controllers\PrestamoAudiovisualController.cs" />
@@ -1056,12 +1060,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AuditoriaConsulta.cs" />
+    <Compile Include="Models\AuditoriaFormularioCEDIL.cs" />
     <Compile Include="Models\AuditoriaFormularioCIIE.cs" />
     <Compile Include="Models\AuditoriaPrestamoAudiovisual.cs" />
     <Compile Include="Models\AuditoriaPrestamoEquipo.cs" />
     <Compile Include="Models\AuditoriaPrestamoPermanente.cs" />
     <Compile Include="Models\Bitacora.cs" />
     <Compile Include="Models\Consulta.cs" />
+    <Compile Include="Models\FormularioCEDIL.cs" />
     <Compile Include="Models\FormularioCIIE.cs" />
     <Compile Include="Models\PrestamoAudiovisual.cs" />
     <Compile Include="Models\PrestamoEquipo.cs" />
@@ -1210,27 +1216,27 @@
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Actualizar.cshtml" />
     <Content Include="Views\Usuario\Agregar.cshtml" />
-    <Content Include="Views\FormularioCIIE\Administrador.cshtml" />
+    <Content Include="Views\FormularioCIIE\Index.cshtml" />
     <Content Include="Views\FormularioCIIE\Agregar.cshtml" />
     <Content Include="Views\FormularioCIIE\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaFormularioCIIE\Index.cshtml" />
     <Content Include="Views\AuditoriaFormularioCIIE\Detalles.cshtml" />
-    <Content Include="Views\PrestamoEquipo\Administrador.cshtml" />
+    <Content Include="Views\PrestamoEquipo\Index.cshtml" />
     <Content Include="Views\PrestamoEquipo\Agregar.cshtml" />
     <Content Include="Views\PrestamoEquipo\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaPrestamoEquipo\Index.cshtml" />
     <Content Include="Views\AuditoriaPrestamoEquipo\Detalles.cshtml" />
-    <Content Include="Views\PrestamoAudiovisual\Administrador.cshtml" />
+    <Content Include="Views\PrestamoAudiovisual\Index.cshtml" />
     <Content Include="Views\PrestamoAudiovisual\Agregar.cshtml" />
     <Content Include="Views\PrestamoAudiovisual\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaPrestamoAudiovisual\Index.cshtml" />
     <Content Include="Views\AuditoriaPrestamoAudiovisual\Detalles.cshtml" />
-    <Content Include="Views\PrestamoPermanente\Administrador.cshtml" />
+    <Content Include="Views\PrestamoPermanente\Index.cshtml" />
     <Content Include="Views\PrestamoPermanente\Agregar.cshtml" />
     <Content Include="Views\PrestamoPermanente\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaPrestamoPermanente\Index.cshtml" />
     <Content Include="Views\AuditoriaPrestamoPermanente\Detalles.cshtml" />
-    <Content Include="Views\Consulta\Administrador.cshtml" />
+    <Content Include="Views\Consulta\Index.cshtml" />
     <Content Include="Views\Consulta\Agregar.cshtml" />
     <Content Include="Views\Consulta\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaConsulta\Index.cshtml" />
@@ -1239,24 +1245,13 @@
     <Content Include="Views\Principal\Editar.cshtml" />
     <Content Include="Views\Principal\Consultar.cshtml" />
     <Content Include="Views\Shared\_Consultar.cshtml" />
-    <Content Include="Views\Shared\_Editar.cshtml" />
     <Content Include="Views\IniciarSesion\Recuperar.cshtml" />
-    <Content Include="Views\FormularioCIIE\Consultar.cshtml" />
-    <Content Include="Views\FormularioCIIE\Editar.cshtml" />
-    <Content Include="Views\Consulta\Editar.cshtml" />
-    <Content Include="Views\Consulta\Consultar.cshtml" />
-    <Content Include="Views\PrestamoAudiovisual\Editar.cshtml" />
-    <Content Include="Views\PrestamoAudiovisual\Consultar.cshtml" />
-    <Content Include="Views\PrestamoEquipo\Consultar.cshtml" />
-    <Content Include="Views\PrestamoEquipo\Editar.cshtml" />
-    <Content Include="Views\PrestamoPermanente\Editar.cshtml" />
-    <Content Include="Views\PrestamoPermanente\Consultar.cshtml" />
     <Content Include="Views\FormularioCIIE\Detalles.cshtml" />
     <Content Include="Views\Consulta\Detalles.cshtml" />
     <Content Include="Views\PrestamoAudiovisual\Detalles.cshtml" />
     <Content Include="Views\PrestamoEquipo\Detalles.cshtml" />
     <Content Include="Views\PrestamoPermanente\Detalles.cshtml" />
-    <Content Include="Views\ReporteFormularioCIIE\Administrador.cshtml" />
+    <Content Include="Views\ReporteFormularioCIIE\Index.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngresoCIIE.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaRespuestaCIIE.cshtml" />
     <Content Include="Views\ReporteFormularioCIIE\CantidadUsuariosFechaIngresoFechaRespuestaCIIE.cshtml" />
@@ -1271,8 +1266,8 @@
     <Content Include="Views\ReporteConsulta\CantidadGeneroFechaRespuestaConsulta.cshtml" />
     <Content Include="Views\ReporteConsulta\CantidadGeneroFechaIngresoFechaRespuestaConsulta.cshtml" />
     <Content Include="Views\ReporteConsulta\CantidadGeneroFechaIngresoConsulta.cshtml" />
-    <Content Include="Views\ReporteConsulta\Administrador.cshtml" />
-    <Content Include="Views\ReportePrestamoAudiovisual\Administrador.cshtml" />
+    <Content Include="Views\ReporteConsulta\Index.cshtml" />
+    <Content Include="Views\ReportePrestamoAudiovisual\Index.cshtml" />
     <Content Include="Views\ReportePrestamoAudiovisual\CantidadGeneroFechaIngresoPA.cshtml" />
     <Content Include="Views\ReportePrestamoAudiovisual\CantidadGeneroFechaIngresoFechaRespuestaPA.cshtml" />
     <Content Include="Views\ReportePrestamoAudiovisual\CantidadGeneroFechaRespuestaPA.cshtml" />
@@ -1285,26 +1280,17 @@
     <Content Include="Views\ReportePrestamoEquipo\CantidadDepartamentoFechaRespuestaPE.cshtml" />
     <Content Include="Views\ReportePrestamoEquipo\CantidadDepartamentoFechaIngresoPE.cshtml" />
     <Content Include="Views\ReportePrestamoEquipo\CantidadDepartamentoFechaIngresoFechaRespuestaPE.cshtml" />
-    <Content Include="Views\ReportePrestamoEquipo\Administrador.cshtml" />
+    <Content Include="Views\ReportePrestamoEquipo\Index.cshtml" />
     <Content Include="Views\ReportePrestamoPermanente\CantidadGeneroFechaIngresoPP.cshtml" />
     <Content Include="Views\ReportePrestamoPermanente\CantidadDespachoFechaIngresoPP.cshtml" />
-    <Content Include="Views\ReportePrestamoPermanente\Administrador.cshtml" />
-    <Content Include="Views\Bitacora\Administrador.cshtml" />
-    <Content Include="Views\FormularioCIIE\ActualizarEditar.cshtml" />
-    <Content Include="Views\FormularioCIIE\AgregarEditar.cshtml" />
-    <Content Include="Views\Consulta\ActualizarEditar.cshtml" />
-    <Content Include="Views\Consulta\AgregarEditar.cshtml" />
-    <Content Include="Views\PrestamoAudiovisual\ActualizarEditar.cshtml" />
-    <Content Include="Views\PrestamoAudiovisual\AgregarEditar.cshtml" />
-    <Content Include="Views\PrestamoEquipo\AgregarEditar.cshtml" />
-    <Content Include="Views\PrestamoEquipo\ActualizarEditar.cshtml" />
-    <Content Include="Views\PrestamoPermanente\ActualizarEditar.cshtml" />
-    <Content Include="Views\PrestamoPermanente\AgregarEditar.cshtml" />
-    <Content Include="Views\Consulta\DetallesConsultar.cshtml" />
-    <Content Include="Views\FormularioCIIE\DetallesConsultar.cshtml" />
-    <Content Include="Views\PrestamoAudiovisual\DetallesConsultar.cshtml" />
-    <Content Include="Views\PrestamoEquipo\DetallesConsultar.cshtml" />
-    <Content Include="Views\PrestamoPermanente\DetallesConsultar.cshtml" />
+    <Content Include="Views\ReportePrestamoPermanente\Index.cshtml" />
+    <Content Include="Views\Bitacora\Index.cshtml" />
+    <Content Include="Views\FormularioCEDIL\Index.cshtml" />
+    <Content Include="Views\FormularioCEDIL\Agregar.cshtml" />
+    <Content Include="Views\FormularioCEDIL\Actualizar.cshtml" />
+    <Content Include="Views\FormularioCEDIL\Detalles.cshtml" />
+    <Content Include="Views\AuditoriaFormularioCEDIL\Index.cshtml" />
+    <Content Include="Views\AuditoriaFormularioCEDIL\Detalles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -19,10 +19,10 @@ namespace Capa_Presentacion.Controllers
     [ValidarSesion]
     public class ReportePrestamoAudiovisualController : Controller
     {
-        //Accion para el rol Administrador
+        //Accion para el rol Index
         [Acceso]
         [HttpGet]
-        public ActionResult Administrador()
+        public ActionResult Index()
         {
             return View();
         }
@@ -53,7 +53,7 @@ namespace Capa_Presentacion.Controllers
             else
             {
                 TempData["msg"] = "<script>alert('No existen registros con base a los parametros ingresados!');</script>";
-                return View("Administrador");
+                return View("Index");
             }
         }
 
@@ -182,7 +182,7 @@ namespace Capa_Presentacion.Controllers
             else
             {
                 TempData["msg"] = "<script>alert('No existen registros con base a los parametros ingresados!');</script>";
-                return View("Administrador");
+                return View("Index");
             }
         }
 
@@ -311,7 +311,7 @@ namespace Capa_Presentacion.Controllers
             else
             {
                 TempData["msg"] = "<script>alert('No existen registros con base a los parametros ingresados!');</script>";
-                return View("Administrador");
+                return View("Index");
             }
         }
 
@@ -440,7 +440,7 @@ namespace Capa_Presentacion.Controllers
             else
             {
                 TempData["msg"] = "<script>alert('No existen registros con base a los parametros ingresados!');</script>";
-                return View("Administrador");
+                return View("Index");
             }
         }
 
@@ -569,7 +569,7 @@ namespace Capa_Presentacion.Controllers
             else
             {
                 TempData["msg"] = "<script>alert('No existen registros con base a los parametros ingresados!');</script>";
-                return View("Administrador");
+                return View("Index");
             }
         }
 
@@ -698,7 +698,7 @@ namespace Capa_Presentacion.Controllers
             else
             {
                 TempData["msg"] = "<script>alert('No existen registros con base a los parametros ingresados!');</script>";
-                return View("Administrador");
+                return View("Index");
             }
         }
 

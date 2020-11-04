@@ -13,7 +13,7 @@ namespace Capa_Presentacion.Models
         public int Id { get; set; }
 
         //Atributo CodigoCIIE
-        [Display(Name = "Código CIIE")]
+        [Display(Name = "Código")]
         public string CodigoCIIE { get; set; }
 
         //Atributo Fecha
@@ -27,15 +27,15 @@ namespace Capa_Presentacion.Models
         public string Usuario { get; set; }
 
         //Atributo NombreSolicitante
-        [Display(Name = "Nombre del Solicitante")]
+        [Display(Name = "Nombre del solicitante")]
         public string NombreSolicitante { get; set; }
 
         //Atributo ApellidoSolicitante1
-        [Display(Name = "Primer Apellido del Solicitante")]
+        [Display(Name = "Primer apellido del solicitante")]
         public string ApellidoSolicitante1 { get; set; }
 
         //Atributo ApellidoSolicitante2
-        [Display(Name = "Segundo Apellido del Solicitante")]
+        [Display(Name = "Segundo apellido del solicitante")]
         public string ApellidoSolicitante2 { get; set; }
 
         //Atributo Telefono
@@ -43,11 +43,11 @@ namespace Capa_Presentacion.Models
         public int Telefono { get; set; }
 
         //Atributo Email
-        [Display(Name = "Correo Electrónico")]
+        [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
 
         //Atributo TipoDespacho
-        [Display(Name = "Tipo de Despacho")]
+        [Display(Name = "Tipo de despacho")]
         public string TipoDespacho { get; set; }
 
         //Atributo Fraccion
@@ -55,31 +55,37 @@ namespace Capa_Presentacion.Models
         public string Fraccion { get; set; }
 
         //Atributo EspecificacionDespacho
-        [Display(Name = "Especificación del Despacho")]
+        [Display(Name = "Especificación del despacho")]
         public string EspecificacionDespacho { get; set; }
 
         //Atributo TipoConsulta
-        [Display(Name = "Tipo de Consulta")]
+        [Display(Name = "Tipo de consulta")]
         public string TipoConsulta { get; set; }
 
         //Atributo EspecificacionConsulta
-        [Display(Name = "Especificación de la Consulta")]
+        [Display(Name = "Especificación de la consulta")]
         public string EspecificacionConsulta { get; set; }
 
         //Atributo Tema
         public string Tema { get; set; }
 
         //Atributo InformacionRequerida
-        [Display(Name = "Información Requerida")]
+        [Display(Name = "Información requerida")]
         public string InformacionRequerida { get; set; }
 
         //Atributo UsoInformacion
-        [Display(Name = "Uso de Información")]
+        [Display(Name = "Uso de información")]
         public string UsoInformacion { get; set; }
 
         //Atributo GeneroSolicitante
-        [Display(Name = "Género del Solicitante")]
+        [Display(Name = "Género del solicitante")]
         public string GeneroSolicitante { get; set; }
+
+        [Display(Name = "Fecha Ingreso")]
+        public DateTime FechaIngreso { get; set; }
+
+        [Display(Name = "Fecha Respuesta")]
+        public DateTime FechaRespuesta { get; set; }
 
         //Atributo Estado
         [Display(Name = "Estado")]

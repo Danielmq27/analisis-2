@@ -40,5 +40,23 @@ namespace Capa_Logica
                 throw;
             }
         }
+
+        //Metodo para restaurar un formulario eliminado por medio de la auditoria
+        public bool RestaurarPrestamoPermanente(string Codigo, string Nombre, string Apellido1, string Apellido2,
+            string Despacho, int Telefono, string Extension, string InformacionAdicional, string Genero, 
+            DateTime FechaPrestamo, string Estado, string UCedula, string UNombre, string UApellido1, string UApellido2)
+        {
+            try
+            {
+                bibliotecaDataContext dc = new bibliotecaDataContext();
+                dc.RESTAURAR_PrestamoPermanente(Codigo, Nombre, Apellido1, Apellido2, Despacho, Telefono, Extension,
+                    InformacionAdicional, Genero, FechaPrestamo, Estado, UCedula, UNombre, UApellido1, UApellido2);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

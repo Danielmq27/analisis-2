@@ -40,5 +40,26 @@ namespace Capa_Logica
                 throw;
             }
         }
+
+        //Metodo para restaurar un formulario eliminado por medio de la auditoria
+        public bool RestaurarCIIE(string Codigo, string Nombre, string Apellido1, string Apellido2, 
+            int Telefono, string Email,string TipoDespacho, string Fraccion, string EspecificacionDespacho,
+            string TipoConsulta, string EspecificacionConsulta, string Tema, string InformacionRequerida,
+            string UsoInformacion, string Genero, DateTime FechaIngreso, DateTime FechaRespuesta,
+            string Estado, string Cedula, string UNombre, string UApellido1, string UApellido2)
+        {
+            try
+            {
+                bibliotecaDataContext dc = new bibliotecaDataContext();
+                dc.RESTAURAR_INSERTAR_CIIE(Codigo, Nombre, Apellido1, Apellido2, Telefono, Email, TipoDespacho, Fraccion,
+                    EspecificacionDespacho, TipoConsulta, EspecificacionConsulta, Tema, InformacionRequerida, UsoInformacion,
+                    Genero, FechaIngreso, FechaRespuesta, Estado, Cedula, UNombre, UApellido1, UApellido2);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

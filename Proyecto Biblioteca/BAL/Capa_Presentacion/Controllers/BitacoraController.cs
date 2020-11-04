@@ -16,7 +16,7 @@ namespace Capa_Presentacion.Controllers
         //Accion para ver las auditorias
         [Acceso]
         [HttpGet]
-        public ActionResult Administrador()
+        public ActionResult Index()
         {
             try
             {

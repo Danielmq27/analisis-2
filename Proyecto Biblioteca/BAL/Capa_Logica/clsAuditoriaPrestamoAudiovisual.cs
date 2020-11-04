@@ -40,5 +40,25 @@ namespace Capa_Logica
                 throw;
             }
         }
+
+        //Metodo para restaurar un formulario eliminado por medio de la auditoria
+        public bool RestaurarAudiovisual(string Codigo, string Nombre, string Apellido1, string Apellido2,
+            int Telefono, string Departamento, string NombreActividad, string Categoria, string EspecificacionCategoria,
+            string Ubicacion, DateTime FechaIngreso, DateTime FechaRespuesta, string Descripcion, string EquipoRequerido,
+            int Aforo, string Genero, string Cedula, string UNombre, string UApellido1, string UApellido2)
+        {
+            try
+            {
+                bibliotecaDataContext dc = new bibliotecaDataContext();
+                dc.RESTAURAR_AUDIOVISUAL(Codigo, Nombre, Apellido1, Apellido2, Telefono, Departamento, NombreActividad,
+                    Categoria, EspecificacionCategoria, Ubicacion, FechaIngreso, FechaRespuesta, Descripcion, EquipoRequerido,
+                    Aforo, Genero, Cedula, UNombre, UApellido1, UApellido2);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

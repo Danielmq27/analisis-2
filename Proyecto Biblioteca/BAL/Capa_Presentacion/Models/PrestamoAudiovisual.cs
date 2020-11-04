@@ -13,28 +13,28 @@ namespace Capa_Presentacion.Models
         public int Id { get; set; }
 
         //Atributo CodigoPrestamoAudiovisual
-        [Display(Name = "Código Préstamo Audiovisual")]
+        [Display(Name = "Código")]
         public string CodigoPrestamoAudiovisual { get; set; }
 
         //Atributo NombreSolicitante
         [Required]
         [StringLength(40)]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo nombre del solicitante solo acepta letras")]
-        [Display(Name = "Nombre del Solicitante")]
+        [Display(Name = "Nombre del solicitante")]
         public string NombreSolicitante { get; set; }
 
         //Atributo ApellidoSolicitante1
         [Required]
         [StringLength(20)]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo primer apellido del solicitante solo acepta letras")]
-        [Display(Name = "Primer Apellido del Solicitante")]
+        [Display(Name = "Primer apellido del solicitante")]
         public string ApellidoSolicitante1 { get; set; }
 
         //Atributo ApellidoSolicitante2
         [Required]
         [StringLength(20)]
         [RegularExpression("^[a-zA-Z]+$", ErrorMessage = "El campo segundo apellido del solicitante solo acepta letras")]
-        [Display(Name = "Segundo Apellido del Solicitante")]
+        [Display(Name = "Segundo apellido del solicitante")]
         public string ApellidoSolicitante2 { get; set; }
 
         //Atributo Telefono
@@ -49,7 +49,7 @@ namespace Capa_Presentacion.Models
         //Atributo NombreActividad
         [Required]
         [StringLength(50)]
-        [Display(Name = "Nombre de Actividad")]
+        [Display(Name = "Nombre de actividad")]
         public string NombreActividad { get; set; }
 
         //Atributo Categoria
@@ -61,7 +61,7 @@ namespace Capa_Presentacion.Models
         //Atributo EspecificacionCategoria
         [Required]
         [StringLength(100)]
-        [Display(Name = "Especificación de Categoría")]
+        [Display(Name = "Especificación de categoría")]
         public string EspecificacionCategoria { get; set; }
 
         //Atributo Ubicacion
@@ -72,14 +72,14 @@ namespace Capa_Presentacion.Models
         //Atributo HoraInicio
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Fecha Inicio")] //Hora Inicio
+        [Display(Name = "Fecha inicio")] //Hora Inicio
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime HoraInicio { get; set; }
 
         //Atributo HoraFinal
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Fecha Final")]  //Hora Final
+        [Display(Name = "Fecha final")]  //Hora Final
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime HoraFinal { get; set; }
 
@@ -93,7 +93,7 @@ namespace Capa_Presentacion.Models
         //Atributo EquipoRequerido
         [Required]
         [StringLength(40)]
-        [Display(Name = "Equipo Requerido")]
+        [Display(Name = "Equipo requerido")]
         public string EquipoRequerido { get; set; }
 
         //Atributo Aforo
@@ -103,13 +103,13 @@ namespace Capa_Presentacion.Models
         //Atributo GeneroSolicitante
         [Required]
         [StringLength(10)]
-        [Display(Name = "Género del Solicitante")]
+        [Display(Name = "Género del solicitante")]
         public string GeneroSolicitante { get; set; }
 
         //*Control*//
 
         //Atributo CedulaUsuario
-        [Display(Name = "Cédula Usuario")]
+        [Display(Name = "Cédula usuario")]
         public string CedulaUsuario { get; set; }
 
         //Atributo NombreUsuario
