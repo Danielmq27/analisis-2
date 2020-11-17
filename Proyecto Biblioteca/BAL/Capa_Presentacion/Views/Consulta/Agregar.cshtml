@@ -2,10 +2,18 @@
 
 @{
     ViewBag.Title = "Agregar";
-    Layout = "~/Views/Shared/_Administrador.cshtml";
+    string Rol = System.Web.HttpContext.Current.Session["Rol"] as String;
+    if (Rol == "Administrador")
+    {
+        Layout = "~/Views/Shared/_Administrador.cshtml";
+    }
+    else if (Rol == "Editar Consulta")
+    {
+        Layout = "~/Views/Shared/_EditarConsulta.cshtml";
+    }
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Agregar", "Consulta", FormMethod.Post, new { role="form", enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     <div class="content">
@@ -99,6 +107,19 @@
 
                             <div class="form-group">
                                 <div class="col-lg-12">
+                                    <label>Documento</label>
+                                    <div class="input-group input-file" name="ArchivoFile">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default btn-choose" type="button">Buscar</button>
+                                        </span>
+                                        <input type="text" name="Archivo" class="form-control" placeholder="Seleccione un archivo..." />
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="file" class="input-ghost" style="visibility:hidden; height:0;" name="Archivo" id="Archivo" accept="application/x-pkcs12">
+
+                            <div class="form-group">
+                                <div class="col-lg-12">
                                     @Html.LabelFor(model => model.MetodoIngreso)
                                     @Html.EditorFor(model => model.MetodoIngreso, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.MetodoIngreso, "", new { @class = "text-danger" })
@@ -142,3 +163,35 @@
     </div>
 
 }
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+    function bs_input_file() {
+        $(".input-file").before(
+            function () {
+                if (!$(this).prev().hasClass('input-ghost')) {
+                    var element = $("#Archivo");
+                    element.attr("name", $(this).attr("name"));
+                    element.change(function () {
+                        element.next(element).find('input').val((element.val()).split('\\').pop());
+                    });
+                    $(this).find("button.btn-choose").click(function () {
+                        element.click();
+                    });
+                    $(this).find('input').css("cursor", "pointer");
+                    $(this).find('input').mousedown(function () {
+                        $(this).parents('.input-file').prev().click();
+                        return false;
+                    });
+                    return element;
+                }
+            }
+        );
+    };
+
+    $(function () {
+        bs_input_file();
+    });
+
+</script>

@@ -1241,9 +1241,7 @@
     <Content Include="Views\Consulta\Actualizar.cshtml" />
     <Content Include="Views\AuditoriaConsulta\Index.cshtml" />
     <Content Include="Views\AuditoriaConsulta\Detalles.cshtml" />
-    <Content Include="Views\Principal\Administrador.cshtml" />
-    <Content Include="Views\Principal\Editar.cshtml" />
-    <Content Include="Views\Principal\Consultar.cshtml" />
+    <Content Include="Views\Principal\Index.cshtml" />
     <Content Include="Views\Shared\_Consultar.cshtml" />
     <Content Include="Views\IniciarSesion\Recuperar.cshtml" />
     <Content Include="Views\FormularioCIIE\Detalles.cshtml" />
@@ -1291,6 +1289,10 @@
     <Content Include="Views\FormularioCEDIL\Detalles.cshtml" />
     <Content Include="Views\AuditoriaFormularioCEDIL\Index.cshtml" />
     <Content Include="Views\AuditoriaFormularioCEDIL\Detalles.cshtml" />
+    <Content Include="Views\Shared\_EditarSB.cshtml" />
+    <Content Include="Views\Shared\_EditarConsulta.cshtml" />
+    <Content Include="Views\Shared\_EditarCIIE.cshtml" />
+    <Content Include="Views\Shared\_EditarCEDIL.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

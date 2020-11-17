@@ -24,7 +24,8 @@ namespace Capa_Presentacion.App_Start
                 "~/Content/plugins/iCheck/icheck.min.js",
                 "~/Content/plugins/fastclick/fastclick.js",
                 "~/Content/alertifyjs/alertify.js",
-                "~/Content/alertifyjs/alertify.min.js"));
+                "~/Content/alertifyjs/alertify.min.js",
+                "~/Content/dist/js/AccionesArchivo.js"));
 
             bundles.Add(new StyleBundle("~/Css").Include(
                 "~/Content/bootstrap/css/bootstrap.min.css",

@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Principal | GDA";
+    string Rol = System.Web.HttpContext.Current.Session["Rol"] as String;
+    if (Rol == "Administrador")
+    {
+        Layout = "~/Views/Shared/_Administrador.cshtml";
+    }
+    else if (Rol == "Editar Servicios Bibliotecarios")
+    {
+        Layout = "~/Views/Shared/_EditarSB.cshtml";
+    }
+    else if (Rol == "Editar Consulta")
+    {
+        Layout = "~/Views/Shared/_EditarConsulta.cshtml";
+    }
+    else if (Rol == "Editar Consultas CIIE")
+    {
+        Layout = "~/Views/Shared/_EditarCIIE.cshtml";
+    }
+    else if (Rol == "Editar Consultas CEDIL")
+    {
+        Layout = "~/Views/Shared/_EditarCEDIL.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Consultar.cshtml";
+    }
+}
+<div class="content">
+    <h1 class="principal-texto">Biblioteca Asamblea Legislativa</h1>
+    <!--<img class="principal-imagen" src="~/Imagenes/logo.png"/>-->
+    <h1 class="principal-year">2020</h1>
+</div>
+
+

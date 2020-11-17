@@ -3,6 +3,7 @@ using Capa_Presentacion.Filters;
 using Capa_Presentacion.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -89,10 +90,39 @@ namespace Capa_Presentacion.Controllers
         //Accion para agregar :POST
         [Acceso]
         [HttpPost]
-        public ActionResult Agregar(Consulta consulta)
+        public ActionResult Agregar(Consulta consulta, HttpPostedFileBase ArchivoFile)
         {
             try
             {
+
+                string NombreArchivo = ArchivoFile.FileName;
+                Stream strmStream = ArchivoFile.InputStream;
+
+                Int32 Tamaño = (Int32)strmStream.Length;
+                byte[] BitesArchivo = new byte[Tamaño + 1];
+                strmStream.Read(BitesArchivo, 0, Tamaño);
+                strmStream.Close();
+
+                consulta = new Consulta();
+                consulta.archivo = new Archivillo();
+                
+                consulta.archivo.NombreArchivo = NombreArchivo;
+                consulta.archivo.TipoArchivo = ArchivoFile.ContentType;
+                consulta.archivo.Extension = Path.GetExtension(NombreArchivo);
+                consulta.archivo.ArchivoFile = BitesArchivo;
+
+                /*
+                 El procedimiento almacenado recibe un parámetro de tipo varbinary(max) los otros 3 son varchar... y listo
+
+                falta guardar el archivo
+                validar el tamaño, la extensión y avisarle al cliente que es máximo un archivo por entidad
+
+
+                2 rojitos si
+
+                 */
+                
+
                 if (!ModelState.IsValid)
                 {
                     ViewBag.genero = new SelectList(new[] {

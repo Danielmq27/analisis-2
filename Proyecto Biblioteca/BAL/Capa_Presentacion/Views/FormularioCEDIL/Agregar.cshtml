@@ -6,7 +6,15 @@
     if (Rol == "Administrador")
     {
         Layout = "~/Views/Shared/_Administrador.cshtml";
-    } 
+    }
+    else if (Rol == "Editar Consultas CEDIL")
+    {
+        Layout = "~/Views/Shared/_EditarCEDIL.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Consultar.cshtml";
+    }
 }
 
 @using (Html.BeginForm())

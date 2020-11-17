@@ -7,10 +7,6 @@
     {
         Layout = "~/Views/Shared/_Administrador.cshtml";
     }
-    else
-    {
-        Layout = "~/Views/Shared/_Consultar.cshtml";
-    }
 }
 
 <section class="content">
@@ -66,7 +62,19 @@
                                             }
                                             else if (item.IdRol == 2)
                                             {
-                                                @Html.Name("Editar")
+                                                @Html.Name("Editar Servicios Bibliotecarios")
+                                            }
+                                            else if (item.IdRol == 3)
+                                            {
+                                                @Html.Name("Editar Consultas")
+                                            }
+                                            else if (item.IdRol == 4)
+                                            {
+                                                @Html.Name("Editar Consultas CIIE")
+                                            }
+                                            else if (item.IdRol == 5)
+                                            {
+                                                @Html.Name("Editar Consultas CEDIL")
                                             }
                                             else
                                             {

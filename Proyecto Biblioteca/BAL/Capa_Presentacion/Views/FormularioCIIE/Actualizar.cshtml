@@ -1,8 +1,16 @@
 ﻿@model Capa_Presentacion.Models.FormularioCIIE
 
 @{
-    ViewBag.Title = "Actualizar";
-    Layout = "~/Views/Shared/_Administrador.cshtml";
+    ViewBag.Title = "Formulario CIIE | BAL";
+    string Rol = System.Web.HttpContext.Current.Session["Rol"] as String;
+    if (Rol == "Administrador")
+    {
+        Layout = "~/Views/Shared/_Administrador.cshtml";
+    }
+    else if (Rol == "Editar Consultas CIIE")
+    {
+        Layout = "~/Views/Shared/_EditarCIIE.cshtml";
+    }
 }
 @using (Html.BeginForm())
 {

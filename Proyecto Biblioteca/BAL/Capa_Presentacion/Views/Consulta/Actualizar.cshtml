@@ -2,7 +2,15 @@
 
 @{
     ViewBag.Title = "Actualizar";
-    Layout = "~/Views/Shared/_Administrador.cshtml";
+    string Rol = System.Web.HttpContext.Current.Session["Rol"] as String;
+    if (Rol == "Administrador")
+    {
+        Layout = "~/Views/Shared/_Administrador.cshtml";
+    }
+    else if (Rol == "Editar Consulta")
+    {
+        Layout = "~/Views/Shared/_EditarConsulta.cshtml";
+    }
 }
 
 @using (Html.BeginForm())

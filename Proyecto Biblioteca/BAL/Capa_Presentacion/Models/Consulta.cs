@@ -114,5 +114,18 @@ namespace Capa_Presentacion.Models
         //Atributo ApellidoUsuario2
         [Display(Name = "Segundo apellido")]
         public string Apellido2 { get; set; }
+
+        public Archivillo archivo { get; set; }
+
     }
+
+public class Archivillo
+{
+        public string NombreArchivo { get; set; }
+        public string TipoArchivo { get; set; }
+        public string Extension { get; set; }
+        public byte[] ArchivoFile { get; set; }
+
+    }
+
 }

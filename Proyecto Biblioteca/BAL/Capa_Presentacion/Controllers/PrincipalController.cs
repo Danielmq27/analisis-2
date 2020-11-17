@@ -16,37 +16,7 @@ namespace Capa_Presentacion.Controllers
     {
         //Accion para el rol administrador
         [Acceso]
-        public ActionResult Administrador()
-        {
-            try
-            {
-                return View();
-            }
-            catch (Exception)
-            {
-                //Pagina de Error
-                return RedirectToAction("Error500", "Error");
-            }
-        }
-
-        //Accion para el rol editar
-        [Acceso]
-        public ActionResult Editar()
-        {
-            try
-            {
-                return View();
-            }
-            catch (Exception)
-            {
-                //Pagina de Error
-                return RedirectToAction("Error500", "Error");
-            }
-        }
-
-        //Accion para el rol consultar
-        [Acceso]
-        public ActionResult Consultar()
+        public ActionResult Index()
         {
             try
             {
@@ -153,50 +123,13 @@ namespace Capa_Presentacion.Controllers
                             //Actualizamos usuario
                             clsUsuario usuario = new clsUsuario();
                             usuario.ActualizarUsuario(oUsuario.Id, oUsuario.cedula, oUsuario.nombre, oUsuario.apellido1, oUsuario.apellido2, oUsuario.email, claveNueva, oUsuario.IdRol);
-
-                            //Variable del rol
-                            string rol = System.Web.HttpContext.Current.Session["Rol"] as String;
-                            if (rol == "Administrador")
-                            {
-                                //Mensaje de exito
-                                TempData["msg"] = "<script>alert('Exito! Se ha cambiado la contraseña');</script>";
-                                return RedirectToAction("Administrador", "Principal");
-                            }
-                            else if (rol == "Editar")
-                            {
-                                //Mensaje de exito
-                                TempData["msg"] = "<script>alert('Exito! Se ha cambiado la contraseña');</script>";
-                                return RedirectToAction("Editar", "Principal");
-                            }
-                            else
-                            {
-                                //Mensaje de exito
-                                TempData["msg"] = "<script>alert('Exito! Se ha cambiado la contraseña');</script>";
-                                return RedirectToAction("Consultar", "Principal");
-                            }
+                            TempData["msg"] = "<script>alert('Exito! Se ha cambiado la contraseña');</script>";
+                            return RedirectToAction("Index", "Principal");
                         }
                         else
                         {
-                            //Variable del rol
-                            string rol = System.Web.HttpContext.Current.Session["Rol"] as String;
-                            if (rol == "Administrador")
-                            {
-                                //Mensaje de error
-                                TempData["msg"] = "<script>alert('Contraseñas no son iguales');</script>";
-                                return RedirectToAction("Administrador", "Principal");
-                            }
-                            else if (rol == "Editar")
-                            {
-                                //Mensaje de error
-                                TempData["msg"] = "<script>alert('Contraseñas no son iguales');</script>";
-                                return RedirectToAction("Editar", "Principal");
-                            }
-                            else
-                            {
-                                //Mensaje de error
-                                TempData["msg"] = "<script>alert('Contraseñas no son iguales');</script>";
-                                return RedirectToAction("Consultar", "Principal");
-                            }
+                            TempData["msg"] = "<script>alert('Contraseñas no son iguales');</script>";
+                            return RedirectToAction("Index", "Principal");
                         }
                     }
                 }

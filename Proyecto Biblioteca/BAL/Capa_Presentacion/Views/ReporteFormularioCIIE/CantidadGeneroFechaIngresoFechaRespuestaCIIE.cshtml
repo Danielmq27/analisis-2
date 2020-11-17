@@ -2,7 +2,15 @@
 
 @{
     ViewBag.Title = "ReporteCantidadGenero";
-    Layout = "~/Views/Shared/_Administrador.cshtml";
+    string Rol = System.Web.HttpContext.Current.Session["Rol"] as String;
+    if (Rol == "Administrador")
+    {
+        Layout = "~/Views/Shared/_Administrador.cshtml";
+    }
+    else if (Rol == "Editar Consultas CIIE")
+    {
+        Layout = "~/Views/Shared/_EditarCIIE.cshtml";
+    }
 }
 <section class="content">
     <div class="row">

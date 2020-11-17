@@ -19,6 +19,7 @@
     <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+    @Html.Raw(TempData["msg"])
     <!-- Site wrapper -->
     <div class="wrapper">
 
@@ -51,7 +52,6 @@
                                 <!-- User image -->
                                 <li class="user-header">
                                     <img src="../../Content/dist/img/logo-mini.png" class="img-circle" alt="User Image">
-
                                     <p>
                                         @HttpContext.Current.Session["nombreUsuario"].ToString()
                                         <small>@HttpContext.Current.Session["Rol"].ToString()</small>
@@ -84,6 +84,7 @@
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
+                <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li class="header">NAVEGACIÓN PRINCIPAL</li>
@@ -100,10 +101,30 @@
                             <li><a href="@Url.Action("Index", "PrestamoPermanente")"><i class="fa fa-circle-o"></i> Préstamo Permanente</a></li>
                         </ul>
                     </li>
-                    <li><a href="@Url.Action("Index", "Consulta")"><i class="fa fa-book"></i> <span>Consulta</span></a></li>
-                    <li><a href="@Url.Action("Index", "FormularioCEDIL")"><i class="fa fa-book"></i> <span>Formulario CEDIL</span></a></li>
-                    <li><a href="@Url.Action("Index", "FormularioCIIE")"><i class="fa fa-book"></i> <span>Formulario CIIE</span></a></li>
-
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Reporteria</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-circle-o"></i> Prestamos
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("Index", "ReportePrestamoAudiovisual")"><i class="fa fa-circle-o"></i> Prestamo Audiovisual</a></li>
+                                    <li><a href="@Url.Action("Index", "ReportePrestamoEquipo")"><i class="fa fa-circle-o"></i> Prestamo de Equipo</a></li>
+                                    <li><a href="@Url.Action("Index", "ReportePrestamoPermanente")"><i class="fa fa-circle-o"></i> Prestamo Permanente</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -192,11 +213,11 @@
         $(function () {
             $("#example1").DataTable();
             $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
+                "paging": false,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": false,
+                "info": false,
                 "autoWidth": true
             });
         });
@@ -208,3 +229,5 @@
     </script>
 </body>
 </html>
+
+

@@ -51,24 +51,60 @@ namespace Capa_Presentacion.Controllers
                         Session["nombre"] = Usuario.nombre;
                         Session["apellido1"] = Usuario.apellido1;
                         Session["apellido2"] = Usuario.apellido2;
-                        return RedirectToAction("Administrador", "Principal");
-                    }else if (Usuario.IdRol == 2)
+                        return RedirectToAction("Index", "Principal");
+                    } else if (Usuario.IdRol == 2)
                     {
                         Session["Usuario"] = Usuario;
                         Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
-                        Session["Rol"] = "Editar";
+                        Session["Rol"] = "Editar Servicios Bibliotecarios";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
                         Session["nombre"] = Usuario.nombre;
                         Session["apellido1"] = Usuario.apellido1;
                         Session["apellido2"] = Usuario.apellido2;
-                        return RedirectToAction("Editar", "Principal");
+                        return RedirectToAction("Index", "Principal");
+                    }
+                    else if (Usuario.IdRol == 3)
+                    {
+                        Session["Usuario"] = Usuario;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["Rol"] = "Editar Consulta";
+                        //Tabla control
+                        Session["cedula"] = Usuario.cedula;
+                        Session["nombre"] = Usuario.nombre;
+                        Session["apellido1"] = Usuario.apellido1;
+                        Session["apellido2"] = Usuario.apellido2;
+                        return RedirectToAction("Index", "Principal");
+                    }
+                    else if (Usuario.IdRol == 4)
+                    {
+                        Session["Usuario"] = Usuario;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["Rol"] = "Editar Consultas CIIE";
+                        //Tabla control
+                        Session["cedula"] = Usuario.cedula;
+                        Session["nombre"] = Usuario.nombre;
+                        Session["apellido1"] = Usuario.apellido1;
+                        Session["apellido2"] = Usuario.apellido2;
+                        return RedirectToAction("Index", "Principal");
+                    }
+                    else if (Usuario.IdRol == 5)
+                    {
+                        Session["Usuario"] = Usuario;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["Rol"] = "Editar Consultas CEDIL";
+                        //Tabla control
+                        Session["cedula"] = Usuario.cedula;
+                        Session["nombre"] = Usuario.nombre;
+                        Session["apellido1"] = Usuario.apellido1;
+                        Session["apellido2"] = Usuario.apellido2;
+                        return RedirectToAction("Index", "Principal");
                     } else
                     {
                         Session["Usuario"] = Usuario;
                         Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
                         Session["Rol"] = "Consultar";
-                        return RedirectToAction("Consultar", "Principal");
+                        return RedirectToAction("Index", "Principal");
                     }
                 }
                 else

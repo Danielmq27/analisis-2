@@ -2,7 +2,15 @@
 
 @{
     ViewBag.Title = "CantidadTipoUsuario";
-    Layout = "~/Views/Shared/_Administrador.cshtml";
+    string Rol = System.Web.HttpContext.Current.Session["Rol"] as String;
+    if (Rol == "Administrador")
+    {
+        Layout = "~/Views/Shared/_Administrador.cshtml";
+    }
+    else if (Rol == "Editar Servicios Bibliotecarios")
+    {
+        Layout = "~/Views/Shared/_EditarSB.cshtml";
+    }
 }
 <div class="content">
     @Html.Raw(TempData["msg"])
