@@ -59,13 +59,13 @@ namespace Capa_Logica
         }
 
         //Metodo para agregar un usuario
-        public bool AgregarUsuario(string Cedula, string Nombre, string Apellido1, string Apellido2, string Email, string Clave, int IdRol)
+        public bool AgregarUsuario(string Cedula, string Nombre, string Apellido1, string Apellido2, string Email, string Clave, string Estado, int IdRol)
         {
             try
             {
                 int respuesta = 1;
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                respuesta = dc.INSERTAR_USUARIO(Cedula, Nombre, Apellido1, Apellido2, Email, Clave, IdRol);
+                respuesta = dc.INSERTAR_USUARIO(Cedula, Nombre, Apellido1, Apellido2, Email, Clave, Estado, IdRol);
 
                 if (respuesta == 0)
                 {
@@ -82,13 +82,13 @@ namespace Capa_Logica
         }
 
         //Metodo para actualizar un usuario
-        public bool ActualizarUsuario(int Id, string Cedula, string Nombre, string Apellido1, string Apellido2, string Email, string Clave, int IdRol)
+        public bool ActualizarUsuario(int Id, string Cedula, string Nombre, string Apellido1, string Apellido2, string Email, string Clave, string Estado, int IdRol)
         {
             try
             {
                 int respuesta = 1;
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                respuesta = dc.ACTUALIZAR_USUARIO(Id, Cedula, Nombre, Apellido1, Apellido2, Email, Clave, IdRol);
+                respuesta = dc.ACTUALIZAR_USUARIO(Id, Cedula, Nombre, Apellido1, Apellido2, Email, Clave, Estado, IdRol);
                 if (respuesta == 0)
                 {
                     return true;
@@ -97,21 +97,6 @@ namespace Capa_Logica
                 {
                     return false;
                 }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        //Metodo para eliminar un usuario
-        public bool EliminarUsuario(int Id)
-        {
-            try
-            {
-                bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.BORRAR_USUARIO(Id);
-                return true;
             }
             catch (Exception)
             {

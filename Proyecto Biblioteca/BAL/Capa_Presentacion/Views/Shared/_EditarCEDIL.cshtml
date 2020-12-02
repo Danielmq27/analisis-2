@@ -117,7 +117,7 @@
             <div class="pull-right hidden-xs">
                 <b>Version</b> 2.3.8
             </div>
-            <strong>Copyright &copy; 2020 <a href="http://almsaeedstudio.com">Biblioteca Asamblea Legislativa</a>.</strong> Todos los derechos
+            <strong>Copyright &copy; 2020 <a href="">Biblioteca Asamblea Legislativa</a>.</strong> Todos los derechos
             reservados.
         </footer>
 
@@ -179,7 +179,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="button" onclick="Cambiar()" class="btn btn-success">Cambiar</button>
+                    <button id="cambiar" type="button" onclick="Cambiar()" class="btn btn-success">Cambiar</button>
                 </div>
             </div>
         </div>
@@ -202,6 +202,17 @@
             var frmCambiar = document.getElementById("frmCambiar");
             frmCambiar.submit();
         }
+
+        $(document).ready(function () {
+            $("#cambiar").click(function () {
+                if ($("#ClaveTemporal").val() === "" || $("#Clave").val() === "" || $("#ClaveConfirmar").val() === "") {
+                    alert("Rellene todos los campos");
+                } else {
+                    $('#alertaCambiar').closeModal();
+                }
+
+            });
+        });
     </script>
 </body>
 </html>

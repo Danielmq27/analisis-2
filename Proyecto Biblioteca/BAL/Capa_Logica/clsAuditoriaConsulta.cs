@@ -11,12 +11,12 @@ namespace Capa_Logica
     public class clsAuditoriaConsulta
     {
         //Metodo para consultar todas las Auditorias de Consulta
-        public List<SELECCIONAR_AUDITORIA_Consulta_TODOResult> ConsultarAuditoriasConsulta()
+        public List<SELECCIONAR_TODO_AUDITORIA_CONSULTAResult> ConsultarAuditoriasConsulta()
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<SELECCIONAR_AUDITORIA_Consulta_TODOResult> data = dc.SELECCIONAR_AUDITORIA_Consulta_TODO().ToList();
+                List<SELECCIONAR_TODO_AUDITORIA_CONSULTAResult> data = dc.SELECCIONAR_TODO_AUDITORIA_CONSULTA().ToList();
                 return data;
             }
             catch (Exception)
@@ -26,12 +26,12 @@ namespace Capa_Logica
         }
 
         //Metodo para consultar una Auditoria de Consulta
-        public List<SELECCIONAR_AUDITORIA_ConsultaResult> ConsultarAuditoriaConsulta(int Id)
+        public List<SELECCIONAR_AUDITORIA_CONSULTAResult> ConsultarAuditoriaConsulta(int Id)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<SELECCIONAR_AUDITORIA_ConsultaResult> data = dc.SELECCIONAR_AUDITORIA_Consulta(Id).ToList();
+                List<SELECCIONAR_AUDITORIA_CONSULTAResult> data = dc.SELECCIONAR_AUDITORIA_CONSULTA(Id).ToList();
                 return data;
             }
             catch (Exception)
@@ -42,17 +42,16 @@ namespace Capa_Logica
         }
 
         //Metodo para restaurar un formulario eliminado por medio de la auditoria
-        public bool RestaurarConsulta(string Codigo, string Nombre, string Apellido1, string Apellido2,
+        public bool RestaurarConsulta(string Codigo, string Cedula, string Nombre, string Apellido1, string Apellido2,
             int Telefono, string Email, string Asunto, string Descripcion, string Respuesta,
             string MetodoIngreso, string Genero, DateTime FechaIngreso, DateTime FechaRespuesta,
-            string Estado, string Cedula, string UNombre, string UApellido1, string UApellido2)
+            string Estado)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.RESTAURAR_CONSULTA(Codigo, Nombre, Apellido1, Apellido2, Telefono, Email, Asunto,
-                    Descripcion, Respuesta, MetodoIngreso, Genero, FechaIngreso, FechaRespuesta, Estado,
-                    Cedula, UNombre, UApellido1, UApellido2);
+                dc.RESTAURAR_CONSULTA(Codigo, Cedula, Nombre, Apellido1, Apellido2, Telefono, Email, Asunto,
+                    Descripcion, Respuesta, MetodoIngreso, Genero, FechaIngreso, FechaRespuesta, Estado);
                 return true;
             }
             catch (Exception)

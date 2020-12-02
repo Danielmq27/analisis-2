@@ -42,18 +42,16 @@ namespace Capa_Logica
         }
 
         //Metodo para agregar una Consulta
-        public bool AgregarConsulta(string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, int Telefono, 
+        public bool AgregarConsulta(string Cedula, string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, int Telefono, 
             string Email, string Asunto, string Descripcion, string Respuesta, string MetodoIngreso, string GeneroSolicitante, 
-            DateTime FechaIngreso, DateTime FechaRespuesta, string Estado, string Cedula, string Nombre, string Apellido1, 
-            string Apellido2)
+            DateTime FechaIngreso, DateTime FechaRespuesta, string Estado)
         {
             try
             {
                 int respuesta = 1;
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                respuesta = dc.INSERTAR_CONSULTA(NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Telefono, Email, Asunto,
-                    Descripcion, Respuesta, MetodoIngreso, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado, Cedula, Nombre, 
-                    Apellido1, Apellido2);
+                respuesta = dc.INSERTAR_CONSULTA(Cedula, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Telefono, Email, Asunto,
+                    Descripcion, Respuesta, MetodoIngreso, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado);
                 if (respuesta == 0)
                 {
                     return true;
@@ -71,17 +69,15 @@ namespace Capa_Logica
         }
 
         //Metodo para actualizar una Consulta
-        public bool ActualizarConsulta(int Id, string CodigoConsulta, string NombreSolicitante, string Apellido1Solicitante, 
+        public bool ActualizarConsulta(int Id, string CodigoConsulta, string Cedula, string NombreSolicitante, string Apellido1Solicitante, 
             string Apellido2Solicitante, int Telefono, string Email, string Asunto, string Descripcion, string Respuesta, 
-            string MetodoIngreso, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado,
-            string Cedula, string Nombre, string Apellido1, string Apellido2)
+            string MetodoIngreso, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.ACTUALIZAR_CONSULTA(Id, CodigoConsulta, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Telefono,
-                    Email, Asunto, Descripcion, Respuesta, MetodoIngreso, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado,
-                    Cedula, Nombre, Apellido1, Apellido2);
+                dc.ACTUALIZAR_CONSULTA(Id, CodigoConsulta, Cedula, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Telefono,
+                    Email, Asunto, Descripcion, Respuesta, MetodoIngreso, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado);
                 return true;
             }
             catch (Exception)

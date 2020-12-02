@@ -11,12 +11,12 @@ namespace Capa_Logica
     public class clsAuditoriaPrestamoPermanente
     {
         //Metodo para consultar todas las auditorias de Prestamo Permanente
-        public List<SELECCIONAR_AUDITORIA_PrestamoPermanente_TODOResult> ConsultarAuditoriasPrestamoPermanente()
+        public List<SELECCIONAR_TODO_AUDITORIA_PPResult> ConsultarAuditoriasPrestamoPermanente()
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<SELECCIONAR_AUDITORIA_PrestamoPermanente_TODOResult> data = dc.SELECCIONAR_AUDITORIA_PrestamoPermanente_TODO().ToList();
+                List<SELECCIONAR_TODO_AUDITORIA_PPResult> data = dc.SELECCIONAR_TODO_AUDITORIA_PP().ToList();
                 return data;
             }
             catch (Exception)
@@ -26,12 +26,12 @@ namespace Capa_Logica
         }
 
         //Metodo para consultar una auditoria de Prestamo Permanente
-        public List<SELECCIONAR_AUDITORIA_PrestamoPermanenteResult> ConsultarAuditoriaPrestamoPermanente(int Id)
+        public List<SELECCIONAR_AUDITORIA_PPResult> ConsultarAuditoriaPrestamoPermanente(int Id)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                List<SELECCIONAR_AUDITORIA_PrestamoPermanenteResult> data = dc.SELECCIONAR_AUDITORIA_PrestamoPermanente(Id).ToList();
+                List<SELECCIONAR_AUDITORIA_PPResult> data = dc.SELECCIONAR_AUDITORIA_PP(Id).ToList();
                 return data;
             }
             catch (Exception)
@@ -42,15 +42,15 @@ namespace Capa_Logica
         }
 
         //Metodo para restaurar un formulario eliminado por medio de la auditoria
-        public bool RestaurarPrestamoPermanente(string Codigo, string Nombre, string Apellido1, string Apellido2,
+        public bool RestaurarPrestamoPermanente(string Codigo, string Cedula, string Nombre, string Apellido1, string Apellido2,
             string Despacho, int Telefono, string Extension, string InformacionAdicional, string Genero, 
-            DateTime FechaPrestamo, string Estado, string UCedula, string UNombre, string UApellido1, string UApellido2)
+            DateTime FechaPrestamo, string Estado)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.RESTAURAR_PrestamoPermanente(Codigo, Nombre, Apellido1, Apellido2, Despacho, Telefono, Extension,
-                    InformacionAdicional, Genero, FechaPrestamo, Estado, UCedula, UNombre, UApellido1, UApellido2);
+                dc.RESTAURAR_PrestamoPermanente(Codigo, Cedula, Nombre, Apellido1, Apellido2, Despacho, Telefono, Extension,
+                    InformacionAdicional, Genero, FechaPrestamo, Estado);
                 return true;
             }
             catch (Exception)

@@ -33,21 +33,13 @@ namespace Capa_Presentacion.Controllers
             {
                 //Variable del rol
                 string rol = System.Web.HttpContext.Current.Session["Rol"] as String;
-                if (rol == "Administrador")
+                if (rol == "")
                 {
-                    return RedirectToAction("Administrador", "Principal");
-                } 
-                else if (rol == "Editar")
-                {
-                    return RedirectToAction("Editar", "Principal");
-                }
-                else if (rol == "Consultar")
-                {
-                    return RedirectToAction("Consultar", "Principal");
+                    return RedirectToAction("Index", "IniciarSesion");
                 }
                 else
                 {
-                    return RedirectToAction("Index", "IniciarSesion");
+                    return RedirectToAction("Index", "Principal");
                 }
             }
             catch (Exception)

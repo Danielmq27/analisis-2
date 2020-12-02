@@ -42,17 +42,17 @@ namespace Capa_Logica
         }
 
         //Metodo para restaurar un formulario eliminado por medio de la auditoria
-        public bool RestaurarCEDIL(string CodigoCEDIL, string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante,
+        public bool RestaurarCEDIL(string CodigoCEDIL, string Cedula, string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante,
             int Telefono, string Procedencia, string Ubicacion, string TipoSolicitud, string InformacionRequerida,
             string UsoInformacion, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta,
-            string Estado, string Cedula, string Nombre, string Apellido1, string Apellido2)
+            string Estado)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.RESTAURAR_CEDIL(CodigoCEDIL, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante,
+                dc.RESTAURAR_CEDIL(CodigoCEDIL, Cedula, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante,
                     Telefono, Procedencia, Ubicacion, TipoSolicitud, InformacionRequerida, UsoInformacion,
-                    GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado, Cedula, Nombre, Apellido1, Apellido2);
+                    GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado);
                 return true;
             }
             catch (Exception)

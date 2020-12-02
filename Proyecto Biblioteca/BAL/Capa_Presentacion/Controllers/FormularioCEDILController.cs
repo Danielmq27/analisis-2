@@ -30,7 +30,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.NombreSolicitante = item.nombreSolicitante;
                     modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
                     modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
-                    modelo.Telefono = item.telefono;
+                    modelo.Telefono = (int)item.telefono;
                     modelo.Procedencia = item.procedencia;
                     modelo.Ubicacion = item.ubicacion;
                     modelo.TipoSolicitud = item.tipoSolicitud;
@@ -113,15 +113,11 @@ namespace Capa_Presentacion.Controllers
                 clsFormularioCEDIL objFormularioCEDIL = new clsFormularioCEDIL();
                 //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objFormularioCEDIL.AgregarFormularioCEDIL(formularioCEDIL.NombreSolicitante,
+                bool resultado = objFormularioCEDIL.AgregarFormularioCEDIL(CedulaUsuario, formularioCEDIL.NombreSolicitante,
                     formularioCEDIL.ApellidoSolicitante1, formularioCEDIL.ApellidoSolicitante2, formularioCEDIL.Telefono,
                     formularioCEDIL.Procedencia, formularioCEDIL.Ubicacion, formularioCEDIL.TipoSolicitud, 
                     formularioCEDIL.InformacionRequerida, formularioCEDIL.UsoInformacion, formularioCEDIL.GeneroSolicitante, 
-                    formularioCEDIL.FechaIngreso, formularioCEDIL.FechaRespuesta, formularioCEDIL.Estado, 
-                    CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
+                    formularioCEDIL.FechaIngreso, formularioCEDIL.FechaRespuesta, formularioCEDIL.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -157,7 +153,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
-                modelo.Telefono = dato[0].telefono;
+                modelo.Telefono = (int)dato[0].telefono;
                 modelo.Procedencia = dato[0].procedencia;
                 modelo.Ubicacion = dato[0].ubicacion;
                 modelo.TipoSolicitud = dato[0].tipoSolicitud;
@@ -211,15 +207,11 @@ namespace Capa_Presentacion.Controllers
                 clsFormularioCEDIL objFormularioCEDIL = new clsFormularioCEDIL();
                 //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objFormularioCEDIL.ActualizarFormularioCEDIL(formularioCEDIL.Id, formularioCEDIL.CodigoCEDIL, 
+                bool resultado = objFormularioCEDIL.ActualizarFormularioCEDIL(formularioCEDIL.Id, formularioCEDIL.CodigoCEDIL, CedulaUsuario,
                     formularioCEDIL.NombreSolicitante, formularioCEDIL.ApellidoSolicitante1, formularioCEDIL.ApellidoSolicitante2, formularioCEDIL.Telefono,
                     formularioCEDIL.Procedencia, formularioCEDIL.Ubicacion, formularioCEDIL.TipoSolicitud,
                     formularioCEDIL.InformacionRequerida, formularioCEDIL.UsoInformacion, formularioCEDIL.GeneroSolicitante,
-                    formularioCEDIL.FechaIngreso, formularioCEDIL.FechaRespuesta, formularioCEDIL.Estado,
-                    CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
+                    formularioCEDIL.FechaIngreso, formularioCEDIL.FechaRespuesta, formularioCEDIL.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -256,7 +248,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
-                modelo.Telefono = dato[0].telefono;
+                modelo.Telefono = (int)dato[0].telefono;
                 modelo.Procedencia = dato[0].procedencia;
                 modelo.Ubicacion = dato[0].ubicacion;
                 modelo.TipoSolicitud = dato[0].tipoSolicitud;

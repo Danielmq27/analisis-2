@@ -32,7 +32,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
                     modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
                     modelo.Despacho = item.despacho;
-                    modelo.Telefono = item.telefono;
+                    modelo.Telefono = (int)item.telefono;
                     modelo.Extension = item.extension;
                     modelo.InformacionAdicional = item.informacionAdicional;
                     modelo.GeneroSolicitante = item.generoSolicictante;
@@ -104,15 +104,11 @@ namespace Capa_Presentacion.Controllers
                 }
                 clsPrestamoPermanente objPrestamoPermanente = new clsPrestamoPermanente();
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objPrestamoPermanente.AgregarPrestamoPermanente(prestamoPermanente.NombreSolicitante, 
+                bool resultado = objPrestamoPermanente.AgregarPrestamoPermanente(CedulaUsuario, prestamoPermanente.NombreSolicitante, 
                     prestamoPermanente.ApellidoSolicitante1, prestamoPermanente.ApellidoSolicitante2, 
                     prestamoPermanente.Despacho, prestamoPermanente.Telefono, prestamoPermanente.Extension,
                     prestamoPermanente.InformacionAdicional, prestamoPermanente.GeneroSolicitante,
-                    prestamoPermanente.FechaPrestamo, prestamoPermanente.Estado, CedulaUsuario, NombreUsuario,
-                    Apellido1Usuario, Apellido2Usuario);
+                    prestamoPermanente.FechaPrestamo, prestamoPermanente.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -149,7 +145,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
                 modelo.Despacho = dato[0].despacho;
-                modelo.Telefono = dato[0].telefono;
+                modelo.Telefono = (int)dato[0].telefono;
                 modelo.Extension = dato[0].extension;
                 modelo.InformacionAdicional = dato[0].informacionAdicional;
                 modelo.GeneroSolicitante = dato[0].generoSolicictante;
@@ -197,16 +193,12 @@ namespace Capa_Presentacion.Controllers
                 }
                 clsPrestamoPermanente objPrestamoPermanente = new clsPrestamoPermanente();
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
                 bool resultado = objPrestamoPermanente.ActualizarPrestamoPermanente(prestamoPermanente.Id, 
-                    prestamoPermanente.CodigoPrestamoPermanente, prestamoPermanente.NombreSolicitante, 
+                    prestamoPermanente.CodigoPrestamoPermanente, CedulaUsuario, prestamoPermanente.NombreSolicitante, 
                     prestamoPermanente.ApellidoSolicitante1, prestamoPermanente.ApellidoSolicitante2,
                     prestamoPermanente.Despacho, prestamoPermanente.Telefono, prestamoPermanente.Extension,
                     prestamoPermanente.InformacionAdicional, prestamoPermanente.GeneroSolicitante, 
-                    prestamoPermanente.FechaPrestamo, prestamoPermanente.Estado, CedulaUsuario, NombreUsuario, 
-                    Apellido1Usuario, Apellido2Usuario);
+                    prestamoPermanente.FechaPrestamo, prestamoPermanente.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -244,7 +236,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
                 modelo.Despacho = dato[0].despacho;
-                modelo.Telefono = dato[0].telefono;
+                modelo.Telefono = (int)dato[0].telefono;
                 modelo.Extension = dato[0].extension;
                 modelo.InformacionAdicional = dato[0].informacionAdicional;
                 modelo.GeneroSolicitante = dato[0].generoSolicictante;

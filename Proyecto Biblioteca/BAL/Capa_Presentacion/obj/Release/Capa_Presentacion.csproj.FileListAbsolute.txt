@@ -136,10 +136,8 @@ C:\Users\Daniel\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Ca
 C:\Users\Daniel\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Capa_Presentacion.csproj.CopyComplete
 C:\Users\Daniel\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Capa_Presentacion.dll
 C:\Users\Daniel\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Capa_Presentacion.pdb
-C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Capa_Presentacion.csprojAssemblyReference.cache
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Capa_Presentacion.csproj.CoreCompileInputs.cache
-C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Capa_Presentacion.dll
-C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Capa_Presentacion.pdb
+C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Capa_Presentacion.csprojAssemblyReference.cache
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Capa_Presentacion.dll.config
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Capa_Presentacion.dll
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\Capa_Presentacion.pdb
@@ -206,3 +204,5 @@ C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\es\S
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\es\System.Web.Helpers.resources.dll
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\bin\es\System.Web.Mvc.resources.dll
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Capa_Presentacion.csproj.CopyComplete
+C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Capa_Presentacion.dll
+C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Presentacion\obj\Release\Capa_Presentacion.pdb

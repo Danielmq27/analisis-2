@@ -168,7 +168,7 @@ namespace Capa_Presentacion.Controllers
 
                         //Actualizamos la contraseña del usuario
                         clsUsuario clsUsuario = new clsUsuario();
-                        clsUsuario.ActualizarUsuario(oUsuario.Id, oUsuario.cedula, oUsuario.nombre, oUsuario.apellido1, oUsuario.apellido2, oUsuario.email, contraEncriptada, oUsuario.IdRol);
+                        clsUsuario.ActualizarUsuario(oUsuario.Id, oUsuario.cedula, oUsuario.nombre, oUsuario.apellido1, oUsuario.apellido2, oUsuario.email, contraEncriptada, oUsuario.estado, oUsuario.IdRol);
 
                         //Enviamos el correo
                         Correo.enviarCorreo(correo, "Recuperar Clave", "Se reseteo su clave , ahora su clave es :" + nuevaContra, "");

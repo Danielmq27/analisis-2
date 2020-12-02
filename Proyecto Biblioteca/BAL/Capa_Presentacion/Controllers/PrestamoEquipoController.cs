@@ -107,15 +107,11 @@ namespace Capa_Presentacion.Controllers
                 }
                 clsPrestamoEquipo objPrestamoEquipo = new clsPrestamoEquipo();
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objPrestamoEquipo.AgregarPrestamoEquipo(prestamoEquipo.NombreSolicitante, 
+                bool resultado = objPrestamoEquipo.AgregarPrestamoEquipo(CedulaUsuario, prestamoEquipo.NombreSolicitante, 
                     prestamoEquipo.ApellidoSolicitante1, prestamoEquipo.ApellidoSolicitante2, prestamoEquipo.CedulaSolicitante, 
                     prestamoEquipo.Departamento, prestamoEquipo.TipoEquipo, prestamoEquipo.Implementos, 
                     prestamoEquipo.EspecificacionImplementos, prestamoEquipo.GeneroSolicitante, prestamoEquipo.FechaIngreso, 
-                    prestamoEquipo.FechaRespuesta, prestamoEquipo.Estado, CedulaUsuario, NombreUsuario, Apellido1Usuario, 
-                    Apellido2Usuario);
+                    prestamoEquipo.FechaRespuesta, prestamoEquipo.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -202,15 +198,11 @@ namespace Capa_Presentacion.Controllers
                 }
                 clsPrestamoEquipo objPrestamoEquipo = new clsPrestamoEquipo();
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
                 bool resultado = objPrestamoEquipo.ActualizarPrestamoEquipo(prestamoEquipo.Id, prestamoEquipo.CodigoPrestamoEquipo, 
-                    prestamoEquipo.NombreSolicitante, prestamoEquipo.ApellidoSolicitante1, prestamoEquipo.ApellidoSolicitante2, 
+                    CedulaUsuario, prestamoEquipo.NombreSolicitante, prestamoEquipo.ApellidoSolicitante1, prestamoEquipo.ApellidoSolicitante2, 
                     prestamoEquipo.CedulaSolicitante, prestamoEquipo.Departamento, prestamoEquipo.TipoEquipo, 
                     prestamoEquipo.Implementos, prestamoEquipo.EspecificacionImplementos, prestamoEquipo.GeneroSolicitante, 
-                    prestamoEquipo.FechaIngreso, prestamoEquipo.FechaRespuesta, prestamoEquipo.Estado, CedulaUsuario, NombreUsuario,
-                    Apellido1Usuario, Apellido2Usuario);
+                    prestamoEquipo.FechaIngreso, prestamoEquipo.FechaRespuesta, prestamoEquipo.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");

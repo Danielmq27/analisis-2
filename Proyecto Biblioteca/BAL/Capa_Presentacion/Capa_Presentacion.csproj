@@ -1031,6 +1031,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AreaController.cs" />
     <Compile Include="Controllers\AuditoriaConsultaController.cs" />
     <Compile Include="Controllers\AuditoriaFormularioCEDILController.cs" />
     <Compile Include="Controllers\AuditoriaFormularioCIIEController.cs" />
@@ -1039,15 +1040,19 @@
     <Compile Include="Controllers\AuditoriaPrestamoPermanenteController.cs" />
     <Compile Include="Controllers\BitacoraController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
+    <Compile Include="Controllers\DepartamentoController.cs" />
+    <Compile Include="Controllers\DespachoController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FormularioCEDILController.cs" />
     <Compile Include="Controllers\FormularioCIIEController.cs" />
+    <Compile Include="Controllers\FraccionController.cs" />
     <Compile Include="Controllers\IniciarSesionController.cs" />
     <Compile Include="Controllers\PrestamoAudiovisualController.cs" />
     <Compile Include="Controllers\PrestamoEquipoController.cs" />
     <Compile Include="Controllers\PrestamoPermanenteController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Controllers\ReporteConsultaController.cs" />
+    <Compile Include="Controllers\ReporteFormularioCEDILController.cs" />
     <Compile Include="Controllers\ReporteFormularioCIIEController.cs" />
     <Compile Include="Controllers\ReportePrestamoAudiovisualController.cs" />
     <Compile Include="Controllers\ReportePrestamoEquipoController.cs" />
@@ -1059,6 +1064,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Area.cs" />
     <Compile Include="Models\AuditoriaConsulta.cs" />
     <Compile Include="Models\AuditoriaFormularioCEDIL.cs" />
     <Compile Include="Models\AuditoriaFormularioCIIE.cs" />
@@ -1067,13 +1073,17 @@
     <Compile Include="Models\AuditoriaPrestamoPermanente.cs" />
     <Compile Include="Models\Bitacora.cs" />
     <Compile Include="Models\Consulta.cs" />
+    <Compile Include="Models\Departamento.cs" />
+    <Compile Include="Models\Despacho.cs" />
     <Compile Include="Models\FormularioCEDIL.cs" />
     <Compile Include="Models\FormularioCIIE.cs" />
+    <Compile Include="Models\Fraccion.cs" />
     <Compile Include="Models\PrestamoAudiovisual.cs" />
     <Compile Include="Models\PrestamoEquipo.cs" />
     <Compile Include="Models\PrestamoPermanente.cs" />
     <Compile Include="Models\Referencia.cs" />
     <Compile Include="Models\ReporteConsulta.cs" />
+    <Compile Include="Models\ReporteFormularioCEDIL.cs" />
     <Compile Include="Models\ReporteFormularioCIIE.cs" />
     <Compile Include="Models\ReportePA.cs" />
     <Compile Include="Models\ReportePE.cs" />
@@ -1293,6 +1303,17 @@
     <Content Include="Views\Shared\_EditarConsulta.cshtml" />
     <Content Include="Views\Shared\_EditarCIIE.cshtml" />
     <Content Include="Views\Shared\_EditarCEDIL.cshtml" />
+    <Content Include="Views\Fraccion\Index.cshtml" />
+    <Content Include="Views\Despacho\Index.cshtml" />
+    <Content Include="Views\Departamento\Index.cshtml" />
+    <Content Include="Views\Area\Index.cshtml" />
+    <Content Include="Views\ReporteFormularioCEDIL\CantidadGeneroFechaIngresoCEDIL.cshtml" />
+    <Content Include="Views\ReporteFormularioCEDIL\CantidadGeneroFechaIngresoFechaRespuestaCEDIL.cshtml" />
+    <Content Include="Views\ReporteFormularioCEDIL\CantidadGeneroFechaRespuestaCEDIL.cshtml" />
+    <Content Include="Views\ReporteFormularioCEDIL\CantidadUsuariosFechaIngresoCEDIL.cshtml" />
+    <Content Include="Views\ReporteFormularioCEDIL\CantidadUsuariosFechaIngresoFechaRespuestaCEDIL.cshtml" />
+    <Content Include="Views\ReporteFormularioCEDIL\CantidadUsuariosFechaRespuestaCEDIL.cshtml" />
+    <Content Include="Views\ReporteFormularioCEDIL\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

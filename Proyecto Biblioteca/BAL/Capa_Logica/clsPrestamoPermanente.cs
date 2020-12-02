@@ -43,13 +43,13 @@ namespace Capa_Logica
         }
 
         //Metodo para agregar un Prestamo Permanente
-        public bool AgregarPrestamoPermanente(string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, string Despacho, int Telefono, string Extension, string InformacionAdicional, string GeneroSolicitante, DateTime FechaPrestamo, string Estado, string CedulaUsuario, string Nombre, string Apellido1, string Apellido2)
+        public bool AgregarPrestamoPermanente(string NombreSolicitante, string CedulaUsuario, string Apellido1Solicitante, string Apellido2Solicitante, string Despacho, int Telefono, string Extension, string InformacionAdicional, string GeneroSolicitante, DateTime FechaPrestamo, string Estado)
         {
             try
             {
                 int respuesta = 1;
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                respuesta = dc.INSERTAR_PrestamoPermanente(NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Despacho, Telefono, Extension, InformacionAdicional, GeneroSolicitante, FechaPrestamo, Estado, CedulaUsuario, Nombre, Apellido1, Apellido2);
+                respuesta = dc.INSERTAR_PrestamoPermanente(NombreSolicitante, CedulaUsuario, Apellido1Solicitante, Apellido2Solicitante, Despacho, Telefono, Extension, InformacionAdicional, GeneroSolicitante, FechaPrestamo, Estado);
                 if (respuesta == 0)
                 {
                     return true;
@@ -67,17 +67,16 @@ namespace Capa_Logica
         }
 
         //Metodo para actualizar un Prestamo Permanente
-        public bool ActualizarPrestamoPermanente(int Id, string CodigoPrestamoPermanente, string NombreSolicitante, 
+        public bool ActualizarPrestamoPermanente(int Id, string Cedula, string CodigoPrestamoPermanente, string NombreSolicitante, 
             string Apellido1Solicitante, string Apellido2Solicitante, string Despacho, int Telefono, string Extension, 
-            string InformacionAdicional, string GeneroSolicitante, DateTime FechaPrestamo, string Estado, string Cedula,
-            string Nombre, string Apellido1, string Apellido2)
+            string InformacionAdicional, string GeneroSolicitante, DateTime FechaPrestamo, string Estado)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.ACTUALIZAR_PrestamoPermanente(Id, CodigoPrestamoPermanente, NombreSolicitante, Apellido1Solicitante, 
+                dc.ACTUALIZAR_PrestamoPermanente(Id, CodigoPrestamoPermanente, Cedula, NombreSolicitante, Apellido1Solicitante, 
                     Apellido2Solicitante, Despacho, Telefono, Extension, InformacionAdicional, GeneroSolicitante, 
-                    FechaPrestamo, Estado, Cedula, Nombre, Apellido1, Apellido2);
+                    FechaPrestamo, Estado);
                 return true;
             }
             catch (Exception)

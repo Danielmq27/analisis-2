@@ -42,13 +42,13 @@ namespace Capa_Logica
         }
 
         //Metodo para agregar un Prestamo Audiovisual
-        public bool AgregarPrestamoAudioVisual(string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, int Telefono, string Departamento, string NombreActividad, string Categoria, string EspecificacionCategoria, string Ubicacion, DateTime HoraInicio, DateTime HoraFinal, string Descripcion, string EquipoRequerido, int Aforo, string GeneroSolicitante, string Cedula, string Nombre, string Apellido1, string Apellido2)
+        public bool AgregarPrestamoAudioVisual(string Cedula, string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, int Telefono, string Departamento, string NombreActividad, string Categoria, string EspecificacionCategoria, string Ubicacion, DateTime HoraInicio, DateTime HoraFinal, string Descripcion, string EquipoRequerido, int Aforo, string GeneroSolicitante)
         {
             try
             {
                 int respuesta = 1;
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                respuesta = dc.INSERTAR_AUDIOVISUAL(NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Telefono, Departamento, NombreActividad, Categoria, EspecificacionCategoria, Ubicacion, HoraInicio, HoraFinal, Descripcion, EquipoRequerido, Aforo, GeneroSolicitante, Cedula, Nombre, Apellido1, Apellido2);
+                respuesta = dc.INSERTAR_AUDIOVISUAL(Cedula, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Telefono, Departamento, NombreActividad, Categoria, EspecificacionCategoria, Ubicacion, HoraInicio, HoraFinal, Descripcion, EquipoRequerido, Aforo, GeneroSolicitante);
                 if (respuesta == 0)
                 {
                     return true;
@@ -66,18 +66,17 @@ namespace Capa_Logica
         }
 
         //Metodo para actualizar un Prestamo Audiovisual
-        public bool ActualizarPrestamoAudioVisual(int Id, string CodigoPrestamoAudioVisual, string NombreSolicitante, 
+        public bool ActualizarPrestamoAudioVisual(int Id, string Cedula, string CodigoPrestamoAudioVisual, string NombreSolicitante, 
             string Apellido1Solicitante, string Apellido2Solicitante, int Telefono, string Departamento, string NombreActividad,
             string Categoria, string EspecificacionCategoria, string Ubicacion, DateTime HoraInicio, DateTime HoraFinal,
-            string Descripcion, string EquipoRequerido, int Aforo, string GneroSolicitante, string Cedula, string Nombre, 
-            string Apellido1, string Apellido2)
+            string Descripcion, string EquipoRequerido, int Aforo, string GneroSolicitante)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.ACTUALIZAR_AUDIOVISUAL(Id, CodigoPrestamoAudioVisual, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante,
+                dc.ACTUALIZAR_AUDIOVISUAL(Id, CodigoPrestamoAudioVisual, Cedula, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante,
                     Telefono, Departamento, NombreActividad, Categoria, EspecificacionCategoria, Ubicacion, HoraInicio, HoraFinal, 
-                    Descripcion, EquipoRequerido, Aforo, GneroSolicitante, Cedula, Nombre, Apellido1, Apellido2);
+                    Descripcion, EquipoRequerido, Aforo, GneroSolicitante);
                 return true;
             }
             catch (Exception)

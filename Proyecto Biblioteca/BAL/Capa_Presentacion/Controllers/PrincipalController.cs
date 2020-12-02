@@ -82,54 +82,45 @@ namespace Capa_Presentacion.Controllers
         {
             try
             {
-                using (var bd = new bibliotecaDataContext())
+                if (ClaveTemporal == "" || Clave == "" || ClaveConfirmar == "")
                 {
-                    string claveActual = Seguridad.Encriptar(ClaveTemporal);
-                    int cantidad = bd.Usuario.Where(p => p.clave == claveActual).Count();
-                    if (cantidad == 0)
+                    return RedirectToAction("Index", "Principal");
+                }
+                else
+                {
+                    using (var bd = new bibliotecaDataContext())
                     {
-                        //Variable del rol
-                        string rol = System.Web.HttpContext.Current.Session["Rol"] as String;
-                        if(rol == "Administrador")
+                        string claveActual = Seguridad.Encriptar(ClaveTemporal);
+                        int cantidad = bd.Usuario.Where(p => p.clave == claveActual).Count();
+                        if (cantidad == 0)
                         {
                             //Mensaje de error
-                            TempData["msg"] = "<script>alert('Cedula incorrecta');</script>";
-                            return RedirectToAction("Administrador", "Principal");
-                        }
-                        else if (rol == "Editar")
-                        {
-                            //Mensaje de error
-                            TempData["msg"] = "<script>alert('Cedula incorrecta');</script>";
-                            return RedirectToAction("Editar", "Principal");
-                        } 
-                        else
-                        {
-                            //Mensaje de error
-                            TempData["msg"] = "<script>alert('Cedula incorrecta');</script>";
-                            return RedirectToAction("Consultar", "Principal");
-                        }
-                    } 
-                    else
-                    {
-                        //Se recupera el id del Usuario
-                        Usuario oUsuario = bd.Usuario.Where(p => p.clave == claveActual).First();
-
-                        //Comparacion de claves
-                        if(Clave == ClaveConfirmar)
-                        {
-                            //Nueva clave 
-                            string claveNueva = Seguridad.Encriptar(Clave);
-
-                            //Actualizamos usuario
-                            clsUsuario usuario = new clsUsuario();
-                            usuario.ActualizarUsuario(oUsuario.Id, oUsuario.cedula, oUsuario.nombre, oUsuario.apellido1, oUsuario.apellido2, oUsuario.email, claveNueva, oUsuario.IdRol);
-                            TempData["msg"] = "<script>alert('Exito! Se ha cambiado la contraseña');</script>";
+                            TempData["msg"] = "<script>alert('Contraseña incorrecta');</script>";
                             return RedirectToAction("Index", "Principal");
                         }
                         else
                         {
-                            TempData["msg"] = "<script>alert('Contraseñas no son iguales');</script>";
-                            return RedirectToAction("Index", "Principal");
+                            //Se recupera el id del Usuario
+                            Usuario oUsuario = bd.Usuario.Where(p => p.clave == claveActual).First();
+
+                            //Comparacion de claves
+                            if (Clave == ClaveConfirmar)
+                            {
+                                //Nueva clave 
+                                string claveNueva = Seguridad.Encriptar(Clave);
+
+                                //Actualizamos usuario
+                                clsUsuario usuario = new clsUsuario();
+                                string Estado = "Activo";
+                                usuario.ActualizarUsuario(oUsuario.Id, oUsuario.cedula, oUsuario.nombre, oUsuario.apellido1, oUsuario.apellido2, oUsuario.email, claveNueva, Estado, oUsuario.IdRol);
+                                TempData["msg"] = "<script>alert('Exito! Se ha cambiado la contraseña');</script>";
+                                return RedirectToAction("Index", "Principal");
+                            }
+                            else
+                            {
+                                TempData["msg"] = "<script>alert('Contraseñas no son iguales');</script>";
+                                return RedirectToAction("Index", "Principal");
+                            }
                         }
                     }
                 }

@@ -17,7 +17,7 @@
                     <h4 class="principal-texto">USUARIOS</h4>
                 </div>
                 <div class="box-body box box-info">
-                    @if (Rol == "Administrador" || Rol == "Editar")
+                    @if (Rol == "Administrador")
                     {
                         @Html.ActionLink(" Agregar", "Agregar", null, new { @class = "btn btn-success btn-sm fa fa-plus" })
                     }
@@ -86,21 +86,22 @@
                                             {
                                                 @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" })
                                                 @Html.Name(" | ")
-                                                <button type="button" onclick="PopupEliminar(@item.Id)" class="btn btn-danger btn-sm fa fa-trash-o" data-toggle="modal" data-target="#alertaEliminar">
-                                                    Eliminar
-                                                </button>
-                                                @Html.Name(" | ")
-                                                @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
-                                            }
-                                            else if (Rol == "Editar")
-                                            {
-                                                @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" })
-                                                @Html.Name(" | ")
-                                                @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
+                                                if (item.Estado == "Activo")
+                                                {
+                                                    <button type="button" onclick="PopupCambiar(@item.Id)" class="btn btn-danger btn-sm fa fa-minus-square-o" data-toggle="modal" data-target="#alertaCambiar">
+                                                        Desactivar
+                                                    </button>
+                                                }
+                                                else
+                                                {
+                                                    <button type="button" onclick="PopupCambiar(@item.Id)" class="btn btn-success btn-sm fa fa-check-square-o" data-toggle="modal" data-target="#alertaCambiar">
+                                                        Activar
+                                                    </button>
+                                                }
                                             }
                                             else
                                             {
-                                                @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
+
                                             }
                                         </td>
                                     </tr>
@@ -126,36 +127,36 @@
 
 
 
-<!--Formulario para eliminar-->
-@using (Html.BeginForm("Eliminar", "Usuario", FormMethod.Post, new { @id = "frmEliminar" }))
+<!--Formulario para desactivar-->
+@using (Html.BeginForm("CambiarEstado", "Usuario", FormMethod.Post, new { @id = "frmCambiar" }))
 {
     @Html.Hidden("Id");
 }
-<!-- Ventana para eliminar  -->
-<div class="modal fade" id="alertaEliminar" tabindex="-1" aria-labelledby="alertaEliminar" aria-hidden="true">
+<!-- Ventana para desactivar  -->
+<div class="modal fade" id="alertaCambiar" tabindex="-1" aria-labelledby="alertaCambiar" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h5 class="modal-title" id="exampleModalLabel">Estas seguro que quieres eliminar este usuario?</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Estas seguro que quieres cambiar el estado de este usuario?</h5>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                <button type="button" onclick="Eliminar()" class="btn btn-success">Sí</button>
+                <button type="button" onclick="Cambiar()" class="btn btn-success">Sí</button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    function PopupEliminar(Id) {
+    function PopupCambiar(Id) {
         document.getElementById("Id").value = Id;
     }
 
-    function Eliminar() {
-        var frmEliminar = document.getElementById("frmEliminar");
-        frmEliminar.submit();
+    function Cambiar() {
+        var frmCambiar = document.getElementById("frmCambiar");
+        frmCambiar.submit();
     }
 </script>

@@ -35,7 +35,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.CodigoConsulta = item.codigoConsulta;
                     modelo.Fecha = (DateTime)item.fecha;
                     modelo.Accion = item.accion;
-                    modelo.Usuario = item.usuarioBD;
+                    modelo.Usuario = item.cedulaUsuario;
                     modelo.NombreSolicitante = item.nombreSolicitante;
                     modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
                     modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
@@ -82,7 +82,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.CodigoConsulta = dato[0].codigoConsulta;
                 modelo.Fecha = (DateTime)dato[0].fecha;
                 modelo.Accion = dato[0].accion;
-                modelo.Usuario = dato[0].usuarioBD;
+                modelo.Usuario = dato[0].cedulaUsuario;
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
@@ -125,7 +125,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.CodigoConsulta = dato[0].codigoConsulta;
                 modelo.Fecha = (DateTime)dato[0].fecha;
                 modelo.Accion = dato[0].accion;
-                modelo.Usuario = dato[0].usuarioBD;
+                modelo.Usuario = dato[0].cedulaUsuario;
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
@@ -141,14 +141,10 @@ namespace Capa_Presentacion.Controllers
                 modelo.Estado = dato[0].estado;
                 //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objConsulta.RestaurarConsulta(modelo.CodigoConsulta, modelo.NombreSolicitante,
+                bool resultado = objConsulta.RestaurarConsulta(modelo.CodigoConsulta, CedulaUsuario, modelo.NombreSolicitante,
                     modelo.ApellidoSolicitante1, modelo.ApellidoSolicitante2, modelo.Telefono,
                     modelo.Email, modelo.Asunto, modelo.Descripcion, modelo.Respuesta, modelo.MetodoIngreso,
-                    modelo.GeneroSolicitante, modelo.FechaIngreso, modelo.FechaFinal, modelo.Estado, 
-                    CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
+                    modelo.GeneroSolicitante, modelo.FechaIngreso, modelo.FechaFinal, modelo.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");

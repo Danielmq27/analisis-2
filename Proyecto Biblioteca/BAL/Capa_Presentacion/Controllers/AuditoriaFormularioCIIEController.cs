@@ -35,7 +35,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.CodigoCIIE = item.codigoCIIE;
                     modelo.Fecha = (DateTime)item.fecha;
                     modelo.Accion = item.accion;
-                    modelo.Usuario = item.usuarioBD;
+                    modelo.Usuario = item.cedulaUsuario;
                     modelo.NombreSolicitante = item.nombreSolicitante;
                     modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
                     modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
@@ -86,7 +86,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.CodigoCIIE = dato[0].codigoCIIE;
                 modelo.Fecha = (DateTime)dato[0].fecha;
                 modelo.Accion = dato[0].accion;
-                modelo.Usuario = dato[0].usuarioBD;
+                modelo.Usuario = dato[0].cedulaUsuario;
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
@@ -98,8 +98,8 @@ namespace Capa_Presentacion.Controllers
                 modelo.Tema = dato[0].tema;
                 modelo.InformacionRequerida = dato[0].informacionRequerida;
                 modelo.UsoInformacion = dato[0].usoInformacion;
-                modelo.FechaIngreso = (DateTime)dato[0].fechaInicio;
-                modelo.FechaRespuesta = (DateTime)dato[0].fechaFinal;
+                modelo.FechaIngreso = (DateTime)dato[0].fechaIngreso;
+                modelo.FechaRespuesta = (DateTime)dato[0].fechaRespuesta;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
                 modelo.Estado = dato[0].estado;
                 modelo.EspecificacionConsulta = dato[0].especificacionConsulta;
@@ -133,7 +133,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.CodigoCIIE = dato[0].codigoCIIE;
                 modelo.Fecha = (DateTime)dato[0].fecha;
                 modelo.Accion = dato[0].accion;
-                modelo.Usuario = dato[0].usuarioBD;
+                modelo.Usuario = dato[0].cedulaUsuario;
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
@@ -145,24 +145,20 @@ namespace Capa_Presentacion.Controllers
                 modelo.Tema = dato[0].tema;
                 modelo.InformacionRequerida = dato[0].informacionRequerida;
                 modelo.UsoInformacion = dato[0].usoInformacion;
-                modelo.FechaIngreso = (DateTime)dato[0].fechaInicio;
-                modelo.FechaRespuesta = (DateTime)dato[0].fechaFinal;
+                modelo.FechaIngreso = (DateTime)dato[0].fechaIngreso;
+                modelo.FechaRespuesta = (DateTime)dato[0].fechaRespuesta;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
                 modelo.Estado = dato[0].estado;
                 modelo.EspecificacionConsulta = dato[0].especificacionConsulta;
                 modelo.TipoConsulta = dato[0].tipoConsulta;
                 //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objFormularioCIIE.RestaurarCIIE(modelo.CodigoCIIE, modelo.NombreSolicitante,
+                bool resultado = objFormularioCIIE.RestaurarCIIE(modelo.CodigoCIIE, CedulaUsuario, modelo.NombreSolicitante,
                     modelo.ApellidoSolicitante1, modelo.ApellidoSolicitante2, modelo.Telefono,
                     modelo.Email, modelo.TipoDespacho, modelo.Fraccion, modelo.EspecificacionDespacho,
                     modelo.TipoConsulta, modelo.EspecificacionConsulta, modelo.Tema,
                     modelo.InformacionRequerida, modelo.UsoInformacion, modelo.GeneroSolicitante,
-                    modelo.FechaIngreso, modelo.FechaRespuesta, modelo.Estado, CedulaUsuario, NombreUsuario,
-                    Apellido1Usuario, Apellido2Usuario);
+                    modelo.FechaIngreso, modelo.FechaRespuesta, modelo.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");

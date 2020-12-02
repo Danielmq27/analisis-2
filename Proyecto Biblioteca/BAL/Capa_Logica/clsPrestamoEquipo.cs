@@ -42,18 +42,17 @@ namespace Capa_Logica
         }
 
         //Metodo para agregar un Prestamo de Equipo
-        public bool AgregarPrestamoEquipo(string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante,
+        public bool AgregarPrestamoEquipo(string CedulaUsuario, string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante,
             string Cedula, string Departamento, string TipoEquipo, string Implementos, string EspecificacionImplementos,
-            string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado, string CedulaUsuario,
-            string Nombre, string Apellido1, string Apellido2)
+            string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado)
         {
             try
             {
                 int respuesta = 1;
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                respuesta = dc.INSERTAR_PrestamoEquipo(NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Cedula, 
+                respuesta = dc.INSERTAR_PrestamoEquipo(CedulaUsuario, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Cedula, 
                     Departamento, TipoEquipo, Implementos, EspecificacionImplementos, GeneroSolicitante, FechaIngreso, FechaRespuesta, 
-                    Estado, CedulaUsuario, Nombre, Apellido1, Apellido2);
+                    Estado);
                 if (respuesta == 0)
                 {
                     return true;
@@ -71,17 +70,17 @@ namespace Capa_Logica
         }
 
         //Metodo para actualizar un Prestamo de Equipo
-        public bool ActualizarPrestamoEquipo(int Id, string CodigoPrestamoEquipo, string NombreSolicitante, string Apellido1Solicitante,
+        public bool ActualizarPrestamoEquipo(int Id, string CodigoPrestamoEquipo, string CedulaUsuario, string NombreSolicitante, string Apellido1Solicitante,
             string Apellido2Solicitante, string Cedula, string Departamento, string TipoEquipo, string Implementos, 
             string EspecificacionImplementos, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, 
-            string Estado, string CedulaUsuario, string Nombre, string Apellido1, string Apellido2)
+            string Estado)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.ACTUALIZAR_PrestamoEquipo(Id, CodigoPrestamoEquipo, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, 
+                dc.ACTUALIZAR_PrestamoEquipo(Id, CodigoPrestamoEquipo, CedulaUsuario, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, 
                     Cedula, Departamento, TipoEquipo, Implementos, EspecificacionImplementos, GeneroSolicitante, FechaIngreso,
-                    FechaRespuesta, Estado, CedulaUsuario, Nombre, Apellido1, Apellido2);
+                    FechaRespuesta, Estado);
                 return true;
             }
             catch (Exception)

@@ -31,7 +31,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.NombreSolicitante = item.nombreSolicitante;
                     modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
                     modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
-                    modelo.Telefono = item.telefono;
+                    modelo.Telefono = (int)item.telefono;
                     modelo.Email = item.email;
                     modelo.TipoDespacho = item.tipoDespacho;
                     modelo.Fraccion = item.fraccion;
@@ -43,7 +43,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.UsoInformacion = item.usoInformacion;
                     modelo.GeneroSolicitante = item.generoSolicitante;
                     modelo.FechaIngreso = item.fechaIngreso;
-                    modelo.FechaRespuesta = item.fechaRespuesta;
+                    modelo.FechaRespuesta = (DateTime)item.fechaRespuesta;
                     modelo.Estado = item.estado;
                     modelo.CedulaUsuario = item.cedulaUsuario;
                     modelo.Nombre = item.nombre;
@@ -117,16 +117,12 @@ namespace Capa_Presentacion.Controllers
                 clsFormularioCIIE objFormularioCIIE = new clsFormularioCIIE();
                 //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objFormularioCIIE.AgregarFormularioCIIE(formularioCIIE.NombreSolicitante, 
+                bool resultado = objFormularioCIIE.AgregarFormularioCIIE(CedulaUsuario, formularioCIIE.NombreSolicitante, 
                     formularioCIIE.ApellidoSolicitante1, formularioCIIE.ApellidoSolicitante2, formularioCIIE.Telefono, 
                     formularioCIIE.Email, formularioCIIE.TipoDespacho, formularioCIIE.Fraccion, formularioCIIE.EspecificacionDespacho, 
                     formularioCIIE.TipoConsulta, formularioCIIE.EspecificacionConsulta, formularioCIIE.Tema, 
                     formularioCIIE.InformacionRequerida, formularioCIIE.UsoInformacion, formularioCIIE.GeneroSolicitante, 
-                    formularioCIIE.FechaIngreso, formularioCIIE.FechaRespuesta, formularioCIIE.Estado, CedulaUsuario, NombreUsuario, 
-                    Apellido1Usuario, Apellido2Usuario);
+                    formularioCIIE.FechaIngreso, formularioCIIE.FechaRespuesta, formularioCIIE.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -162,7 +158,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
-                modelo.Telefono = dato[0].telefono;
+                modelo.Telefono = (int)dato[0].telefono;
                 modelo.Email = dato[0].email;
                 modelo.TipoDespacho = dato[0].tipoDespacho;
                 modelo.Fraccion = dato[0].fraccion;
@@ -174,7 +170,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.UsoInformacion = dato[0].usoInformacion;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
                 modelo.FechaIngreso = dato[0].fechaIngreso;
-                modelo.FechaRespuesta = dato[0].fechaRespuesta;
+                modelo.FechaRespuesta = (DateTime)dato[0].fechaRespuesta;
                 modelo.Estado = dato[0].estado;
                 ViewBag.genero = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
@@ -220,16 +216,12 @@ namespace Capa_Presentacion.Controllers
                 clsFormularioCIIE objFormularioCIIE = new clsFormularioCIIE();
                 //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objFormularioCIIE.ActualizarFormularioCIIE(formularioCIIE.Id, formularioCIIE.CodigoCIIE, 
+                bool resultado = objFormularioCIIE.ActualizarFormularioCIIE(formularioCIIE.Id, formularioCIIE.CodigoCIIE, CedulaUsuario,
                     formularioCIIE.NombreSolicitante, formularioCIIE.ApellidoSolicitante1, formularioCIIE.ApellidoSolicitante2, 
                     formularioCIIE.Telefono, formularioCIIE.Email, formularioCIIE.TipoDespacho, formularioCIIE.Fraccion, 
                     formularioCIIE.EspecificacionDespacho, formularioCIIE.TipoConsulta, formularioCIIE.EspecificacionConsulta, 
                     formularioCIIE.Tema, formularioCIIE.InformacionRequerida, formularioCIIE.UsoInformacion, 
-                    formularioCIIE.GeneroSolicitante, formularioCIIE.FechaIngreso, formularioCIIE.FechaRespuesta, formularioCIIE.Estado,
-                    CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
+                    formularioCIIE.GeneroSolicitante, formularioCIIE.FechaIngreso, formularioCIIE.FechaRespuesta, formularioCIIE.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -266,7 +258,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
-                modelo.Telefono = dato[0].telefono;
+                modelo.Telefono = (int)dato[0].telefono;
                 modelo.Email = dato[0].email;
                 modelo.TipoDespacho = dato[0].tipoDespacho;
                 modelo.Fraccion = dato[0].fraccion;
@@ -278,7 +270,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.UsoInformacion = dato[0].usoInformacion;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
                 modelo.FechaIngreso = dato[0].fechaIngreso;
-                modelo.FechaRespuesta = dato[0].fechaRespuesta;
+                modelo.FechaRespuesta = (DateTime)dato[0].fechaRespuesta;
                 modelo.Estado = dato[0].estado;
                 modelo.CedulaUsuario = dato[0].cedulaUsuario;
                 modelo.Nombre = dato[0].nombre;

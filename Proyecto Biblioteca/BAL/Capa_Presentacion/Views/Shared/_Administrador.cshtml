@@ -130,8 +130,32 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index", "Usuario")"><i class="fa fa-circle-o"></i>Usuarios</a></li>
-                            <li><a href="@Url.Action("Index", "Rol")"><i class="fa fa-circle-o"></i> Roles</a></li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-circle-o"></i> Usuarios
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("Index", "Usuario")"><i class="fa fa-circle-o"></i>Usuarios</a></li>
+                                    <li><a href="@Url.Action("Index", "Rol")"><i class="fa fa-circle-o"></i> Roles</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-circle-o"></i> Sistema
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("Index", "Area")"><i class="fa fa-circle-o"></i> Áreas</a></li>
+                                    <li><a href="@Url.Action("Index", "Departamento")"><i class="fa fa-circle-o"></i> Departamentos</a></li>
+                                    <li><a href="@Url.Action("Index", "Despacho")"><i class="fa fa-circle-o"></i> Despachos</a></li>
+                                    <li><a href="@Url.Action("Index", "Fraccion")"><i class="fa fa-circle-o"></i> Fracciónes</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -144,6 +168,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="@Url.Action("Index", "ReporteConsulta")"><i class="fa fa-circle-o"></i> Consulta</a></li>
+                            <li><a href="@Url.Action("Index", "ReporteFormularioCEDIL")"><i class="fa fa-circle-o"></i> Formulario CEDIL</a></li>
                             <li><a href="@Url.Action("Index", "ReporteFormularioCIIE")"><i class="fa fa-circle-o"></i> Formulario CIIE</a></li>
                             <li>
                                 <a href="#">
@@ -176,7 +201,7 @@
             <div class="pull-right hidden-xs">
                 <b>Version</b> 2.3.8
             </div>
-            <strong>Copyright &copy; 2020 <a href="http://almsaeedstudio.com">Biblioteca Asamblea Legislativa</a>.</strong> Todos los derechos
+            <strong>Copyright &copy; 2020 <a href="">Biblioteca Asamblea Legislativa</a>.</strong> Todos los derechos
             reservados.
         </footer>
 
@@ -224,21 +249,21 @@
                     <form action="@Url.Action("Cambiar", "Principal")" id="frmCambiar" method="post">
                         <div class="form-group">
                             <label>Contraseña actual</label>
-                            <input type="password" id="ClaveTemporal" name="ClaveTemporal" class="form-control" />
+                            <input type="password" id="ClaveTemporal" name="ClaveTemporal" class="form-control" required/>
                         </div>
                         <div class="form-group">
                             <label>Contraseña</label>
-                            <input type="password" id="Clave" name="Clave" class="form-control" />
+                            <input type="password" id="Clave" name="Clave" class="form-control" required/>
                         </div>
                         <div class="form-group">
                             <label>Confirmar contraseña</label>
-                            <input type="password" id="ClaveConfirmar" name="ClaveConfirmar" class="form-control" />
+                            <input type="password" id="ClaveConfirmar" name="ClaveConfirmar" class="form-control" required/>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="button" onclick="Cambiar()" class="btn btn-success">Cambiar</button>
+                    <button id="cambiar" type="button" onclick="Cambiar()" class="btn btn-success">Cambiar</button>
                 </div>
             </div>
         </div>
@@ -261,6 +286,17 @@
             var frmCambiar = document.getElementById("frmCambiar");
             frmCambiar.submit();
         }
+
+        $(document).ready(function () {
+            $("#cambiar").click(function () {
+                if ($("#ClaveTemporal").val() === "" || $("#Clave").val() === "" || $("#ClaveConfirmar").val() === "") {
+                    alert("Rellene todos los campos");
+                } else {
+                    $('#alertaCambiar').closeModal();
+                }
+
+            });
+        });
     </script>
 </body>
 </html>

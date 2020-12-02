@@ -32,7 +32,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.NombreSolicitante = item.nombreSolicitante;
                     modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
                     modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
-                    modelo.Telefono = item.telefono;
+                    modelo.Telefono = (int)item.telefono;
                     modelo.Email = item.email;
                     modelo.Asunto = item.asunto;
                     modelo.Descripcion = item.descripcion;
@@ -139,13 +139,10 @@ namespace Capa_Presentacion.Controllers
                 clsConsulta objConsulta = new clsConsulta();
                 //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objConsulta.AgregarConsulta(consulta.NombreSolicitante, consulta.ApellidoSolicitante1, 
+                bool resultado = objConsulta.AgregarConsulta(CedulaUsuario, consulta.NombreSolicitante, consulta.ApellidoSolicitante1, 
                     consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion, 
                     consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso, 
-                    consulta.FechaRespuesta, consulta.Estado, CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
+                    consulta.FechaRespuesta, consulta.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -181,8 +178,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
-                modelo.Telefono = dato[0].telefono;
-                modelo.Telefono = dato[0].telefono;
+                modelo.Telefono = (int)dato[0].telefono;
                 modelo.Email = dato[0].email;
                 modelo.Asunto = dato[0].asunto;
                 modelo.Descripcion = dato[0].descripcion;
@@ -236,13 +232,10 @@ namespace Capa_Presentacion.Controllers
                 clsConsulta objConsulta = new clsConsulta();
                 //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, consulta.NombreSolicitante, 
+                bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, CedulaUsuario, consulta.NombreSolicitante, 
                     consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, 
                     consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
-                    consulta.FechaRespuesta, consulta.Estado, CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
+                    consulta.FechaRespuesta, consulta.Estado);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -279,7 +272,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
-                modelo.Telefono = dato[0].telefono;
+                modelo.Telefono = (int)dato[0].telefono;
                 modelo.Email = dato[0].email;
                 modelo.Asunto = dato[0].asunto;
                 modelo.Descripcion = dato[0].descripcion;

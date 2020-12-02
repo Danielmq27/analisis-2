@@ -56,6 +56,9 @@ namespace Capa_Presentacion.Models
         [Display(Name = "Contraseña")]
         public string Clave { get; set; }
 
+        //Atributo Estado
+        public string Estado { get; set; }
+
         //Atributo IdRol
         [Required(ErrorMessage = "El campo rol es obligatorio.")]
         [Display(Name = "Rol")]
@@ -107,6 +110,9 @@ namespace Capa_Presentacion.Models
         [StringLength(40, ErrorMessage = "El campo contraseña debe ser una cadena con una longitud máxima de 40.")]
         [Display(Name = "Contraseña")]
         public string Clave { get; set; }
+
+        //Atributo Estado
+        public string Estado { get; set; }
 
         //Atributo IdRol
         [Required(ErrorMessage = "El campo rol es obligatorio.")]

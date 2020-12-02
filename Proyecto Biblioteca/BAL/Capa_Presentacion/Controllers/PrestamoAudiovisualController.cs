@@ -31,7 +31,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.NombreSolicitante = item.nombreSolicitante;
                     modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
                     modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
-                    modelo.Telefono = item.telefono;
+                    modelo.Telefono = (int)item.telefono;
                     modelo.Departamento = item.departamento;
                     modelo.NombreActividad = item.nombreActividad;
                     modelo.Categoria = item.categoria;
@@ -101,16 +101,12 @@ namespace Capa_Presentacion.Controllers
                 }
                 clsPrestamoAudiovisual objPrestamoAudiovisual = new clsPrestamoAudiovisual();
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objPrestamoAudiovisual.AgregarPrestamoAudioVisual(prestamoAudiovisual.NombreSolicitante,
+                bool resultado = objPrestamoAudiovisual.AgregarPrestamoAudioVisual(CedulaUsuario, prestamoAudiovisual.NombreSolicitante,
                     prestamoAudiovisual.ApellidoSolicitante1, prestamoAudiovisual.ApellidoSolicitante2, prestamoAudiovisual.Telefono, 
                     prestamoAudiovisual.Departamento, prestamoAudiovisual.NombreActividad, prestamoAudiovisual.Categoria, 
                     prestamoAudiovisual.EspecificacionCategoria, prestamoAudiovisual.Ubicacion, prestamoAudiovisual.HoraInicio,
                     prestamoAudiovisual.HoraFinal, prestamoAudiovisual.Descripcion, prestamoAudiovisual.EquipoRequerido,
-                    prestamoAudiovisual.Aforo, prestamoAudiovisual.GeneroSolicitante, CedulaUsuario, NombreUsuario, Apellido1Usuario,
-                    Apellido2Usuario);
+                    prestamoAudiovisual.Aforo, prestamoAudiovisual.GeneroSolicitante);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -146,7 +142,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
-                modelo.Telefono = dato[0].telefono;
+                modelo.Telefono = (int)dato[0].telefono;
                 modelo.Departamento = dato[0].departamento;
                 modelo.NombreActividad = dato[0].nombreActividad;
                 modelo.Categoria = dato[0].categoria;
@@ -196,13 +192,12 @@ namespace Capa_Presentacion.Controllers
                 string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
                 string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
                 bool resultado = objPrestamoAudiovisual.ActualizarPrestamoAudioVisual(prestamoAudiovisual.Id,
-                    prestamoAudiovisual.CodigoPrestamoAudiovisual, prestamoAudiovisual.NombreSolicitante, 
+                    prestamoAudiovisual.CodigoPrestamoAudiovisual, CedulaUsuario, prestamoAudiovisual.NombreSolicitante, 
                     prestamoAudiovisual.ApellidoSolicitante1, prestamoAudiovisual.ApellidoSolicitante2, 
                     prestamoAudiovisual.Telefono, prestamoAudiovisual.Departamento, prestamoAudiovisual.NombreActividad, 
                     prestamoAudiovisual.Categoria, prestamoAudiovisual.EspecificacionCategoria, prestamoAudiovisual.Ubicacion,
                     prestamoAudiovisual.HoraInicio, prestamoAudiovisual.HoraFinal, prestamoAudiovisual.Descripcion, 
-                    prestamoAudiovisual.EquipoRequerido, prestamoAudiovisual.Aforo, prestamoAudiovisual.GeneroSolicitante,
-                    CedulaUsuario, NombreUsuario, Apellido1Usuario, Apellido2Usuario);
+                    prestamoAudiovisual.EquipoRequerido, prestamoAudiovisual.Aforo, prestamoAudiovisual.GeneroSolicitante);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -239,7 +234,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.NombreSolicitante = dato[0].nombreSolicitante;
                 modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
                 modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
-                modelo.Telefono = dato[0].telefono;
+                modelo.Telefono = (int)dato[0].telefono;
                 modelo.Departamento = dato[0].departamento;
                 modelo.NombreActividad = dato[0].nombreActividad;
                 modelo.Categoria = dato[0].categoria;

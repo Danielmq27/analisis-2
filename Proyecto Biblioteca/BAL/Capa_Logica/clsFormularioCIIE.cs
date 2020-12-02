@@ -43,15 +43,19 @@ namespace Capa_Logica
         }
 
         //Metodo para agregar un Formulario del CIIE
-        public bool AgregarFormularioCIIE(string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, int Telefono, string Email, string TipoDespacho, string Fraccion, string EspecificacionDespacho, string TipoConsulta, string EspecificacionConsulta, string Tema, string InformacionRequerida, string UsoInformacion, string GeneroSolicitante, DateTime FechaIngreso, DateTime FechaRespuesta, string Estado, string Cedula, string Nombre, string Apellido1, string Apellido2)
+        public bool AgregarFormularioCIIE(string Cedula, string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, 
+            int Telefono, string Email, string TipoDespacho, string Fraccion, string EspecificacionDespacho, string TipoConsulta, 
+            string EspecificacionConsulta, string Tema, string InformacionRequerida, string UsoInformacion, string GeneroSolicitante, 
+            DateTime FechaIngreso, DateTime FechaRespuesta, string Estado)
         {
             try
             {
                 int respuesta = 1;
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                respuesta = dc.INSERTAR_CIIE(NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Telefono, Email, TipoDespacho, Fraccion, EspecificacionDespacho, TipoConsulta, EspecificacionConsulta, Tema, InformacionRequerida, UsoInformacion, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado, Cedula, Nombre, Apellido1, Apellido2);
-                if (respuesta == 0)
-                {
+                respuesta = dc.INSERTAR_CIIE(Cedula, NombreSolicitante, Apellido1Solicitante, Apellido2Solicitante, Telefono, Email, TipoDespacho, Fraccion,
+                    EspecificacionDespacho, TipoConsulta, EspecificacionConsulta, Tema, InformacionRequerida, UsoInformacion, GeneroSolicitante, FechaIngreso,
+                    FechaRespuesta, Estado);
+                if(respuesta == 0){
                     return true;
                 } else
                 {
@@ -66,18 +70,18 @@ namespace Capa_Logica
         }
 
         //Metodo para actualizar un Formulario del CIIE
-        public bool ActualizarFormularioCIIE(int Id, string CodigoCIIE, string NombreSolicitante, string Apellido1Solicitante, 
+        public bool ActualizarFormularioCIIE(int Id, string CodigoCIIE, string Cedula, string NombreSolicitante, string Apellido1Solicitante, 
             string Apellido2Solicitante, int Telefono, string Email, string TipoDespacho, string Fraccion, 
             string EspecificacionDespacho, string TipoConsulta, string EspecificacionConsulta, string Tema, 
             string InformacionRequerida, string UsoInformacion, string GeneroSolicitante, DateTime FechaIngreso, 
-            DateTime FechaRespuesta, string Estado, string Cedula, string Nombre, string Apellido1, string Apellido2)
+            DateTime FechaRespuesta, string Estado)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
-                dc.ACTUALIZAR_CIIE(Id, CodigoCIIE, NombreSolicitante,Apellido1Solicitante, Apellido2Solicitante, Telefono, Email, 
+                dc.ACTUALIZAR_CIIE(Id, CodigoCIIE, Cedula, NombreSolicitante,Apellido1Solicitante, Apellido2Solicitante, Telefono, Email, 
                     TipoDespacho, Fraccion, EspecificacionDespacho, TipoConsulta, EspecificacionConsulta, Tema, InformacionRequerida, 
-                    UsoInformacion, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado, Cedula, Nombre, Apellido1, Apellido2);
+                    UsoInformacion, GeneroSolicitante, FechaIngreso, FechaRespuesta, Estado);
                 return true;
             }
             catch (Exception)

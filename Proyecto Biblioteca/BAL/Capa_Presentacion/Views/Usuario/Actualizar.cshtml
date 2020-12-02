@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
     <div class="content">
         <div class="form-horizontal">
-            <h4 class="principal-texto">AGREGAR USUARIO</h4>
+            <h4 class="principal-texto">ACTUALIZAR USUARIO</h4>
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)
             @Html.HiddenFor(model => model.Clave)

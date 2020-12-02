@@ -12,10 +12,10 @@ C:\Users\Daniel\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Dato
 C:\Users\Daniel\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Datos.csproj.CoreCompileInputs.cache
 C:\Users\Daniel\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Datos.dll
 C:\Users\Daniel\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Datos.pdb
+C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\bin\Release\Capa_Datos.dll.config
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\bin\Release\Capa_Datos.dll
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\bin\Release\Capa_Datos.pdb
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Datos.csproj.CoreCompileInputs.cache
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Datos.dll
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Datos.pdb
-C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\bin\Release\Capa_Datos.dll.config
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Datos.csprojAssemblyReference.cache

@@ -36,6 +36,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.Apellido2 = item.apellido2;
                     modelo.Email = Seguridad.Desencriptar(item.email);
                     modelo.Clave = item.clave;
+                    modelo.Estado = item.estado;
                     modelo.IdRol = item.IdRol;
 
                     listaUsuarios.Add(modelo);
@@ -82,7 +83,8 @@ namespace Capa_Presentacion.Controllers
                     return View(usuario);
                 }
                 clsUsuario objUsuario = new clsUsuario();
-                bool resultado = objUsuario.AgregarUsuario(usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, Seguridad.Encriptar(usuario.Email), Seguridad.Encriptar(usuario.Clave), usuario.IdRol);
+                string Estado = "Activo";
+                bool resultado = objUsuario.AgregarUsuario(usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, Seguridad.Encriptar(usuario.Email), Seguridad.Encriptar(usuario.Clave), Estado, usuario.IdRol);
                 if (resultado)
                 {
                     Correo.enviarCorreo(usuario.Email, "Biblioteca Asamble Legislativa","Bienvenido al sistema, su clave temporal es:" + usuario.Clave, "");
@@ -117,6 +119,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.Apellido2 = dato[0].apellido2;
                 modelo.Email = Seguridad.Desencriptar(dato[0].email);
                 modelo.Clave = dato[0].clave;
+                modelo.Estado = dato[0].estado;
                 modelo.IdRol = dato[0].IdRol;
 
 
@@ -144,7 +147,8 @@ namespace Capa_Presentacion.Controllers
                     return View(usuario);
                 }
                 clsUsuario objUsuario = new clsUsuario();
-                bool resultado = objUsuario.ActualizarUsuario(usuario.Id, usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, Seguridad.Encriptar(usuario.Email), usuario.Clave, usuario.IdRol);
+                bool resultado = objUsuario.ActualizarUsuario(usuario.Id, usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, 
+                    Seguridad.Encriptar(usuario.Email), usuario.Clave, usuario.Estado, usuario.IdRol);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -166,23 +170,62 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
-        //Accion para eliminar un usuario
+        //Accion para cambiar el estado de un usuario
         [Acceso]
         [HttpPost]
-        public ActionResult Eliminar(int Id)
+        public ActionResult CambiarEstado(int Id)
         {
             try
             {
                 clsUsuario objUsuario = new clsUsuario();
-                bool resultado = objUsuario.EliminarUsuario(Id);
-                if (resultado)
+                var dato = objUsuario.ConsultarUsuario(Id);
+                if (dato[0].estado == "Activo")
                 {
-                    return RedirectToAction("Index");
+                    Usuario modelo = new Usuario();
+                    modelo.Id = dato[0].Id;
+                    modelo.Cedula = dato[0].cedula;
+                    modelo.Nombre = dato[0].nombre;
+                    modelo.Apellido1 = dato[0].apellido1;
+                    modelo.Apellido2 = dato[0].apellido2;
+                    modelo.Email = dato[0].email;
+                    modelo.Clave = dato[0].clave;
+                    modelo.Estado = "Inactivo";
+                    modelo.IdRol = dato[0].IdRol;
+                    bool resultado = objUsuario.ActualizarUsuario(modelo.Id, modelo.Cedula, modelo.Nombre, modelo.Apellido1, modelo.Apellido2,
+                        modelo.Email, modelo.Clave, modelo.Estado, modelo.IdRol);
+                    if (resultado)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        //Pagina de Error
+                        return RedirectToAction("Error404", "Error");
+                    }
                 }
                 else
                 {
-                    //Pagina de Error
-                    return RedirectToAction("Error404", "Error");
+                    Usuario modelo = new Usuario();
+                    modelo.Id = dato[0].Id;
+                    modelo.Cedula = dato[0].cedula;
+                    modelo.Nombre = dato[0].nombre;
+                    modelo.Apellido1 = dato[0].apellido1;
+                    modelo.Apellido2 = dato[0].apellido2;
+                    modelo.Email = dato[0].email;
+                    modelo.Clave = dato[0].clave;
+                    modelo.Estado = "Activo";
+                    modelo.IdRol = dato[0].IdRol;
+                    bool resultado = objUsuario.ActualizarUsuario(modelo.Id, modelo.Cedula, modelo.Nombre, modelo.Apellido1, modelo.Apellido2,
+                        modelo.Email, modelo.Clave, modelo.Estado, modelo.IdRol);
+                    if (resultado)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        //Pagina de Error
+                        return RedirectToAction("Error404", "Error");
+                    }
                 }
             }
             catch (Exception ex)
@@ -190,8 +233,8 @@ namespace Capa_Presentacion.Controllers
                 //Bitacora
                 string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
                 clsBitacora bitacora = new clsBitacora();
-                bitacora.AgregarBitacora("Usuario", "Eliminar", "INTENTO DE AUTODESTRUCCIÓN" + ex.Message, NombreUsuario, 0);
-                //Pagina de Error
+                bitacora.AgregarBitacora("Usuario", "Desactivar", ex.Message, NombreUsuario, 0);
+                //Pagina de errors
                 return RedirectToAction("Error500", "Error");
             }
         }
