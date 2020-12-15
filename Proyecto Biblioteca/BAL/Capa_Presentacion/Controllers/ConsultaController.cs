@@ -90,59 +90,44 @@ namespace Capa_Presentacion.Controllers
         //Accion para agregar :POST
         [Acceso]
         [HttpPost]
-        public ActionResult Agregar(Consulta consulta, HttpPostedFileBase ArchivoFile)
+        public ActionResult Agregar(Consulta consulta)
         {
             try
             {
 
-                string NombreArchivo = ArchivoFile.FileName;
-                Stream strmStream = ArchivoFile.InputStream;
+                if (!ModelState.IsValid)
+                {
+                    ViewBag.genero = new SelectList(new[] {
+                                     new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                                     new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estados = new SelectList(new[] {
+                new SelectListItem { Value = "Asignada", Text = "Asignada" },
+                new SelectListItem { Value = "Tramite", Text = "Trámite" },
+                new SelectListItem { Value = "Realizada", Text = "Realizada"}
+                                               }, "Value", "Text");
+                    //Retornamos el modelo
+                    return View(consulta);
+                }
+
+                string NombreArchivo = consulta.Archivo.FileName;
+                Stream strmStream = consulta.Archivo.InputStream;
 
                 Int32 Tamaño = (Int32)strmStream.Length;
                 byte[] BitesArchivo = new byte[Tamaño + 1];
                 strmStream.Read(BitesArchivo, 0, Tamaño);
                 strmStream.Close();
 
-                consulta = new Consulta();
-                consulta.archivo = new Archivillo();
-                
-                consulta.archivo.NombreArchivo = NombreArchivo;
-                consulta.archivo.TipoArchivo = ArchivoFile.ContentType;
-                consulta.archivo.Extension = Path.GetExtension(NombreArchivo);
-                consulta.archivo.ArchivoFile = BitesArchivo;
+                string TipoArchivo = consulta.Archivo.ContentType;
+                string Extension = Path.GetExtension(NombreArchivo);
 
-                /*
-                 El procedimiento almacenado recibe un parámetro de tipo varbinary(max) los otros 3 son varchar... y listo
-
-                falta guardar el archivo
-                validar el tamaño, la extensión y avisarle al cliente que es máximo un archivo por entidad
-
-
-                2 rojitos si
-
-                 */
-                
-
-                if (!ModelState.IsValid)
-                {
-                    ViewBag.genero = new SelectList(new[] {
-                new SelectListItem { Value = "Masculino", Text = "Masculino" },
-                new SelectListItem { Value = "Femenino", Text = "Femenino" }
-                                               }, "Value", "Text");
-                    ViewBag.estados = new SelectList(new[] {
-                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
-                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
-                                               }, "Value", "Text");
-                    //Retornamos el modelo
-                    return View(consulta);
-                }
                 clsConsulta objConsulta = new clsConsulta();
                 //Variables de SESSION
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                bool resultado = objConsulta.AgregarConsulta(CedulaUsuario, consulta.NombreSolicitante, consulta.ApellidoSolicitante1, 
-                    consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion, 
-                    consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso, 
-                    consulta.FechaRespuesta, consulta.Estado);
+                bool resultado = objConsulta.AgregarConsulta(CedulaUsuario, consulta.NombreSolicitante, consulta.ApellidoSolicitante1,
+                    consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion,
+                    consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
+                    consulta.FechaRespuesta, consulta.Estado, NombreArchivo, TipoArchivo, Extension, BitesArchivo);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
@@ -188,6 +173,10 @@ namespace Capa_Presentacion.Controllers
                 modelo.FechaRespuesta = dato[0].fechaRespuesta;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
                 modelo.Estado = dato[0].estado;
+                modelo.NombreArchivo = dato[0].nombreArchivo;
+                modelo.TipoArchivo = dato[0].tipoArchivo;
+                modelo.Extension = dato[0].extension;
+                modelo.ArchivoFile = dato[0].archivo.ToArray();
                 ViewBag.genero = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
@@ -212,7 +201,7 @@ namespace Capa_Presentacion.Controllers
         //Accion para actualizar :POST
         [Acceso]
         [HttpPost]
-        public ActionResult Actualizar(int Id, Consulta consulta)
+        public ActionResult Actualizar(Consulta consulta)
         {
             try
             {
@@ -229,21 +218,53 @@ namespace Capa_Presentacion.Controllers
                     //Retornamos el modelo
                     return View(consulta);
                 }
-                clsConsulta objConsulta = new clsConsulta();
-                //Variables de SESSION
-                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, CedulaUsuario, consulta.NombreSolicitante, 
-                    consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, 
-                    consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
-                    consulta.FechaRespuesta, consulta.Estado);
-                if (resultado)
+                else if (consulta.Archivo != null)
                 {
-                    return RedirectToAction("Index");
+                    string NombreArchivo = consulta.Archivo.FileName;
+                    Stream strmStream = consulta.Archivo.InputStream;
+
+                    Int32 Tamaño = (Int32)strmStream.Length;
+                    byte[] BitesArchivo = new byte[Tamaño + 1];
+                    strmStream.Read(BitesArchivo, 0, Tamaño);
+                    strmStream.Close();
+
+                    string TipoArchivo = consulta.Archivo.ContentType;
+                    string Extension = Path.GetExtension(NombreArchivo);
+                    clsConsulta objConsulta = new clsConsulta();
+                    //Variables de SESSION
+                    string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                    bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, CedulaUsuario, consulta.NombreSolicitante,
+                        consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto,
+                        consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
+                        consulta.FechaRespuesta, consulta.Estado, NombreArchivo, TipoArchivo, Extension, BitesArchivo);
+                    if (resultado)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        //Pagina de Error
+                        return RedirectToAction("Error404", "Error");
+                    }
                 }
                 else
                 {
-                    //Pagina de Error
-                    return RedirectToAction("Error404", "Error");
+                    clsConsulta objConsulta = new clsConsulta();
+                    //Variables de SESSION
+                    string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                    bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, CedulaUsuario, consulta.NombreSolicitante,
+                        consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto,
+                        consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
+                        consulta.FechaRespuesta, consulta.Estado, consulta.NombreArchivo, consulta.TipoArchivo, consulta.Extension, consulta.ArchivoFile);
+                    if (resultado)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        //Pagina de Error
+                        return RedirectToAction("Error404", "Error");
+                    }
                 }
             }
             catch (Exception ex)
@@ -253,6 +274,34 @@ namespace Capa_Presentacion.Controllers
                 clsBitacora bitacora = new clsBitacora();
                 bitacora.AgregarBitacora("Consulta", "Actualizar", ex.Message, NombreUsuario, 0);
                 //Pagina de Error
+                return RedirectToAction("Error500", "Error");
+            }
+        }
+
+        public ActionResult Descargar(Consulta consulta)
+        {
+            try
+            {
+                clsConsulta obj = new clsConsulta();
+                var x = obj.ConsultarConsulta(consulta.Id);
+
+                Response.Clear();
+                MemoryStream ms = new MemoryStream(x[0].archivo.ToArray());
+                Response.ContentType = x[0].tipoArchivo;
+                Response.AddHeader("content-disposition", "attachment;filename= " + x[0].nombreArchivo);
+                Response.Buffer = true;
+                ms.WriteTo(Response.OutputStream);
+                Response.End();
+
+                return RedirectToAction("Detalles", "Consulta");
+            }
+            catch (Exception ex)
+            {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("Consulta", "Agregar", ex.Message, NombreUsuario, 0);
+                //Pagina de error
                 return RedirectToAction("Error500", "Error");
             }
         }
@@ -282,6 +331,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.FechaRespuesta = dato[0].fechaRespuesta;
                 modelo.Estado = dato[0].estado;
                 modelo.GeneroSolicitante = dato[0].generoSolicitante;
+                modelo.NombreArchivo = dato[0].nombreArchivo;
                 modelo.CedulaUsuario = dato[0].cedulaUsuario;
                 modelo.Nombre = dato[0].nombre;
                 modelo.Apellido1 = dato[0].apellido1;

@@ -465,6 +465,10 @@
     <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
     <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
     <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="nombre" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="tipo" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="extension" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.ACTUALIZAR_PrestamoEquipo" Method="ACTUALIZAR_PrestamoEquipo">
@@ -936,6 +940,10 @@
     <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
     <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
     <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="nombreArchivo" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="tipoArchivo" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="extension" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.INSERTAR_DEPARTAMENTO" Method="INSERTAR_DEPARTAMENTO">
@@ -1068,6 +1076,10 @@
     <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
     <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
     <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="nombre" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="tipo" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="extension" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.RESTAURAR_INSERTAR_CIIE" Method="RESTAURAR_INSERTAR_CIIE">
@@ -1483,6 +1495,10 @@
       <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="estado" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="tipoArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="extension" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
       <Column Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="nombre" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="apellido1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
@@ -1506,6 +1522,10 @@
       <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="estado" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="tipoArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="extension" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
       <Column Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="nombre" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="apellido1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />

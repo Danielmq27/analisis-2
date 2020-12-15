@@ -144,7 +144,8 @@ namespace Capa_Presentacion.Controllers
                 bool resultado = objConsulta.RestaurarConsulta(modelo.CodigoConsulta, CedulaUsuario, modelo.NombreSolicitante,
                     modelo.ApellidoSolicitante1, modelo.ApellidoSolicitante2, modelo.Telefono,
                     modelo.Email, modelo.Asunto, modelo.Descripcion, modelo.Respuesta, modelo.MetodoIngreso,
-                    modelo.GeneroSolicitante, modelo.FechaIngreso, modelo.FechaFinal, modelo.Estado);
+                    modelo.GeneroSolicitante, modelo.FechaIngreso, modelo.FechaFinal, modelo.Estado, modelo.NombreArchivo,
+                    modelo.TipoArchivo, modelo.Extension, modelo.ArchivoFile);
                 if (resultado)
                 {
                     return RedirectToAction("Index");

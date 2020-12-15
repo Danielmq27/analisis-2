@@ -115,17 +115,17 @@ namespace Capa_Presentacion.Models
         [Display(Name = "Segundo apellido")]
         public string Apellido2 { get; set; }
 
-        public Archivillo archivo { get; set; }
+        [Display(Name = "Documento")]
+        public HttpPostedFileBase Archivo { get; set; }
 
-    }
-
-public class Archivillo
-{
+        [Display(Name = "Documento")]
         public string NombreArchivo { get; set; }
+
         public string TipoArchivo { get; set; }
+
         public string Extension { get; set; }
+
         public byte[] ArchivoFile { get; set; }
 
     }
-
 }

@@ -28,3 +28,13 @@ C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Logica\bin\Release\Ca
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Logica\obj\Release\Capa_Logica.csproj.CopyComplete
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Logica\obj\Release\Capa_Logica.dll
 C:\Users\Freddy Arias\Desktop\Proyecto Biblioteca\BAL\Capa_Logica\obj\Release\Capa_Logica.pdb
+C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Logica\obj\Release\Capa_Logica.csprojAssemblyReference.cache
+C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Logica\obj\Release\Capa_Logica.csproj.CoreCompileInputs.cache
+C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Logica\obj\Release\Capa_Logica.dll
+C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Logica\obj\Release\Capa_Logica.pdb
+C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Logica\bin\Release\Capa_Logica.dll
+C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Logica\bin\Release\Capa_Logica.pdb
+C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Logica\bin\Release\Capa_Datos.dll
+C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Logica\bin\Release\Capa_Datos.pdb
+C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Logica\bin\Release\Capa_Datos.dll.config
+C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Logica\obj\Release\Capa_Logica.csproj.CopyComplete

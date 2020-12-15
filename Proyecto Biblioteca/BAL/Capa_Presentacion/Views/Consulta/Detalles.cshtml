@@ -93,6 +93,16 @@
                             @Html.LabelFor(model => model.Respuesta)
                             @Html.EditorFor(model => model.Respuesta, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                         </div>
+                        <div class="col-lg-12">
+                            @Html.LabelFor(model => model.NombreArchivo)
+                            <div class="input-group">
+                                @Html.EditorFor(model => model.NombreArchivo, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                <span class="input-group-btn">
+                                    @Html.ActionLink("Descargar", "Descargar", "Consulta", Model, new { @class = "btn btn-success btn-flat" })
+                                </span>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="col-lg-6">
                         <div class="col-lg-12">

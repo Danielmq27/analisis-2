@@ -13,7 +13,7 @@
     }
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Actualizar", "Consulta", FormMethod.Post, new { role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div class="content">
@@ -22,6 +22,10 @@
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)
             @Html.HiddenFor(model => model.CodigoConsulta)
+            @Html.HiddenFor(model => model.NombreArchivo)
+            @Html.HiddenFor(model => model.TipoArchivo)
+            @Html.HiddenFor(model => model.Extension)
+            @Html.HiddenFor(model => model.ArchivoFile)
             <div class="box box-primary">
                 <div class="col-lg-12">
                     <h6 class="principal-texto">DATOS DEL SOLICITANTE</h6>
@@ -102,11 +106,21 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.Respuesta)
-                                    @Html.EditorFor(model => model.Respuesta, new { htmlAttributes = new { @class = "form-control"} })
+                                    @Html.EditorFor(model => model.Respuesta, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Respuesta, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    @Html.LabelFor(model => model.Archivo)
+                                    @Html.EditorFor(model => model.NombreArchivo, new { htmlAttributes = new { @class = "form-control" } })
+                                    <label>Nuevo documento</label>
+                                    @Html.TextBoxFor(model => model.Archivo, new { type = "file", name = "ArchivoFile", id = "ArchivoFile" })
+                                    @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.MetodoIngreso)
@@ -114,8 +128,6 @@
                                     @Html.ValidationMessageFor(model => model.MetodoIngreso, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.FechaIngreso)
@@ -152,3 +164,7 @@
     </div>
 
 }
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+

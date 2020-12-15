@@ -75,5 +75,13 @@ namespace Capa_Presentacion.Models
         //Atributo GeneroSolicitante
         [Display(Name = "Género del solicitante")]
         public string GeneroSolicitante { get; set; }
+
+        public string NombreArchivo { get; set; }
+
+        public string TipoArchivo { get; set; }
+
+        public string Extension { get; set; }
+
+        public byte[] ArchivoFile { get; set; }
     }
 }
