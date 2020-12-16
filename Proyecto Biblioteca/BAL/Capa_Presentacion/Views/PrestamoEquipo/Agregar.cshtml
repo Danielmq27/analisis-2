@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.NombreSolicitante)
-                                    @Html.EditorFor(model => model.NombreSolicitante, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.NombreSolicitante, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.NombreSolicitante, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.ApellidoSolicitante1)
-                                    @Html.EditorFor(model => model.ApellidoSolicitante1, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.ApellidoSolicitante1, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.ApellidoSolicitante1, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.ApellidoSolicitante2)
-                                    @Html.EditorFor(model => model.ApellidoSolicitante2, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.ApellidoSolicitante2, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.ApellidoSolicitante2, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.CedulaSolicitante)
-                                    @Html.EditorFor(model => model.CedulaSolicitante, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.CedulaSolicitante, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.CedulaSolicitante, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.Departamento)
-                                    @Html.EditorFor(model => model.Departamento, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.DropDownListFor(model => model.Departamento, new SelectList(ViewBag.listaDepartamentos, "Nombre", "Nombre"), "Seleccione", new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.Departamento, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -90,7 +90,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.TipoEquipo)
-                                    @Html.EditorFor(model => model.TipoEquipo, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.TipoEquipo, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.TipoEquipo, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.Implementos)
-                                    @Html.EditorFor(model => model.Implementos, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.Implementos, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.Implementos, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.EspecificacionImplementos)
-                                    @Html.EditorFor(model => model.EspecificacionImplementos, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.EspecificacionImplementos, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.EspecificacionImplementos, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.FechaIngreso)
-                                    @Html.EditorFor(model => model.FechaIngreso, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.FechaIngreso, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.FechaIngreso, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -123,7 +123,7 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.FechaRespuesta)
-                                    @Html.EditorFor(model => model.FechaRespuesta, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.FechaRespuesta, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.FechaRespuesta, "", new { @class = "text-danger" })
                                 </div>
                             </div>

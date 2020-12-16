@@ -61,6 +61,7 @@ namespace Capa_Presentacion.Models
         //Atributo EspecificacionCategoria
         [Required]
         [StringLength(100)]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Especificación de categoría")]
         public string EspecificacionCategoria { get; set; }
 

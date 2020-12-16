@@ -71,6 +71,8 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
+                clsDepartamento departamento = new clsDepartamento();
+                ViewBag.listaDepartamentos = departamento.ConsultarDepartamentos();
                 return View();
             }
             catch (Exception ex)
@@ -97,6 +99,8 @@ namespace Capa_Presentacion.Controllers
                         new SelectListItem { Value = "Masculino", Text = "Masculino" },
                         new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
+                    clsDepartamento departamento = new clsDepartamento();
+                    ViewBag.listaDepartamentos = departamento.ConsultarDepartamentos();
                     return View(prestamoAudiovisual);
                 }
                 clsPrestamoAudiovisual objPrestamoAudiovisual = new clsPrestamoAudiovisual();
@@ -158,6 +162,8 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
+                clsDepartamento departamento = new clsDepartamento();
+                ViewBag.listaDepartamentos = departamento.ConsultarDepartamentos();
                 return View(modelo);
             }
             catch (Exception ex)
@@ -184,6 +190,8 @@ namespace Capa_Presentacion.Controllers
                         new SelectListItem { Value = "Masculino", Text = "Masculino" },
                         new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
+                    clsDepartamento departamento = new clsDepartamento();
+                    ViewBag.listaDepartamentos = departamento.ConsultarDepartamentos();
                     return View(prestamoAudiovisual);
                 }
                 clsPrestamoAudiovisual objPrestamoAudiovisual = new clsPrestamoAudiovisual();

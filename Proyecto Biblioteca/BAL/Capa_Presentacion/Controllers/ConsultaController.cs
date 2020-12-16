@@ -71,8 +71,9 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
                 ViewBag.estados = new SelectList(new[] {
-                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
-                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                new SelectListItem { Value = "Asignada", Text = "Asignada" },
+                new SelectListItem { Value = "Tramite", Text = "Trámite" },
+                new SelectListItem { Value = "Realizada", Text = "Realizada"}
                                                }, "Value", "Text");
                 return View();
             }
@@ -203,8 +204,9 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
                 ViewBag.estados = new SelectList(new[] {
-                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
-                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                new SelectListItem { Value = "Asignada", Text = "Asignada" },
+                new SelectListItem { Value = "Tramite", Text = "Trámite" },
+                new SelectListItem { Value = "Realizada", Text = "Realizada"}
                                                }, "Value", "Text");
                 return View(modelo);
             }
@@ -233,8 +235,9 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
                                                }, "Value", "Text");
                     ViewBag.estados = new SelectList(new[] {
-                new SelectListItem { Value = "Pendiente", Text = "Pendiente" },
-                new SelectListItem { Value = "Finalizado", Text = "Finalizado" }
+                new SelectListItem { Value = "Asignada", Text = "Asignada" },
+                new SelectListItem { Value = "Tramite", Text = "Trámite" },
+                new SelectListItem { Value = "Realizada", Text = "Realizada"}
                                                }, "Value", "Text");
                     //Retornamos el modelo
                     return View(consulta);
