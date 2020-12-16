@@ -109,33 +109,54 @@ namespace Capa_Presentacion.Controllers
                     //Retornamos el modelo
                     return View(consulta);
                 }
-
-                string NombreArchivo = consulta.Archivo.FileName;
-                Stream strmStream = consulta.Archivo.InputStream;
-
-                Int32 Tamaño = (Int32)strmStream.Length;
-                byte[] BitesArchivo = new byte[Tamaño + 1];
-                strmStream.Read(BitesArchivo, 0, Tamaño);
-                strmStream.Close();
-
-                string TipoArchivo = consulta.Archivo.ContentType;
-                string Extension = Path.GetExtension(NombreArchivo);
-
-                clsConsulta objConsulta = new clsConsulta();
-                //Variables de SESSION
-                string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                bool resultado = objConsulta.AgregarConsulta(CedulaUsuario, consulta.NombreSolicitante, consulta.ApellidoSolicitante1,
-                    consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion,
-                    consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
-                    consulta.FechaRespuesta, consulta.Estado, NombreArchivo, TipoArchivo, Extension, BitesArchivo);
-                if (resultado)
+                if (consulta.Archivo != null)
                 {
-                    return RedirectToAction("Index");
-                }
+                    string NombreArchivo = consulta.Archivo.FileName;
+                    Stream strmStream = consulta.Archivo.InputStream;
+
+                    Int32 Tamaño = (Int32)strmStream.Length;
+                    byte[] BitesArchivo = new byte[Tamaño + 1];
+                    strmStream.Read(BitesArchivo, 0, Tamaño);
+                    strmStream.Close();
+
+                    string TipoArchivo = consulta.Archivo.ContentType;
+                    string Extension = Path.GetExtension(NombreArchivo);
+
+                    clsConsulta objConsulta = new clsConsulta();
+                    //Variables de SESSION
+                    string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                    bool resultado = objConsulta.AgregarConsulta(CedulaUsuario, consulta.NombreSolicitante, consulta.ApellidoSolicitante1,
+                        consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion,
+                        consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
+                        consulta.FechaRespuesta, consulta.Estado, NombreArchivo, TipoArchivo, Extension, BitesArchivo);
+                    if (resultado)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        //Pagina de Error
+                        return RedirectToAction("Error404", "Error");
+                    }
+                } 
                 else
                 {
-                    //Pagina de Error
-                    return RedirectToAction("Error404", "Error");
+                    clsConsulta objConsulta = new clsConsulta();
+                    //Variables de SESSION
+                    string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                    bool resultado = objConsulta.AgregarConsulta(CedulaUsuario, consulta.NombreSolicitante, consulta.ApellidoSolicitante1,
+                        consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion,
+                        consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
+                        consulta.FechaRespuesta, consulta.Estado, consulta.NombreArchivo, consulta.TipoArchivo, consulta.Extension, consulta.ArchivoFile);
+                    if (resultado)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        //Pagina de Error
+                        return RedirectToAction("Error404", "Error");
+                    }
                 }
             }
             catch (Exception ex)
@@ -387,8 +408,8 @@ namespace Capa_Presentacion.Controllers
             try
             {
                 string tabla = "RefConsecutivoConsulta";
-                string tabla1 = "Usuario_Consulta";
-                string tabla2 = "Consulta";
+                string tabla1 = "Consulta";
+                string tabla2 = "AuditoriaConsulta";
                 clsControl control = new clsControl();
                 bool resultado = control.Eliminar_Tabla(tabla, tabla1, tabla2);
                 if (resultado)

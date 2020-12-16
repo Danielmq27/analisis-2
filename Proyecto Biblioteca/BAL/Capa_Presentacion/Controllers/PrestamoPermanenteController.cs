@@ -193,8 +193,8 @@ namespace Capa_Presentacion.Controllers
                 }
                 clsPrestamoPermanente objPrestamoPermanente = new clsPrestamoPermanente();
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                bool resultado = objPrestamoPermanente.ActualizarPrestamoPermanente(prestamoPermanente.Id, 
-                    prestamoPermanente.CodigoPrestamoPermanente, CedulaUsuario, prestamoPermanente.NombreSolicitante, 
+                bool resultado = objPrestamoPermanente.ActualizarPrestamoPermanente(prestamoPermanente.Id, CedulaUsuario,
+                    prestamoPermanente.CodigoPrestamoPermanente, prestamoPermanente.NombreSolicitante, 
                     prestamoPermanente.ApellidoSolicitante1, prestamoPermanente.ApellidoSolicitante2,
                     prestamoPermanente.Despacho, prestamoPermanente.Telefono, prestamoPermanente.Extension,
                     prestamoPermanente.InformacionAdicional, prestamoPermanente.GeneroSolicitante, 
@@ -299,8 +299,8 @@ namespace Capa_Presentacion.Controllers
             try
             {
                 string tabla = "RefConsecutivoPP";
-                string tabla1 = "Usuario_PrestamoPermanente";
-                string tabla2 = "PrestamoPermanente";
+                string tabla1 = "PrestamoPermanente";
+                string tabla2 = "AuditoriaPrestamoPermanente";
                 clsControl control = new clsControl();
                 bool resultado = control.Eliminar_Tabla(tabla, tabla1, tabla2);
                 if (resultado)

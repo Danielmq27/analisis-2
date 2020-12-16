@@ -327,8 +327,8 @@ namespace Capa_Presentacion.Controllers
             try
             {
                 string tabla = "RefConsecutivoCIIE";
-                string tabla1 = "Usuario_FormularioCIIE";
-                string tabla2 = "FormularioCIIE";
+                string tabla1 = "FormularioCIIE";
+                string tabla2 = "AuditoriaFormularioCIIE";
                 clsControl control = new clsControl();
                 bool resultado = control.Eliminar_Tabla(tabla, tabla1, tabla2);
                 if (resultado)

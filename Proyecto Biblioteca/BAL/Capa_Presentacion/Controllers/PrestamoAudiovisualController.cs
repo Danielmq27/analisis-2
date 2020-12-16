@@ -188,11 +188,8 @@ namespace Capa_Presentacion.Controllers
                 }
                 clsPrestamoAudiovisual objPrestamoAudiovisual = new clsPrestamoAudiovisual();
                 string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
-                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
-                string Apellido1Usuario = System.Web.HttpContext.Current.Session["apellido1"] as String;
-                string Apellido2Usuario = System.Web.HttpContext.Current.Session["apellido2"] as String;
-                bool resultado = objPrestamoAudiovisual.ActualizarPrestamoAudioVisual(prestamoAudiovisual.Id,
-                    prestamoAudiovisual.CodigoPrestamoAudiovisual, CedulaUsuario, prestamoAudiovisual.NombreSolicitante, 
+                bool resultado = objPrestamoAudiovisual.ActualizarPrestamoAudioVisual(prestamoAudiovisual.Id, CedulaUsuario,
+                    prestamoAudiovisual.CodigoPrestamoAudiovisual, prestamoAudiovisual.NombreSolicitante, 
                     prestamoAudiovisual.ApellidoSolicitante1, prestamoAudiovisual.ApellidoSolicitante2, 
                     prestamoAudiovisual.Telefono, prestamoAudiovisual.Departamento, prestamoAudiovisual.NombreActividad, 
                     prestamoAudiovisual.Categoria, prestamoAudiovisual.EspecificacionCategoria, prestamoAudiovisual.Ubicacion,
@@ -302,8 +299,8 @@ namespace Capa_Presentacion.Controllers
             try
             {
                 string tabla = "RefConsecutivoPA";
-                string tabla1 = "Usuario_PrestamoAudiovisual";
-                string tabla2 = "PrestamoAudiovisual";
+                string tabla1 = "PrestamoAudiovisual";
+                string tabla2 = "AuditoriaPrestamoAudiovisual";
                 clsControl control = new clsControl();
                 bool resultado = control.Eliminar_Tabla(tabla, tabla1, tabla2);
                 if (resultado)
