@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Biblioteca Asamblea Legislativa | Principal</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    @System.Web.Optimization.Styles.Render("~/Css")
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    @Html.Raw(TempData["msg"])
+    <!-- Site wrapper -->
+    <div class="wrapper">
+
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini" style="font-size:14px;">GDA</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg" style="font-size:14px;">Gestión Documental y Archivo</span>
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Navegación de palanca</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="hidden-xs">@HttpContext.Current.Session["nombreUsuario"].ToString()</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="../../Content/dist/img/logo-mini.png" class="img-circle" alt="User Image">
+                                    <p>
+                                        @HttpContext.Current.Session["nombreUsuario"].ToString()
+                                        <small>@HttpContext.Current.Session["Rol"].ToString()</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <button type="button" class="btn btn-success btn-flat" data-toggle="modal" data-target="#alertaCambiar">
+                                            Cambiar Contraseña
+                                        </button>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="@Url.Action("CerrarSesion", "Principal")" class="btn btn-danger btn-flat fa fa-arrow-left" title="Cerrar Sesión"></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="header">NAVEGACIÓN PRINCIPAL</li>
+                    <li><a href="@Url.Action("Index", "FormularioCIIE")"><i class="fa fa-book"></i> <span>Formulario CIIE</span></a></li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Reporteria</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("Index", "ReporteFormularioCIIE")"><i class="fa fa-circle-o"></i> Formulario CIIE</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.3.8
+            </div>
+            <strong>Copyright &copy; 2020 <a href="">Biblioteca Asamblea Legislativa</a>.</strong> Todos los derechos
+            reservados.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Create the tabs -->
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+
+                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Home tab content -->
+                <div class="tab-pane" id="control-sidebar-home-tab">
+
+                </div>
+                <!-- /.tab-pane -->
+                <!-- Stats tab content -->
+                <div class="tab-pane" id="control-sidebar-stats-tab"></div>
+                <!-- /.tab-pane -->
+                <!-- Settings tab content -->
+                <div class="tab-pane" id="control-sidebar-settings-tab">
+
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- Ventana para actualizar contraseña  -->
+    <div class="modal fade" id="alertaCambiar" tabindex="-1" aria-labelledby="alertaCambiar" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Cambiar contraseña</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="@Url.Action("Cambiar", "Principal")" id="frmCambiar" method="post">
+                        <div class="form-group">
+                            <label>Contraseña actual</label>
+                            <input type="password" id="ClaveTemporal" name="ClaveTemporal" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password" id="Clave" name="Clave" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Confirmar contraseña</label>
+                            <input type="password" id="ClaveConfirmar" name="ClaveConfirmar" class="form-control" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button id="cambiar" type="button" onclick="Cambiar()" class="btn btn-success">Cambiar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @System.Web.Optimization.Scripts.Render("~/Js")
+    <script>
+        $(function () {
+            $("#example1").DataTable();
+            $('#example2').DataTable({
+                "paging": false,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": false,
+                "info": false,
+                "autoWidth": true
+            });
+        });
+
+        function Cambiar() {
+            var frmCambiar = document.getElementById("frmCambiar");
+            frmCambiar.submit();
+        }
+
+        $(document).ready(function () {
+            $("#cambiar").click(function () {
+                if ($("#ClaveTemporal").val() === "" || $("#Clave").val() === "" || $("#ClaveConfirmar").val() === "") {
+                    alert("Rellene todos los campos");
+                } else {
+                    $('#alertaCambiar').closeModal();
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>
+

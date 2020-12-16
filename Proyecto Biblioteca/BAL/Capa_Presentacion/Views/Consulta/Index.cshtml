@@ -8,13 +8,21 @@
     {
         Layout = "~/Views/Shared/_Administrador.cshtml";
     }
-    else if (Rol == "Editar Consulta")
+    else if (Rol == "Administrador Consultas")
+    {
+        Layout = "~/Views/Shared/_AdministradorConsulta.cshtml";
+    }
+    else if (Rol == "Editar Consultas")
     {
         Layout = "~/Views/Shared/_EditarConsulta.cshtml";
     }
-    else
+    else if (Rol == "Consultar")
     {
         Layout = "~/Views/Shared/_Consultar.cshtml";
+    }
+    else
+    {
+
     }
 }
 
@@ -26,7 +34,7 @@
                     <h4 class="principal-texto">CONSULTAS</h4>
                 </div>
                 <div class="box-body box box-info">
-                    @if (Rol == "Administrador" || Rol == "Editar Consulta")
+                    @if (Rol == "Administrador" || Rol == "Administrador Consultas" || Rol == "Editar Consultas")
                     {
                         @Html.ActionLink(" Agregar", "Agregar", null, new { @class = "btn btn-success btn-sm fa fa-plus" })
                     }
@@ -79,7 +87,7 @@
                                             @Html.DisplayFor(modelItem => item.Estado)
                                         </td>
                                         <td>
-                                            @if (Rol == "Administrador")
+                                            @if (Rol == "Administrador" || Rol == "Administrador Consultas")
                                             {
                                                 @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" })
                                                 @Html.Name(" | ")
@@ -89,7 +97,7 @@
                                                 @Html.Name(" | ")
                                                 @Html.ActionLink(" Detalles", "Detalles", new { id = item.Id }, new { @class = "btn btn-info btn-sm fa fa-file-text" })
                                             }
-                                            else if (Rol == "Editar Consulta")
+                                            else if (Rol == "Editar Consultas")
                                             {
                                                 @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" })
                                                 @Html.Name(" | ")

@@ -7,13 +7,21 @@
     {
         Layout = "~/Views/Shared/_Administrador.cshtml";
     }
+    else if (Rol == "Administrador Consultas CIIE")
+    {
+        Layout = "~/Views/Shared/_AdministradorCIIE.cshtml";
+    }
     else if (Rol == "Editar Consultas CIIE")
     {
         Layout = "~/Views/Shared/_EditarCIIE.cshtml";
     }
-    else
+    else if (Rol == "Consultar")
     {
         Layout = "~/Views/Shared/_Consultar.cshtml";
+    }
+    else
+    {
+
     }
 }
 

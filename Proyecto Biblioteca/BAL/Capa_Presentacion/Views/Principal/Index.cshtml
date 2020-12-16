@@ -5,21 +5,29 @@
     {
         Layout = "~/Views/Shared/_Administrador.cshtml";
     }
+    else if (Rol == "Administrador Servicios Bibliotecarios")
+    {
+        Layout = "~/Views/Shared/_AdministradorSB.cshtml";
+    }
+    else if (Rol == "Administrador Consultas")
+    {
+        Layout = "~/Views/Shared/_AdministradorConsulta.cshtml";
+    }
+    else if (Rol == "Administrador Consultas CIIE")
+    {
+        Layout = "~/Views/Shared/_AdministradorCIIE.cshtml";
+    }
     else if (Rol == "Editar Servicios Bibliotecarios")
     {
         Layout = "~/Views/Shared/_EditarSB.cshtml";
     }
-    else if (Rol == "Editar Consulta")
+    else if (Rol == "Editar Consultas")
     {
         Layout = "~/Views/Shared/_EditarConsulta.cshtml";
     }
     else if (Rol == "Editar Consultas CIIE")
     {
         Layout = "~/Views/Shared/_EditarCIIE.cshtml";
-    }
-    else if (Rol == "Editar Consultas CEDIL")
-    {
-        Layout = "~/Views/Shared/_EditarCEDIL.cshtml";
     }
     else
     {

@@ -1302,7 +1302,6 @@
     <Content Include="Views\Shared\_EditarSB.cshtml" />
     <Content Include="Views\Shared\_EditarConsulta.cshtml" />
     <Content Include="Views\Shared\_EditarCIIE.cshtml" />
-    <Content Include="Views\Shared\_EditarCEDIL.cshtml" />
     <Content Include="Views\Fraccion\Index.cshtml" />
     <Content Include="Views\Despacho\Index.cshtml" />
     <Content Include="Views\Departamento\Index.cshtml" />
@@ -1314,6 +1313,9 @@
     <Content Include="Views\ReporteFormularioCEDIL\CantidadUsuariosFechaIngresoFechaRespuestaCEDIL.cshtml" />
     <Content Include="Views\ReporteFormularioCEDIL\CantidadUsuariosFechaRespuestaCEDIL.cshtml" />
     <Content Include="Views\ReporteFormularioCEDIL\Index.cshtml" />
+    <Content Include="Views\Shared\_AdministradorCIIE.cshtml" />
+    <Content Include="Views\Shared\_AdministradorConsulta.cshtml" />
+    <Content Include="Views\Shared\_AdministradorSB.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

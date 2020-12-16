@@ -7,7 +7,11 @@
     {
         Layout = "~/Views/Shared/_Administrador.cshtml";
     }
-    else if (Rol == "Editar Consulta")
+    else if (Rol == "Administrador Consultas")
+    {
+        Layout = "~/Views/Shared/_AdministradorConsulta.cshtml";
+    }
+    else if (Rol == "Editar Consultas")
     {
         Layout = "~/Views/Shared/_EditarConsulta.cshtml";
     }

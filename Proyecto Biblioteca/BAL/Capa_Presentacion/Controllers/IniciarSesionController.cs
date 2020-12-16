@@ -56,7 +56,7 @@ namespace Capa_Presentacion.Controllers
                     {
                         Session["Usuario"] = Usuario;
                         Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
-                        Session["Rol"] = "Editar Servicios Bibliotecarios";
+                        Session["Rol"] = "Administrador Servicios Bibliotecarios";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
                         Session["nombre"] = Usuario.nombre;
@@ -68,7 +68,7 @@ namespace Capa_Presentacion.Controllers
                     {
                         Session["Usuario"] = Usuario;
                         Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
-                        Session["Rol"] = "Editar Consulta";
+                        Session["Rol"] = "Administrador Consultas";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
                         Session["nombre"] = Usuario.nombre;
@@ -80,7 +80,7 @@ namespace Capa_Presentacion.Controllers
                     {
                         Session["Usuario"] = Usuario;
                         Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
-                        Session["Rol"] = "Editar Consultas CIIE";
+                        Session["Rol"] = "Administrador Consultas CIIE";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
                         Session["nombre"] = Usuario.nombre;
@@ -92,14 +92,39 @@ namespace Capa_Presentacion.Controllers
                     {
                         Session["Usuario"] = Usuario;
                         Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
-                        Session["Rol"] = "Editar Consultas CEDIL";
+                        Session["Rol"] = "Editar Servicios Bibliotecarios";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
                         Session["nombre"] = Usuario.nombre;
                         Session["apellido1"] = Usuario.apellido1;
                         Session["apellido2"] = Usuario.apellido2;
                         return RedirectToAction("Index", "Principal");
-                    } else
+                    }
+                    else if (Usuario.IdRol == 6)
+                    {
+                        Session["Usuario"] = Usuario;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["Rol"] = "Editar Consultas";
+                        //Tabla control
+                        Session["cedula"] = Usuario.cedula;
+                        Session["nombre"] = Usuario.nombre;
+                        Session["apellido1"] = Usuario.apellido1;
+                        Session["apellido2"] = Usuario.apellido2;
+                        return RedirectToAction("Index", "Principal");
+                    }
+                    else if (Usuario.IdRol == 7)
+                    {
+                        Session["Usuario"] = Usuario;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["Rol"] = "Editar Consultas CIIE";
+                        //Tabla control
+                        Session["cedula"] = Usuario.cedula;
+                        Session["nombre"] = Usuario.nombre;
+                        Session["apellido1"] = Usuario.apellido1;
+                        Session["apellido2"] = Usuario.apellido2;
+                        return RedirectToAction("Index", "Principal");
+                    }
+                    else
                     {
                         Session["Usuario"] = Usuario;
                         Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;

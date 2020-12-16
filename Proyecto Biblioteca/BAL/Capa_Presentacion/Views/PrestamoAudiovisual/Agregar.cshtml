@@ -7,9 +7,17 @@
     {
         Layout = "~/Views/Shared/_Administrador.cshtml";
     }
+    else if (Rol == "Administrador Servicios Bibliotecarios")
+    {
+        Layout = "~/Views/Shared/_EditarSB.cshtml";
+    }
     else if (Rol == "Editar Servicios Bibliotecarios")
     {
         Layout = "~/Views/Shared/_EditarSB.cshtml";
+    }
+    else
+    {
+
     }
 }
 

@@ -7,13 +7,21 @@
     {
         Layout = "~/Views/Shared/_Administrador.cshtml";
     }
+    else if (Rol == "Administrador Servicios Bibliotecarios")
+    {
+        Layout = "~/Views/Shared/_AdministradorSB.cshtml";
+    }
     else if (Rol == "Editar Servicios Bibliotecarios")
     {
         Layout = "~/Views/Shared/_EditarSB.cshtml";
     }
-    else
+    else if (Rol == "Consultar")
     {
         Layout = "~/Views/Shared/_Consultar.cshtml";
+    }
+    else
+    {
+
     }
 }
 
@@ -25,7 +33,7 @@
                     <h4 class="principal-texto">PRÉSTAMOS DE EQUIPO</h4>
                 </div>
                 <div class="box-body box box-info">
-                    @if (Rol == "Administrador" || Rol == "Editar Servicios Bibliotecarios")
+                    @if (Rol == "Administrador" || Rol == "Administrador Servicios Bibliotecarios" || Rol == "Editar Servicios Bibliotecarios")
                     {
                         @Html.ActionLink(" Agregar", "Agregar", null, new { @class = "btn btn-success btn-sm fa fa-plus" })
                     }
@@ -78,7 +86,7 @@
                                             @Html.DisplayFor(modelItem => item.Estado)
                                         </td>
                                         <td>
-                                            @if (Rol == "Administrador")
+                                            @if (Rol == "Administrador" || Rol == "Administrador Servicios Bibliotecarios")
                                             {
                                                 @Html.ActionLink(" Actualizar", "Actualizar", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fa fa-edit" })
                                                 @Html.Name(" | ")
