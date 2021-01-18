@@ -58,11 +58,13 @@ namespace Capa_Presentacion.Models
 
         //Atributo Descripcion
         [StringLength(500)]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
 
         //Atributo Respuesta
         [Required]
+        [DataType(DataType.MultilineText)]
         public string Respuesta { get; set; }
 
         //Atributo MetodoIngreso

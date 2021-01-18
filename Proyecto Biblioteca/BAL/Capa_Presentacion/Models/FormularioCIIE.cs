@@ -64,6 +64,7 @@ namespace Capa_Presentacion.Models
 
         //Atributo EspecificacionDespacho
         [StringLength(50)]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Especificación del despacho")]
         public string EspecificacionDespacho { get; set; }
 
@@ -75,6 +76,7 @@ namespace Capa_Presentacion.Models
 
         //Atributo EspecificacionConsulta
         [StringLength(50)]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Especificación de la consulta")]
         public string EspecificacionConsulta { get; set; }
 
@@ -85,12 +87,14 @@ namespace Capa_Presentacion.Models
 
         //Atributo InformacionRequerida
         [Required]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Información requerida")]
         public string InformacionRequerida { get; set; }
 
         //Atributo UsoInformacion
         [Required]
         [StringLength(40)]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Uso de información")]
         public string UsoInformacion { get; set; }
 

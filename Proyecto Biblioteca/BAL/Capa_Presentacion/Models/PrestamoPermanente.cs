@@ -54,6 +54,7 @@ namespace Capa_Presentacion.Models
         public string Extension { get; set; }
 
         //Atributo InformacionAdicional
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Información adicional")]
         public string InformacionAdicional { get; set; }
 

@@ -12,11 +12,11 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     @System.Web.Optimization.Styles.Render("~/Css")
 </head>
-<body class="hold-transition login-page">
+<body class="login-page">
     @Html.Raw(TempData["msg"])
     <div class="login-box">
         <div class="login-logo">
-            <a href="../IniciarSesion/Index"><b>Gestión Documental y Archivo</b></a>
+            <a href="../IniciarSesion/Index"><b>Departamento Gestión Documental y Archivo</b></a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-xs-8">
                         <div>
-                            <a href="../IniciarSesion/Recuperar"><b> Olvidaste tu contraseña?</b></a>
+                            <a href="../IniciarSesion/Recuperar" class="olv"><b class="olv"> Olvidaste tu contraseña?</b></a>
                         </div>
                     </div>
                     <!-- /.col -->
@@ -46,6 +46,7 @@
         </div>
         <!-- /.login-box-body -->
     </div>
+    <img src="~/Imagenes/logo.png" height="120" width="400" style="float:right;"/>
 </body>
 </html>
 

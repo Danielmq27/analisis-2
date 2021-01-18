@@ -87,7 +87,11 @@ namespace Capa_Presentacion.Controllers
                 bool resultado = objUsuario.AgregarUsuario(usuario.Cedula, usuario.Nombre, usuario.Apellido1, usuario.Apellido2, Seguridad.Encriptar(usuario.Email), Seguridad.Encriptar(usuario.Clave), Estado, usuario.IdRol);
                 if (resultado)
                 {
-                    Correo.enviarCorreo(usuario.Email, "Biblioteca Asamble Legislativa","Bienvenido al sistema, su clave temporal es:" + usuario.Clave, "");
+                    Correo.enviarCorreo(usuario.Email, "Sistema de Consultas del Departamento de Gestión Documental y Archivo", "Bienvenido al Sistema de Consultas del Departamento de Gestión Documental y Archivo.\n" + 
+                                        "Su clave temporal es la siguiente: " + usuario.Clave + ", no puede usarse más de una vez.Favor ingresar al sistema y cambiarla....Nota: use contraseñas " + 
+                                        "seguras que combinen letras mayúsculas y minúsculas, números y símbolos.Las contraseñas no seguras no combinan estos elementos.Contraseña " +
+                                        "segura: Y6dh!et5. Contraseña no segura: House27.Las contraseñas deberían tener 8 caracteres o más.Le recomendamos usar una frase de contraseña " +
+                                        "que contenga como mínimo 14 caracteres.", "");
                     return RedirectToAction("Index");
                 } else
                 {

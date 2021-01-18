@@ -61,6 +61,7 @@ namespace Capa_Presentacion.Models
 
         //Atributo EspecificacionImplementos
         [StringLength(50)]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Especificación de implementos")]
         public string EspecificacionImplementos { get; set; }
 

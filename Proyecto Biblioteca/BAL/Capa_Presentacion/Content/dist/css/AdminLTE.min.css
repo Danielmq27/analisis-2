@@ -3447,14 +3447,15 @@ table.text-center, table.text-center td, table.text-center th {
 }
 
     .login-logo a, .register-logo a {
-        color: #fff
+        color: #000
     }
 
 .login-page, .register-page {
-    background: linear-gradient(rgba(26, 26, 26,.7), rgba(26, 26, 26,.7)), url("../../../Imagenes/fondito.jpg");
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
+    width: 100%;
+    height: 100%;
 }
 
 .login-box, .register-box {
@@ -3486,7 +3487,7 @@ table.text-center, table.text-center td, table.text-center th {
 }
 
 .login-box-body, .register-box-body {
-    background: #fff;
+    background: rgba(0,0,0,0.2);
     padding: 20px;
     border-top: 0;
     color: #666
@@ -3499,7 +3500,8 @@ table.text-center, table.text-center td, table.text-center th {
 .login-box-msg, .register-box-msg {
     margin: 0;
     text-align: center;
-    padding: 0 20px 20px 20px
+    padding: 0 20px 20px 20px;
+    color: #000;
 }
 
 .social-auth-links {
@@ -3523,6 +3525,9 @@ table.text-center, table.text-center td, table.text-center th {
     font-weight: 300
 }
 
+.olv {
+    color: #000;
+}
 @media (max-width:991px) {
     .error-page > .headline {
         float: none;
