@@ -51,6 +51,15 @@ namespace Capa_Presentacion.Controllers
                         Session["nombre"] = Usuario.nombre;
                         Session["apellido1"] = Usuario.apellido1;
                         Session["apellido2"] = Usuario.apellido2;
+
+                        //Saber cuantas consultas pendientes tiene el usuario
+                        clsConsulta consulta = new clsConsulta();
+                        string Referido = System.Web.HttpContext.Current.Session["nombreUsuario"] as String;
+                        var data = consulta.CantidadConsultasPendientes(Referido).ToList();
+                        foreach (var item in data)
+                        {
+                            Session["cantidad"] = item.Column1;
+                        }
                         return RedirectToAction("Index", "Principal");
                     } else if (Usuario.IdRol == 2)
                     {
@@ -62,6 +71,15 @@ namespace Capa_Presentacion.Controllers
                         Session["nombre"] = Usuario.nombre;
                         Session["apellido1"] = Usuario.apellido1;
                         Session["apellido2"] = Usuario.apellido2;
+
+                        //Saber cuantas consultas pendientes tiene el usuario
+                        clsConsulta consulta = new clsConsulta();
+                        string Referido = System.Web.HttpContext.Current.Session["nombreUsuario"] as String;
+                        var data = consulta.CantidadConsultasPendientes(Referido).ToList();
+                        foreach (var item in data)
+                        {
+                            Session["cantidad"] = item.Column1;
+                        }
                         return RedirectToAction("Index", "Principal");
                     }
                     else if (Usuario.IdRol == 3)
@@ -74,6 +92,15 @@ namespace Capa_Presentacion.Controllers
                         Session["nombre"] = Usuario.nombre;
                         Session["apellido1"] = Usuario.apellido1;
                         Session["apellido2"] = Usuario.apellido2;
+
+                        //Saber cuantas consultas pendientes tiene el usuario
+                        clsConsulta consulta = new clsConsulta();
+                        string Referido = System.Web.HttpContext.Current.Session["nombreUsuario"] as String;
+                        var data = consulta.CantidadConsultasPendientes(Referido).ToList();
+                        foreach (var item in data)
+                        {
+                            Session["cantidad"] = item.Column1;
+                        }
                         return RedirectToAction("Index", "Principal");
                     }
                     else if (Usuario.IdRol == 4)
@@ -86,6 +113,15 @@ namespace Capa_Presentacion.Controllers
                         Session["nombre"] = Usuario.nombre;
                         Session["apellido1"] = Usuario.apellido1;
                         Session["apellido2"] = Usuario.apellido2;
+
+                        //Saber cuantas consultas pendientes tiene el usuario
+                        clsConsulta consulta = new clsConsulta();
+                        string Referido = System.Web.HttpContext.Current.Session["nombreUsuario"] as String;
+                        var data = consulta.CantidadConsultasPendientes(Referido).ToList();
+                        foreach (var item in data)
+                        {
+                            Session["cantidad"] = item.Column1;
+                        }
                         return RedirectToAction("Index", "Principal");
                     }
                     else if (Usuario.IdRol == 5)
@@ -98,6 +134,15 @@ namespace Capa_Presentacion.Controllers
                         Session["nombre"] = Usuario.nombre;
                         Session["apellido1"] = Usuario.apellido1;
                         Session["apellido2"] = Usuario.apellido2;
+
+                        //Saber cuantas consultas pendientes tiene el usuario
+                        clsConsulta consulta = new clsConsulta();
+                        string Referido = System.Web.HttpContext.Current.Session["nombreUsuario"] as String;
+                        var data = consulta.CantidadConsultasPendientes(Referido).ToList();
+                        foreach (var item in data)
+                        {
+                            Session["cantidad"] = item.Column1;
+                        }
                         return RedirectToAction("Index", "Principal");
                     }
                     else if (Usuario.IdRol == 6)
@@ -110,6 +155,15 @@ namespace Capa_Presentacion.Controllers
                         Session["nombre"] = Usuario.nombre;
                         Session["apellido1"] = Usuario.apellido1;
                         Session["apellido2"] = Usuario.apellido2;
+
+                        //Saber cuantas consultas pendientes tiene el usuario
+                        clsConsulta consulta = new clsConsulta();
+                        string Referido = System.Web.HttpContext.Current.Session["nombreUsuario"] as String;
+                        var data = consulta.CantidadConsultasPendientes(Referido).ToList();
+                        foreach (var item in data)
+                        {
+                            Session["cantidad"] = item.Column1;
+                        }
                         return RedirectToAction("Index", "Principal");
                     }
                     else if (Usuario.IdRol == 7)
@@ -122,13 +176,36 @@ namespace Capa_Presentacion.Controllers
                         Session["nombre"] = Usuario.nombre;
                         Session["apellido1"] = Usuario.apellido1;
                         Session["apellido2"] = Usuario.apellido2;
+
+                        //Saber cuantas consultas pendientes tiene el usuario
+                        clsConsulta consulta = new clsConsulta();
+                        string Referido = System.Web.HttpContext.Current.Session["nombreUsuario"] as String;
+                        var data = consulta.CantidadConsultasPendientes(Referido).ToList();
+                        foreach (var item in data)
+                        {
+                            Session["cantidad"] = item.Column1;
+                        }
                         return RedirectToAction("Index", "Principal");
                     }
                     else
                     {
                         Session["Usuario"] = Usuario;
                         Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1 + " " + Usuario.apellido2;
+                        //Tabla control
+                        Session["cedula"] = Usuario.cedula;
+                        Session["nombre"] = Usuario.nombre;
+                        Session["apellido1"] = Usuario.apellido1;
+                        Session["apellido2"] = Usuario.apellido2;
                         Session["Rol"] = "Consultar";
+
+                        //Saber cuantas consultas pendientes tiene el usuario
+                        clsConsulta consulta = new clsConsulta();
+                        string Referido = System.Web.HttpContext.Current.Session["nombreUsuario"] as String;
+                        var data = consulta.CantidadConsultasPendientes(Referido).ToList();
+                        foreach (var item in data)
+                        {
+                            Session["cantidad"] = item.Column1;
+                        }
                         return RedirectToAction("Index", "Principal");
                     }
                 }

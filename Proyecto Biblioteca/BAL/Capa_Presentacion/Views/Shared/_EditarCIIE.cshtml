@@ -101,6 +101,16 @@
                             <li><a href="@Url.Action("Index", "ReporteFormularioCIIE")"><i class="fa fa-circle-o"></i> Consultas CIIE</a></li>
                         </ul>
                     </li>
+                    <li class="header">PENDIENTES</li>
+                    <li class="treeview">
+                        <a href="@Url.Action("ConsultasPendientes", "Consulta")">
+                            <i class="fa fa-circle-o text-red"></i>
+                            <span>Consultas Pendientes</span>
+                            <span class="pull-right-container">
+                                <span class="label label-warning pull-right">@HttpContext.Current.Session["cantidad"].ToString()</span>
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </section>
             <!-- /.sidebar -->

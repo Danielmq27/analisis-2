@@ -1302,6 +1302,13 @@ namespace Capa_Datos
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), referido);
 			return ((ISingleResult<SELECCIONAR_CONSULTA_ASIGNADAResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CANTIDAD_CONSULTAS_PENDIENTES")]
+		public ISingleResult<CANTIDAD_CONSULTAS_PENDIENTESResult> CANTIDAD_CONSULTAS_PENDIENTES([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Referido", DbType="NVarChar(40)")] string referido)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), referido);
+			return ((ISingleResult<CANTIDAD_CONSULTAS_PENDIENTESResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Area")]
@@ -20867,6 +20874,32 @@ namespace Capa_Datos
 				if ((this._referido != value))
 				{
 					this._referido = value;
+				}
+			}
+		}
+	}
+	
+	public partial class CANTIDAD_CONSULTAS_PENDIENTESResult
+	{
+		
+		private System.Nullable<int> _Column1;
+		
+		public CANTIDAD_CONSULTAS_PENDIENTESResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="", Storage="_Column1", DbType="Int")]
+		public System.Nullable<int> Column1
+		{
+			get
+			{
+				return this._Column1;
+			}
+			set
+			{
+				if ((this._Column1 != value))
+				{
+					this._Column1 = value;
 				}
 			}
 		}

@@ -1317,6 +1317,7 @@
     <Content Include="Views\Shared\_AdministradorConsulta.cshtml" />
     <Content Include="Views\Shared\_AdministradorSB.cshtml" />
     <Content Include="Views\Consulta\ConsultasPendientes.cshtml" />
+    <Content Include="Views\Consulta\Tramitar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

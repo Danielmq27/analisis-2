@@ -181,7 +181,16 @@
                         </ul>
                     </li>
                     <li><a href="@Url.Action("Index", "Bitacora")"><i class="fa fa-th"></i> <span>Bitácora</span></a></li>
-                    <li><a href="@Url.Action("ConsultasPendientes", "Consulta")"><i class="fa fa-area-chart"></i> <span>Consultas CIIE</span></a></li>
+                    <li class="header">PENDIENTES</li>
+                    <li class="treeview">
+                        <a href="@Url.Action("ConsultasPendientes", "Consulta")">
+                            <i class="fa fa-circle-o text-red"></i>
+                            <span>Consultas Pendientes</span>
+                            <span class="pull-right-container">
+                                <span class="label label-warning pull-right">@HttpContext.Current.Session["cantidad"].ToString()</span>
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </section>
             <!-- /.sidebar -->

@@ -1,19 +1,35 @@
 ﻿@model Capa_Presentacion.Models.Consulta
 
 @{
-    ViewBag.Title = "Actualizar";
+    ViewBag.Title = "Tramitar";
     string Rol = System.Web.HttpContext.Current.Session["Rol"] as String;
     if (Rol == "Administrador")
     {
         Layout = "~/Views/Shared/_Administrador.cshtml";
     }
+    else if (Rol == "Administrador Servicios Bibliotecarios")
+    {
+        Layout = "~/Views/Shared/_AdministradorSB.cshtml";
+    }
     else if (Rol == "Administrador Consultas")
     {
         Layout = "~/Views/Shared/_AdministradorConsulta.cshtml";
     }
+    else if (Rol == "Administrador Consultas CIIE")
+    {
+        Layout = "~/Views/Shared/_AdministradorCIIE.cshtml";
+    }
+    else if (Rol == "Editar Servicios Bibliotecarios")
+    {
+        Layout = "~/Views/Shared/_EditarSB.cshtml";
+    }
     else if (Rol == "Editar Consultas")
     {
         Layout = "~/Views/Shared/_EditarConsulta.cshtml";
+    }
+    else if (Rol == "Editar Consultas CIIE")
+    {
+        Layout = "~/Views/Shared/_EditarCIIE.cshtml";
     }
     else
     {
@@ -21,12 +37,12 @@
     }
 }
 
-@using (Html.BeginForm("Actualizar", "Consulta", FormMethod.Post, new { role = "form", enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Tramitar", "Consulta", FormMethod.Post, new { role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div class="content">
         <div class="form-horizontal">
-            <h4 class="principal-texto">ACTUALIZAR CONSULTA</h4>
+            <h4 class="principal-texto">TRAMITAR CONSULTA</h4>
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)
             @Html.HiddenFor(model => model.CodigoConsulta)
@@ -34,6 +50,18 @@
             @Html.HiddenFor(model => model.TipoArchivo)
             @Html.HiddenFor(model => model.Extension)
             @Html.HiddenFor(model => model.ArchivoFile)
+            @Html.HiddenFor(model => model.NombreSolicitante)
+            @Html.HiddenFor(model => model.ApellidoSolicitante1)
+            @Html.HiddenFor(model => model.ApellidoSolicitante2)
+            @Html.HiddenFor(model => model.Telefono)
+            @Html.HiddenFor(model => model.Email)
+            @Html.HiddenFor(model => model.Apellido1)
+            @Html.HiddenFor(model => model.Apellido2)
+            @Html.HiddenFor(model => model.CedulaUsuario)
+            @Html.HiddenFor(model => model.GeneroSolicitante)
+            @Html.HiddenFor(model => model.MetodoIngreso)
+            @Html.HiddenFor(model => model.Estado)
+            @Html.HiddenFor(model => model.Referido)
             <div class="box box-primary">
                 <div class="col-lg-12">
                     <h6 class="principal-texto">DATOS DEL SOLICITANTE</h6>
@@ -42,24 +70,21 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.NombreSolicitante)
-                                    @Html.EditorFor(model => model.NombreSolicitante, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
-                                    @Html.ValidationMessageFor(model => model.NombreSolicitante, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.NombreSolicitante, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.ApellidoSolicitante1)
-                                    @Html.EditorFor(model => model.ApellidoSolicitante1, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
-                                    @Html.ValidationMessageFor(model => model.ApellidoSolicitante1, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.ApellidoSolicitante1, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.ApellidoSolicitante2)
-                                    @Html.EditorFor(model => model.ApellidoSolicitante2, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
-                                    @Html.ValidationMessageFor(model => model.ApellidoSolicitante2, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.ApellidoSolicitante2, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                                 </div>
                             </div>
                         </div>
@@ -67,24 +92,21 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.Telefono)
-                                    @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
-                                    @Html.ValidationMessageFor(model => model.Telefono, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.Email)
-                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
-                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.GeneroSolicitante)
-                                    @Html.DropDownListFor(model => model.GeneroSolicitante, (SelectList)ViewBag.genero, "Seleccione", new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.GeneroSolicitante, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.GeneroSolicitante, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                                 </div>
                             </div>
                         </div>
@@ -121,8 +143,6 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.Archivo)
-                                    @Html.EditorFor(model => model.NombreArchivo, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-                                    <label>Nuevo documento</label>
                                     @Html.TextBoxFor(model => model.Archivo, new { type = "file", name = "ArchivoFile", id = "ArchivoFile" })
                                     @Html.ValidationMessageFor(model => model.Archivo, "", new { @class = "text-danger" })
                                 </div>
@@ -132,15 +152,13 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.MetodoIngreso)
-                                    @Html.EditorFor(model => model.MetodoIngreso, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
-                                    @Html.ValidationMessageFor(model => model.MetodoIngreso, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.MetodoIngreso, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.FechaIngreso)
-                                    @Html.EditorFor(model => model.FechaIngreso, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
-                                    @Html.ValidationMessageFor(model => model.FechaIngreso, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.FechaIngreso, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                                 </div>
                             </div>
                             <div class="form-group">
@@ -154,16 +172,14 @@
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.Estado)
-                                    @Html.DropDownListFor(model => model.Estado, (SelectList)ViewBag.estados, "Seleccione", new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-lg-12">
                                     @Html.LabelFor(model => model.Referido)
-                                    @Html.DropDownListFor(model => model.Referido, new SelectList(ViewBag.listaUsuarios), "Seleccione", new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.Referido, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.Referido, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
                                 </div>
                             </div>
                         </div>
@@ -172,7 +188,7 @@
             </div>
             <div class="form-group">
                 <div class="principal-texto">
-                    @Html.ActionLink("Cancelar", "Index", "Consulta", null, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Cancelar", "ConsultasPendientes", "Consulta", null, new { @class = "btn btn-danger" })
                     <input type="submit" value="Guardar" class="btn btn-success" />
                 </div>
             </div>
@@ -182,5 +198,4 @@
 }
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 

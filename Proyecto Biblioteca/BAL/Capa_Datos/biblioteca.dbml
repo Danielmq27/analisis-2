@@ -1850,4 +1850,10 @@
       <Column Name="referido" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.CANTIDAD_CONSULTAS_PENDIENTES" Method="CANTIDAD_CONSULTAS_PENDIENTES">
+    <Parameter Name="Referido" Parameter="referido" Type="System.String" DbType="NVarChar(40)" />
+    <ElementType Name="CANTIDAD_CONSULTAS_PENDIENTESResult">
+      <Column Name="" Member="Column1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

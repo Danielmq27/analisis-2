@@ -35,39 +35,17 @@ namespace Capa_Presentacion.Controllers
         {
             try
             {
-                //Variable del rol
-                string rol = System.Web.HttpContext.Current.Session["Rol"] as String;
-                if (rol == "Administrador")
-                {
-                    Session["Usuario"] = null;
-                    Session["nombreUsuario"] = null;
-                    Session["Rol"] = null;
-                    //Tabla control
-                    Session["cedula"] = null;
-                    Session["nombre"] = null;
-                    Session["apellido1"] = null;
-                    Session["apellido2"] = null;
-                    return RedirectToAction("Index", "IniciarSesion");
-                }
-                else if (rol == "Editar")
-                {
-                    Session["Usuario"] = null;
-                    Session["nombreUsuario"] = null;
-                    Session["Rol"] = null;
-                    //Tabla control
-                    Session["cedula"] = null;
-                    Session["nombre"] = null;
-                    Session["apellido1"] = null;
-                    Session["apellido2"] = null;
-                    return RedirectToAction("Index", "IniciarSesion");
-                }
-                else
-                {
-                    Session["Usuario"] = null;
-                    Session["nombreUsuario"] = null;
-                    Session["Rol"] = null;
-                    return RedirectToAction("Index", "IniciarSesion");
-                }
+                Session["Usuario"] = null;
+                Session["nombreUsuario"] = null;
+                Session["Rol"] = null;
+                //Tabla control
+                Session["cedula"] = null;
+                Session["nombre"] = null;
+                Session["apellido1"] = null;
+                Session["apellido2"] = null;
+                //Cantidad
+                Session["cantidad"] = null;
+                return RedirectToAction("Index", "IniciarSesion");
             }
             catch (Exception)
             {

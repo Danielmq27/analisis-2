@@ -41,11 +41,19 @@ namespace Capa_Presentacion.Controllers
                     modelo.FechaIngreso = item.fechaIngreso;
                     modelo.FechaRespuesta = item.fechaRespuesta;
                     modelo.Estado = item.estado;
-                    modelo.GeneroSolicitante = modelo.GeneroSolicitante;
+                    modelo.GeneroSolicitante = item.generoSolicitante;
+                    modelo.Referido = item.referido;
 
                     listaConsulta.Add(modelo);
                 }
-
+                clsConsulta objConsulta = new clsConsulta();
+                //Saber cuantas consultas pendientes tiene el usuario
+                string Referido = System.Web.HttpContext.Current.Session["nombreUsuario"] as String;
+                var dato = objConsulta.CantidadConsultasPendientes(Referido).ToList();
+                foreach (var item in dato)
+                {
+                    Session["cantidad"] = item.Column1;
+                }
                 return View(listaConsulta);
             }
             catch (Exception ex)
@@ -59,6 +67,9 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
+        //Acción para ver las consultas pendientes de un usuario
+        [Acceso]
+        [HttpGet]
         public ActionResult ConsultasPendientes()
         {
             try
@@ -84,7 +95,8 @@ namespace Capa_Presentacion.Controllers
                     modelo.FechaIngreso = item.fechaIngreso;
                     modelo.FechaRespuesta = item.fechaRespuesta;
                     modelo.Estado = item.estado;
-                    modelo.GeneroSolicitante = modelo.GeneroSolicitante;
+                    modelo.GeneroSolicitante = item.generoSolicitante;
+                    modelo.Referido = item.referido;
 
                     listaConsulta.Add(modelo);
                 }
@@ -118,7 +130,7 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Tramite", Text = "Trámite" },
                 new SelectListItem { Value = "Realizada", Text = "Realizada"}
                                                }, "Value", "Text");
-                //Prueba de codigo
+                //Lista de usuarios
                 List<string> listaUsuarios = new List<string>();
                 clsUsuario usuario = new clsUsuario();
                 var data = usuario.ConsultarUsuarios().ToList();
@@ -161,6 +173,17 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Tramite", Text = "Trámite" },
                 new SelectListItem { Value = "Realizada", Text = "Realizada"}
                                                }, "Value", "Text");
+                    //Lista de usuarios
+                    List<string> listaUsuarios = new List<string>();
+                    clsUsuario usuario = new clsUsuario();
+                    var data = usuario.ConsultarUsuarios().ToList();
+                    foreach (var item in data)
+                    {
+                        Usuario modelo = new Usuario();
+                        var NombreCompleto = item.nombre + " " + item.apellido1 + " " + item.apellido2;
+                        listaUsuarios.Add(NombreCompleto);
+                    }
+                    ViewBag.listaUsuarios = listaUsuarios;
                     //Retornamos el modelo
                     return View(consulta);
                 }
@@ -253,6 +276,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.TipoArchivo = dato[0].tipoArchivo;
                 modelo.Extension = dato[0].extension;
                 modelo.ArchivoFile = dato[0].archivo.ToArray();
+                modelo.Referido = dato[0].referido;
                 ViewBag.genero = new SelectList(new[] {
                 new SelectListItem { Value = "Masculino", Text = "Masculino" },
                 new SelectListItem { Value = "Femenino", Text = "Femenino" }
@@ -262,6 +286,16 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Tramite", Text = "Trámite" },
                 new SelectListItem { Value = "Realizada", Text = "Realizada"}
                                                }, "Value", "Text");
+                //Lista de usuarios
+                List<string> listaUsuarios = new List<string>();
+                clsUsuario usuario = new clsUsuario();
+                var data = usuario.ConsultarUsuarios().ToList();
+                foreach (var item in data)
+                {
+                    var NombreCompleto = item.nombre + " " + item.apellido1 + " " + item.apellido2;
+                    listaUsuarios.Add(NombreCompleto);
+                }
+                ViewBag.listaUsuarios = listaUsuarios;
                 return View(modelo);
             }
             catch(Exception ex)
@@ -293,6 +327,16 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Tramite", Text = "Trámite" },
                 new SelectListItem { Value = "Realizada", Text = "Realizada"}
                                                }, "Value", "Text");
+                    //Lista de usuarios
+                    List<string> listaUsuarios = new List<string>();
+                    clsUsuario usuario = new clsUsuario();
+                    var data = usuario.ConsultarUsuarios().ToList();
+                    foreach (var item in data)
+                    {
+                        var NombreCompleto = item.nombre + " " + item.apellido1 + " " + item.apellido2;
+                        listaUsuarios.Add(NombreCompleto);
+                    }
+                    ViewBag.listaUsuarios = listaUsuarios;
                     //Retornamos el modelo
                     return View(consulta);
                 }
@@ -414,6 +458,7 @@ namespace Capa_Presentacion.Controllers
                 modelo.Nombre = dato[0].nombre;
                 modelo.Apellido1 = dato[0].apellido1;
                 modelo.Apellido2 = dato[0].apellido2;
+                modelo.Referido = dato[0].referido;
                 return View(modelo);
             }
             catch (Exception ex)
@@ -485,6 +530,166 @@ namespace Capa_Presentacion.Controllers
                 string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
                 clsBitacora bitacora = new clsBitacora();
                 bitacora.AgregarBitacora("Consulta", "EliminarTabla", ex.Message, NombreUsuario, 0);
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
+            }
+        }
+
+        //Accion para actualizar :GET
+        [Acceso]
+        [HttpGet]
+        public ActionResult Tramitar(int Id)
+        {
+            try
+            {
+                clsConsulta consulta = new clsConsulta();
+                var dato = consulta.ConsultarConsulta(Id);
+                Consulta modelo = new Consulta();
+                modelo.CodigoConsulta = dato[0].codigoConsulta;
+                modelo.NombreSolicitante = dato[0].nombreSolicitante;
+                modelo.ApellidoSolicitante1 = dato[0].apellidoSolicitante1;
+                modelo.ApellidoSolicitante2 = dato[0].apellidoSolicitante2;
+                modelo.Telefono = (int)dato[0].telefono;
+                modelo.Email = dato[0].email;
+                modelo.Asunto = dato[0].asunto;
+                modelo.Descripcion = dato[0].descripcion;
+                modelo.Respuesta = dato[0].respuesta;
+                modelo.MetodoIngreso = dato[0].metodoIngreso;
+                modelo.FechaIngreso = dato[0].fechaIngreso;
+                modelo.FechaRespuesta = dato[0].fechaRespuesta;
+                modelo.GeneroSolicitante = dato[0].generoSolicitante;
+                modelo.Estado = dato[0].estado;
+                modelo.NombreArchivo = dato[0].nombreArchivo;
+                modelo.TipoArchivo = dato[0].tipoArchivo;
+                modelo.Extension = dato[0].extension;
+                modelo.ArchivoFile = dato[0].archivo.ToArray();
+                modelo.Referido = dato[0].referido;
+                ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                ViewBag.estados = new SelectList(new[] {
+                new SelectListItem { Value = "Asignada", Text = "Asignada" },
+                new SelectListItem { Value = "Tramite", Text = "Trámite" },
+                new SelectListItem { Value = "Realizada", Text = "Realizada"}
+                                               }, "Value", "Text");
+                //Lista de usuarios
+                List<string> listaUsuarios = new List<string>();
+                clsUsuario usuario = new clsUsuario();
+                var data = usuario.ConsultarUsuarios().ToList();
+                foreach (var item in data)
+                {
+                    var NombreCompleto = item.nombre + " " + item.apellido1 + " " + item.apellido2;
+                    listaUsuarios.Add(NombreCompleto);
+                }
+                ViewBag.listaUsuarios = listaUsuarios;
+                return View(modelo);
+            }
+            catch (Exception ex)
+            {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("Consulta", "Actualizar", ex.Message, NombreUsuario, 0);
+                //Pagina de Error
+                return RedirectToAction("Error500", "Error");
+            }
+        }
+
+        //Accion para actualizar :POST
+        [Acceso]
+        [HttpPost]
+        public ActionResult Tramitar(Consulta consulta)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    ViewBag.genero = new SelectList(new[] {
+                new SelectListItem { Value = "Masculino", Text = "Masculino" },
+                new SelectListItem { Value = "Femenino", Text = "Femenino" }
+                                               }, "Value", "Text");
+                    ViewBag.estados = new SelectList(new[] {
+                new SelectListItem { Value = "Asignada", Text = "Asignada" },
+                new SelectListItem { Value = "Tramite", Text = "Trámite" },
+                new SelectListItem { Value = "Realizada", Text = "Realizada"}
+                                               }, "Value", "Text");
+                    //Lista de usuarios
+                    List<string> listaUsuarios = new List<string>();
+                    clsUsuario usuario = new clsUsuario();
+                    var data = usuario.ConsultarUsuarios().ToList();
+                    foreach (var item in data)
+                    {
+                        var NombreCompleto = item.nombre + " " + item.apellido1 + " " + item.apellido2;
+                        listaUsuarios.Add(NombreCompleto);
+                    }
+                    ViewBag.listaUsuarios = listaUsuarios;
+                    //Retornamos el modelo
+                    return View(consulta);
+                }
+                else if (consulta.Archivo != null && consulta.Respuesta != null)
+                {
+                    string NombreArchivo = consulta.Archivo.FileName;
+                    Stream strmStream = consulta.Archivo.InputStream;
+
+                    Int32 Tamaño = (Int32)strmStream.Length;
+                    byte[] BitesArchivo = new byte[Tamaño + 1];
+                    strmStream.Read(BitesArchivo, 0, Tamaño);
+                    strmStream.Close();
+
+                    string TipoArchivo = consulta.Archivo.ContentType;
+                    string Extension = Path.GetExtension(NombreArchivo);
+                    clsConsulta objConsulta = new clsConsulta();
+                    consulta.Estado = "Realizada";
+                    //Variables de SESSION
+                    string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                    bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, CedulaUsuario, consulta.NombreSolicitante,
+                        consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto,
+                        consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
+                        consulta.FechaRespuesta, consulta.Estado, NombreArchivo, TipoArchivo, Extension, BitesArchivo, consulta.Referido);
+                    if (resultado)
+                    {
+                        //Saber cuantas consultas pendientes tiene el usuario
+                        string Referido = System.Web.HttpContext.Current.Session["nombreUsuario"] as String;
+                        var data = objConsulta.CantidadConsultasPendientes(Referido).ToList();
+                        foreach (var item in data)
+                        {
+                            Session["cantidad"] = item.Column1;
+                        }
+                        return RedirectToAction("ConsultasPendientes");
+                    }
+                    else
+                    {
+                        //Pagina de Error
+                        return RedirectToAction("Error404", "Error");
+                    }
+                }
+                else
+                {
+                    clsConsulta objConsulta = new clsConsulta();
+                    //Variables de SESSION
+                    string CedulaUsuario = System.Web.HttpContext.Current.Session["cedula"] as String;
+                    bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, CedulaUsuario, consulta.NombreSolicitante,
+                        consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto,
+                        consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
+                        consulta.FechaRespuesta, consulta.Estado, consulta.NombreArchivo, consulta.TipoArchivo, consulta.Extension, consulta.ArchivoFile, consulta.Referido);
+                    if (resultado)
+                    {
+                        return RedirectToAction("ConsultasPendientes");
+                    }
+                    else
+                    {
+                        //Pagina de Error
+                        return RedirectToAction("Error404", "Error");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("Consulta", "Actualizar", ex.Message, NombreUsuario, 0);
                 //Pagina de Error
                 return RedirectToAction("Error500", "Error");
             }

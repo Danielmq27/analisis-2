@@ -58,6 +58,22 @@ namespace Capa_Logica
             }
         }
 
+        //Metodo para consultar una Consultas totales de un usuario
+        public List<CANTIDAD_CONSULTAS_PENDIENTESResult> CantidadConsultasPendientes(string Referido)
+        {
+            try
+            {
+                bibliotecaDataContext dc = new bibliotecaDataContext();
+                List<CANTIDAD_CONSULTAS_PENDIENTESResult> data = dc.CANTIDAD_CONSULTAS_PENDIENTES(Referido).ToList();
+                return data;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         //Metodo para agregar una Consulta
         public bool AgregarConsulta(string Cedula, string NombreSolicitante, string Apellido1Solicitante, string Apellido2Solicitante, int Telefono, 
             string Email, string Asunto, string Descripcion, string Respuesta, string MetodoIngreso, string GeneroSolicitante, 
