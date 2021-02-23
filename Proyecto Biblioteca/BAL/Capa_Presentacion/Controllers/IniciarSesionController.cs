@@ -44,7 +44,7 @@ namespace Capa_Presentacion.Controllers
                     if (Usuario.IdRol == 1)
                     {
                         Session["Usuario"] = Usuario;
-                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1 + " " + Usuario.apellido2;
                         Session["Rol"] = "Administrador";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
@@ -55,7 +55,7 @@ namespace Capa_Presentacion.Controllers
                     } else if (Usuario.IdRol == 2)
                     {
                         Session["Usuario"] = Usuario;
-                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1 + " " + Usuario.apellido2;
                         Session["Rol"] = "Administrador Servicios Bibliotecarios";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
@@ -67,7 +67,7 @@ namespace Capa_Presentacion.Controllers
                     else if (Usuario.IdRol == 3)
                     {
                         Session["Usuario"] = Usuario;
-                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1 + " " + Usuario.apellido2;
                         Session["Rol"] = "Administrador Consultas";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
@@ -79,7 +79,7 @@ namespace Capa_Presentacion.Controllers
                     else if (Usuario.IdRol == 4)
                     {
                         Session["Usuario"] = Usuario;
-                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1 + " " + Usuario.apellido2;
                         Session["Rol"] = "Administrador Consultas CIIE";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
@@ -91,7 +91,7 @@ namespace Capa_Presentacion.Controllers
                     else if (Usuario.IdRol == 5)
                     {
                         Session["Usuario"] = Usuario;
-                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1 + " " + Usuario.apellido2;
                         Session["Rol"] = "Editar Servicios Bibliotecarios";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
@@ -103,7 +103,7 @@ namespace Capa_Presentacion.Controllers
                     else if (Usuario.IdRol == 6)
                     {
                         Session["Usuario"] = Usuario;
-                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1 + " " + Usuario.apellido2;
                         Session["Rol"] = "Editar Consultas";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
@@ -115,7 +115,7 @@ namespace Capa_Presentacion.Controllers
                     else if (Usuario.IdRol == 7)
                     {
                         Session["Usuario"] = Usuario;
-                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1 + " " + Usuario.apellido2;
                         Session["Rol"] = "Editar Consultas CIIE";
                         //Tabla control
                         Session["cedula"] = Usuario.cedula;
@@ -127,7 +127,7 @@ namespace Capa_Presentacion.Controllers
                     else
                     {
                         Session["Usuario"] = Usuario;
-                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1;
+                        Session["nombreUsuario"] = Usuario.nombre + " " + Usuario.apellido1 + " " + Usuario.apellido2;
                         Session["Rol"] = "Consultar";
                         return RedirectToAction("Index", "Principal");
                     }

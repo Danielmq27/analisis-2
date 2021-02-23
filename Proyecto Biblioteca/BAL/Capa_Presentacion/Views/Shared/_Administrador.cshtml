@@ -88,6 +88,7 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
                     <li class="header">NAVEGACIÓN PRINCIPAL</li>
+                    <li><a href="@Url.Action("Index", "Consulta")"><i class="fa fa-book"></i> <span>Consultas del DGDA</span></a></li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-edit"></i> <span>Servicios Bibliotecarios</span>
@@ -101,25 +102,7 @@
                             <li><a href="@Url.Action("Index", "PrestamoPermanente")"><i class="fa fa-circle-o"></i> Préstamo Permanente</a></li>
                         </ul>
                     </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-th"></i>
-                            <span>Auditorías</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index", "AuditoriaPrestamoAudiovisual")"><i class="fa fa-circle-o"></i> Préstamo Audiovisual</a></li>
-                            <li><a href="@Url.Action("Index", "AuditoriaPrestamoEquipo")"><i class="fa fa-circle-o"></i> Préstamo Equipo</a></li>
-                            <li><a href="@Url.Action("Index", "AuditoriaPrestamoPermanente")"><i class="fa fa-circle-o"></i> Préstamo Permanente</a></li>
-                            <li><a href="@Url.Action("Index", "AuditoriaFormularioCIIE")"><i class="fa fa-circle-o"></i> Consultas CIIE</a></li>
-                            <li><a href="@Url.Action("Index", "AuditoriaConsulta")"><i class="fa fa-circle-o"></i> Consultas del DGDA</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="@Url.Action("Index", "Bitacora")"><i class="fa fa-th"></i> <span>Bitácora</span></a></li>
-                    <li><a href="@Url.Action("Index", "Consulta")"><i class="fa fa-book"></i> <span>Consultas del DGDA</span></a></li>
-                    <li><a href="@Url.Action("Index", "FormularioCIIE")"><i class="fa fa-book"></i> <span>Consultas CIIE</span></a></li>
+                    <li><a href="@Url.Action("Index", "FormularioCIIE")"><i class="fa fa-area-chart"></i> <span>Consultas CIIE</span></a></li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-users"></i> <span>Mantenimientos</span>
@@ -181,6 +164,24 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-th"></i>
+                            <span>Auditorías</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("Index", "AuditoriaPrestamoAudiovisual")"><i class="fa fa-circle-o"></i> Préstamo Audiovisual</a></li>
+                            <li><a href="@Url.Action("Index", "AuditoriaPrestamoEquipo")"><i class="fa fa-circle-o"></i> Préstamo Equipo</a></li>
+                            <li><a href="@Url.Action("Index", "AuditoriaPrestamoPermanente")"><i class="fa fa-circle-o"></i> Préstamo Permanente</a></li>
+                            <li><a href="@Url.Action("Index", "AuditoriaFormularioCIIE")"><i class="fa fa-circle-o"></i> Consultas CIIE</a></li>
+                            <li><a href="@Url.Action("Index", "AuditoriaConsulta")"><i class="fa fa-circle-o"></i> Consultas del DGDA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="@Url.Action("Index", "Bitacora")"><i class="fa fa-th"></i> <span>Bitácora</span></a></li>
+                    <li><a href="@Url.Action("ConsultasPendientes", "Consulta")"><i class="fa fa-area-chart"></i> <span>Consultas CIIE</span></a></li>
                 </ul>
             </section>
             <!-- /.sidebar -->

@@ -45,14 +45,14 @@ namespace Capa_Logica
         public bool RestaurarConsulta(string Codigo, string Cedula, string Nombre, string Apellido1, string Apellido2,
             int Telefono, string Email, string Asunto, string Descripcion, string Respuesta,
             string MetodoIngreso, string Genero, DateTime FechaIngreso, DateTime FechaRespuesta,
-            string Estado, string NombreArchivo, string TipoArchivo, string Extension, byte[] Archivo)
+            string Estado, string NombreArchivo, string TipoArchivo, string Extension, byte[] Archivo, string Referido)
         {
             try
             {
                 bibliotecaDataContext dc = new bibliotecaDataContext();
                 dc.RESTAURAR_CONSULTA(Codigo, Cedula, Nombre, Apellido1, Apellido2, Telefono, Email, Asunto,
                     Descripcion, Respuesta, MetodoIngreso, Genero, FechaIngreso, FechaRespuesta, Estado, NombreArchivo,
-                    TipoArchivo, Extension, Archivo);
+                    TipoArchivo, Extension, Archivo, Referido);
                 return true;
             }
             catch (Exception)

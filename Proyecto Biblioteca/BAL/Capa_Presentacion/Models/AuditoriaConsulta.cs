@@ -83,5 +83,7 @@ namespace Capa_Presentacion.Models
         public string Extension { get; set; }
 
         public byte[] ArchivoFile { get; set; }
+
+        public string Referido { get; set; }
     }
 }

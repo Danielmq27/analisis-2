@@ -448,29 +448,6 @@
     <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.ACTUALIZAR_CONSULTA" Method="ACTUALIZAR_CONSULTA">
-    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
-    <Parameter Name="codigoConsulta" Type="System.String" DbType="NVarChar(40)" />
-    <Parameter Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="nombreSolicitante" Type="System.String" DbType="NVarChar(40)" />
-    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
-    <Parameter Name="email" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="asunto" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="respuesta" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="metodoIngreso" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="generoSolicitante" Type="System.String" DbType="NVarChar(10)" />
-    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="nombre" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="tipo" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="extension" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.ACTUALIZAR_PrestamoEquipo" Method="ACTUALIZAR_PrestamoEquipo">
     <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
     <Parameter Name="codigoPrestamoEquipo" Type="System.String" DbType="NVarChar(40)" />
@@ -925,27 +902,6 @@
     <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.INSERTAR_CONSULTA" Method="INSERTAR_CONSULTA">
-    <Parameter Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="nombreSolicitante" Type="System.String" DbType="NVarChar(40)" />
-    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
-    <Parameter Name="email" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="asunto" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="respuesta" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="metodoIngreso" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="generoSolicitante" Type="System.String" DbType="NVarChar(10)" />
-    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="nombreArchivo" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="tipoArchivo" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="extension" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.INSERTAR_DEPARTAMENTO" Method="INSERTAR_DEPARTAMENTO">
     <Parameter Name="NOMBRE" Parameter="nOMBRE" Type="System.String" DbType="NVarChar(40)" />
     <Parameter Name="DESCRIPCION" Parameter="dESCRIPCION" Type="System.String" DbType="NVarChar(100)" />
@@ -1058,28 +1014,6 @@
     <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
     <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
     <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.RESTAURAR_CONSULTA" Method="RESTAURAR_CONSULTA">
-    <Parameter Name="codigoConsulta" Type="System.String" DbType="NVarChar(40)" />
-    <Parameter Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="nombreSolicitante" Type="System.String" DbType="NVarChar(40)" />
-    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
-    <Parameter Name="email" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="asunto" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="respuesta" Type="System.String" DbType="NVarChar(MAX)" />
-    <Parameter Name="metodoIngreso" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="generoSolicitante" Type="System.String" DbType="NVarChar(10)" />
-    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="nombre" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="tipo" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="extension" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.RESTAURAR_INSERTAR_CIIE" Method="RESTAURAR_INSERTAR_CIIE">
@@ -1477,61 +1411,6 @@
       <Column Name="apellido2" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SELECCIONAR_CONSULTA" Method="SELECCIONAR_CONSULTA">
-    <Parameter Name="id" Type="System.Int32" DbType="Int" />
-    <ElementType Name="SELECCIONAR_CONSULTAResult">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="codigoConsulta" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="nombreSolicitante" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="apellidoSolicitante1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="apellidoSolicitante2" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="asunto" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="respuesta" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="metodoIngreso" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="generoSolicitante" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="estado" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="nombreArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="tipoArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="extension" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
-      <Column Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="apellido1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="apellido2" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.SELECCIONAR_CONSULTA_TODO" Method="SELECCIONAR_CONSULTA_TODO">
-    <ElementType Name="SELECCIONAR_CONSULTA_TODOResult">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="codigoConsulta" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="nombreSolicitante" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="apellidoSolicitante1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="apellidoSolicitante2" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="asunto" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="respuesta" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="metodoIngreso" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="generoSolicitante" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="estado" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="nombreArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="tipoArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="extension" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
-      <Column Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="apellido1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="apellido2" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.SELECCIONAR_DEPARTAMENTO" Method="SELECCIONAR_DEPARTAMENTO">
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
     <ElementType Name="SELECCIONAR_DEPARTAMENTOResult">
@@ -1817,6 +1696,158 @@
       <Column Name="clave" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="estado" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="IdRol" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ACTUALIZAR_CONSULTA" Method="ACTUALIZAR_CONSULTA">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="codigoConsulta" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="nombreSolicitante" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="asunto" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="respuesta" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="metodoIngreso" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="generoSolicitante" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="nombre" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="tipo" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="extension" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="referido" Type="System.String" DbType="NVarChar(40)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.INSERTAR_CONSULTA" Method="INSERTAR_CONSULTA">
+    <Parameter Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="nombreSolicitante" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="asunto" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="respuesta" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="metodoIngreso" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="generoSolicitante" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="nombreArchivo" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="tipoArchivo" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="extension" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="referido" Type="System.String" DbType="NVarChar(40)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.RESTAURAR_CONSULTA" Method="RESTAURAR_CONSULTA">
+    <Parameter Name="codigoConsulta" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="nombreSolicitante" Type="System.String" DbType="NVarChar(40)" />
+    <Parameter Name="apellidoSolicitante1" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="apellidoSolicitante2" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="email" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="asunto" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="respuesta" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="metodoIngreso" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="generoSolicitante" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="fechaIngreso" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fechaRespuesta" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="estado" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="nombre" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="tipo" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="extension" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <Parameter Name="referido" Type="System.String" DbType="NVarChar(40)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SELECCIONAR_CONSULTA" Method="SELECCIONAR_CONSULTA">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SELECCIONAR_CONSULTAResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codigoConsulta" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="asunto" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="respuesta" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="metodoIngreso" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="tipoArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="extension" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
+      <Column Name="referido" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SELECCIONAR_CONSULTA_TODO" Method="SELECCIONAR_CONSULTA_TODO">
+    <ElementType Name="SELECCIONAR_CONSULTA_TODOResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codigoConsulta" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="asunto" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="respuesta" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="metodoIngreso" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="tipoArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="extension" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
+      <Column Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido2" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="referido" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SELECCIONAR_CONSULTA_ASIGNADA" Method="SELECCIONAR_CONSULTA_ASIGNADA">
+    <Parameter Name="Referido" Parameter="referido" Type="System.String" DbType="NVarChar(40)" />
+    <ElementType Name="SELECCIONAR_CONSULTA_ASIGNADAResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codigoConsulta" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="cedulaUsuario" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreSolicitante" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante1" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="apellidoSolicitante2" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="asunto" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="respuesta" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="metodoIngreso" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="generoSolicitante" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaIngreso" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="estado" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nombreArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="tipoArchivo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="extension" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="archivo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
+      <Column Name="referido" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

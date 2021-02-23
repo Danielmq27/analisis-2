@@ -25,3 +25,4 @@ C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Datos\bin\
 C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Datos.csproj.CoreCompileInputs.cache
 C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Datos.dll
 C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Datos.pdb
+C:\Users\Freddy Arias\Documents\Analisis\Proyecto Biblioteca\BAL\Capa_Datos\obj\Release\Capa_Datos.csprojAssemblyReference.cache

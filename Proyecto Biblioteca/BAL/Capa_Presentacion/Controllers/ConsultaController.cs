@@ -59,6 +59,49 @@ namespace Capa_Presentacion.Controllers
             }
         }
 
+        public ActionResult ConsultasPendientes()
+        {
+            try
+            {
+                List<Consulta> listaConsulta = new List<Consulta>();
+                string Referido = System.Web.HttpContext.Current.Session["nombreUsuario"] as String;
+                clsConsulta consulta = new clsConsulta();
+                var data = consulta.ConsultarConsultasAsignadas(Referido).ToList();
+                foreach (var item in data)
+                {
+                    Consulta modelo = new Consulta();
+                    modelo.Id = item.Id;
+                    modelo.CodigoConsulta = item.codigoConsulta;
+                    modelo.NombreSolicitante = item.nombreSolicitante;
+                    modelo.ApellidoSolicitante1 = item.apellidoSolicitante1;
+                    modelo.ApellidoSolicitante2 = item.apellidoSolicitante2;
+                    modelo.Telefono = (int)item.telefono;
+                    modelo.Email = item.email;
+                    modelo.Asunto = item.asunto;
+                    modelo.Descripcion = item.descripcion;
+                    modelo.Respuesta = item.respuesta;
+                    modelo.MetodoIngreso = item.metodoIngreso;
+                    modelo.FechaIngreso = item.fechaIngreso;
+                    modelo.FechaRespuesta = item.fechaRespuesta;
+                    modelo.Estado = item.estado;
+                    modelo.GeneroSolicitante = modelo.GeneroSolicitante;
+
+                    listaConsulta.Add(modelo);
+                }
+
+                return View(listaConsulta);
+            }
+            catch (Exception ex)
+            {
+                //Bitacora
+                string NombreUsuario = System.Web.HttpContext.Current.Session["nombre"] as String;
+                clsBitacora bitacora = new clsBitacora();
+                bitacora.AgregarBitacora("Consulta", "ConsultasPendientes", ex.Message, NombreUsuario, 0);
+                //Pagina de error
+                return RedirectToAction("Error500", "Error");
+            }
+        }
+
         //Accion para agregar :GET
         [Acceso]
         [HttpGet]
@@ -75,6 +118,17 @@ namespace Capa_Presentacion.Controllers
                 new SelectListItem { Value = "Tramite", Text = "Trámite" },
                 new SelectListItem { Value = "Realizada", Text = "Realizada"}
                                                }, "Value", "Text");
+                //Prueba de codigo
+                List<string> listaUsuarios = new List<string>();
+                clsUsuario usuario = new clsUsuario();
+                var data = usuario.ConsultarUsuarios().ToList();
+                foreach (var item in data)
+                {
+                    Usuario modelo = new Usuario();
+                    var NombreCompleto = item.nombre + " " + item.apellido1 + " " + item.apellido2;
+                    listaUsuarios.Add(NombreCompleto);
+                }
+                ViewBag.listaUsuarios = listaUsuarios;
                 return View();
             }
             catch (Exception ex)
@@ -129,7 +183,7 @@ namespace Capa_Presentacion.Controllers
                     bool resultado = objConsulta.AgregarConsulta(CedulaUsuario, consulta.NombreSolicitante, consulta.ApellidoSolicitante1,
                         consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion,
                         consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
-                        consulta.FechaRespuesta, consulta.Estado, NombreArchivo, TipoArchivo, Extension, BitesArchivo);
+                        consulta.FechaRespuesta, consulta.Estado, NombreArchivo, TipoArchivo, Extension, BitesArchivo, consulta.Referido);
                     if (resultado)
                     {
                         return RedirectToAction("Index");
@@ -148,7 +202,7 @@ namespace Capa_Presentacion.Controllers
                     bool resultado = objConsulta.AgregarConsulta(CedulaUsuario, consulta.NombreSolicitante, consulta.ApellidoSolicitante1,
                         consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto, consulta.Descripcion,
                         consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
-                        consulta.FechaRespuesta, consulta.Estado, consulta.NombreArchivo, consulta.TipoArchivo, consulta.Extension, consulta.ArchivoFile);
+                        consulta.FechaRespuesta, consulta.Estado, consulta.NombreArchivo, consulta.TipoArchivo, consulta.Extension, consulta.ArchivoFile, consulta.Referido);
                     if (resultado)
                     {
                         return RedirectToAction("Index");
@@ -260,7 +314,7 @@ namespace Capa_Presentacion.Controllers
                     bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, CedulaUsuario, consulta.NombreSolicitante,
                         consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto,
                         consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
-                        consulta.FechaRespuesta, consulta.Estado, NombreArchivo, TipoArchivo, Extension, BitesArchivo);
+                        consulta.FechaRespuesta, consulta.Estado, NombreArchivo, TipoArchivo, Extension, BitesArchivo, consulta.Referido);
                     if (resultado)
                     {
                         return RedirectToAction("Index");
@@ -279,7 +333,7 @@ namespace Capa_Presentacion.Controllers
                     bool resultado = objConsulta.ActualizarConsulta(consulta.Id, consulta.CodigoConsulta, CedulaUsuario, consulta.NombreSolicitante,
                         consulta.ApellidoSolicitante1, consulta.ApellidoSolicitante2, consulta.Telefono, consulta.Email, consulta.Asunto,
                         consulta.Descripcion, consulta.Respuesta, consulta.MetodoIngreso, consulta.GeneroSolicitante, consulta.FechaIngreso,
-                        consulta.FechaRespuesta, consulta.Estado, consulta.NombreArchivo, consulta.TipoArchivo, consulta.Extension, consulta.ArchivoFile);
+                        consulta.FechaRespuesta, consulta.Estado, consulta.NombreArchivo, consulta.TipoArchivo, consulta.Extension, consulta.ArchivoFile, consulta.Referido);
                     if (resultado)
                     {
                         return RedirectToAction("Index");

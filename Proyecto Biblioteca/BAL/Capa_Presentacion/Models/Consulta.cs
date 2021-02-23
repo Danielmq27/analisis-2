@@ -129,5 +129,6 @@ namespace Capa_Presentacion.Models
 
         public byte[] ArchivoFile { get; set; }
 
+        public string Referido { get; set; }
     }
 }

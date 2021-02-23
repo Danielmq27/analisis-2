@@ -145,7 +145,7 @@ namespace Capa_Presentacion.Controllers
                     modelo.ApellidoSolicitante1, modelo.ApellidoSolicitante2, modelo.Telefono,
                     modelo.Email, modelo.Asunto, modelo.Descripcion, modelo.Respuesta, modelo.MetodoIngreso,
                     modelo.GeneroSolicitante, modelo.FechaIngreso, modelo.FechaFinal, modelo.Estado, modelo.NombreArchivo,
-                    modelo.TipoArchivo, modelo.Extension, modelo.ArchivoFile);
+                    modelo.TipoArchivo, modelo.Extension, modelo.ArchivoFile, modelo.Referido);
                 if (resultado)
                 {
                     return RedirectToAction("Index");
